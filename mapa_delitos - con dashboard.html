@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa Delitos - San Pedro de la Paz</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+  <script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/plotly_renderers.min.js"></script>
+  <style>
+    body, html { margin:0; padding:0; height:100%; font-family:Arial, sans-serif; overflow:hidden; background:#000; }
+    #map { width:100%; height:100vh; }
+    .header-bar { position:fixed; top:0; left:0; width:100%; height:60px; background:#05690c; z-index:1004; box-shadow:0 4px 15px rgba(0,0,0,0.7); }
+    .titulo-principal { position:absolute; top:2px; left:0; width:100%; text-align:center; font-size:30px; font-weight:900; color:#ffffff; text-shadow:none; }
+    .subtitulo-filtros { position:absolute; bottom:2px; left:0; width:100%; text-align:center; font-size:16px; color:#ffffff; opacity:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding:0 80px; box-sizing:border-box; text-shadow:none; }
+    #panelDetalles { position:fixed; left:0; top:60px; width:400px; height:calc(100% - 60px); background:#f8f9fa; z-index:1001; box-shadow:2px 0 10px rgba(0,0,0,0.3); transition:transform 0.4s ease; transform:translateX(-100%); }
+    #panelDetalles.visible { transform:translateX(0); }
+    #sidebar { position:fixed; right:0; top:60px; width:360px; height:calc(100% - 60px); background:#2c3e50; color:white; z-index:1001; box-shadow:-2px 0 10px rgba(0,0,0,0.4); transition:transform 0.4s ease; transform:translateX(100%); padding:20px; overflow-y:auto; }
+    #sidebar.visible { transform:translateX(0); }
+    #triggerDerecho { position:fixed; right:0; top:60px; width:38px; height:calc(100% - 60px); background:rgba(44,62,80,0.95); z-index:1002; cursor:pointer; writing-mode:vertical-rl; text-orientation:mixed; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:16px; color:white; }
+    .btn-container { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); z-index:1002; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; max-width:95%; }
+    .btn-fijo { padding:12px 18px; border:none; border-radius:8px; font-weight:bold; font-size:14px; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,0.5); color:white; min-width:100px; text-align:center; }
+    #btnLista { background:#27ae60; }
+    #btnExport { background:#8e24aa; }
+    #btnCluster { background:#1565c0; }
+    #btnCentrar { background:#e91e63; }
+    #btnPrepararImpresion { background:#ff9800; }
+    #btnDashboard { background:#2196f3; }
+    .filtro-grupo { margin-bottom:20px; }
+    .filtro-grupo label { display:block; margin-bottom:6px; font-weight:bold; color:#39ff14; }
+    .filtro-grupo select, .filtro-grupo input { width:100%; padding:10px; border-radius:6px; border:none; background:#34495e; color:white; font-size:14px; }
+    #logo { position:fixed; top:0; right:0; z-index:1005; width:240px; height:auto; }
+    #printModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:3000; overflow:auto; padding:20px; }
+    #printContent { position:relative; width:215.9mm; min-height:330.2mm; margin:auto; background:#05690c; box-shadow:0 0 10px #000; padding:10mm; }
+    #printContent > div { position:absolute; border:1px dashed #ccc; cursor:move; overflow:hidden; padding:10px; background:white; box-shadow:0 4px 10px rgba(0,0,0,0.3); }
+    .resizer { position:absolute; width:10px; height:10px; background:#05690c; z-index:2; }
+    .resizer.nw { top:-5px; left:-5px; cursor:nw-resize; }
+    .resizer.n { top:-5px; left:50%; cursor:n-resize; }
+    .resizer.ne { top:-5px; right:-5px; cursor:ne-resize; }
+    .resizer.w { left:-5px; top:50%; cursor:w-resize; }
+    .resizer.e { right:-5px; top:50%; cursor:e-resize; }
+    .resizer.sw { bottom:-5px; left:-5px; cursor:sw-resize; }
+    .resizer.s { bottom:-5px; left:50%; cursor:s-resize; }
+    .resizer.se { bottom:-5px; right:-5px; cursor:se-resize; }
+    #printMap { width:100%; height:100%; }
+    .caso-card { padding:14px; background:white; border-radius:8px; border-left:6px solid #1976d2; line-height:1.4; box-shadow:0 2px 8px rgba(0,0,0,0.2); }
+    #printHeader { position:absolute; top:0; left:0; width:100%; height:80px; background:#05690c; box-shadow:0 4px 15px rgba(0,0,0,0.7); display:flex; flex-direction:column; align-items:center; justify-content:center; }
+    #printLogo { position:absolute; top:5px; right:10px; width:200px; }
+    .print-titulo-principal { font-size:30px; font-weight:900; color:#ffffff; text-shadow:none; text-align:center; }
+    .print-subtitulo-filtros { font-size:20px; font-weight:900; color:#ffffff; text-shadow:none; opacity:1; text-align:center; }
+    .leaflet-top.leaflet-right { top: 80px !important; right: 30px; }
+    .element-controls { position:absolute; top:-25px; left:0; display:flex; gap:5px; }
+    .element-btn { padding:2px 5px; font-size:10px; cursor:pointer; background:#ddd; border:1px solid #ccc; border-radius:3px; min-width:22px; text-align:center; }
+    .element-btn.bring-front { background:#4caf50; color:white; }
+    .element-btn.send-back { background:#f44336; color:white; }
+    @media print {
+      @page { margin: 0; size: auto; }
+      body * { visibility: hidden; }
+      #printModal, #printModal * { visibility: visible; }
+      #printModal { position: fixed !important; inset: 0 !important; background: white !important; margin: 0 !important; padding: 0 !important; }
+      #printContent { inset: 0 !important; margin: 0 !important; padding: 0 !important; width: 100% !important; height: 100% !important; background: white !important; box-shadow: none !important; }
+      #printContent > div { background: white !important; border: none !important; box-shadow: none !important; }
+      .caso-card { background: white !important; box-shadow: none !important; border: 1px solid #ddd !important; }
+      .resizer, .leaflet-control-layers, .btn-container, #triggerDerecho, #sidebar, #panelDetalles, #logo, .element-controls { display: none !important; }
+      #printHeader { background: #05690c !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .caso-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-shadow: none !important; border: 1px solid #ccc !important; }
+      #printButtons, .resizer, .element-controls { display: none !important; }
+    }
+    /* Mejoras dashboard Power BI style */
+    #dashboardModal { overflow: auto; }
+    #pivotContainer { 
+      height: auto; 
+      min-height: 80vh; 
+      overflow-y: auto; 
+      background: #f8f9fa; 
+      border: 1px solid #dee2e6; 
+      border-radius: 6px; 
+      padding: 15px; 
+    }
+    .pvtUi { 
+      font-family: "Segoe UI", Arial, sans-serif !important; 
+      background: white; 
+      border: none; 
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08); 
+      border-radius: 6px; 
+    }
+    .pvtTable { 
+      border-collapse: collapse; 
+      width: 100%; 
+      font-size: 13px; 
+    }
+    .pvtTable th { 
+      background: #0078d4; 
+      color: white; 
+      padding: 10px; 
+      font-weight: 600; 
+    }
+    .pvtTable td { 
+      padding: 8px; 
+      border: 1px solid #e0e0e0; 
+    }
+    .pvtTotalLabel, .pvtGrandTotal { 
+      background: #e6f2ff; 
+      font-weight: bold; 
+    }
+    #dash-controls { 
+      display: flex; 
+      gap: 15px; 
+      margin: 15px 0; 
+      flex-wrap: wrap; 
+    }
+    #dash-controls label { 
+      display: flex; 
+      align-items: center; 
+      gap: 6px; 
+      font-weight: 500; 
+    }
+  </style>
+</head>
+<body>
+  <img id="logo" src="./iconos/logo-sexta.png" alt="Logo Sexta" loading="lazy">
+  <div id="map"></div>
+  <div class="header-bar">
+    <div class="titulo-principal">PANORAMA DE LOS ROBOS - COMUNA DE SAN PEDRO DE LA PAZ</div>
+    <div class="subtitulo-filtros" id="subtituloFiltros">Todos los casos</div>
+  </div>
+  <div id="panelDetalles">
+    <div style="padding:15px; background:#2c3e50; color:white; font-size:19px; font-weight:bold;">
+      Lista de Casos <span id="filtrosActivos" style="float:right;font-size:14px;opacity:0.9;">—</span>
+    </div>
+    <div id="listaCasos" style="padding:15px; overflow-y:auto; height:calc(100% - 60px);"></div>
+  </div>
+  <div id="sidebar">
+    <h3 style="margin-top:0; color:#39ff14;">Filtros</h3>
+    <div class="filtro-grupo"><label>Clasificación</label><select id="filtroClasificacion" multiple size="5"><option value="">TODOS</option></select></div>
+    <div class="filtro-grupo"><label>Delito</label><select id="filtroDelito" multiple size="8"><option value="">TODOS</option></select></div>
+    <div class="filtro-grupo"><label>Lugar del Delito</label><select id="filtroLugar" multiple size="6"><option value="">TODOS</option></select></div>
+    <div class="filtro-grupo"><label>Día</label><select id="filtroDia" multiple size="7"><option value="">TODOS</option></select></div>
+    <div class="filtro-grupo"><label>Rango Horario</label><select id="filtroRangoHora" multiple size="6">
+      <option value="">TODOS</option><option>00:00 a 03:59</option><option>04:00 a 07:59</option><option>08:00 a 11:59</option><option>12:00 a 15:59</option><option>16:00 a 19:59</option><option>20:00 a 23:59</option>
+    </select></div>
+    <div class="filtro-grupo"><label>Semana del Año</label><select id="filtroSemana" multiple size="6"><option value="">TODOS</option></select></div>
+    <div class="filtro-grupo"><label>Cuadrante</label><select id="filtroCuadrante" multiple size="6"><option value="">TODOS</option></select></div>
+    <div style="display:flex; gap:10px;">
+      <div class="filtro-grupo" style="flex:1;"><label>Fecha Inicio</label><input type="date" id="fechaInicio"></div>
+      <div class="filtro-grupo" style="flex:1;"><label>Fecha Fin</label><input type="date" id="fechaFin"></div>
+    </div>
+    <div class="filtro-grupo"><label>Búsqueda en Circunstancias (usa +)</label><input type="text" id="buscarCircunstancias" placeholder="Ej: Kia + bicicleta + alarma"></div>
+  </div>
+  <div id="triggerDerecho">FILTROS ►</div>
+  <div class="btn-container">
+    <button class="btn-fijo" id="btnLista">Lista</button>
+    <button class="btn-fijo" id="btnExport">Exportar</button>
+    <button class="btn-fijo" id="btnCluster">Cluster</button>
+    <button class="btn-fijo" id="btnCentrar">Centrar</button>
+    <button class="btn-fijo" id="btnPrepararImpresion">Impresión</button>
+    <button class="btn-fijo" id="btnDashboard">Dashboard</button>
+  </div>
+  <div id="dashboardModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:2000; overflow:auto;">
+    <div style="width:92%; max-width:1600px; margin:2% auto; background:white; padding:20px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.3);">
+      <h2 style="margin-top:0; color:#0078d4;">Dashboard Analítico</h2>
+      
+      <div id="dash-controls">
+        <label>Fuente:
+          <select id="dashFontFamily">
+            <option value="Segoe UI">Segoe UI</option>
+            <option value="Arial">Arial</option>
+            <option value="Calibri">Calibri</option>
+            <option value="Helvetica">Helvetica</option>
+          </select>
+        </label>
+        <label>Tamaño letra:
+          <select id="dashFontSize">
+            <option value="12px">12 px</option>
+            <option value="13px" selected>13 px</option>
+            <option value="14px">14 px</option>
+            <option value="15px">15 px</option>
+            <option value="16px">16 px</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="pivotContainer"></div>
+
+      <div style="margin-top:15px; text-align:right;">
+        <button id="cerrarDashboard" style="padding:10px 24px; background:#dc3545; color:white; border:none; border-radius:6px; cursor:pointer;">Cerrar</button>
+      </div>
+    </div>
+  </div>
+  <div id="printModal">
+    <div id="printContent"></div>
+    <div id="printButtons" style="text-align:center; margin-top:20px;">
+      <label>Fuente: <select id="fontSizeSelect">
+        <option value="1">1px</option><option value="2">2px</option><option value="3">3px</option><option value="4">4px</option><option value="5">5px</option><option value="6">6px</option><option value="7">7px</option><option value="8">8px</option><option value="9">9px</option><option value="10">10px</option><option value="11">11px</option><option value="12">12px</option><option value="13">13px</option><option value="14">14px</option><option value="15">15px</option><option value="16">16px</option><option value="17">17px</option><option value="18">18px</option><option value="19">19px</option><option value="20">20px</option>
+      </select></label>
+      <label>Fuente Tipo: <select id="fontFamilySelect">
+        <option value="Arial">Arial</option><option value="Times New Roman">Times New Roman</option><option value="Courier New">Courier New</option><option value="Verdana">Verdana</option><option value="Georgia">Georgia</option>
+      </select></label>
+      <label>Formato: <select id="paperSizeSelect">
+        <option value="A4">A4</option><option value="Letter">Letter</option><option value="Legal">Legal</option><option value="Folio" selected>Folio</option>
+        <option value="8.5x13">8.5" x 13"</option>
+      </select></label>
+      <label>Orientación: <select id="orientationSelect">
+        <option value="portrait">Vertical</option><option value="landscape">Horizontal</option>
+      </select></label>
+      <button id="printButton">Imprimir</button>
+      <button id="closeButton">Cerrar</button>
+    </div>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script>
+    function removeAccents(str) { return str.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+    function createClusterGroup() {
+      return L.markerClusterGroup({
+        maxClusterRadius: 60,
+        singleMarkerMode: true,
+        iconCreateFunction: cluster => {
+          const count = cluster.getChildCount();
+          let bg = count >= 50 ? '#d32f2f' : count >= 30 ? '#f44336' : count >= 20 ? '#ff5722' : count >= 10 ? '#ff9800' : count >= 5 ? '#ffc107' : '#8bc34a';
+          return L.divIcon({
+            html: `<div style="background:${bg};color:white;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;border:4px solid white;box-shadow:0 0 15px #000;">${count}</div>`,
+            className: '', iconSize: [46,46]
+          });
+        }
+      });
+    }
+    class MapaDelitos {
+      constructor() {
+        this.map = L.map('map', { maxZoom: 25, zoomSnap: 0.1, zoomDelta: 0.1 }).setView([-36.84, -73.105], 13);
+        this.datos = []; this.filtrados = [];
+        this.clusterEnabled = true;
+        this.overlayLayers = {};
+        this.baseLayers = {};
+        this.palabrasBuscadas = [];
+        this.baseLayers = {
+          "Callejero (OSM)": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+          "Satélite (Esri)": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
+          "Topográfico": L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)' }),
+          "Oscuro": L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { attribution: '© OpenStreetMap contributors © CARTO' }),
+          "Humanitarian": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+          "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '© OpenStreetMap contributors © CARTO' }),
+          "Carto Voyager": L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { attribution: '© OpenStreetMap contributors © CARTO' }),
+          "Esri Street": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'),
+          "Google Maps": L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', { maxZoom: 20 }),
+          "Waze": L.tileLayer('https://worldtiles1.waze.com/tiles/{z}/{x}/{y}.png', { maxZoom: 19 }),
+          "Stadia Smooth": L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', { attribution: '© Stadia Maps, © OpenMapTiles, © OpenStreetMap contributors' }),
+          "OSM Francia": L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+          "Esri Physical": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}'),
+          "Carto Positron": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', { attribution: '© OpenStreetMap contributors © CARTO' }),
+          "OpenStreetMap.DE": L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+          "Hike & Bike": L.tileLayer('https://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+          "OpenTopoMap": L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)' }),
+          "Esri Topo": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}'),
+          "Esri Ocean": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}'),
+          "Stamen Terrain": L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.png', { attribution: 'Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap contributors' }),
+          "Stamen Watercolor": L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg', { attribution: 'Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap contributors' }),
+          "Stamen Toner": L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.png', { attribution: 'Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap contributors' }),
+          "OpenStreetMap Black": L.tileLayer('https://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+          "OpenStreetMap H.O.T.": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+          "OpenStreetMap Mapnik": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+          "OpenStreetMap Public Transport": L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+          "OpenStreetMap Humanitarian": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' })
+        };
+        this.baseLayers["Callejero (OSM)"].addTo(this.map);
+        this.clusterGroup = createClusterGroup();
+        this.marcadoresLayer = L.layerGroup();
+        this.map.addLayer(this.clusterGroup);
+        this.delitoIcons = {
+          'ROBO DE ACCESORIOS DE VEHICULOS': L.icon({ iconUrl: './iconos/ico-robo-accesorios-especies-interior-vehiculo.png', iconSize: [32,32], iconAnchor: [16,32] }),
+          'ROBO EN LUGAR HABITADO': L.icon({ iconUrl: './iconos/ico-robo-lugar-habitado.png', iconSize: [32,32], iconAnchor: [16,32] }),
+          'ROBO EN LUGAR NO HABITADO': L.icon({ iconUrl: './iconos/ico-robo-lugar-no-habitado.png', iconSize: [32,32], iconAnchor: [16,32] }),
+          'ROBO DE VEHICULO MOTORIZADO': L.icon({ iconUrl: './iconos/ico-robo-vehiculo-motorizado.png', iconSize: [32,32], iconAnchor: [16,32] }),
+          'ROBO POR SORPRESA': L.icon({ iconUrl: './iconos/ico-robo-sorpresa.png', iconSize: [32,32], iconAnchor: [16,32] }),
+          'ROBO EN BIENES NACIONALES': L.icon({ iconUrl: './iconos/ico-robo-bienes-nacionales-uso-publico.png', iconSize: [32,32], iconAnchor: [16,32] }),
+          'ROBO CON INTIMIDACION': L.icon({ iconUrl: './iconos/ico-robo-intimidacion.png', iconSize: [32,32], iconAnchor: [16,32] }),
+          'ROBO FRUSTRADO': L.icon({ iconUrl: './iconos/ico-robo-frustrado.png', iconSize: [32,32], iconAnchor: [16,32] }),
+          'ROBO CON VIOLENCIA': L.icon({ iconUrl: './iconos/ico-robo-violencia.png', iconSize: [32,32], iconAnchor: [16,32] }),
+          'APROPIACION DE CABLES DE TENDIDO ELECTRICO': L.icon({ iconUrl: './iconos/ico_robo_cable_tendido_electrico.png', iconSize: [32,32], iconAnchor: [16,32] }),
+          'ROBO VIOLENTO DE VEHICULO': L.icon({ iconUrl: './iconos/ico-robo_vehiculo_sorpresa_violencia_int.png', iconSize: [32,32], iconAnchor: [16,32] })
+        };
+        this.cargarDatos();
+      }
+      async loadOverlays() {
+        const overlays = [
+          { url: 'BARRIOS-SPP-2024.json', name: 'Barrios SPP 2024', color: '#ff7800', fillOpacity: 0.1 },
+          { url: 'cuadrantes.geojson', name: 'Cuadrantes', color: '#ff0000', weight: 5, fillOpacity: 0, fill: false },
+          { url: 'CALLE SIN VIOLENCIA-SEPTIEMBRE 2025.geojson', name: 'Calle sin Violencia Sept 2025', color: '#ffeb3b', fillOpacity: 0.2 },
+          { url: 'CALLE-SIN-VIOLENCIA.geojson', name: 'Calle sin Violencia', color: '#ffeb3b', fillOpacity: 0.15 },
+          { url: 'BARRIO-PRIORITARIO.geojson', name: 'Barrio Prioritario', color: '#4caf50', fillOpacity: 0.2 }
+        ];
+        for (const o of overlays) {
+          try {
+            const res = await fetch(o.url + '?t=' + Date.now());
+            if (!res.ok) continue;
+            const data = await res.json();
+            const style = o.name === 'Cuadrantes'
+              ? { color: o.color, weight: o.weight, opacity: 1, fillOpacity: 0, fill: false }
+              : { color: o.color, weight: o.weight || 4, fillOpacity: o.fillOpacity || 0.1 };
+            const layer = L.geoJSON(data, { style }).bindPopup(l => {
+              let html = `<b>${o.name}</b><hr>`;
+              for (const [k,v] of Object.entries(l.feature.properties||{})) html += `<b>${k}:</b> ${v}<br>`;
+              return html;
+            });
+            this.overlayLayers[o.name] = layer;
+          } catch(e) {}
+        }
+        this.layersControl = L.control.layers(this.baseLayers, this.overlayLayers, {
+          position: 'topright',
+          collapsed: true
+        }).addTo(this.map);
+        this.layersControl.getContainer().style.top = '80px';
+      }
+      getColor(d) {
+        if (['ROBO CON VIOLENCIA','ROBO CON INTIMIDACION','ROBO POR SORPRESA','ROBO VIOLENTO DE VEHICULO'].includes(d)) return '#d32f2f';
+        if (d === 'ROBO FRUSTRADO') return '#8e24aa';
+        return '#1976d2';
+      }
+      crearMarcador(c, i) {
+        const icono = this.delitoIcons[c.delito] || L.icon({ iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png', iconSize: [25,41], iconAnchor: [12,41] });
+        const div = L.divIcon({
+          html: `<div style="position:relative;">
+                   <img src="${icono.options.iconUrl}" width="32" height="32" style="filter: drop-shadow(2px 2px 4px #000);">
+                   <div style="position:absolute;top:-35px;left:50%;transform:translateX(-50%);color:${this.getColor(c.delito)};font-weight:900;font-size:25px;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;">
+                     ${i+1}
+                   </div>
+                 </div>`,
+          className: 'transparent-marker',
+          iconSize: [32,32], iconAnchor: [16,32]
+        });
+        const marker = L.marker([c.lat, c.lon], { icon: div });
+        marker.bindPopup(this.popupCaso(c, i));
+        marker.on('click', () => this.irACaso(i));
+        return marker;
+      }
+      popupCaso(c, i) {
+        return `<div style="min-width:280px;">
+                  <b>#${i+1} - ${c.delito}</b><hr>
+                  <b>N° Parte:</b> ${c.numero_parte || '—'}<br>
+                  <b>Fecha:</b> ${c.fecha} ${c.hora}<br>
+                  <b>Lugar:</b> ${c.lugar}<br>
+                  <b>Dirección:</b> ${c.direccion}<br>
+                  <b>Cuadrante:</b> ${c.cuadrante || '—'}<br>
+                  <b>Circunstancias:</b> ${c.circunstancias || 'Sin detalles'}
+                </div>`;
+      }
+      aplicarFiltros() {
+        const s = {
+          clasif: [...document.getElementById('filtroClasificacion').selectedOptions].map(o => o.value).filter(v => v),
+          delito: [...document.getElementById('filtroDelito').selectedOptions].map(o => o.value).filter(v => v),
+          lugar: [...document.getElementById('filtroLugar').selectedOptions].map(o => o.value).filter(v => v),
+          dia: [...document.getElementById('filtroDia').selectedOptions].map(o => o.value).filter(v => v),
+          rango: [...document.getElementById('filtroRangoHora').selectedOptions].map(o => o.value).filter(v => v),
+          semana: [...document.getElementById('filtroSemana').selectedOptions].map(o => o.value).filter(v => v),
+          cuadrante: [...document.getElementById('filtroCuadrante').selectedOptions].map(o => o.value).filter(v => v),
+          inicio: document.getElementById('fechaInicio').value,
+          fin: document.getElementById('fechaFin').value,
+          texto: document.getElementById('buscarCircunstancias').value.trim()
+        };
+        this.palabrasBuscadas = s.texto ? s.texto.toLowerCase().split('+').map(p => p.trim()).filter(p => p) : [];
+        this.filtrados = this.datos.filter(c => {
+          const [d, m, y] = c.fecha.split('-');
+          const fechaISO = `${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
+          if (s.clasif.length && !s.clasif.includes(c.clasificacion)) return false;
+          if (s.delito.length && !s.delito.includes(c.delito)) return false;
+          if (s.lugar.length && !s.lugar.includes(c.lugar)) return false;
+          if (s.dia.length && !s.dia.includes(c.dia)) return false;
+          if (s.semana.length && !s.semana.includes(c.semana)) return false;
+          if (s.rango.length) {
+            const h = parseInt(c.hora.split(':')[0]);
+            const rangos = {
+              '00:00 a 03:59': h <= 3,
+              '04:00 a 07:59': h >= 4 && h <= 7,
+              '08:00 a 11:59': h >= 8 && h <= 11,
+              '12:00 a 15:59': h >= 12 && h <= 15,
+              '16:00 a 19:59': h >= 16 && h <= 19,
+              '20:00 a 23:59': h >= 20
+            };
+            if (!s.rango.some(r => rangos[r])) return false;
+          }
+          if (s.cuadrante.length && !s.cuadrante.includes(c.cuadrante)) return false;
+          if (s.inicio && fechaISO < s.inicio) return false;
+          if (s.fin && fechaISO > s.fin) return false;
+          if (s.texto) {
+            const textoCaso = (c.circunstancias || '').toLowerCase();
+            if (!this.palabrasBuscadas.every(p => textoCaso.includes(p))) return false;
+          }
+          return true;
+        });
+        const partes = [];
+        if (s.clasif.length) partes.push(s.clasif.join(', '));
+        if (s.delito.length) partes.push(s.delito.join(', '));
+        if (s.lugar.length) partes.push(s.lugar.join(', '));
+        if (s.dia.length) partes.push(s.dia.join(', '));
+        if (s.rango.length) partes.push(s.rango.join(', '));
+        if (s.semana.length) partes.push(s.semana.join(', '));
+        if (s.cuadrante.length) partes.push(s.cuadrante.join(', '));
+        if (s.inicio || s.fin) partes.push(`Fechas: ${s.inicio || '...'} → ${s.fin || '...'}`);
+        if (s.texto) partes.push(`"${s.texto}"`);
+        const subt = partes.length ? partes.join(' | ') : 'Todos los casos';
+        document.getElementById('filtrosActivos').textContent = `${this.filtrados.length} casos`;
+        document.getElementById('subtituloFiltros').textContent = subt;
+        this.renderizar();
+      }
+      resaltarTexto(texto, palabras) {
+        if (!palabras.length) return texto;
+        const regex = new RegExp(`(${palabras.join('|')})`, 'gi');
+        return texto.replace(regex, '<span style="background:yellow;">$1</span>');
+      }
+      exportarDatos() {
+        if (this.filtrados.length === 0) return alert('No hay datos para exportar');
+        const data = this.filtrados.map((c, i) => ({
+          N: i+1,
+          "N° Parte": c.numero_parte || '',
+          Clasificacion: c.clasificacion || '',
+          Delito: c.delito || '',
+          Fecha: c.fecha || '',
+          Hora: c.hora || '',
+          Dia: c.dia || '',
+          Lugar: c.lugar || '',
+          Direccion: c.direccion || '',
+          Cuadrante: c.cuadrante || '',
+          Circunstancias: c.circunstancias || '',
+          Lat: c.lat || '',
+          Lon: c.lon || ''
+        }));
+        const ws = XLSX.utils.json_to_sheet(data);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Delitos");
+        const fecha = new Date().toISOString().slice(0,10);
+        XLSX.writeFile(wb, `delitos_spp_${fecha}.xlsx`);
+      }
+      renderizar(map = this.map, clusterGroup = this.clusterGroup, marcadoresLayer = this.marcadoresLayer) {
+        clusterGroup.clearLayers();
+        marcadoresLayer.clearLayers();
+        this.filtrados.forEach((c, i) => {
+          if (c.lat && c.lon) {
+            const m = this.crearMarcador(c, i);
+            this.clusterEnabled ? clusterGroup.addLayer(m) : marcadoresLayer.addLayer(m);
+          }
+        });
+        if (this.clusterEnabled) {
+          map.hasLayer(marcadoresLayer) && map.removeLayer(marcadoresLayer);
+          !map.hasLayer(clusterGroup) && map.addLayer(clusterGroup);
+        } else {
+          map.hasLayer(clusterGroup) && map.removeLayer(clusterGroup);
+          !map.hasLayer(marcadoresLayer) && map.addLayer(marcadoresLayer);
+        }
+        this.actualizarLista();
+      }
+      actualizarLista() {
+        const html = this.filtrados.map((c, i) => {
+          const circResaltado = this.resaltarTexto(c.circunstancias || 'Sin detalles', this.palabrasBuscadas);
+          return `
+            <div class="caso-item" onclick="mapa.irACaso(${i})" style="padding:14px;margin-bottom:12px;background:white;border-radius:8px;cursor:pointer;border-left:6px solid ${this.getColor(c.delito)};">
+              <span style="color:${this.getColor(c.delito)};font-weight:900;font-size:24px;margin-right:10px;">${i+1}</span>
+              <strong>${c.delito}</strong>
+              ${c.numero_parte ? `<span style="background:#333;color:#fff;padding:2px 6px;border-radius:4px;font-size:10px;margin-left:8px;">P:${c.numero_parte}</span>` : ''}
+              <br>
+              <small>${c.direccion} • ${c.fecha} ${c.hora} • ${c.cuadrante || '—'}</small>
+              <div style="margin-top:8px;font-size:11px;color:#444;line-height:1.0;">${circResaltado}</div>
+            </div>
+          `;
+        }).join('');
+        document.getElementById('listaCasos').innerHTML = html;
+      }
+      irACaso(i) {
+        const c = this.filtrados[i];
+        this.map.setView([c.lat, c.lon], 18);
+        document.querySelectorAll('.caso-item').forEach(el => el.style.background = 'white');
+        const el = document.querySelector(`#listaCasos .caso-item:nth-child(${i+1})`);
+        if (el) el.style.background = '#d4edda';
+      }
+      prepararImpresion() {
+  const printModal = document.getElementById('printModal');
+  const printContent = document.getElementById('printContent');
+  printContent.innerHTML = '';
+  const mainArea = document.createElement('div');
+  mainArea.id = 'printMain';
+  mainArea.style.cssText = 'position:relative; width:100%; height:100%; background:white; margin:0; padding:0; overflow:hidden;';
+  printContent.appendChild(mainArea);
+  // Header
+  const header = document.createElement('div');
+  header.id = 'printHeader';
+  header.style.cssText = 'position:absolute; top:0; left:0; width:100%; height:80px; background:#05690c; color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(0,0,0,0.5); border:1px dashed #ccc; cursor:move; overflow:hidden; z-index:100;';
+  header.innerHTML = `
+    <div class="print-titulo-principal" contenteditable="true" style="font-size:32px; font-weight:900; color:#ffffff;">
+      ${document.querySelector('.titulo-principal').textContent}
+    </div>
+    <div class="print-subtitulo-filtros" contenteditable="true" style="font-size:18px; font-weight:700; color:#ffffff; margin-top:4px;">
+      ${document.getElementById('subtituloFiltros').textContent}
+    </div>
+  `;
+  mainArea.appendChild(header);
+  this.makeDraggableResizable(header);
+  // Logo independiente, arrastrable
+  const logoPrint = document.createElement('img');
+  logoPrint.src = './iconos/logo-sexta.png';
+  logoPrint.style.cssText = 'position:absolute; bottom:10px; right:10px; width:180px; max-width:25%; height:auto; cursor:move; z-index:100; border:1px dashed #ccc;';
+  mainArea.appendChild(logoPrint);
+  this.makeDraggableResizable(logoPrint);
+  // Mapa
+  const mapDiv = document.createElement('div');
+  mapDiv.id = 'printMapInteractive';
+  mapDiv.style.cssText = 'position:absolute; top:80px; left:0; width:100%; height:calc(100% - 80px); border:1px dashed #ccc; cursor:move; overflow:hidden; z-index:1;';
+  mainArea.appendChild(mapDiv);
+  printModal.style.display = 'block';
+  setTimeout(() => {
+    const printMap = L.map('printMapInteractive', { zoomControl: true, zoomSnap: 0.1, zoomDelta: 0.1 });
+    const activeBaseKey = Object.keys(this.baseLayers).find(k => this.map.hasLayer(this.baseLayers[k]));
+    if (activeBaseKey) this.baseLayers[activeBaseKey].addTo(printMap);
+    Object.values(this.overlayLayers).forEach(layer => {
+      if (this.map.hasLayer(layer)) layer.addTo(printMap);
+    });
+    L.control.layers(this.baseLayers, this.overlayLayers, {position: 'topright', collapsed: true}).addTo(printMap);
+    const printMarkers = this.clusterEnabled ? createClusterGroup() : L.layerGroup();
+    this.filtrados.forEach((c, i) => {
+      if (c.lat && c.lon) printMarkers.addLayer(this.crearMarcador(c, i));
+    });
+    printMap.addLayer(printMarkers);
+    if (this.filtrados.length > 0) {
+      const bounds = L.latLngBounds(this.filtrados.map(c => [c.lat, c.lon]));
+      printMap.fitBounds(bounds, { padding: [60, 60] });
+    } else {
+      printMap.setView(this.map.getCenter(), this.map.getZoom());
+    }
+    printMap.invalidateSize();
+    this.makeDraggableResizable(mapDiv);
+    this.filtrados.forEach((c, i) => {
+      const card = document.createElement('div');
+      card.className = 'caso-card';
+      card.style.cssText = `position:absolute; top:${80 + Math.floor(i / 3) * 120}px; left:${(i % 3) * 33.3}%; width:200px; min-height:80px; background:white; border:1px solid #ddd; border-left:5px solid ${this.getColor(c.delito)}; padding:5px; font-family:Verdana; font-size:6px; line-height:1.2; box-shadow:0 2px 6px rgba(0,0,0,0.15); cursor:move; overflow:hidden; -webkit-font-smoothing:antialiased; z-index:100;`;
+      card.innerHTML = `
+        <span contenteditable="true" style="color:${this.getColor(c.delito)}; font-weight:900; font-size:16px;">${i+1}</span>
+        <strong contenteditable="true">${c.delito}</strong>
+        ${c.numero_parte ? `<span contenteditable="true" style="background:#444; color:#fff; padding:1px 4px; border-radius:3px; font-size:8px;">${c.numero_parte}</span>` : ''}
+        <br><small contenteditable="true">${c.direccion} • ${c.fecha} ${c.hora}</small>
+        <div contenteditable="true" style="margin-top:4px; color:#333;">${this.resaltarTexto(c.circunstancias || 'Sin detalles', this.palabrasBuscadas)}</div>
+      `;
+      mainArea.appendChild(card);
+      this.makeDraggableResizable(card);
+    });
+    // Selección para fuente
+    mainArea.addEventListener('click', e => {
+      document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+      let target = e.target.closest('.caso-card, #printHeader, img[src*="logo-sexta"], #printMapInteractive');
+      if (target) {
+        target.classList.add('selected');
+      }
+    });
+    document.getElementById('fontSizeSelect').onchange = e => {
+      const selected = document.querySelector('.selected');
+      if (selected) selected.style.fontSize = e.target.value + 'px';
+    };
+    document.getElementById('fontFamilySelect').onchange = e => {
+      const selected = document.querySelector('.selected');
+      if (selected) selected.style.fontFamily = e.target.value;
+    };
+    const sizes = {
+      A4: {w:'210mm', h:'297mm'},
+      Letter: {w:'215.9mm', h:'279.4mm'},
+      Legal: {w:'215.9mm', h:'355.6mm'},
+      Folio: {w:'215.9mm', h:'330.2mm'},
+      '8.5x13': {w:'215.9mm', h:'330.2mm'}
+    };
+    const updateSize = () => {
+      const fmt = document.getElementById('paperSizeSelect').value;
+      const ori = document.getElementById('orientationSelect').value;
+      const s = sizes[fmt];
+      printContent.style.width = ori === 'landscape' ? s.h : s.w;
+      printContent.style.minHeight = ori === 'landscape' ? s.w : s.h;
+      mainArea.style.width = ori === 'landscape' ? s.h : s.w;
+      mainArea.style.height = ori === 'landscape' ? s.w : s.h;
+      printMap.invalidateSize();
+    };
+    document.getElementById('paperSizeSelect').onchange = updateSize;
+    document.getElementById('orientationSelect').onchange = updateSize;
+    updateSize();
+    document.getElementById('printButton').onclick = () => window.print();
+    document.getElementById('closeButton').onclick = () => {
+      printModal.style.display = 'none';
+      this.map.invalidateSize();
+    };
+  }, 300);
+}
+      makeDraggableResizable(el) {
+        const dirs = ['nw','n','ne','w','e','sw','s','se'];
+        dirs.forEach(d => {
+          const r = document.createElement('div');
+          r.className = `resizer ${d}`;
+          el.appendChild(r);
+          r.addEventListener('mousedown', e => this.startResize(e, d, el));
+        });
+        el.addEventListener('mousedown', e => {
+          if (e.target.classList.contains('resizer')) return;
+          e.preventDefault();
+          let sx = e.clientX, sy = e.clientY;
+          const ox = el.offsetLeft, oy = el.offsetTop;
+          const move = ev => {
+            el.style.left = (ox + ev.clientX - sx) + 'px';
+            el.style.top = (oy + ev.clientY - sy) + 'px';
+          };
+          document.onmousemove = move;
+          document.onmouseup = () => { document.onmousemove = document.onmouseup = null; };
+        });
+      }
+      startResize(e, dir, el) {
+        e.stopPropagation();
+        let sx = e.clientX, sy = e.clientY;
+        let sw = el.offsetWidth, sh = el.offsetHeight;
+        let sl = el.offsetLeft, st = el.offsetTop;
+        const move = ev => {
+          const dx = ev.clientX - sx, dy = ev.clientY - sy;
+          if (dir.includes('e')) el.style.width = (sw + dx) + 'px';
+          if (dir.includes('s')) el.style.height = (sh + dy) + 'px';
+          if (dir.includes('w')) { el.style.width = (sw - dx) + 'px'; el.style.left = (sl + dx) + 'px'; }
+          if (dir.includes('n')) { el.style.height = (sh - dy) + 'px'; el.style.top = (st + dy) + 'px'; }
+        };
+        document.onmousemove = move;
+        document.onmouseup = () => { document.onmousemove = document.onmouseup = null; };
+      }
+      async cargarDatos() {
+        let datos = [];
+        try {
+          const res = await fetch('casos_delitos.json?t=' + Date.now());
+          if (res.ok) datos = await res.json();
+        } catch(e) {}
+        if (!datos.length) {
+          datos = [{"clasificacion":"DENUNCIA","delito":"ROBO EN LUGAR HABITADO","fecha":"25-11-2025","dia":"MARTES","hora":"14:30","lugar":"DOMICILIO PARTICULAR","direccion":"LOS ALERCES 1234","circunstancias":"Sustracción de notebook y joyas.","cuadrante":"Cuadrante 03","lat":-36.835,"lon":-73.115,"numero_parte":"12345-2025"}];
+        }
+        this.datos = datos.map(c => {
+          const [d,m,y] = c.fecha.split('-');
+          const fecha = new Date(Date.UTC(y, m-1, d));
+          fecha.setUTCDate(fecha.getUTCDate() + 4 - (fecha.getUTCDay() || 7));
+          const yearStart = new Date(Date.UTC(y, 0, 1));
+          const week = Math.ceil((((fecha - yearStart) / 86400000) + 1) / 7);
+          c.semana = week > 52 || (week === 1 && parseInt(m) === 12) ? `Fin ${y}` : `Semana ${week} - ${y}`;
+          if (c.dia) c.dia = removeAccents(c.dia).charAt(0).toUpperCase() + removeAccents(c.dia).slice(1).toLowerCase();
+          return c;
+        });
+        this.filtrados = [...this.datos];
+        const uniq = f => [...new Set(this.datos.map(c => c[f]).filter(Boolean))];
+        const add = (id, field, sort=false) => {
+          const s = document.getElementById(id);
+          let opts = uniq(field);
+          if (sort && field==='dia') {
+            const ord = {lunes:0,martes:1,miercoles:2,jueves:3,viernes:4,sabado:5,domingo:6};
+            opts.sort((a,b) => ord[a.toLowerCase()] - ord[b.toLowerCase()]);
+          }
+          s.innerHTML = '<option value="">TODOS</option>' + opts.map(v => `<option value="${v}">${v}</option>`).join('');
+        };
+        add('filtroClasificacion','clasificacion');
+        add('filtroDelito','delito');
+        add('filtroLugar','lugar');
+        add('filtroDia','dia',true);
+        add('filtroCuadrante','cuadrante');
+        add('filtroSemana','semana');
+        await this.loadOverlays();
+        document.querySelectorAll('#sidebar select, #sidebar input').forEach(el =>
+          el.addEventListener('change', () => this.aplicarFiltros())
+        );
+        document.getElementById('btnLista').onclick = () => document.getElementById('panelDetalles').classList.toggle('visible');
+        document.getElementById('btnExport').onclick = () => this.exportarDatos();
+        document.getElementById('btnCluster').onclick = () => {
+          this.clusterEnabled = !this.clusterEnabled;
+          document.getElementById('btnCluster').textContent = this.clusterEnabled ? 'Cluster' : 'Sin Cluster';
+          this.renderizar();
+        };
+        document.getElementById('btnCentrar').onclick = () => {
+          if (this.filtrados.length === 0) {
+            this.map.setView([-36.84, -73.105], 13);
+            return;
+          }
+          const bounds = L.latLngBounds(this.filtrados.map(c => [c.lat, c.lon]));
+          this.map.fitBounds(bounds, { padding: [50, 50] });
+        };
+        document.getElementById('btnPrepararImpresion').onclick = () => this.prepararImpresion();
+        const sidebar = document.getElementById('sidebar');
+        const trigger = document.getElementById('triggerDerecho');
+        trigger.addEventListener('mouseenter', () => sidebar.classList.add('visible'));
+        trigger.addEventListener('click', () => sidebar.classList.toggle('visible'));
+        sidebar.addEventListener('mouseleave', () => setTimeout(() => {
+          if (!sidebar.matches(':hover') && !trigger.matches(':hover')) sidebar.classList.remove('visible');
+        }, 500));
+        document.getElementById('subtituloFiltros').textContent = 'Todos los casos';
+        this.renderizar();
+        window.mapa = this;
+      }
+    }
+    new MapaDelitos();
+    document.getElementById('btnDashboard').onclick = () => {
+      document.getElementById('dashboardModal').style.display = 'block';
+      const renderers = $.extend(
+        $.pivotUtilities.renderers,
+        $.pivotUtilities.plotly_renderers
+      );
+      $("#pivotContainer").pivotUI(mapa.filtrados, {
+        rows: ["delito"],
+        columns: ["dia"],
+        vals: ["numero_parte"],
+        aggregatorName: "Count",
+        rendererName: "Bar Chart",
+        renderers: renderers,
+        localeStrings: {
+          renderError: "Error al renderizar",
+          computeError: "Error en cálculo",
+          uiRenderError: "Error en interfaz",
+          total: "Total",
+          grandTotal: "Gran Total",
+          subtotal: "Subtotal",
+          count: "Conteo",
+          "Count as Fraction of Total": "Conteo % del total",
+          "Count as Fraction of Rows": "Conteo % por fila",
+          "Count as Fraction of Columns": "Conteo % por columna"
+        },
+        aggregators: {
+          "Conteo": $.pivotUtilities.aggregators["Count"],
+          "Conteo y % Total": function() { return $.pivotUtilities.aggregatorTemplates.count()(); },
+          "Conteo % Total": $.pivotUtilities.aggregatorTemplates.fractionOf($.pivotUtilities.aggregatorTemplates.count(), "total", "% Total")
+        }
+      }, true);
+      const ui = document.querySelector('.pvtUi');
+      if (ui) {
+        document.getElementById('dashFontFamily').onchange = e => {
+          ui.style.fontFamily = e.target.value;
+        };
+        document.getElementById('dashFontSize').onchange = e => {
+          ui.style.fontSize = e.target.value;
+        };
+      }
+    };
+    document.getElementById('cerrarDashboard').onclick = () => {
+      document.getElementById('dashboardModal').style.display = 'none';
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Capa desde .CAR (Ejemplo)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-73.135, -36.85],
+            [-73.14, -36.85],
+            [-73.14, -36.86],
+            [-73.135, -36.86],
+            [-73.135, -36.85]
+          ]
+        ]
+      }
+    }
+  ]
+}
