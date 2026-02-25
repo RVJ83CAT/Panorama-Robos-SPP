@@ -11845,7 +11845,7 @@
   },
   {
     "clasificacion": "DENUNCIA",
-    "delito": "ROBO EN LUGAR HABITADO",
+    "delito": "ROBO CON VIOLENCIA",
     "fecha": "22-02-2026",
     "dia": "DOMINGO",
     "hora": "19:30",
@@ -11943,7 +11943,7 @@
     "lugar": "VIA PUBLICA",
     "direccion": "PUENTE INDUSTRIAL & ESTERO LOS BATROS",
     "circunstancias": "El denunciante (H41) es patrullero de Ruta de la empresa Lion Security, quien recibe la alerta del encargado de cámaras, quien se percata que hay cámaras que no reciben señal. El encargado de mantención verifica en la ruta, que en un area cercana a Estero Los Batros había un corte de cable y sustraídos 800 m cable cobre 4 hebras. Avalúo ante fiscalía.",
-    "cuadrante": "Cuadrante 02",
+    "cuadrante": "Cuadrante 01",
     "numero_parte": 845,
     "direccion_georref": "PUENTE INDUSTRIAL & ESTERO LOS BATROS",
     "comuna": "San Pedro de la Paz",
