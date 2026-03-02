@@ -8532,6 +8532,24 @@
     "lon": -73.12833913394627
   },
   {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "29-12-2025",
+    "dia": "LUNES",
+    "hora": "20:00",
+    "rango_hora": "20:00-23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "BRAULIO ARENAS CARVAJAL 8186",
+    "circunstancias": "La denunciante (M43)estuvo de vacaciones junto a su familia en Argentina desde el 29 de diciembre por la noche. Regresa el 02 de marzo 2026 a las 01:30; encuentra la reja cerrada, pero la puerta de ingreso principal estaba entre abierte, con la chapa forzada; Se percata que sujetos sustraen 3 TV negro + sofá cama gris + batidora beige + 2 cajas utensilios pastelería + multiprocesadora Liliana blanco + licuadora Oster rojo + 2 bicicletas (rojo aro 24 + negro aro 27) + notebook Lenovo negro + impresora Epson negro + ropas/especies personales de sus hijos y de ella. Tiene seguro. Cámaras existen. Avalúo desconocido.",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 923,
+    "direccion_georref": "BRAULIO ARENAS CARVAJAL 8186",
+    "comuna": "San Pedro de la Paz",
+    "concat": "BRAULIO ARENAS CARVAJAL 8186 , San Pedro de la Paz",
+    "lat": -36.89707017424862,
+    "lon": -73.13380696042931
+  },
+  {
     "clasificacion": "DETENCION",
     "delito": "ROBO FRUSTRADO",
     "fecha": "30-12-2025",
@@ -12208,24 +12226,6 @@
     "delito": "ROBO EN LUGAR HABITADO",
     "fecha": "27-02-2026",
     "dia": "VIERNES",
-    "hora": "11:30",
-    "rango_hora": "08:00 a 11:59",
-    "lugar": "DOMICILIO PARTICULAR",
-    "direccion": "PASAJE SANTIAGO 602",
-    "circunstancias": "La denunciante (H61) está limpiando el jardín, y al buscar la máquina para cortar pasto, esta no se encontraba en el lugar de siempre. Se percata que sujetos desconocidos han escalado la pandereta durante la noche sustrayendo la cortadora de pasto Bauker verde + taladro Stanley amarillo + sierra circular Stanley amarilla. Avalúo $300.000. Cámaras no graban  en la noche.",
-    "cuadrante": "Cuadrante 02",
-    "numero_parte": 889,
-    "direccion_georref": "PASAJE SANTIAGO 602",
-    "comuna": "San Pedro de la Paz",
-    "concat": "PASAJE SANTIAGO 602 , San Pedro de la Paz",
-    "lat": -36.82651123839734,
-    "lon": -73.12245997569828
-  },
-  {
-    "clasificacion": "DENUNCIA",
-    "delito": "ROBO EN LUGAR HABITADO",
-    "fecha": "27-02-2026",
-    "dia": "VIERNES",
     "hora": "08:00",
     "rango_hora": "08:00-11:59",
     "lugar": "DOMICILIO PARTICULAR",
@@ -12238,6 +12238,24 @@
     "concat": "PASAJE 9 378 , San Pedro de la Paz",
     "lat": -36.853089314319305,
     "lon": -73.13640471415188
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "27-02-2026",
+    "dia": "VIERNES",
+    "hora": "11:30",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PASAJE SANTIAGO 602",
+    "circunstancias": "La denunciante (H61) está limpiando el jardín, y al buscar la máquina para cortar pasto, esta no se encontraba en el lugar de siempre. Se percata que sujetos desconocidos han escalado la pandereta durante la noche sustrayendo la cortadora de pasto Bauker verde + taladro Stanley amarillo + sierra circular Stanley amarilla. Avalúo $300.000. Cámaras no graban  en la noche.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 889,
+    "direccion_georref": "PASAJE SANTIAGO 602",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE SANTIAGO 602 , San Pedro de la Paz",
+    "lat": -36.82651123839734,
+    "lon": -73.12245997569828
   },
   {
     "clasificacion": "DENUNCIA",
@@ -12308,8 +12326,8 @@
     "direccion_georref": "PASAJE ANTINAU EPU",
     "comuna": "San Pedro de la Paz",
     "concat": "PASAJE ANTINAU EPU , San Pedro de la Paz",
-    "lat": -36.89085466291036,
-    "lon": -73.13116148766684
+    "lat": -36.89042016466888,
+    "lon": -73.13343355882796
   },
   {
     "clasificacion": "DENUNCIA",
@@ -12346,5 +12364,23 @@
     "concat": "LUIS ACEVEDO & PEDRO AGUIRRE CERDA , San Pedro de la Paz",
     "lat": -36.839309730347374,
     "lon": -73.08928334452074
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "02-03-2026",
+    "dia": "LUNES",
+    "hora": "10:15",
+    "rango_hora": "08:00-11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "DIAGONAL BIO BIO 257",
+    "circunstancias": "La víctima (H42) llega a su domicilio a las 10:15, cuando aparece un sujeto con barba 1.75 delgado tez morena viste casaca negra buzo plomo; quien se acerca por la espalda lo toma del cuello e intenta ahorcarlo, al mismo tiempo lo apunta con un arma punzante en el abdomen y le dice \"ENTREGAME EL CELULAR\"; registra el bolsillo y sustrae su billetera (C.I. + tarjetas + $405.000 efectivo). El sujeto huye en dirección desconocida. Sin lesiones. Avalúo $430.000. ",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 925,
+    "direccion_georref": "DIAGONAL BIO BIO 257",
+    "comuna": "San Pedro de la Paz",
+    "concat": "DIAGONAL BIO BIO 257 , San Pedro de la Paz",
+    "lat": -36.8327019369169,
+    "lon": -73.12049175043511
   }
 ]
