@@ -12418,5 +12418,23 @@
     "concat": "PASAJE EL ESFUERZO & AVENIDA MICHAIHUE , San Pedro de la Paz",
     "lat": -36.84394047134752,
     "lon": -73.13326464770964
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "02-03-2026",
+    "dia": "LUNES",
+    "hora": "23:00",
+    "rango_hora": "20:00-23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "CAMILO MORI 103",
+    "circunstancias": "El denunciante (H39) estaciona su vehículo Toyota Rav4 2023 plateado PPU. SPDY89 en el frontis de su domicilicio en Parque Los Canelos. A las 23:00 se percata que el vehículo fue sustraído, en el cual iba una mochila azul (motor endodoncia Woodpecker + silla Britax negra + cama mascota Delox + docs personales). Según el denunciante, el vehículo estaba con sistemas de seguridad activado. Tiene seguro Zurich. Encargo SUEV EUN 688850. Avalúo $32.000.000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 233,
+    "direccion_georref": "CAMILO MORI 103",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CAMILO MORI 103 , San Pedro de la Paz",
+    "lat": -36.84276344544865,
+    "lon": -73.0967099180023
   }
 ]
