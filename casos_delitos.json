@@ -12508,5 +12508,23 @@
     "concat": "AVENIDA CENTRAL 954 , San Pedro de la Paz",
     "lat": -36.82915573730689,
     "lon": -73.11843351617924
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN BIENES NACIONALES",
+    "fecha": "05-03-2026",
+    "dia": "JUEVES",
+    "hora": "13:05",
+    "rango_hora": "12:00-15:59",
+    "lugar": "ESTACIONAMIENTO A/CE",
+    "direccion": "AVENIDA MICHIMALONCO 1040",
+    "circunstancias": "Robo de especie en vehículo estacionado en subterraneo Supermercado Santa Isabel. La denunciante (M55) estaciona a las 13:05 su vehículo Kia Soluto 2026 plateado PPU. VLLC80 en el supermercado, vuelve después de 30 minutos, percatándose que la chapa de la puerta delantera derecha está dañada y que sujetos han sustraído un celular Oppo A-50 negro carcasa azul Claro. Cámaras en vivo, no logran grabar el hecho. Avalúo $400.000.",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 249,
+    "direccion_georref": "AVENIDA MICHIMALONCO 1040",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA MICHIMALONCO 1040 , San Pedro de la Paz",
+    "lat": -36.84263336443424,
+    "lon": -73.09344292469744
   }
 ]
