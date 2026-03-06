@@ -12565,24 +12565,6 @@
   },
   {
     "clasificacion": "DENUNCIA",
-    "delito": "ROBO EN LUGAR NO HABITADO",
-    "fecha": "05-03-2026",
-    "dia": "JUEVES",
-    "hora": "22:00",
-    "rango_hora": "20:00 a 23:59",
-    "lugar": "VIA PUBLICA",
-    "direccion": "MANUEL RODRIGUEZ & JAVIERA CARRERA",
-    "circunstancias": "Robo en Subestación Eléctrica CGE.  A las 22:00 un inspector municipal es informado de que dos delincuentes está sustrayendo materiales desde el recinto. Entran por escalamiento. Salen con carros de supermercado cargando fierros de gran tamaño, dirigiéndose hacia el oriente (por calle Pablo Neruda). Logran retener a uno de los sujetos, el otro llega a calle Progreso, hasta que lo retienen. Son detenidos el sujeto llamado  Jaime Omar Iturra Subiabre (H38) CI. 17044412-4, y Brian Sebastian Barrientos Vejar (H24) CI. 21001260-5. ; sustraen 5 barras metálicas galvanizadas de 5m., las cuales fueron recuperadas. Avalúo $1.000.000.",
-    "cuadrante": "Cuadrante 06",
-    "numero_parte": 992,
-    "direccion_georref": "MANUEL RODRIGUEZ & JAVIERA CARRERA",
-    "comuna": "San Pedro de la Paz",
-    "concat": "MANUEL RODRIGUEZ & JAVIERA CARRERA , San Pedro de la Paz",
-    "lat": -36.88031451753853,
-    "lon": -73.13787517665541
-  },
-  {
-    "clasificacion": "DENUNCIA",
     "delito": "ROBO FRUSTRADO",
     "fecha": "05-03-2026",
     "dia": "JUEVES",
@@ -12598,5 +12580,23 @@
     "concat": "ROQUE ESTEBAN SCARPA 8706 , San Pedro de la Paz",
     "lat": -36.89871472839764,
     "lon": -73.14836573034671
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "05-03-2026",
+    "dia": "JUEVES",
+    "hora": "22:00",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "MANUEL RODRIGUEZ & JAVIERA CARRERA",
+    "circunstancias": "Robo en Subestación Eléctrica CGE.  A las 22:00 un inspector municipal es informado de que dos delincuentes está sustrayendo materiales desde el recinto. Entran por escalamiento. Salen con carros de supermercado cargando fierros de gran tamaño, dirigiéndose hacia el oriente (por calle Pablo Neruda). Logran retener a uno de los sujetos, el otro llega a calle Progreso, hasta que lo retienen. Son detenidos el sujeto llamado  Jaime Omar Iturra Subiabre (H38) CI. 17044412-4, y Brian Sebastian Barrientos Vejar (H24) CI. 21001260-5. ; sustraen 5 barras metálicas galvanizadas de 5m., las cuales fueron recuperadas. Avalúo $1.000.000.",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 992,
+    "direccion_georref": "MANUEL RODRIGUEZ & JAVIERA CARRERA",
+    "comuna": "San Pedro de la Paz",
+    "concat": "MANUEL RODRIGUEZ & JAVIERA CARRERA , San Pedro de la Paz",
+    "lat": -36.88031451753853,
+    "lon": -73.13787517665541
   }
 ]
