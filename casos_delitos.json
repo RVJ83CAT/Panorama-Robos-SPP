@@ -12565,6 +12565,24 @@
   },
   {
     "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "05-03-2026",
+    "dia": "JUEVES",
+    "hora": "18:30",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LAS MARGARITAS 1885",
+    "circunstancias": "El denunciante (H29) estaciona su vehículo Nissan Sentra 2005 plateado PPU. YN2920 a las 18:30 horas. A las 21:45 sale junto a su esposa a la plaza, y el vehículo estaba en el lugar. Al día siguiente a las 08:00 se percata que el vehículo no está donde lo estacionó, fue sustraído durante la noche. Avalúo $1.500.000. Encargo EUN 689265.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 999,
+    "direccion_georref": "LAS MARGARITAS 1885",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAS MARGARITAS 1885 , San Pedro de la Paz",
+    "lat": -36.83655462330457,
+    "lon": -73.11204663269706
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO FRUSTRADO",
     "fecha": "05-03-2026",
     "dia": "JUEVES",
@@ -12598,5 +12616,23 @@
     "concat": "MANUEL RODRIGUEZ & JAVIERA CARRERA , San Pedro de la Paz",
     "lat": -36.88031451753853,
     "lon": -73.13787517665541
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "06-03-2026",
+    "dia": "VIERNES",
+    "hora": "04:27",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "LOS RAULIES 1501",
+    "circunstancias": "La denunciante (M42) estaba en su departamento durmiendo junto a su familia, cuando a las 04:27 despierta producto de un ruido en el dormitorio encendiendo la luz, observa a un hombre de mediana estatura delgado vestimenta oscura junto a su cama; al ser sorprendido el sujeto huye por una ventana de la habitación de 69x90 cm; sustrae una mochila Bubba negra (C.I. + tarjetas + $40.000) + mochila negra + celular Honor Magic X6 morado. Avalúo $500.000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 254,
+    "direccion_georref": "LOS RAULIES 1501",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS RAULIES 1501 , San Pedro de la Paz",
+    "lat": -36.83927329331929,
+    "lon": -73.10133591711627
   }
 ]
