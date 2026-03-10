@@ -12796,5 +12796,41 @@
     "concat": "BOSQUE MAR & PORTAL SAN PEDRO , San Pedro de la Paz",
     "lat": -36.88596985763535,
     "lon": -73.1410743518763
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "10-03-2026",
+    "dia": "MARTES",
+    "hora": "02:28",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "FEDERICO GUZMAN 137",
+    "circunstancias": "A las 08:00 la denunciante (M54) estaba junto a su conyuge, ella se levanta para sacar a sus perros al antejardín, percatándose que falta una escalera de aluminio y dos palas. Llama a su hijo para que revise las cámaras de seguridad. Este observa a dos sujetos que escalan la reja del antejardín a las 02:28, quienes sustraen las especies, fugándose en dirección desconocida. Avalúo $80.000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 1078,
+    "direccion_georref": "FEDERICO GUZMAN 137",
+    "comuna": "San Pedro de la Paz",
+    "concat": "FEDERICO GUZMAN 137 , San Pedro de la Paz",
+    "lat": -36.8301735946272,
+    "lon": -73.10938808127759
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "10-03-2026",
+    "dia": "MARTES",
+    "hora": "12:00",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "QUILPOLEMU 62",
+    "circunstancias": "El denunciante (H21) estaciona su motocicleta Yamaha FZ N 2.0 150 2022 color negro PPU. TSL86, a las 16:00 del día anterior en la vía pública frente a su domicilio. Al día siguiente a las 12:00 se percata que la motocicleta no está en el lugar. El vehículo no cuenta con sistema GPS. El denunciante no había efectuado transferencia de dominio, lleva un año que no se contacta con el antiguo dueño que es extranjero. Avalúo $1.500.000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 267,
+    "direccion_georref": "QUILPOLEMU 62",
+    "comuna": "San Pedro de la Paz",
+    "concat": "QUILPOLEMU 62 , San Pedro de la Paz",
+    "lat": -36.84240587438564,
+    "lon": -73.10635344653483
   }
 ]
