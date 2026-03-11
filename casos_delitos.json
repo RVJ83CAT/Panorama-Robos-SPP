@@ -12832,5 +12832,23 @@
     "concat": "QUILPOLEMU 62 , San Pedro de la Paz",
     "lat": -36.84240587438564,
     "lon": -73.10635344653483
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "11-03-2026",
+    "dia": "MIERCOLES",
+    "hora": "06:00",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "LOCALES COMERCIALES",
+    "direccion": "MAITENCILLO 516",
+    "circunstancias": "A las 06:00 horas el denunciante (H47) quien vive en pasaje Totoral, es alertado por un vecino, el cual le comunica que en el local comercial llamado \"La Hilaria II\" han ingresado sujetos desconocidos forzando la puerta de ingreso y entran a robar. El denunciante va a verificar, y se percata que efectivamente han forzado la puerta de ingreso con un fierro tipo chuzo. Logran sustraer $250.000 de dinero en efectivo, chocolates y diferentes tipos de mercadería. Hay cámaras. Avalúo de $500.000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 1090,
+    "direccion_georref": "MAITENCILLO 516",
+    "comuna": "San Pedro de la Paz",
+    "concat": "MAITENCILLO 516 , San Pedro de la Paz",
+    "lat": -36.83431122571715,
+    "lon": -73.14628109837723
   }
 ]
