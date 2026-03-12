@@ -75,55 +75,8 @@
       .caso-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-shadow: none !important; border: 1px solid #ccc !important; }
       #printButtons, .resizer, .element-controls { display: none !important; }
     }
-    /* Mejoras dashboard Power BI style */
     #dashboardModal { overflow: auto; }
-    #pivotContainer { 
-      height: auto; 
-      min-height: 80vh; 
-      overflow-y: auto; 
-      background: #f8f9fa; 
-      border: 1px solid #dee2e6; 
-      border-radius: 6px; 
-      padding: 15px; 
-    }
-    .pvtUi { 
-      font-family: "Segoe UI", Arial, sans-serif !important; 
-      background: white; 
-      border: none; 
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08); 
-      border-radius: 6px; 
-    }
-    .pvtTable { 
-      border-collapse: collapse; 
-      width: 100%; 
-      font-size: 13px; 
-    }
-    .pvtTable th { 
-      background: #0078d4; 
-      color: white; 
-      padding: 10px; 
-      font-weight: 600; 
-    }
-    .pvtTable td { 
-      padding: 8px; 
-      border: 1px solid #e0e0e0; 
-    }
-    .pvtTotalLabel, .pvtGrandTotal { 
-      background: #e6f2ff; 
-      font-weight: bold; 
-    }
-    #dash-controls { 
-      display: flex; 
-      gap: 15px; 
-      margin: 15px 0; 
-      flex-wrap: wrap; 
-    }
-    #dash-controls label { 
-      display: flex; 
-      align-items: center; 
-      gap: 6px; 
-      font-weight: 500; 
-    }
+    #pivotContainer { height: auto; min-height: 80vh; overflow-y: auto; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 15px; }
   </style>
 </head>
 <body>
@@ -168,29 +121,7 @@
   <div id="dashboardModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:2000; overflow:auto;">
     <div style="width:92%; max-width:1600px; margin:2% auto; background:white; padding:20px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.3);">
       <h2 style="margin-top:0; color:#0078d4;">Dashboard Analítico</h2>
-      
-      <div id="dash-controls">
-        <label>Fuente:
-          <select id="dashFontFamily">
-            <option value="Segoe UI">Segoe UI</option>
-            <option value="Arial">Arial</option>
-            <option value="Calibri">Calibri</option>
-            <option value="Helvetica">Helvetica</option>
-          </select>
-        </label>
-        <label>Tamaño letra:
-          <select id="dashFontSize">
-            <option value="12px">12 px</option>
-            <option value="13px" selected>13 px</option>
-            <option value="14px">14 px</option>
-            <option value="15px">15 px</option>
-            <option value="16px">16 px</option>
-          </select>
-        </label>
-      </div>
-
       <div id="pivotContainer"></div>
-
       <div style="margin-top:15px; text-align:right;">
         <button id="cerrarDashboard" style="padding:10px 24px; background:#dc3545; color:white; border:none; border-radius:6px; cursor:pointer;">Cerrar</button>
       </div>
@@ -286,7 +217,7 @@
           'ROBO FRUSTRADO': L.icon({ iconUrl: './iconos/ico-robo-frustrado.png', iconSize: [32,32], iconAnchor: [16,32] }),
           'ROBO CON VIOLENCIA': L.icon({ iconUrl: './iconos/ico-robo-violencia.png', iconSize: [32,32], iconAnchor: [16,32] }),
           'APROPIACION DE CABLES DE TENDIDO ELECTRICO': L.icon({ iconUrl: './iconos/ico_robo_cable_tendido_electrico.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'ROBO VIOLENTO DE VEHICULO': L.icon({ iconUrl: './iconos/ico_robo_vehiculo_sorpresa_violencia_int.png', iconSize: [32,32], iconAnchor: [16,32] })
+          'ROBO VIOLENTO DE VEHICULO': L.icon({ iconUrl: './iconos/ico-robo_vehiculo_sorpresa_violencia_int.png', iconSize: [32,32], iconAnchor: [16,32] })
         };
         this.cargarDatos();
       }
@@ -488,7 +419,6 @@
   mainArea.id = 'printMain';
   mainArea.style.cssText = 'position:relative; width:100%; height:100%; background:white; margin:0; padding:0; overflow:hidden;';
   printContent.appendChild(mainArea);
-  // Header
   const header = document.createElement('div');
   header.id = 'printHeader';
   header.style.cssText = 'position:absolute; top:0; left:0; width:100%; height:80px; background:#05690c; color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(0,0,0,0.5); border:1px dashed #ccc; cursor:move; overflow:hidden; z-index:100;';
@@ -502,13 +432,11 @@
   `;
   mainArea.appendChild(header);
   this.makeDraggableResizable(header);
-  // Logo independiente, arrastrable
   const logoPrint = document.createElement('img');
   logoPrint.src = './iconos/logo-sexta.png';
   logoPrint.style.cssText = 'position:absolute; bottom:10px; right:10px; width:180px; max-width:25%; height:auto; cursor:move; z-index:100; border:1px dashed #ccc;';
   mainArea.appendChild(logoPrint);
   this.makeDraggableResizable(logoPrint);
-  // Mapa
   const mapDiv = document.createElement('div');
   mapDiv.id = 'printMapInteractive';
   mapDiv.style.cssText = 'position:absolute; top:80px; left:0; width:100%; height:calc(100% - 80px); border:1px dashed #ccc; cursor:move; overflow:hidden; z-index:1;';
@@ -549,13 +477,10 @@
       mainArea.appendChild(card);
       this.makeDraggableResizable(card);
     });
-    // Selección para fuente
     mainArea.addEventListener('click', e => {
       document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
       let target = e.target.closest('.caso-card, #printHeader, img[src*="logo-sexta"], #printMapInteractive');
-      if (target) {
-        target.classList.add('selected');
-      }
+      if (target) target.classList.add('selected');
     });
     document.getElementById('fontSizeSelect').onchange = e => {
       const selected = document.querySelector('.selected');
@@ -697,51 +622,157 @@
       }
     }
     new MapaDelitos();
+
+    // === DASHBOARD ACTUALIZADO (solo esta parte se modificó) ===
     document.getElementById('btnDashboard').onclick = () => {
-      document.getElementById('dashboardModal').style.display = 'block';
-      const renderers = $.extend(
-        $.pivotUtilities.renderers,
-        $.pivotUtilities.plotly_renderers
-      );
-      $("#pivotContainer").pivotUI(mapa.filtrados, {
-        rows: ["delito"],
-        columns: ["dia"],
-        vals: ["numero_parte"],
-        aggregatorName: "Count",
-        rendererName: "Bar Chart",
-        renderers: renderers,
-        localeStrings: {
-          renderError: "Error al renderizar",
-          computeError: "Error en cálculo",
-          uiRenderError: "Error en interfaz",
-          total: "Total",
-          grandTotal: "Gran Total",
-          subtotal: "Subtotal",
-          count: "Conteo",
-          "Count as Fraction of Total": "Conteo % del total",
-          "Count as Fraction of Rows": "Conteo % por fila",
-          "Count as Fraction of Columns": "Conteo % por columna"
-        },
-        aggregators: {
-          "Conteo": $.pivotUtilities.aggregators["Count"],
-          "Conteo y % Total": function() { return $.pivotUtilities.aggregatorTemplates.count()(); },
-          "Conteo % Total": $.pivotUtilities.aggregatorTemplates.fractionOf($.pivotUtilities.aggregatorTemplates.count(), "total", "% Total")
+      const modal = document.getElementById('dashboardModal');
+      modal.style.display = 'block';
+
+      const container = document.getElementById('pivotContainer');
+      container.innerHTML = `
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px;padding:10px;font-family:Segoe UI,Arial,sans-serif;">
+          <!-- 1. TIPOS DE ROBO -->
+          <div style="background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:18px;">
+            <h3 style="margin:0 0 15px;color:#0078d4;font-size:18px;border-bottom:2px solid #0078d4;padding-bottom:8px;">1. Tipos de Robo</h3>
+            <table id="tablaDelitos" style="width:100%;border-collapse:collapse;font-size:14px;"></table>
+          </div>
+          <!-- 2. TRAMOS HORARIOS -->
+          <div style="background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:18px;">
+            <h3 style="margin:0 0 15px;color:#0078d4;font-size:18px;border-bottom:2px solid #0078d4;padding-bottom:8px;">2. Tramos Horarios</h3>
+            <table id="tablaHorarios" style="width:100%;border-collapse:collapse;font-size:14px;"></table>
+          </div>
+          <!-- 3. CUADRANTES -->
+          <div style="background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:18px;">
+            <h3 style="margin:0 0 15px;color:#0078d4;font-size:18px;border-bottom:2px solid #0078d4;padding-bottom:8px;">3. Cuadrantes</h3>
+            <table id="tablaCuadrantes" style="width:100%;border-collapse:collapse;font-size:14px;"></table>
+          </div>
+          <!-- 4. TOP 4 DELITOS POR CUADRANTE -->
+          <div style="background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:18px;grid-column:1/-1;">
+            <h3 style="margin:0 0 15px;color:#0078d4;font-size:18px;border-bottom:2px solid #0078d4;padding-bottom:8px;">4. Top 4 Delitos por Cuadrante</h3>
+            <div style="margin:12px 0;">
+              <button id="btnTodo" style="padding:8px 16px;background:#0078d4;color:white;border:none;border-radius:6px;cursor:pointer;margin-right:10px;">Todo</button>
+              <button id="btnAgrupado" style="padding:8px 16px;background:#28a745;color:white;border:none;border-radius:6px;cursor:pointer;">Agrupado</button>
+            </div>
+            <div id="listaTopDelitos" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;"></div>
+          </div>
+        </div>
+      `;
+
+      const data = mapa.filtrados;
+      const total = data.length || 1;
+      const pct = n => (n / total * 100).toFixed(1) + '%';
+
+      // 1. Tipos de Robo + Total
+      const delitosMap = {};
+      data.forEach(c => delitosMap[c.delito] = (delitosMap[c.delito]||0) + 1);
+      const tablaDelitos = document.getElementById('tablaDelitos');
+      let htmlD = `<tr style="background:#0078d4;color:white"><th style="padding:10px;text-align:left">Delito</th><th style="padding:10px;text-align:right">Casos</th><th style="padding:10px;text-align:right">%</th></tr>`;
+      let sumaD = 0;
+      Object.entries(delitosMap).sort((a,b)=>b[1]-a[1]).forEach(([delito,cant]) => {
+        htmlD += `<tr style="border-bottom:1px solid #eee"><td style="padding:8px">${delito}</td><td style="padding:8px;text-align:right">${cant}</td><td style="padding:8px;text-align:right">${pct(cant)}</td></tr>`;
+        sumaD += cant;
+      });
+      htmlD += `<tr style="background:#e6f2ff;font-weight:bold"><td style="padding:10px">TOTAL</td><td style="padding:10px;text-align:right">${sumaD}</td><td style="padding:10px;text-align:right">100%</td></tr>`;
+      tablaDelitos.innerHTML = htmlD;
+
+      // 2. Tramos Horarios + Total
+      const rangos = {'00:00 a 03:59':0,'04:00 a 07:59':0,'08:00 a 11:59':0,'12:00 a 15:59':0,'16:00 a 19:59':0,'20:00 a 23:59':0};
+      data.forEach(c => {
+        const h = parseInt(c.hora.split(':')[0]);
+        if (h<=3) rangos['00:00 a 03:59']++;
+        else if (h<=7) rangos['04:00 a 07:59']++;
+        else if (h<=11) rangos['08:00 a 11:59']++;
+        else if (h<=15) rangos['12:00 a 15:59']++;
+        else if (h<=19) rangos['16:00 a 19:59']++;
+        else rangos['20:00 a 23:59']++;
+      });
+      const tablaHorarios = document.getElementById('tablaHorarios');
+      let htmlH = `<tr style="background:#0078d4;color:white"><th style="padding:10px">Tramo</th><th style="padding:10px;text-align:right">Casos</th><th style="padding:10px;text-align:right">%</th></tr>`;
+      let sumaH = 0;
+      Object.keys(rangos).forEach(r => {
+        htmlH += `<tr style="border-bottom:1px solid #eee"><td style="padding:8px">${r}</td><td style="padding:8px;text-align:right">${rangos[r]}</td><td style="padding:8px;text-align:right">${pct(rangos[r])}</td></tr>`;
+        sumaH += rangos[r];
+      });
+      htmlH += `<tr style="background:#e6f2ff;font-weight:bold"><td style="padding:10px">TOTAL</td><td style="padding:10px;text-align:right">${sumaH}</td><td style="padding:10px;text-align:right">100%</td></tr>`;
+      tablaHorarios.innerHTML = htmlH;
+
+      // 3. Cuadrantes + Total
+      const cuadMap = {};
+      data.forEach(c => cuadMap[c.cuadrante] = (cuadMap[c.cuadrante]||0) + 1);
+      const tablaCuadrantes = document.getElementById('tablaCuadrantes');
+      let htmlC = `<tr style="background:#0078d4;color:white"><th style="padding:10px">Cuadrante</th><th style="padding:10px;text-align:right">Casos</th><th style="padding:10px;text-align:right">%</th></tr>`;
+      let sumaC = 0;
+      Object.entries(cuadMap).sort((a,b)=>b[1]-a[1]).forEach(([cuad,cant]) => {
+        htmlC += `<tr style="border-bottom:1px solid #eee"><td style="padding:8px">${cuad||'Sin cuadrante'}</td><td style="padding:8px;text-align:right">${cant}</td><td style="padding:8px;text-align:right">${pct(cant)}</td></tr>`;
+        sumaC += cant;
+      });
+      htmlC += `<tr style="background:#e6f2ff;font-weight:bold"><td style="padding:10px">TOTAL</td><td style="padding:10px;text-align:right">${sumaC}</td><td style="padding:10px;text-align:right">100%</td></tr>`;
+      tablaCuadrantes.innerHTML = htmlC;
+
+      // 4. Top 4 por cuadrante - con modos
+      const porCuadrante = {};
+      data.forEach(c => {
+        const key = c.cuadrante || 'Sin cuadrante';
+        if (!porCuadrante[key]) porCuadrante[key] = {};
+        porCuadrante[key][c.delito] = (porCuadrante[key][c.delito]||0) + 1;
+      });
+
+      const listaTop = document.getElementById('listaTopDelitos');
+
+      function renderTop(modo = 'todo') {
+        listaTop.innerHTML = '';
+        let grupos;
+        if (modo === 'todo') {
+          grupos = Object.keys(porCuadrante).sort();
+        } else {
+          grupos = ['Cuadrantes 01 y 03','Cuadrante 02','Cuadrante 04','Cuadrantes 05 y 06','Cuadrantes 07 y 08'];
         }
-      }, true);
-      const ui = document.querySelector('.pvtUi');
-      if (ui) {
-        document.getElementById('dashFontFamily').onchange = e => {
-          ui.style.fontFamily = e.target.value;
-        };
-        document.getElementById('dashFontSize').onchange = e => {
-          ui.style.fontSize = e.target.value;
-        };
+
+        grupos.forEach(grupo => {
+          let delitosGrupo = {};
+          if (modo === 'todo') {
+            if (!porCuadrante[grupo]) return;
+            delitosGrupo = porCuadrante[grupo];
+          } else {
+            let cuadList;
+            if (grupo === 'Cuadrantes 01 y 03') cuadList = ['Cuadrante 01','Cuadrante 03'];
+            else if (grupo === 'Cuadrante 02') cuadList = ['Cuadrante 02'];
+            else if (grupo === 'Cuadrante 04') cuadList = ['Cuadrante 04'];
+            else if (grupo === 'Cuadrantes 05 y 06') cuadList = ['Cuadrante 05','Cuadrante 06'];
+            else if (grupo === 'Cuadrantes 07 y 08') cuadList = ['Cuadrante 07','Cuadrante 08'];
+            else return;
+
+            cuadList.forEach(cuad => {
+              if (porCuadrante[cuad]) {
+                Object.entries(porCuadrante[cuad]).forEach(([del,cant]) => {
+                  delitosGrupo[del] = (delitosGrupo[del]||0) + cant;
+                });
+              }
+            });
+          }
+
+          const top4 = Object.entries(delitosGrupo).sort((a,b)=>b[1]-a[1]).slice(0,4);
+          if (top4.length === 0) return;
+
+          listaTop.innerHTML += `
+            <div style="border:1px solid #ddd;border-radius:10px;padding:15px;background:#f8f9fa">
+              <div style="font-weight:bold;margin-bottom:10px;color:#05690c">${grupo}</div>
+              <ol style="margin:0;padding-left:20px;font-size:13px">
+                ${top4.map(([del, cant]) => `<li><strong>${del}</strong> — ${cant} casos</li>`).join('')}
+              </ol>
+            </div>`;
+        });
       }
+
+      renderTop('todo');
+
+      document.getElementById('btnTodo').onclick = () => renderTop('todo');
+      document.getElementById('btnAgrupado').onclick = () => renderTop('agrupado');
     };
+
     document.getElementById('cerrarDashboard').onclick = () => {
       document.getElementById('dashboardModal').style.display = 'none';
     };
   </script>
 </body>
 </html>
-
