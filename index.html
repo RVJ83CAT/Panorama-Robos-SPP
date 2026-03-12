@@ -76,7 +76,18 @@
       #printButtons, .resizer, .element-controls { display: none !important; }
     }
     #dashboardModal { overflow: auto; }
-    #pivotContainer { height: auto; min-height: 80vh; overflow-y: auto; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 15px; }
+    #pivotContainer { height: auto; min-height: 80vh; overflow-y: auto; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 15px; position:relative; }
+    .dash-panel { position:absolute; background:#fff; border-radius:10px; box-shadow:0 3px 12px rgba(0,0,0,0.08); padding:14px; min-width:280px; min-height:140px; cursor:move; border:1px dashed #ccc; }
+    .dash-panel h3 { margin:0 0 10px;color:#0078d4;font-size:16px;border-bottom:2px solid #0078d4;padding-bottom:6px; }
+    .resizer { position:absolute; width:10px; height:10px; background:#05690c; z-index:2; }
+    .resizer.nw { top:-5px; left:-5px; cursor:nw-resize; }
+    .resizer.n { top:-5px; left:50%; cursor:n-resize; }
+    .resizer.ne { top:-5px; right:-5px; cursor:ne-resize; }
+    .resizer.w { left:-5px; top:50%; cursor:w-resize; }
+    .resizer.e { right:-5px; top:50%; cursor:e-resize; }
+    .resizer.sw { bottom:-5px; left:-5px; cursor:sw-resize; }
+    .resizer.s { bottom:-5px; left:50%; cursor:s-resize; }
+    .resizer.se { bottom:-5px; right:-5px; cursor:se-resize; }
   </style>
 </head>
 <body>
@@ -217,7 +228,7 @@
           'ROBO FRUSTRADO': L.icon({ iconUrl: './iconos/ico-robo-frustrado.png', iconSize: [32,32], iconAnchor: [16,32] }),
           'ROBO CON VIOLENCIA': L.icon({ iconUrl: './iconos/ico-robo-violencia.png', iconSize: [32,32], iconAnchor: [16,32] }),
           'APROPIACION DE CABLES DE TENDIDO ELECTRICO': L.icon({ iconUrl: './iconos/ico_robo_cable_tendido_electrico.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'ROBO VIOLENTO DE VEHICULO': L.icon({ iconUrl: './iconos/ico_robo_vehiculo_sorpresa_violencia_int.png', iconSize: [32,32], iconAnchor: [16,32] })
+          'ROBO VIOLENTO DE VEHICULO': L.icon({ iconUrl: './iconos/ico-robo_vehiculo_sorpresa_violencia_int.png', iconSize: [32,32], iconAnchor: [16,32] })
         };
         this.cargarDatos();
       }
@@ -412,111 +423,111 @@
         if (el) el.style.background = '#d4edda';
       }
       prepararImpresion() {
-  const printModal = document.getElementById('printModal');
-  const printContent = document.getElementById('printContent');
-  printContent.innerHTML = '';
-  const mainArea = document.createElement('div');
-  mainArea.id = 'printMain';
-  mainArea.style.cssText = 'position:relative; width:100%; height:100%; background:white; margin:0; padding:0; overflow:hidden;';
-  printContent.appendChild(mainArea);
-  const header = document.createElement('div');
-  header.id = 'printHeader';
-  header.style.cssText = 'position:absolute; top:0; left:0; width:100%; height:80px; background:#05690c; color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(0,0,0,0.5); border:1px dashed #ccc; cursor:move; overflow:hidden; z-index:100;';
-  header.innerHTML = `
-    <div class="print-titulo-principal" contenteditable="true" style="font-size:32px; font-weight:900; color:#ffffff;">
-      ${document.querySelector('.titulo-principal').textContent}
-    </div>
-    <div class="print-subtitulo-filtros" contenteditable="true" style="font-size:18px; font-weight:700; color:#ffffff; margin-top:4px;">
-      ${document.getElementById('subtituloFiltros').textContent}
-    </div>
-  `;
-  mainArea.appendChild(header);
-  this.makeDraggableResizable(header);
-  const logoPrint = document.createElement('img');
-  logoPrint.src = './iconos/logo-sexta.png';
-  logoPrint.style.cssText = 'position:absolute; bottom:10px; right:10px; width:180px; max-width:25%; height:auto; cursor:move; z-index:100; border:1px dashed #ccc;';
-  mainArea.appendChild(logoPrint);
-  this.makeDraggableResizable(logoPrint);
-  const mapDiv = document.createElement('div');
-  mapDiv.id = 'printMapInteractive';
-  mapDiv.style.cssText = 'position:absolute; top:80px; left:0; width:100%; height:calc(100% - 80px); border:1px dashed #ccc; cursor:move; overflow:hidden; z-index:1;';
-  mainArea.appendChild(mapDiv);
-  printModal.style.display = 'block';
-  setTimeout(() => {
-    const printMap = L.map('printMapInteractive', { zoomControl: true, zoomSnap: 0.1, zoomDelta: 0.1 });
-    const activeBaseKey = Object.keys(this.baseLayers).find(k => this.map.hasLayer(this.baseLayers[k]));
-    if (activeBaseKey) this.baseLayers[activeBaseKey].addTo(printMap);
-    Object.values(this.overlayLayers).forEach(layer => {
-      if (this.map.hasLayer(layer)) layer.addTo(printMap);
-    });
-    L.control.layers(this.baseLayers, this.overlayLayers, {position: 'topright', collapsed: true}).addTo(printMap);
-    const printMarkers = this.clusterEnabled ? createClusterGroup() : L.layerGroup();
-    this.filtrados.forEach((c, i) => {
-      if (c.lat && c.lon) printMarkers.addLayer(this.crearMarcador(c, i));
-    });
-    printMap.addLayer(printMarkers);
-    if (this.filtrados.length > 0) {
-      const bounds = L.latLngBounds(this.filtrados.map(c => [c.lat, c.lon]));
-      printMap.fitBounds(bounds, { padding: [60, 60] });
-    } else {
-      printMap.setView(this.map.getCenter(), this.map.getZoom());
-    }
-    printMap.invalidateSize();
-    this.makeDraggableResizable(mapDiv);
-    this.filtrados.forEach((c, i) => {
-      const card = document.createElement('div');
-      card.className = 'caso-card';
-      card.style.cssText = `position:absolute; top:${80 + Math.floor(i / 3) * 120}px; left:${(i % 3) * 33.3}%; width:200px; min-height:80px; background:white; border:1px solid #ddd; border-left:5px solid ${this.getColor(c.delito)}; padding:5px; font-family:Verdana; font-size:6px; line-height:1.2; box-shadow:0 2px 6px rgba(0,0,0,0.15); cursor:move; overflow:hidden; -webkit-font-smoothing:antialiased; z-index:100;`;
-      card.innerHTML = `
-        <span contenteditable="true" style="color:${this.getColor(c.delito)}; font-weight:900; font-size:16px;">${i+1}</span>
-        <strong contenteditable="true">${c.delito}</strong>
-        ${c.numero_parte ? `<span contenteditable="true" style="background:#444; color:#fff; padding:1px 4px; border-radius:3px; font-size:8px;">${c.numero_parte}</span>` : ''}
-        <br><small contenteditable="true">${c.direccion} • ${c.fecha} ${c.hora}</small>
-        <div contenteditable="true" style="margin-top:4px; color:#333;">${this.resaltarTexto(c.circunstancias || 'Sin detalles', this.palabrasBuscadas)}</div>
-      `;
-      mainArea.appendChild(card);
-      this.makeDraggableResizable(card);
-    });
-    mainArea.addEventListener('click', e => {
-      document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
-      let target = e.target.closest('.caso-card, #printHeader, img[src*="logo-sexta"], #printMapInteractive');
-      if (target) target.classList.add('selected');
-    });
-    document.getElementById('fontSizeSelect').onchange = e => {
-      const selected = document.querySelector('.selected');
-      if (selected) selected.style.fontSize = e.target.value + 'px';
-    };
-    document.getElementById('fontFamilySelect').onchange = e => {
-      const selected = document.querySelector('.selected');
-      if (selected) selected.style.fontFamily = e.target.value;
-    };
-    const sizes = {
-      A4: {w:'210mm', h:'297mm'},
-      Letter: {w:'215.9mm', h:'279.4mm'},
-      Legal: {w:'215.9mm', h:'355.6mm'},
-      Folio: {w:'215.9mm', h:'330.2mm'},
-      '8.5x13': {w:'215.9mm', h:'330.2mm'}
-    };
-    const updateSize = () => {
-      const fmt = document.getElementById('paperSizeSelect').value;
-      const ori = document.getElementById('orientationSelect').value;
-      const s = sizes[fmt];
-      printContent.style.width = ori === 'landscape' ? s.h : s.w;
-      printContent.style.minHeight = ori === 'landscape' ? s.w : s.h;
-      mainArea.style.width = ori === 'landscape' ? s.h : s.w;
-      mainArea.style.height = ori === 'landscape' ? s.w : s.h;
-      printMap.invalidateSize();
-    };
-    document.getElementById('paperSizeSelect').onchange = updateSize;
-    document.getElementById('orientationSelect').onchange = updateSize;
-    updateSize();
-    document.getElementById('printButton').onclick = () => window.print();
-    document.getElementById('closeButton').onclick = () => {
-      printModal.style.display = 'none';
-      this.map.invalidateSize();
-    };
-  }, 300);
-}
+        const printModal = document.getElementById('printModal');
+        const printContent = document.getElementById('printContent');
+        printContent.innerHTML = '';
+        const mainArea = document.createElement('div');
+        mainArea.id = 'printMain';
+        mainArea.style.cssText = 'position:relative; width:100%; height:100%; background:white; margin:0; padding:0; overflow:hidden;';
+        printContent.appendChild(mainArea);
+        const header = document.createElement('div');
+        header.id = 'printHeader';
+        header.style.cssText = 'position:absolute; top:0; left:0; width:100%; height:80px; background:#05690c; color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(0,0,0,0.5); border:1px dashed #ccc; cursor:move; overflow:hidden; z-index:100;';
+        header.innerHTML = `
+          <div class="print-titulo-principal" contenteditable="true" style="font-size:32px; font-weight:900; color:#ffffff;">
+            ${document.querySelector('.titulo-principal').textContent}
+          </div>
+          <div class="print-subtitulo-filtros" contenteditable="true" style="font-size:18px; font-weight:700; color:#ffffff; margin-top:4px;">
+            ${document.getElementById('subtituloFiltros').textContent}
+          </div>
+        `;
+        mainArea.appendChild(header);
+        this.makeDraggableResizable(header);
+        const logoPrint = document.createElement('img');
+        logoPrint.src = './iconos/logo-sexta.png';
+        logoPrint.style.cssText = 'position:absolute; bottom:10px; right:10px; width:180px; max-width:25%; height:auto; cursor:move; z-index:100; border:1px dashed #ccc;';
+        mainArea.appendChild(logoPrint);
+        this.makeDraggableResizable(logoPrint);
+        const mapDiv = document.createElement('div');
+        mapDiv.id = 'printMapInteractive';
+        mapDiv.style.cssText = 'position:absolute; top:80px; left:0; width:100%; height:calc(100% - 80px); border:1px dashed #ccc; cursor:move; overflow:hidden; z-index:1;';
+        mainArea.appendChild(mapDiv);
+        printModal.style.display = 'block';
+        setTimeout(() => {
+          const printMap = L.map('printMapInteractive', { zoomControl: true, zoomSnap: 0.1, zoomDelta: 0.1 });
+          const activeBaseKey = Object.keys(this.baseLayers).find(k => this.map.hasLayer(this.baseLayers[k]));
+          if (activeBaseKey) this.baseLayers[activeBaseKey].addTo(printMap);
+          Object.values(this.overlayLayers).forEach(layer => {
+            if (this.map.hasLayer(layer)) layer.addTo(printMap);
+          });
+          L.control.layers(this.baseLayers, this.overlayLayers, {position: 'topright', collapsed: true}).addTo(printMap);
+          const printMarkers = this.clusterEnabled ? createClusterGroup() : L.layerGroup();
+          this.filtrados.forEach((c, i) => {
+            if (c.lat && c.lon) printMarkers.addLayer(this.crearMarcador(c, i));
+          });
+          printMap.addLayer(printMarkers);
+          if (this.filtrados.length > 0) {
+            const bounds = L.latLngBounds(this.filtrados.map(c => [c.lat, c.lon]));
+            printMap.fitBounds(bounds, { padding: [60, 60] });
+          } else {
+            printMap.setView(this.map.getCenter(), this.map.getZoom());
+          }
+          printMap.invalidateSize();
+          this.makeDraggableResizable(mapDiv);
+          this.filtrados.forEach((c, i) => {
+            const card = document.createElement('div');
+            card.className = 'caso-card';
+            card.style.cssText = `position:absolute; top:${80 + Math.floor(i / 3) * 120}px; left:${(i % 3) * 33.3}%; width:200px; min-height:80px; background:white; border:1px solid #ddd; border-left:5px solid ${this.getColor(c.delito)}; padding:5px; font-family:Verdana; font-size:6px; line-height:1.2; box-shadow:0 2px 6px rgba(0,0,0,0.15); cursor:move; overflow:hidden; -webkit-font-smoothing:antialiased; z-index:100;`;
+            card.innerHTML = `
+              <span contenteditable="true" style="color:${this.getColor(c.delito)}; font-weight:900; font-size:16px;">${i+1}</span>
+              <strong contenteditable="true">${c.delito}</strong>
+              ${c.numero_parte ? `<span contenteditable="true" style="background:#444; color:#fff; padding:1px 4px; border-radius:3px; font-size:8px;">${c.numero_parte}</span>` : ''}
+              <br><small contenteditable="true">${c.direccion} • ${c.fecha} ${c.hora}</small>
+              <div contenteditable="true" style="margin-top:4px; color:#333;">${this.resaltarTexto(c.circunstancias || 'Sin detalles', this.palabrasBuscadas)}</div>
+            `;
+            mainArea.appendChild(card);
+            this.makeDraggableResizable(card);
+          });
+          mainArea.addEventListener('click', e => {
+            document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+            let target = e.target.closest('.caso-card, #printHeader, img[src*="logo-sexta"], #printMapInteractive');
+            if (target) target.classList.add('selected');
+          });
+          document.getElementById('fontSizeSelect').onchange = e => {
+            const selected = document.querySelector('.selected');
+            if (selected) selected.style.fontSize = e.target.value + 'px';
+          };
+          document.getElementById('fontFamilySelect').onchange = e => {
+            const selected = document.querySelector('.selected');
+            if (selected) selected.style.fontFamily = e.target.value;
+          };
+          const sizes = {
+            A4: {w:'210mm', h:'297mm'},
+            Letter: {w:'215.9mm', h:'279.4mm'},
+            Legal: {w:'215.9mm', h:'355.6mm'},
+            Folio: {w:'215.9mm', h:'330.2mm'},
+            '8.5x13': {w:'215.9mm', h:'330.2mm'}
+          };
+          const updateSize = () => {
+            const fmt = document.getElementById('paperSizeSelect').value;
+            const ori = document.getElementById('orientationSelect').value;
+            const s = sizes[fmt];
+            printContent.style.width = ori === 'landscape' ? s.h : s.w;
+            printContent.style.minHeight = ori === 'landscape' ? s.w : s.h;
+            mainArea.style.width = ori === 'landscape' ? s.h : s.w;
+            mainArea.style.height = ori === 'landscape' ? s.w : s.h;
+            printMap.invalidateSize();
+          };
+          document.getElementById('paperSizeSelect').onchange = updateSize;
+          document.getElementById('orientationSelect').onchange = updateSize;
+          updateSize();
+          document.getElementById('printButton').onclick = () => window.print();
+          document.getElementById('closeButton').onclick = () => {
+            printModal.style.display = 'none';
+            this.map.invalidateSize();
+          };
+        }, 300);
+      }
       makeDraggableResizable(el) {
         const dirs = ['nw','n','ne','w','e','sw','s','se'];
         dirs.forEach(d => {
@@ -623,62 +634,114 @@
     }
     new MapaDelitos();
 
-    // === DASHBOARD ACTUALIZADO (solo esta parte se modificó) ===
+    // DASHBOARD MODIFICADO - paneles arrastrables y redimensionables + gráfico corregido
     document.getElementById('btnDashboard').onclick = () => {
       const modal = document.getElementById('dashboardModal');
       modal.style.display = 'block';
 
       const container = document.getElementById('pivotContainer');
       container.innerHTML = `
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px;padding:10px;font-family:Segoe UI,Arial,sans-serif;">
-          <!-- 1. TIPOS DE ROBO -->
-          <div style="background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:18px;">
-            <h3 style="margin:0 0 15px;color:#0078d4;font-size:18px;border-bottom:2px solid #0078d4;padding-bottom:8px;">1. Tipos de Robo</h3>
-            <table id="tablaDelitos" style="width:100%;border-collapse:collapse;font-size:14px;"></table>
+        <div id="dashTipos" class="dash-panel" style="top:20px;left:20px;width:340px;height:220px;">
+          <h3>Tipos de Robo</h3>
+          <table id="tablaDelitos" style="width:100%;border-collapse:collapse;font-size:13px;"></table>
+        </div>
+        <div id="dashHorarios" class="dash-panel" style="top:20px;left:380px;width:340px;height:220px;">
+          <h3>Tramos Horarios</h3>
+          <table id="tablaHorarios" style="width:100%;border-collapse:collapse;font-size:13px;"></table>
+        </div>
+        <div id="dashCuadrantes" class="dash-panel" style="top:260px;left:20px;width:340px;height:220px;">
+          <h3>Cuadrantes</h3>
+          <table id="tablaCuadrantes" style="width:100%;border-collapse:collapse;font-size:13px;"></table>
+        </div>
+        <div id="dashDias" class="dash-panel" style="top:260px;left:380px;width:340px;height:220px;">
+          <h3>Días de la semana</h3>
+          <table id="tablaDias" style="width:100%;border-collapse:collapse;font-size:13px;"></table>
+        </div>
+        <div id="dashLugares" class="dash-panel" style="top:500px;left:20px;width:340px;height:220px;">
+          <h3>Lugar del delito</h3>
+          <table id="tablaLugares" style="width:100%;border-collapse:collapse;font-size:13px;"></table>
+        </div>
+        <div id="dashGrafico" class="dash-panel" style="top:20px;left:740px;width:620px;height:280px;">
+          <h3>Robos últimas 6 semanas (lunes-domingo)</h3>
+          <div id="graficoSemanas" style="height:210px;"></div>
+        </div>
+        <div id="dashTop" class="dash-panel" style="top:320px;left:740px;width:620px;height:400px;">
+          <h3>Top 4 Delitos por Cuadrante</h3>
+          <div style="margin:10px 0;">
+            <button id="btnTodo" style="padding:6px 14px;background:#0078d4;color:white;border:none;border-radius:5px;cursor:pointer;margin-right:8px;font-size:13px;">Todo</button>
+            <button id="btnAgrupado" style="padding:6px 14px;background:#28a745;color:white;border:none;border-radius:5px;cursor:pointer;font-size:13px;">Agrupado</button>
           </div>
-          <!-- 2. TRAMOS HORARIOS -->
-          <div style="background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:18px;">
-            <h3 style="margin:0 0 15px;color:#0078d4;font-size:18px;border-bottom:2px solid #0078d4;padding-bottom:8px;">2. Tramos Horarios</h3>
-            <table id="tablaHorarios" style="width:100%;border-collapse:collapse;font-size:14px;"></table>
-          </div>
-          <!-- 3. CUADRANTES -->
-          <div style="background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:18px;">
-            <h3 style="margin:0 0 15px;color:#0078d4;font-size:18px;border-bottom:2px solid #0078d4;padding-bottom:8px;">3. Cuadrantes</h3>
-            <table id="tablaCuadrantes" style="width:100%;border-collapse:collapse;font-size:14px;"></table>
-          </div>
-          <!-- 4. TOP 4 DELITOS POR CUADRANTE -->
-          <div style="background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:18px;grid-column:1/-1;">
-            <h3 style="margin:0 0 15px;color:#0078d4;font-size:18px;border-bottom:2px solid #0078d4;padding-bottom:8px;">4. Top 4 Delitos por Cuadrante</h3>
-            <div style="margin:12px 0;">
-              <button id="btnTodo" style="padding:8px 16px;background:#0078d4;color:white;border:none;border-radius:6px;cursor:pointer;margin-right:10px;">Todo</button>
-              <button id="btnAgrupado" style="padding:8px 16px;background:#28a745;color:white;border:none;border-radius:6px;cursor:pointer;">Agrupado</button>
-            </div>
-            <div id="listaTopDelitos" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;"></div>
-          </div>
+          <div id="listaTopDelitos" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;"></div>
         </div>
       `;
+
+      // Funciones de arrastre y redimension (copiadas del sistema de impresión)
+      function makeDraggableResizable(el) {
+        const dirs = ['nw','n','ne','w','e','sw','s','se'];
+        dirs.forEach(d => {
+          const r = document.createElement('div');
+          r.className = `resizer ${d}`;
+          el.appendChild(r);
+          r.addEventListener('mousedown', e => startResize(e, d, el));
+        });
+        el.addEventListener('mousedown', e => {
+          if (e.target.classList.contains('resizer')) return;
+          e.preventDefault();
+          let sx = e.clientX, sy = e.clientY;
+          const ox = el.offsetLeft, oy = el.offsetTop;
+          const move = ev => {
+            el.style.left = (ox + ev.clientX - sx) + 'px';
+            el.style.top = (oy + ev.clientY - sy) + 'px';
+          };
+          document.onmousemove = move;
+          document.onmouseup = () => { document.onmousemove = document.onmouseup = null; };
+        });
+      }
+      function startResize(e, dir, el) {
+        e.stopPropagation();
+        let sx = e.clientX, sy = e.clientY;
+        let sw = el.offsetWidth, sh = el.offsetHeight;
+        let sl = el.offsetLeft, st = el.offsetTop;
+        const move = ev => {
+          const dx = ev.clientX - sx, dy = ev.clientY - sy;
+          if (dir.includes('e')) el.style.width = (sw + dx) + 'px';
+          if (dir.includes('s')) el.style.height = (sh + dy) + 'px';
+          if (dir.includes('w')) { el.style.width = (sw - dx) + 'px'; el.style.left = (sl + dx) + 'px'; }
+          if (dir.includes('n')) { el.style.height = (sh - dy) + 'px'; el.style.top = (st + dy) + 'px'; }
+        };
+        document.onmousemove = move;
+        document.onmouseup = () => { document.onmousemove = document.onmouseup = null; };
+      }
+
+      // Aplicar a todos los paneles
+      ['dashTipos','dashHorarios','dashCuadrantes','dashDias','dashLugares','dashGrafico','dashTop'].forEach(id => {
+        const panel = document.getElementById(id);
+        if (panel) makeDraggableResizable(panel);
+      });
 
       const data = mapa.filtrados;
       const total = data.length || 1;
       const pct = n => (n / total * 100).toFixed(1) + '%';
 
-      // 1. Tipos de Robo + Total
+      function agregarTotal(tablaId, html, suma) {
+        html += `<tr style="background:#e6f2ff;font-weight:bold"><td style="padding:8px">TOTAL</td><td style="padding:8px;text-align:right">${suma}</td><td style="padding:8px;text-align:right">100%</td></tr>`;
+        document.getElementById(tablaId).innerHTML = html;
+      }
+
+      // Tablas (igual que antes)
       const delitosMap = {};
       data.forEach(c => delitosMap[c.delito] = (delitosMap[c.delito]||0) + 1);
-      const tablaDelitos = document.getElementById('tablaDelitos');
-      let htmlD = `<tr style="background:#0078d4;color:white"><th style="padding:10px;text-align:left">Delito</th><th style="padding:10px;text-align:right">Casos</th><th style="padding:10px;text-align:right">%</th></tr>`;
+      let htmlD = `<tr style="background:#0078d4;color:white"><th style="padding:8px;text-align:left">Delito</th><th style="padding:8px;text-align:right">Casos</th><th style="padding:8px;text-align:right">%</th></tr>`;
       let sumaD = 0;
-      Object.entries(delitosMap).sort((a,b)=>b[1]-a[1]).forEach(([delito,cant]) => {
-        htmlD += `<tr style="border-bottom:1px solid #eee"><td style="padding:8px">${delito}</td><td style="padding:8px;text-align:right">${cant}</td><td style="padding:8px;text-align:right">${pct(cant)}</td></tr>`;
-        sumaD += cant;
+      Object.entries(delitosMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => {
+        htmlD += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td><td style="padding:6px;text-align:right">${pct(v)}</td></tr>`;
+        sumaD += v;
       });
-      htmlD += `<tr style="background:#e6f2ff;font-weight:bold"><td style="padding:10px">TOTAL</td><td style="padding:10px;text-align:right">${sumaD}</td><td style="padding:10px;text-align:right">100%</td></tr>`;
-      tablaDelitos.innerHTML = htmlD;
+      agregarTotal('tablaDelitos', htmlD, sumaD);
 
-      // 2. Tramos Horarios + Total
       const rangos = {'00:00 a 03:59':0,'04:00 a 07:59':0,'08:00 a 11:59':0,'12:00 a 15:59':0,'16:00 a 19:59':0,'20:00 a 23:59':0};
       data.forEach(c => {
-        const h = parseInt(c.hora.split(':')[0]);
+        const h = parseInt(c.hora?.split(':')[0] || 0);
         if (h<=3) rangos['00:00 a 03:59']++;
         else if (h<=7) rangos['04:00 a 07:59']++;
         else if (h<=11) rangos['08:00 a 11:59']++;
@@ -686,30 +749,84 @@
         else if (h<=19) rangos['16:00 a 19:59']++;
         else rangos['20:00 a 23:59']++;
       });
-      const tablaHorarios = document.getElementById('tablaHorarios');
-      let htmlH = `<tr style="background:#0078d4;color:white"><th style="padding:10px">Tramo</th><th style="padding:10px;text-align:right">Casos</th><th style="padding:10px;text-align:right">%</th></tr>`;
+      let htmlH = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Tramo</th><th style="padding:8px;text-align:right">Casos</th><th style="padding:8px;text-align:right">%</th></tr>`;
       let sumaH = 0;
-      Object.keys(rangos).forEach(r => {
-        htmlH += `<tr style="border-bottom:1px solid #eee"><td style="padding:8px">${r}</td><td style="padding:8px;text-align:right">${rangos[r]}</td><td style="padding:8px;text-align:right">${pct(rangos[r])}</td></tr>`;
-        sumaH += rangos[r];
+      Object.entries(rangos).forEach(([k,v]) => {
+        htmlH += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td><td style="padding:6px;text-align:right">${pct(v)}</td></tr>`;
+        sumaH += v;
       });
-      htmlH += `<tr style="background:#e6f2ff;font-weight:bold"><td style="padding:10px">TOTAL</td><td style="padding:10px;text-align:right">${sumaH}</td><td style="padding:10px;text-align:right">100%</td></tr>`;
-      tablaHorarios.innerHTML = htmlH;
+      agregarTotal('tablaHorarios', htmlH, sumaH);
 
-      // 3. Cuadrantes + Total
       const cuadMap = {};
-      data.forEach(c => cuadMap[c.cuadrante] = (cuadMap[c.cuadrante]||0) + 1);
-      const tablaCuadrantes = document.getElementById('tablaCuadrantes');
-      let htmlC = `<tr style="background:#0078d4;color:white"><th style="padding:10px">Cuadrante</th><th style="padding:10px;text-align:right">Casos</th><th style="padding:10px;text-align:right">%</th></tr>`;
+      data.forEach(c => cuadMap[c.cuadrante||'Sin'] = (cuadMap[c.cuadrante||'Sin']||0) + 1);
+      let htmlC = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Cuadrante</th><th style="padding:8px;text-align:right">Casos</th><th style="padding:8px;text-align:right">%</th></tr>`;
       let sumaC = 0;
-      Object.entries(cuadMap).sort((a,b)=>b[1]-a[1]).forEach(([cuad,cant]) => {
-        htmlC += `<tr style="border-bottom:1px solid #eee"><td style="padding:8px">${cuad||'Sin cuadrante'}</td><td style="padding:8px;text-align:right">${cant}</td><td style="padding:8px;text-align:right">${pct(cant)}</td></tr>`;
-        sumaC += cant;
+      Object.entries(cuadMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => {
+        htmlC += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td><td style="padding:6px;text-align:right">${pct(v)}</td></tr>`;
+        sumaC += v;
       });
-      htmlC += `<tr style="background:#e6f2ff;font-weight:bold"><td style="padding:10px">TOTAL</td><td style="padding:10px;text-align:right">${sumaC}</td><td style="padding:10px;text-align:right">100%</td></tr>`;
-      tablaCuadrantes.innerHTML = htmlC;
+      agregarTotal('tablaCuadrantes', htmlC, sumaC);
 
-      // 4. Top 4 por cuadrante - con modos
+      const diasMap = {};
+      data.forEach(c => diasMap[c.dia||'—'] = (diasMap[c.dia||'—']||0) + 1);
+      let htmlDias = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Día</th><th style="padding:8px;text-align:right">Casos</th></tr>`;
+      Object.entries(diasMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => htmlDias += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td></tr>`);
+      document.getElementById('tablaDias').innerHTML = htmlDias;
+
+      const lugaresMap = {};
+      data.forEach(c => lugaresMap[c.lugar||'—'] = (lugaresMap[c.lugar||'—']||0) + 1);
+      let htmlLug = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Lugar</th><th style="padding:8px;text-align:right">Casos</th></tr>`;
+      Object.entries(lugaresMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => htmlLug += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td></tr>`);
+      document.getElementById('tablaLugares').innerHTML = htmlLug;
+
+      // Gráfico corregido (semana lunes-domingo + etiqueta horizontal)
+      const semanas = {};
+      data.forEach(c => {
+        if (c.semana) semanas[c.semana] = (semanas[c.semana]||0) + 1;
+      });
+
+      const hoy = new Date();
+      const semanasOrden = [];
+      for (let i = 5; i >= 0; i--) {
+        const fechaSem = new Date(hoy);
+        fechaSem.setDate(hoy.getDate() - i * 7);
+        fechaSem.setHours(0,0,0,0);
+        let fechaISO = fechaSem.toISOString().split('T')[0];
+        const [y,m,d] = fechaISO.split('-');
+        const fecha = new Date(Date.UTC(y, m-1, d));
+        fecha.setUTCDate(fecha.getUTCDate() + 4 - (fecha.getUTCDay() || 7));
+        const yearStart = new Date(Date.UTC(y, 0, 1));
+        const week = Math.ceil((((fecha - yearStart) / 86400000) + 1) / 7);
+        const etiqueta = `Semana ${week} - ${y}`;
+        semanasOrden.push({etiqueta, count: semanas[etiqueta] || 0});
+      }
+
+      const labels = semanasOrden.map(s => s.etiqueta);
+      const valores = semanasOrden.map(s => s.count);
+
+      const trace = {
+        x: labels,
+        y: valores,
+        type: 'bar',
+        marker: {color: '#0078d4'},
+        text: valores,
+        textposition: 'auto',
+        insidetextanchor: 'middle',
+        insidetextfont: {color: 'white', size: 14}
+      };
+
+      Plotly.newPlot('graficoSemanas', [trace], {
+        margin: {t:10, b:60, l:50, r:20},
+        height: 210,
+        xaxis: {title: '', tickangle: 0, tickfont: {size: 11}, automargin: true},
+        yaxis: {title: 'Casos', zerolinecolor: '#ddd', gridcolor: '#eee'},
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        font: {family: 'Segoe UI, Arial', size: 12},
+        bargap: 0.35
+      });
+
+      // Top 4 (sin cambios)
       const porCuadrante = {};
       data.forEach(c => {
         const key = c.cuadrante || 'Sin cuadrante';
@@ -721,12 +838,8 @@
 
       function renderTop(modo = 'todo') {
         listaTop.innerHTML = '';
-        let grupos;
-        if (modo === 'todo') {
-          grupos = Object.keys(porCuadrante).sort();
-        } else {
-          grupos = ['Cuadrantes 01 y 03','Cuadrante 02','Cuadrante 04','Cuadrantes 05 y 06','Cuadrantes 07 y 08'];
-        }
+        let grupos = modo === 'todo' ? Object.keys(porCuadrante).sort() : 
+          ['Cuadrantes 01 y 03','Cuadrante 02','Cuadrante 04','Cuadrantes 05 y 06','Cuadrantes 07 y 08'];
 
         grupos.forEach(grupo => {
           let delitosGrupo = {};
@@ -734,38 +847,34 @@
             if (!porCuadrante[grupo]) return;
             delitosGrupo = porCuadrante[grupo];
           } else {
-            let cuadList;
-            if (grupo === 'Cuadrantes 01 y 03') cuadList = ['Cuadrante 01','Cuadrante 03'];
-            else if (grupo === 'Cuadrante 02') cuadList = ['Cuadrante 02'];
-            else if (grupo === 'Cuadrante 04') cuadList = ['Cuadrante 04'];
-            else if (grupo === 'Cuadrantes 05 y 06') cuadList = ['Cuadrante 05','Cuadrante 06'];
-            else if (grupo === 'Cuadrantes 07 y 08') cuadList = ['Cuadrante 07','Cuadrante 08'];
-            else return;
-
-            cuadList.forEach(cuad => {
+            const mapa = {
+              'Cuadrantes 01 y 03': ['Cuadrante 01','Cuadrante 03'],
+              'Cuadrante 02': ['Cuadrante 02'],
+              'Cuadrante 04': ['Cuadrante 04'],
+              'Cuadrantes 05 y 06': ['Cuadrante 05','Cuadrante 06'],
+              'Cuadrantes 07 y 08': ['Cuadrante 07','Cuadrante 08']
+            };
+            (mapa[grupo]||[]).forEach(cuad => {
               if (porCuadrante[cuad]) {
-                Object.entries(porCuadrante[cuad]).forEach(([del,cant]) => {
-                  delitosGrupo[del] = (delitosGrupo[del]||0) + cant;
+                Object.entries(porCuadrante[cuad]).forEach(([d,c]) => {
+                  delitosGrupo[d] = (delitosGrupo[d]||0) + c;
                 });
               }
             });
           }
-
           const top4 = Object.entries(delitosGrupo).sort((a,b)=>b[1]-a[1]).slice(0,4);
           if (top4.length === 0) return;
-
           listaTop.innerHTML += `
-            <div style="border:1px solid #ddd;border-radius:10px;padding:15px;background:#f8f9fa">
-              <div style="font-weight:bold;margin-bottom:10px;color:#05690c">${grupo}</div>
-              <ol style="margin:0;padding-left:20px;font-size:13px">
-                ${top4.map(([del, cant]) => `<li><strong>${del}</strong> — ${cant} casos</li>`).join('')}
+            <div style="border:1px solid #ddd;border-radius:8px;padding:12px;background:#f8f9fa">
+              <div style="font-weight:bold;margin-bottom:8px;color:#05690c;font-size:14px">${grupo}</div>
+              <ol style="margin:0;padding-left:18px;font-size:13px">
+                ${top4.map(([d,c])=>`<li><strong>${d}</strong> — ${c}</li>`).join('')}
               </ol>
             </div>`;
         });
       }
 
       renderTop('todo');
-
       document.getElementById('btnTodo').onclick = () => renderTop('todo');
       document.getElementById('btnAgrupado').onclick = () => renderTop('agrupado');
     };
