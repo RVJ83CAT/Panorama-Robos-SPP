@@ -13033,24 +13033,6 @@
   },
   {
     "clasificacion": "DENUNCIA",
-    "delito": "ROBO DE VEHICULO MOTORIZADO",
-    "fecha": "16-03-2026",
-    "dia": "LUNES",
-    "hora": "19:30",
-    "rango_hora": "16:00 a 19:59",
-    "lugar": "VIA PUBLICA",
-    "direccion": "LAS MARGARITAS 1945",
-    "circunstancias": "El denunciante (H61) estaciona su Station Wagon Toyota Rav4 2024 plomo PPU. TFJV80 en afuera de la casa de su hija a las 19:00. Posteriormente a las 23:30 se percata que el vehículo fué sustraído. Seguro BCI. Encargo EUN 690153. Avalúo $28.000.000.",
-    "cuadrante": "Cuadrante 02",
-    "numero_parte": 304,
-    "direccion_georref": "LAS MARGARITAS 1945",
-    "comuna": "San Pedro de la Paz",
-    "concat": "LAS MARGARITAS 1945 , San Pedro de la Paz",
-    "lat": -36.83651557236161,
-    "lon": -73.1132196082756
-  },
-  {
-    "clasificacion": "DENUNCIA",
     "delito": "ROBO CON VIOLENCIA",
     "fecha": "16-03-2026",
     "dia": "LUNES",
@@ -13066,6 +13048,24 @@
     "concat": "PASAJE 17 & RODRIGUEZ ALDEA , San Pedro de la Paz",
     "lat": -36.83725415841562,
     "lon": -73.14569103244048
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "16-03-2026",
+    "dia": "LUNES",
+    "hora": "19:30",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LAS MARGARITAS 1945",
+    "circunstancias": "El denunciante (H61) estaciona su Station Wagon Toyota Rav4 2024 plomo PPU. TFJV80 en afuera de la casa de su hija a las 19:00. Posteriormente a las 23:30 se percata que el vehículo fué sustraído. Seguro BCI. Encargo EUN 690153. Avalúo $28.000.000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 304,
+    "direccion_georref": "LAS MARGARITAS 1945",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAS MARGARITAS 1945 , San Pedro de la Paz",
+    "lat": -36.83651557236161,
+    "lon": -73.1132196082756
   },
   {
     "clasificacion": "DENUNCIA",
@@ -13120,5 +13120,23 @@
     "concat": "AVENIDA COSTANERA & AVENIDA EL BOSQUE , San Pedro de la Paz",
     "lat": -36.881969081903705,
     "lon": -73.15006318329509
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "17-03-2026",
+    "dia": "MARTES",
+    "hora": "22:50",
+    "rango_hora": "20:00-23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "EXEQUIEL PLAZA 1034",
+    "circunstancias": "La denunciante (M48) quien es profesora universitaria llega a su casa desde su trabajo encontrando la ventana del living abierta y las luces encendidas. El interior del inmueble estaba desordenado. Ahí se percata que sujetos han sustraído 3 televisores, una computadora Asus, tablet Samsung y una freidora de aire. No hay cámaras ni testigos. Avalúo ante Fiscalía.",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 1192,
+    "direccion_georref": "EXEQUIEL PLAZA 1034",
+    "comuna": "San Pedro de la Paz",
+    "concat": "EXEQUIEL PLAZA 1034 , San Pedro de la Paz",
+    "lat": -36.84105355995351,
+    "lon": -73.09476977263311
   }
 ]
