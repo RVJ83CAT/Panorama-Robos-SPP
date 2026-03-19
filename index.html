@@ -198,23 +198,16 @@
           "Esri Street": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'),
           "Google Maps": L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', { maxZoom: 20 }),
           "Waze": L.tileLayer('https://worldtiles1.waze.com/tiles/{z}/{x}/{y}.png', { maxZoom: 19 }),
-          "Stadia Smooth": L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', { attribution: '© Stadia Maps, © OpenMapTiles, © OpenStreetMap contributors' }),
           "OSM Francia": L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "Esri Physical": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}'),
           "Carto Positron": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', { attribution: '© OpenStreetMap contributors © CARTO' }),
           "OpenStreetMap.DE": L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "Hike & Bike": L.tileLayer('https://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "OpenTopoMap": L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)' }),
-          "Esri Topo": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}'),
-          "Esri Ocean": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}'),
-          "Stamen Terrain": L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.png', { attribution: 'Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap contributors' }),
-          "Stamen Watercolor": L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg', { attribution: 'Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap contributors' }),
-          "Stamen Toner": L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.png', { attribution: 'Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap contributors' }),
-          "OpenStreetMap Black": L.tileLayer('https://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "OpenStreetMap H.O.T.": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
           "OpenStreetMap Mapnik": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
           "OpenStreetMap Public Transport": L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "OpenStreetMap Humanitarian": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' })
+          "OpenStreetMap Humanitarian": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+          "ÖPNV-Karte": L.tileLayer('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png', { 
+            attribution: '© <a href="https://memomaps.de/">ÖPNV-Karte</a> | Map data © OpenStreetMap contributors',
+            maxZoom: 19
+          })
         };
         this.baseLayers["Callejero (OSM)"].addTo(this.map);
         this.clusterGroup = createClusterGroup();
@@ -239,7 +232,7 @@
       getPrevPopup(c) {
         let html = this.popupCaso(c, 0);
         html = html.replace(/#1 - /, '');
-        html += '<br><small style="color:#ff5722;font-weight:bold;">● Semana anterior</small>';
+        html += '<br><small style="color:#ff5722;font-weight:bold;">● Período anterior</small>';
         return html;
       }
       async loadOverlays() {
@@ -369,7 +362,7 @@
           if (minFecha && maxFecha) {
             const start = new Date(minFecha);
             const end   = new Date(maxFecha);
-            const duracionMs = end - start;
+            const duracionMs = end - start || 86400000 * 7; // mínimo 1 semana si es 0
             const prevStart = new Date(start.getTime() - duracionMs - 86400000);
             const prevEnd   = new Date(start.getTime() - 86400000);
             const prevStartISO = prevStart.toISOString().split('T')[0];
@@ -459,11 +452,11 @@
             if (c.lat && c.lon) {
               const pointMarker = L.circleMarker([c.lat, c.lon], {
                 radius: 9.1,
-                fillColor: '#f50505',
-                color: '#e89e09',
+                fillColor: '#ff5722',
+                color: '#ffffff',
                 weight: 3,
                 opacity: 1,
-                fillOpacity: 0.85
+                fillOpacity: 1.0
               }).bindPopup(this.getPrevPopup(c));
               this.previousLayer.addLayer(pointMarker);
             }
@@ -721,7 +714,7 @@
         document.getElementById('btnCompare').onclick = () => {
           this.comparePrevious = !this.comparePrevious;
           const btn = document.getElementById('btnCompare');
-          btn.textContent = this.comparePrevious ? 'Sem. Ant. ON' : 'Sem. Ant.';
+          btn.textContent = this.comparePrevious ? 'Período Ant. ON' : 'Período Ant.';
           btn.style.background = this.comparePrevious ? '#d32f2f' : '#9c27b0';
           this.aplicarFiltros();
         };
@@ -742,6 +735,7 @@
     document.getElementById('btnDashboard').onclick = () => {
       const modal = document.getElementById('dashboardModal');
       modal.style.display = 'block';
+
       const container = document.getElementById('pivotContainer');
       container.innerHTML = `
         <div id="dashTipos" class="dash-panel" style="top:20px;left:20px;width:340px;height:220px;">
@@ -777,6 +771,7 @@
           <div id="listaTopDelitos" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;"></div>
         </div>
       `;
+
       function makeDraggableResizable(el) {
         const dirs = ['nw','n','ne','w','e','sw','s','se'];
         dirs.forEach(d => {
@@ -813,17 +808,21 @@
         document.onmousemove = move;
         document.onmouseup = () => { document.onmousemove = document.onmouseup = null; };
       }
+
       ['dashTipos','dashHorarios','dashCuadrantes','dashDias','dashLugares','dashGrafico','dashTop'].forEach(id => {
         const panel = document.getElementById(id);
         if (panel) makeDraggableResizable(panel);
       });
+
       const data = mapa.filtrados;
       const total = data.length || 1;
       const pct = n => (n / total * 100).toFixed(1) + '%';
+
       function agregarTotal(tablaId, html, suma) {
         html += `<tr style="background:#e6f2ff;font-weight:bold"><td style="padding:8px">TOTAL</td><td style="padding:8px;text-align:right">${suma}</td><td style="padding:8px;text-align:right">100%</td></tr>`;
         document.getElementById(tablaId).innerHTML = html;
       }
+
       const delitosMap = {};
       data.forEach(c => delitosMap[c.delito] = (delitosMap[c.delito]||0) + 1);
       let htmlD = `<tr style="background:#0078d4;color:white"><th style="padding:8px;text-align:left">Delito</th><th style="padding:8px;text-align:right">Casos</th><th style="padding:8px;text-align:right">%</th></tr>`;
@@ -833,6 +832,7 @@
         sumaD += v;
       });
       agregarTotal('tablaDelitos', htmlD, sumaD);
+
       const rangos = {'00:00 a 03:59':0,'04:00 a 07:59':0,'08:00 a 11:59':0,'12:00 a 15:59':0,'16:00 a 19:59':0,'20:00 a 23:59':0};
       data.forEach(c => {
         const h = parseInt(c.hora?.split(':')[0] || 0);
@@ -850,6 +850,7 @@
         sumaH += v;
       });
       agregarTotal('tablaHorarios', htmlH, sumaH);
+
       const cuadMap = {};
       data.forEach(c => cuadMap[c.cuadrante||'Sin'] = (cuadMap[c.cuadrante||'Sin']||0) + 1);
       let htmlC = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Cuadrante</th><th style="padding:8px;text-align:right">Casos</th><th style="padding:8px;text-align:right">%</th></tr>`;
@@ -859,20 +860,24 @@
         sumaC += v;
       });
       agregarTotal('tablaCuadrantes', htmlC, sumaC);
+
       const diasMap = {};
       data.forEach(c => diasMap[c.dia||'—'] = (diasMap[c.dia||'—']||0) + 1);
       let htmlDias = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Día</th><th style="padding:8px;text-align:right">Casos</th></tr>`;
       Object.entries(diasMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => htmlDias += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td></tr>`);
       document.getElementById('tablaDias').innerHTML = htmlDias;
+
       const lugaresMap = {};
       data.forEach(c => lugaresMap[c.lugar||'—'] = (lugaresMap[c.lugar||'—']||0) + 1);
       let htmlLug = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Lugar</th><th style="padding:8px;text-align:right">Casos</th></tr>`;
       Object.entries(lugaresMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => htmlLug += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td></tr>`);
       document.getElementById('tablaLugares').innerHTML = htmlLug;
+
       const semanas = {};
       data.forEach(c => {
         if (c.semana) semanas[c.semana] = (semanas[c.semana]||0) + 1;
       });
+
       const hoy = new Date();
       const semanasOrden = [];
       for (let i = 5; i >= 0; i--) {
@@ -888,8 +893,10 @@
         const etiqueta = `Semana ${week} - ${y}`;
         semanasOrden.push({etiqueta, count: semanas[etiqueta] || 0});
       }
+
       const labels = semanasOrden.map(s => s.etiqueta);
       const valores = semanasOrden.map(s => s.count);
+
       const trace = {
         x: labels,
         y: valores,
@@ -900,6 +907,7 @@
         insidetextanchor: 'middle',
         insidetextfont: {color: 'white', size: 14}
       };
+
       Plotly.newPlot('graficoSemanas', [trace], {
         margin: {t:10, b:60, l:50, r:20},
         height: 210,
@@ -910,17 +918,21 @@
         font: {family: 'Segoe UI, Arial', size: 12},
         bargap: 0.35
       });
+
       const porCuadrante = {};
       data.forEach(c => {
         const key = c.cuadrante || 'Sin cuadrante';
         if (!porCuadrante[key]) porCuadrante[key] = {};
         porCuadrante[key][c.delito] = (porCuadrante[key][c.delito]||0) + 1;
       });
+
       const listaTop = document.getElementById('listaTopDelitos');
+
       function renderTop(modo = 'todo') {
         listaTop.innerHTML = '';
         let grupos = modo === 'todo' ? Object.keys(porCuadrante).sort() : 
           ['Cuadrantes 01 y 03','Cuadrante 02','Cuadrante 04','Cuadrantes 05 y 06','Cuadrantes 07 y 08'];
+
         grupos.forEach(grupo => {
           let delitosGrupo = {};
           if (modo === 'todo') {
@@ -953,10 +965,12 @@
             </div>`;
         });
       }
+
       renderTop('todo');
       document.getElementById('btnTodo').onclick = () => renderTop('todo');
       document.getElementById('btnAgrupado').onclick = () => renderTop('agrupado');
     };
+
     document.getElementById('cerrarDashboard').onclick = () => {
       document.getElementById('dashboardModal').style.display = 'none';
     };
