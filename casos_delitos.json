@@ -13228,5 +13228,23 @@
     "concat": "PEDRO LUNA 1379 , San Pedro de la Paz",
     "lat": -36.84232144912591,
     "lon": -73.09568630877236
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "19-03-2026",
+    "dia": "JUEVES",
+    "hora": "06:30",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PASAJE DEL INCA 839",
+    "circunstancias": "La afectada (H65) se percata que han sustraído especies desde la mesa del comedor (pertenecen a hijo); no sabe cantidad ni valor; niega denuncia, la cual se realiza por oficio. Avalúo desconocido.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 1215,
+    "direccion_georref": "PASAJE DEL INCA 839",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE DEL INCA 839 , San Pedro de la Paz",
+    "lat": -36.83998944340413,
+    "lon": -73.14928690017058
   }
 ]
