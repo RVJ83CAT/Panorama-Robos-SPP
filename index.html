@@ -204,7 +204,7 @@
           "OpenStreetMap Mapnik": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
           "OpenStreetMap Public Transport": L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
           "OpenStreetMap Humanitarian": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "ÖPNV-Karte": L.tileLayer('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png', { 
+          "ÖPNV-Karte": L.tileLayer('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png', {
             attribution: '© <a href="https://memomaps.de/">ÖPNV-Karte</a> | Map data © OpenStreetMap contributors',
             maxZoom: 19
           })
@@ -361,12 +361,12 @@
           }
           if (minFecha && maxFecha) {
             const start = new Date(minFecha);
-            const end   = new Date(maxFecha);
-            const duracionMs = end - start || 86400000 * 7; // mínimo 1 semana si es 0
+            const end = new Date(maxFecha);
+            const duracionMs = end - start || 86400000 * 7;
             const prevStart = new Date(start.getTime() - duracionMs - 86400000);
-            const prevEnd   = new Date(start.getTime() - 86400000);
+            const prevEnd = new Date(start.getTime() - 86400000);
             const prevStartISO = prevStart.toISOString().split('T')[0];
-            const prevEndISO   = prevEnd.toISOString().split('T')[0];
+            const prevEndISO = prevEnd.toISOString().split('T')[0];
             this.previousFiltrados = this.datos.filter(cc => {
               const [d,m,y] = cc.fecha.split('-');
               const fechaISO = `${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
@@ -525,6 +525,16 @@
         logoPrint.style.cssText = 'position:absolute; bottom:10px; right:10px; width:180px; max-width:25%; height:auto; cursor:move; z-index:100; border:1px dashed #ccc;';
         mainArea.appendChild(logoPrint);
         this.makeDraggableResizable(logoPrint);
+
+        // Leyenda período anterior (con negrita)
+        if (this.comparePrevious) {
+          const legend = document.createElement('div');
+          legend.style.cssText = 'position:absolute; bottom:20px; left:20px; background:white; padding:8px 12px; border:1px solid #ccc; border-radius:6px; font-size:11px; color:#333; box-shadow:0 2px 6px rgba(0,0,0,0.2); cursor:move; z-index:100; white-space:nowrap;';
+          legend.innerHTML = '<span style="display:inline-block; width:14px; height:14px; border-radius:50%; background:#ff5722; border:2px solid white; margin-right:6px;"></span> <strong>Robos Período Anterior</strong>';
+          mainArea.appendChild(legend);
+          this.makeDraggableResizable(legend);
+        }
+
         const mapDiv = document.createElement('div');
         mapDiv.id = 'printMapInteractive';
         mapDiv.style.cssText = 'position:absolute; top:80px; left:0; width:100%; height:calc(100% - 80px); border:1px dashed #ccc; cursor:move; overflow:hidden; z-index:1;';
@@ -735,7 +745,6 @@
     document.getElementById('btnDashboard').onclick = () => {
       const modal = document.getElementById('dashboardModal');
       modal.style.display = 'block';
-
       const container = document.getElementById('pivotContainer');
       container.innerHTML = `
         <div id="dashTipos" class="dash-panel" style="top:20px;left:20px;width:340px;height:220px;">
@@ -771,7 +780,6 @@
           <div id="listaTopDelitos" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;"></div>
         </div>
       `;
-
       function makeDraggableResizable(el) {
         const dirs = ['nw','n','ne','w','e','sw','s','se'];
         dirs.forEach(d => {
@@ -808,21 +816,17 @@
         document.onmousemove = move;
         document.onmouseup = () => { document.onmousemove = document.onmouseup = null; };
       }
-
       ['dashTipos','dashHorarios','dashCuadrantes','dashDias','dashLugares','dashGrafico','dashTop'].forEach(id => {
         const panel = document.getElementById(id);
         if (panel) makeDraggableResizable(panel);
       });
-
       const data = mapa.filtrados;
       const total = data.length || 1;
       const pct = n => (n / total * 100).toFixed(1) + '%';
-
       function agregarTotal(tablaId, html, suma) {
         html += `<tr style="background:#e6f2ff;font-weight:bold"><td style="padding:8px">TOTAL</td><td style="padding:8px;text-align:right">${suma}</td><td style="padding:8px;text-align:right">100%</td></tr>`;
         document.getElementById(tablaId).innerHTML = html;
       }
-
       const delitosMap = {};
       data.forEach(c => delitosMap[c.delito] = (delitosMap[c.delito]||0) + 1);
       let htmlD = `<tr style="background:#0078d4;color:white"><th style="padding:8px;text-align:left">Delito</th><th style="padding:8px;text-align:right">Casos</th><th style="padding:8px;text-align:right">%</th></tr>`;
@@ -832,7 +836,6 @@
         sumaD += v;
       });
       agregarTotal('tablaDelitos', htmlD, sumaD);
-
       const rangos = {'00:00 a 03:59':0,'04:00 a 07:59':0,'08:00 a 11:59':0,'12:00 a 15:59':0,'16:00 a 19:59':0,'20:00 a 23:59':0};
       data.forEach(c => {
         const h = parseInt(c.hora?.split(':')[0] || 0);
@@ -850,7 +853,6 @@
         sumaH += v;
       });
       agregarTotal('tablaHorarios', htmlH, sumaH);
-
       const cuadMap = {};
       data.forEach(c => cuadMap[c.cuadrante||'Sin'] = (cuadMap[c.cuadrante||'Sin']||0) + 1);
       let htmlC = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Cuadrante</th><th style="padding:8px;text-align:right">Casos</th><th style="padding:8px;text-align:right">%</th></tr>`;
@@ -860,24 +862,20 @@
         sumaC += v;
       });
       agregarTotal('tablaCuadrantes', htmlC, sumaC);
-
       const diasMap = {};
       data.forEach(c => diasMap[c.dia||'—'] = (diasMap[c.dia||'—']||0) + 1);
       let htmlDias = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Día</th><th style="padding:8px;text-align:right">Casos</th></tr>`;
       Object.entries(diasMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => htmlDias += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td></tr>`);
       document.getElementById('tablaDias').innerHTML = htmlDias;
-
       const lugaresMap = {};
       data.forEach(c => lugaresMap[c.lugar||'—'] = (lugaresMap[c.lugar||'—']||0) + 1);
       let htmlLug = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Lugar</th><th style="padding:8px;text-align:right">Casos</th></tr>`;
       Object.entries(lugaresMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => htmlLug += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td></tr>`);
       document.getElementById('tablaLugares').innerHTML = htmlLug;
-
       const semanas = {};
       data.forEach(c => {
         if (c.semana) semanas[c.semana] = (semanas[c.semana]||0) + 1;
       });
-
       const hoy = new Date();
       const semanasOrden = [];
       for (let i = 5; i >= 0; i--) {
@@ -893,10 +891,8 @@
         const etiqueta = `Semana ${week} - ${y}`;
         semanasOrden.push({etiqueta, count: semanas[etiqueta] || 0});
       }
-
       const labels = semanasOrden.map(s => s.etiqueta);
       const valores = semanasOrden.map(s => s.count);
-
       const trace = {
         x: labels,
         y: valores,
@@ -907,7 +903,6 @@
         insidetextanchor: 'middle',
         insidetextfont: {color: 'white', size: 14}
       };
-
       Plotly.newPlot('graficoSemanas', [trace], {
         margin: {t:10, b:60, l:50, r:20},
         height: 210,
@@ -918,21 +913,17 @@
         font: {family: 'Segoe UI, Arial', size: 12},
         bargap: 0.35
       });
-
       const porCuadrante = {};
       data.forEach(c => {
         const key = c.cuadrante || 'Sin cuadrante';
         if (!porCuadrante[key]) porCuadrante[key] = {};
         porCuadrante[key][c.delito] = (porCuadrante[key][c.delito]||0) + 1;
       });
-
       const listaTop = document.getElementById('listaTopDelitos');
-
       function renderTop(modo = 'todo') {
         listaTop.innerHTML = '';
         let grupos = modo === 'todo' ? Object.keys(porCuadrante).sort() : 
           ['Cuadrantes 01 y 03','Cuadrante 02','Cuadrante 04','Cuadrantes 05 y 06','Cuadrantes 07 y 08'];
-
         grupos.forEach(grupo => {
           let delitosGrupo = {};
           if (modo === 'todo') {
@@ -965,12 +956,10 @@
             </div>`;
         });
       }
-
       renderTop('todo');
       document.getElementById('btnTodo').onclick = () => renderTop('todo');
       document.getElementById('btnAgrupado').onclick = () => renderTop('agrupado');
     };
-
     document.getElementById('cerrarDashboard').onclick = () => {
       document.getElementById('dashboardModal').style.display = 'none';
     };
