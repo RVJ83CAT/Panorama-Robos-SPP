@@ -13040,7 +13040,7 @@
     "rango_hora": "16:00 a 19:59",
     "lugar": "VIA PUBLICA",
     "direccion": "PASAJE 17 & RODRIGUEZ ALDEA",
-    "circunstancias": "La víctima (H21) está en la sede Obdulio Ramírez, cuando es abordao por una mujer llamada \"DOMINIC\" (viste casaca negra y jeans gris, domiciliada en Pasaje 3, Boca Sur)  quien lo agrede con golpes de puño en el rostro y rasguños en el ojo izquierdo,  lo amenaza de que cuandolo encuentre lo va a golpear. Al mismo tiempo le arrebata una cadena de oro + gorro Corteiz, después huye. Lesiones leves. Avalúo $160.000.",
+    "circunstancias": "La víctima (H21) está en la sede Obdulio Ramírez, cuando es abordao por una mujer llamada \"DOMINIC\" (viste casaca negra y jeans gris, domiciliada en Pasaje 3, Boca Sur)  quien lo agrede con golpes de puño en el rostro y rasguños en el ojo izquierdo,  lo amenaza de que cuando lo encuentre lo va a golpear. Al mismo tiempo le arrebata una cadena de oro + gorro Corteiz, después huye. Lesiones leves. Avalúo $160.000.",
     "cuadrante": "Cuadrante 01",
     "numero_parte": 1178,
     "direccion_georref": "PASAJE 17 & RODRIGUEZ ALDEA",
@@ -13166,7 +13166,7 @@
     "rango_hora": "12:00 a 15:59",
     "lugar": "VIA PUBLICA",
     "direccion": "CALETA ALTO DEL REY",
-    "circunstancias": "La denunciante (M34 se encontraba con su convieiente y su hija. Estaba sacando fotografías del lugar, trasladándose en su automóvil Suzuki Swift. Al sacar la cámara con su cámara Insta 360 X llega sorpresivamente un sujeto que viste buzo negro, estatura alta, quien le arrebata la cámara y huye. Tiene seguros. Avalúo $800.000.",
+    "circunstancias": "La denunciante (M34 se encontraba con su conviviente y su hija. Estaba sacando fotografías del lugar, trasladándose en su automóvil Suzuki Swift. Al sacar la cámara con su cámara Insta 360 X llega sorpresivamente un sujeto que viste buzo negro, estatura alta, quien le arrebata la cámara y huye. Tiene seguros. Avalúo $800.000.",
     "cuadrante": "Cuadrante 01",
     "numero_parte": 1198,
     "direccion_georref": "CALETA ALTO DEL REY",
@@ -13354,5 +13354,23 @@
     "concat": "MIGUEL BRAYER 420 , San Pedro de la Paz",
     "lat": -36.84088935400115,
     "lon": -73.14594341667808
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "22-03-2026",
+    "dia": "DOMINGO",
+    "hora": "19:30",
+    "rango_hora": "16:00-19:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "ENRIQUE SORO & ISIDORA ZEGERS",
+    "circunstancias": "La víctima (M51) baja de la locomoción colectiva en la intersección entre Enrique Soro e Isidora Zegers, cuando cuatro sujetos (mas menos 20 años) bajan desde un automóvil rojo. Uno de los delincuentes que viste prendas rojas la empuja contra la pared, colocándole un objeto en la cabeza, mencionándole \"NO GRITES ENTREGA LAS COSAS\"; acto seguido, le arrebatan las bolsas de compras (polerón Theline  + jockey  + cortadora Pichara + polera Falabella  + jeans + chaqueta Puma  + jersey H&M  + casaca + cazadora Zara  + zapatillas The Andes). Los sujetos se dan a la fuga. Avalúo $530.813. ",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 1267,
+    "direccion_georref": "ENRIQUE SORO & ISIDORA ZEGERS",
+    "comuna": "San Pedro de la Paz",
+    "concat": "ENRIQUE SORO & ISIDORA ZEGERS , San Pedro de la Paz",
+    "lat": -36.83049163726291,
+    "lon": -73.11079960237952
   }
 ]
