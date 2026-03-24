@@ -13361,7 +13361,7 @@
     "fecha": "22-03-2026",
     "dia": "DOMINGO",
     "hora": "19:30",
-    "rango_hora": "16:00-19:59",
+    "rango_hora": "16:00 a 19:59",
     "lugar": "VIA PUBLICA",
     "direccion": "ENRIQUE SORO & ISIDORA ZEGERS",
     "circunstancias": "La víctima (M51) baja de la locomoción colectiva en la intersección entre Enrique Soro e Isidora Zegers, cuando cuatro sujetos (mas menos 20 años) bajan desde un automóvil rojo. Uno de los delincuentes que viste prendas rojas la empuja contra la pared, colocándole un objeto en la cabeza, mencionándole \"NO GRITES ENTREGA LAS COSAS\"; acto seguido, le arrebatan las bolsas de compras (polerón Theline  + jockey  + cortadora Pichara + polera Falabella  + jeans + chaqueta Puma  + jersey H&M  + casaca + cazadora Zara  + zapatillas The Andes). Los sujetos se dan a la fuga. Avalúo $530.813. ",
@@ -13372,5 +13372,23 @@
     "concat": "ENRIQUE SORO & ISIDORA ZEGERS , San Pedro de la Paz",
     "lat": -36.83049163726291,
     "lon": -73.11079960237952
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "23-03-2026",
+    "dia": "MARTES",
+    "hora": "05:00",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "CONSTRUCTORAS",
+    "direccion": "AV JAVIERA CARRERA 9045 LOTE 5 57",
+    "circunstancias": "PENDIENTE=  (H52); fractura puerta/ventana en constructoras; detalles especies y modus no proporcionados en extracto. ",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 1283,
+    "direccion_georref": "AV JAVIERA CARRERA 9045 LOTE 5 57",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AV JAVIERA CARRERA 9045 LOTE 5 57 , San Pedro de la Paz",
+    "lat": -36.88986395916702,
+    "lon": -73.13929641927348
   }
 ]
