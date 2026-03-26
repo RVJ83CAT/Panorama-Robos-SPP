@@ -13498,5 +13498,23 @@
     "concat": "AVENIDA SAN PEDRO 43 , San Pedro de la Paz",
     "lat": -36.84112893623371,
     "lon": -73.10710034832736
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "26-03-2026",
+    "dia": "JUEVES",
+    "hora": "14:30",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "Central 1262",
+    "circunstancias": "El denunciante (H30) sale del domicilio a las 11:30 dejando en el interior a su madre postrada. Al regresar, a las 14:30 constata que un sujeto desconocido escaló el portón metálico de 2 metros e ingresó al antejardín, sustrayendo bicicleta Altitude aro 29 negra con rojo. Huye en dirección desconocida. Cámaras captan parcialmente al sujeto (solo calzado). Sin testigos ni lesiones. Avalúo #130.000.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 1311,
+    "direccion_georref": "Central 1262",
+    "comuna": "San Pedro de la Paz",
+    "concat": "Central 1262 , San Pedro de la Paz",
+    "lat": -36.85100189073419,
+    "lon": -73.14783219667308
   }
 ]
