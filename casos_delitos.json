@@ -13462,5 +13462,41 @@
     "concat": "PASAJE 14 521 , San Pedro de la Paz",
     "lat": -36.839425953668005,
     "lon": -73.14294071139386
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "25-03-2026",
+    "dia": "MIERCOLES",
+    "hora": "08:30",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "MAITENCILLO ",
+    "circunstancias": "PENDIENTE",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 1310,
+    "direccion_georref": "MAITENCILLO ",
+    "comuna": "San Pedro de la Paz",
+    "concat": "MAITENCILLO  , San Pedro de la Paz",
+    "lat": -36.83397537102485,
+    "lon": -73.14024475145119
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "26-03-2026",
+    "dia": "JUEVES",
+    "hora": "11:25",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "OTROS",
+    "direccion": "AVENIDA SAN PEDRO 43",
+    "circunstancias": "PENDIENTE",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 343,
+    "direccion_georref": "AVENIDA SAN PEDRO 43",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA SAN PEDRO 43 , San Pedro de la Paz",
+    "lat": -36.84112893623371,
+    "lon": -73.10710034832736
   }
 ]
