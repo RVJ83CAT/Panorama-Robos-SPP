@@ -13552,5 +13552,23 @@
     "concat": "AVENIDA CANDELARIA 2163 , San Pedro de la Paz",
     "lat": -36.83428825619413,
     "lon": -73.1221948077673
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "27-03-2026",
+    "dia": "VIERNES",
+    "hora": "09:30",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "CONSTRUCTORAS",
+    "direccion": "ERNESTO PINTO LAGARRIGUE 2075",
+    "circunstancias": "Víctima (H36) deja camioneta Dodge Ram 1500 gris PPU DZJV92 estacionada al interior de recinto de empresa. Al regresar constata daños y sustracción de espejo retrovisor derecho y herramientas desde compartimento RAMBOX tras forzar chapa, incluyendo taladro y esmeril Makita. Sin testigos ni cámaras. Avalúo 2000000. Daños en espejo y sistema de cierre.",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 347,
+    "direccion_georref": "ERNESTO PINTO LAGARRIGUE 2075",
+    "comuna": "San Pedro de la Paz",
+    "concat": "ERNESTO PINTO LAGARRIGUE 2075 , San Pedro de la Paz",
+    "lat": -36.859414544935845,
+    "lon": -73.0708440830033
   }
 ]
