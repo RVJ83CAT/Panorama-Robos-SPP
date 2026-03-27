@@ -13570,5 +13570,23 @@
     "concat": "ERNESTO PINTO LAGARRIGUE 2075 , San Pedro de la Paz",
     "lat": -36.859414544935845,
     "lon": -73.0708440830033
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "27-03-2026",
+    "dia": "VIERNES",
+    "hora": "09:45",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "Ejercito 1116",
+    "circunstancias": "El denunciante (H49) deja vehículo Kia Cerato rojo PPU CSYS60 en vía pública por falla mecánica. Al regresar constata sustracción. Posteriormente se establece que el vehículo participó en accidente de tránsito en Concepción y fue abandonado, siendo trasladado a corralón municipal de Talcahuano. Sin testigos ni cámaras directas. Avalúo $5.000.000. Sin seguros.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 1318,
+    "direccion_georref": "Ejercito 1116",
+    "comuna": "San Pedro de la Paz",
+    "concat": "Ejercito 1116 , San Pedro de la Paz",
+    "lat": -36.82504305268586,
+    "lon": -73.12457135569278
   }
 ]
