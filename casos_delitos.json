@@ -13732,5 +13732,23 @@
     "concat": "CALLE GALVARINO & PASAJE CUARENTA Y DOS , San Pedro de la Paz",
     "lat": -36.85296489112097,
     "lon": -73.14590087827703
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "29-03-2026",
+    "dia": "DOMINGO",
+    "hora": "18:30",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "OTROS LUGARES",
+    "direccion": " AVENIDA COSTANERA & CALLE PIEDRA DE FRANCIA",
+    "circunstancias": "El afectado (H64) es cuidador del sitio eriazo de empresa VITAL LTDA ubicado en Avenida Costanera con Piedra de Francia, se percató que sujetos desconocidos sustrajeron 26 postes de madera tipo polines y 52x3 metros de alambre de púas del cerco en construcción. Avalúo $1.000.000. Sin cámaras ni testigos.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 1364,
+    "direccion_georref": " AVENIDA COSTANERA & CALLE PIEDRA DE FRANCIA",
+    "comuna": "San Pedro de la Paz",
+    "concat": " AVENIDA COSTANERA & CALLE PIEDRA DE FRANCIA , San Pedro de la Paz",
+    "lat": -36.831817593337874,
+    "lon": -73.15115959859521
   }
 ]
