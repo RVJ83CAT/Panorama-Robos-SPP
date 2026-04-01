@@ -10674,7 +10674,7 @@
     "lon": -73.1131625134276
   },
   {
-    "clasificacion": "DENUNCIA",
+    "clasificacion": "DETENCION",
     "delito": "ROBO EN LUGAR NO HABITADO",
     "fecha": "03-02-2026",
     "dia": "MARTES",
@@ -12312,7 +12312,7 @@
     "lon": -73.10406777787725
   },
   {
-    "clasificacion": "DENUNCIA",
+    "clasificacion": "DETENCION",
     "delito": "ROBO CON INTIMIDACION",
     "fecha": "27-02-2026",
     "dia": "VIERNES",
@@ -13860,7 +13860,7 @@
     "lon": -73.13810140106992
   },
   {
-    "clasificacion": "DENUNCIA",
+    "clasificacion": "DETENCION",
     "delito": "ROBO EN LUGAR NO HABITADO",
     "fecha": "31-03-2026",
     "dia": "MARTES",
