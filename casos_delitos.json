@@ -14041,6 +14041,24 @@
   },
   {
     "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "01-04-2026",
+    "dia": "MIERCOLES",
+    "hora": "22:30",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "LOCALES COMERCIALES",
+    "direccion": "LOS LIRIOS 1333",
+    "circunstancias": "La afectada (M33) al regresar a su local comercial llamado \"Los Canelos\", observa a una mujer saliendo con especies sustraídas, quien carga una maleta y bolsas, retirándose en un vehículo blanco marca Fiat, PPU. SSYF86. Posteriormente se percata de la sustracción de 02 cubrecamas marca Fabrisc y 01 maleta Saxoline verde. El acceso al lugar fue facilitado porque el candado estaba en mal estado sin forzamiento evidente. Sospechosa identificada por ser la ex-esposa de su conviviente. Sin cámaras ni testigos. Avalúo $350.000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 370,
+    "direccion_georref": "LOS LIRIOS 1333",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS LIRIOS 1333 , San Pedro de la Paz",
+    "lat": -36.84644849637674,
+    "lon": -73.09746531128398
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO FRUSTRADO",
     "fecha": "02-04-2026",
     "dia": "JUEVES",
@@ -14056,5 +14074,23 @@
     "concat": "PASAJE 6 DEL INCA 839 , San Pedro de la Paz",
     "lat": -36.83999019442565,
     "lon": -73.14929073948592
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "02-04-2026",
+    "dia": "JUEVES",
+    "hora": "02:15",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "CAPITAN TRIZANO 602",
+    "circunstancias": "Víctima (H69) se encontraba durmiendo al interior de taxibús de la Empresa Mi Expreso, recorrido 62, PPU. FFVP83, el cual se encontraba estacionado, cuando de pronto, un sujeto (de contexura gruesa, viste una parka grande oscura, pantalon de buzo oscuro, jockey oscuro) ingresa quebrando el vidrio de la puerta con un objeto contundente (fierro). Lo agrede con golpes en el cuerpo y cabeza, exigiendo dinero, ENTREGAME TOA LA PLATA CONCHA TU MADRE, PASA LA PLATA VIEJO CULIAO... DONDE TENIS LAS  MONEAS  CONCHA TU MADRE, lanza a la víctima al piso, provocando pérdida de conocimiento. Sustrae 5millones en dinero en efectivo y un celular, huyendo en dirección desconocida. Víctima con lesiones leves. Sin testigos. Cámaras del bus sin registro útil. Avalúo $5.350.000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 1436,
+    "direccion_georref": "CAPITAN TRIZANO 602",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CAPITAN TRIZANO 602 , San Pedro de la Paz",
+    "lat": -36.82709726531243,
+    "lon": -73.12607049918425
   }
 ]
