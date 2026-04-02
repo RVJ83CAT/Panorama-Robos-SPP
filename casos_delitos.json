@@ -14092,5 +14092,23 @@
     "concat": "CAPITAN TRIZANO 602 , San Pedro de la Paz",
     "lat": -36.82709726531243,
     "lon": -73.12607049918425
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "01-04-2026",
+    "dia": "MIERCOLES",
+    "hora": "14:30",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PAPUDO 376",
+    "circunstancias": "Víctima (M55) se encontraba fuera de su domicilio cuando su hijo (H36) ingresa mediante escalamiento de pandereta y techos hacia el inmueble por la parte posterior, sin ejercer fuerza en accesos. Sustrae dinero en efectivo y caja de herramientas desde el interior. Huye del lugar. Sin cámaras ni testigos directos. Sin daños ni lesiones. Avalúo 52000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 1441,
+    "direccion_georref": "PAPUDO 376",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PAPUDO 376 , San Pedro de la Paz",
+    "lat": -36.83347285496052,
+    "lon": -73.1438094665611
   }
 ]
