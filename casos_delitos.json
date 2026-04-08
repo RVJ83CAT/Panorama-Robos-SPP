@@ -14488,5 +14488,23 @@
     "concat": "EL CERCO 300 , San Pedro de la Paz",
     "lat": -36.83603287262682,
     "lon": -73.12971510569025
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "08-04-2026",
+    "dia": "MIERCOLES",
+    "hora": "02:40",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "INDUSTRIA O EMPRESA",
+    "direccion": "PARVIAL LAS TORRES 4580",
+    "circunstancias": "El víctima (H28) quien es Guardia de Seguridad, mientras se encontraba realizando sus labores en la empresa Constructora WPF, específicamente en la Garita Nro. 2 hace una ronda y se percata que al frente hay un sujeto delgado, ropas oscuras, quien lo intimida con fierros y le grita groserías, habla en COA, después se acercan otros 4 delincuentes también delgados y visten ropas oscuras, con rostros cubiertos, con fierros, le dicen \" ENTRA COOPERAR SINO TE VAMOS A PEGAR, SOLO LE VAMOS A ROBAR A LA EMPRESA \". Logran intimidar a la víctima junto a 3 colegas, tratando de buscar a todos los guardias, reteniéndolos en el baño. Sustrajeron herramientas de diferentes bodegas, celulares y documentos personales. Los delincuentes se van del lugar a las 04:00. Lesiones leves (contusión cráneo). Anteriormente, los sujetos cortan la electricidad de las cámaras.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 1527,
+    "direccion_georref": "PARVIAL LAS TORRES 4580",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PARVIAL LAS TORRES 4580 , San Pedro de la Paz",
+    "lat": -36.864619850155805,
+    "lon": -73.14334755963735
   }
 ]
