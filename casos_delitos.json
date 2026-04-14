@@ -14786,7 +14786,7 @@
     "rango_hora": "20:00 a 23:59",
     "lugar": "VIA PUBLICA",
     "direccion": "GALVARINO & CALLE TRES NORTE",
-    "circunstancias": "A las 20:40 la Víctima (H23) sale de su domicilio a comprar pan hacia el negocio llamado \"Toñito\" y al pasar por una plaza, toma su celular, al mismo tiempo observa a tres sujetos sentados en una banca de cemento, ahí es abordado por uno de estos, uno lo intimida con arma de fuego y otro lo golpea en la cabeza con la empuñadura, logrando sustraer celular VIVO azul. Huyen hacia calle Tres Norte y Costanera. Son seguidos por testigo, siendo interceptados y controlados por la SIP el vehículo Mazda 323 blanco PPU. NZ1269.  La victima logra indicar al personal policial que habia sido victima de robo y sindicar a los sujetos que estaban controlando. Se detiene a cuatro delincuentes llamados; Benjamín Antonio Pino Cuevas (H18) CI. 22515063-K, Jordan Alexis Aedo Alarcón (H17) CI. 22752409-K, Agustín Patricio Riffo Molina (H16) CI. 23226495-0,y Martín Alejandro Pereira Pereira (H16) CI. 23051640-5. Se incauta arma a fogueo tipo pistola y arma blanca tipo cuchillo. Especie recuperada. Víctima con lesiones leves. Avalúo 350000. Cámaras del sector captan el delito.",
+    "circunstancias": "A las 20:40 la Víctima (H23) sale de su domicilio a comprar pan hacia el negocio llamado \"Toñito\" y al pasar por una plaza, toma su celular, al mismo tiempo observa a tres sujetos sentados en una banca de cemento, ahí es abordado por uno de estos, uno lo intimida con arma de fuego y otro lo golpea en la cabeza con la empuñadura, logrando sustraer celular VIVO azul. Huyen hacia calle Tres Norte y Costanera. Son seguidos por testigo, siendo interceptados y controlados por la SIP el vehículo Mazda 323 blanco PPU. NZ1269.  La victima logra indicar al personal policial que habia sido victima de robo y sindicar a los sujetos que estaban controlando, uno de estos le grita a la victima \"TE VOY A IR A BUSCAR CHUCHETUMARE, YO SOY DE CALLE MONO  CULIAO, ACUERDATE DE MI SAPO CONCHETUMARE\". Son detenidos cuatro delincuentes llamados; Benjamín Antonio Pino Cuevas (H18) CI. 22515063-K, Jordan Alexis Aedo Alarcón (H17) CI. 22752409-K, Agustín Patricio Riffo Molina (H16) CI. 23226495-0,y Martín Alejandro Pereira Pereira (H16) CI. 23051640-5. Se incauta arma a fogueo tipo pistola y arma blanca tipo cuchillo. Especie recuperada. Víctima con lesiones leves. Avalúo $350.000. Una cámara del sector capta el delito.",
     "cuadrante": "Cuadrante 03",
     "numero_parte": 1624,
     "direccion_georref": "GALVARINO & CALLE TRES NORTE",
@@ -14794,5 +14794,23 @@
     "concat": "GALVARINO & CALLE TRES NORTE , San Pedro de la Paz",
     "lat": -36.8590733502635,
     "lon": -73.14597280945017
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "14-04-2026",
+    "dia": "MARTES",
+    "hora": "07:00",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "EUSEBIO LILLO 8554",
+    "circunstancias": "El denunciante (H52) dejó el vehículo Hyundai Tucson gris 2015 PPU. GVYC96 estacionado frente a domicilio a las 00:00. A las 07:00 descubrió que desapareció. Encargo Nro. 693968. Avalúo $9.000.000. Sin cámaras ni testigos.",
+    "cuadrante": "Cuadrante 05",
+    "numero_parte": 1626,
+    "direccion_georref": "EUSEBIO LILLO 8554",
+    "comuna": "San Pedro de la Paz",
+    "concat": "EUSEBIO LILLO 8554 , San Pedro de la Paz",
+    "lat": -36.89771001296097,
+    "lon": -73.14881808115325
   }
 ]
