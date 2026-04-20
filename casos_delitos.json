@@ -15172,5 +15172,23 @@
     "concat": "PASAJE JUAN DE CARDENAS 654 , San Pedro de la Paz",
     "lat": -36.8262284756756,
     "lon": -73.11944006918934
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "20-04-2026",
+    "dia": "LUNES",
+    "hora": "08:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "ESTABLECIMIENTO EDUC",
+    "direccion": "GANIMIDES 670",
+    "circunstancias": "La denunciante (M42) quien es Directora del Jardín Infantil Estrellita de Mar (SLEP Andalien Costa, el cual comenzará su funcionamiento en dos meses más) llegó a las 08:00 y encontró la puerta del container usado como oficina (metal blanco 90x200 cm) forzada en cerradura con algun objeto contundente y escalamiento del cierre perimetral (mesa+silla apoyadas). Sustrajeron útiles/materiales oficina, impresora y electrodomésticos. Avalúo $1.000.000. Sin cámaras.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 1727,
+    "direccion_georref": "GANIMIDES 670",
+    "comuna": "San Pedro de la Paz",
+    "concat": "GANIMIDES 670 , San Pedro de la Paz",
+    "lat": -36.82628628077902,
+    "lon": -73.14672420142969
   }
 ]
