@@ -15460,5 +15460,23 @@
     "concat": "QUINEL SUR 2490 , San Pedro de la Paz",
     "lat": -36.85962612167076,
     "lon": -73.09705139437969
+  },
+  {
+    "clasificacion": "DENUNCIA ",
+    "delito": "ROBO CON VIOLENCIA ",
+    "fecha": "22-04-2026",
+    "dia": "MIERCOLES",
+    "hora": "23:20",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "OTROS",
+    "direccion": "SEGUNDA LONGITUDINAL 91",
+    "circunstancias": "En dependencias de constructora GMW Spa, sujetos desconocidos sustraen materiales de construcción. Durante el hecho, un guardia de seguridad (H28) resulta con corte en un brazo producto de agresión, siendo trasladado a Mutual de Seguridad. Representante de la empresa no realiza denuncia, efectuándose de oficio. Sin avalúo informado.",
+    "cuadrante": "   Cuadrante 01",
+    "numero_parte": 1773,
+    "direccion_georref": "SEGUNDA LONGITUDINAL 91",
+    "comuna": "San Pedro de la Paz",
+    "concat": "SEGUNDA LONGITUDINAL 91 , San Pedro de la Paz",
+    "lat": -36.839363658408914,
+    "lon": -73.13875468946712
   }
 ]
