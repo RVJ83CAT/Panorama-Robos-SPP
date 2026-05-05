@@ -15974,7 +15974,7 @@
     "rango_hora": "16:00 a 19:59",
     "lugar": "OTROS",
     "direccion": "ANFITEATRO & LOS AROMOS",
-    "circunstancias": "Dos menores (H15) y (M14) fueron abordados por un sujeto (hombre de 30 años aproximadamente, vestia poleron gris, con capucha, jeans negro) que los intimidó con un cuchillo sustrayendo un celular Samsung S23 y smartwatch Huawei. Las víctimas huyen saltando una pandereta. El GPS del celular indica como última ubicación en calle Ainoha con Los Aragoneses. Sin cámaras. Avalúo total $1200000.",
+    "circunstancias": "Dos menores (H15) y (M14) fueron abordados por un sujeto (hombre de 30 años aproximadamente, vestia poleron gris, con capucha, jeans negro) que los intimidó con un cuchillo sustrayendo un celular Samsung S23 y smartwatch Huawei. Las víctimas huyen saltando una pandereta. El GPS del celular indica como última ubicación en calle Ainoha con Los Aragoneses. Sin cámaras. Avalúo total $1200000. (El delincuente es detenido PARTE 522).",
     "cuadrante": "Cuadrante 07",
     "numero_parte": 515,
     "direccion_georref": "ANFITEATRO & LOS AROMOS",
@@ -16018,6 +16018,24 @@
     "concat": "AVENIDA PORTAL SAN PEDRO 4850 , San Pedro de la Paz",
     "lat": -36.883939254872125,
     "lon": -73.14103472158092
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "03-05-2026",
+    "dia": "DOMINGO",
+    "hora": "19:00",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "EDIFICIO CONDOMINIO",
+    "direccion": "DALCAHUE 1125",
+    "circunstancias": "La víctima (H56) señala que el 03-05-2026 a las 19:00 salió de su lugar de trabajo, y al regresar el 04-05-2026 a las 08:00 constató que hay una ventana quebrada y puerta de bodega forzada (bodega ubicada al interior del edificio) verificando ingreso de desconocidos quienes sustrajeron herramientas y equipos: 01 máquina de soldar Indura, 01 ingletadora Heveres, 01 esmeril Bosch, 01 taladro percutor Bosch, 01 sierra circular Makita, 01 rotomartillo Total, 02 taladros Walds, 01 cepillo eléctrico Walds, 01 galletera Bosch, 06 cámaras Dahua y 03 cables eléctricos de 50 mts. Cámaras del lugar captan a 01 sujeto con polerón gris, capucha y mascarilla, quien huye por ventana posterior escalando cerco de madera. Teiene seguros. Avalúo $7000000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 521,
+    "direccion_georref": "DALCAHUE 1125",
+    "comuna": "San Pedro de la Paz",
+    "concat": "DALCAHUE 1125 , San Pedro de la Paz",
+    "lat": -36.84689828075469,
+    "lon": -73.09399387481399
   },
   {
     "clasificacion": "DENUNCIA",
@@ -16072,5 +16090,23 @@
     "concat": "DIAGONAL BIO BIO & PASAJE LAS TORRES , San Pedro de la Paz",
     "lat": -36.82959790616726,
     "lon": -73.1212304200532
+  },
+  {
+    "clasificacion": "DETENCION",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "04-05-2026",
+    "dia": "LUNES",
+    "hora": "16:30",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "CAMINO ANFITEATRO / LOS ACACIOS",
+    "circunstancias": "Personal policial detiene al sujeto GONZALO IGNACIO ZAMBRANO QUEZADA (H32) RUT 18500505-4, quien momentos antes intimidó con arma blanca a dos víctimas (M16) y (H17) en sector cerro Laguna Grande (YA LA VAMOS A HACER CORTA, PASAME TU TELEFONO O SI NO TE PEGO TU PUNTAZO; PASAME LA CLAVE IGUAL PARA DESBLOQUEARLO\"), sustrayendo 02 teléfonos celulares (Vivo I22s y Samsung A53). Tras un patrullaje es ubicado y al ver presencia policial arroja las especies sustraídas, siendo reconocido por las víctimas. Se incauta además 01 cuchillo de 30 cm. Especies recuperadas y devueltas a víctimas (02 teléfonos y 01 smartwatch Huawei Fit 3 asociado a denuncia Parte 515). Avalúo total $765000. Sin cámaras ni testigos.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 522,
+    "direccion_georref": "CAMINO ANFITEATRO / LOS ACACIOS",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CAMINO ANFITEATRO / LOS ACACIOS , San Pedro de la Paz",
+    "lat": -36.84425979809032,
+    "lon": -73.10887073331882
   }
 ]
