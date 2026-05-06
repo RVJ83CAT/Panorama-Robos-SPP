@@ -16252,5 +16252,23 @@
     "concat": "MEGACENTRO , San Pedro de la Paz",
     "lat": -36.87273207062038,
     "lon": -73.13844875626091
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "05-05-2026",
+    "dia": "MARTES",
+    "hora": "22:30",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "CALLE CENTRAL 748",
+    "circunstancias": "El denunciante (H64) deja estacionado su furgón Citroen Berlingo blanco PPU. JKRT84 frente a minimarket \"Donde Anita\", descendiendo para realizar compras. Al regresar, se percata de la sustracción desde el interior del vehículo de 01 teléfono celular Honor Magic 7 Lite color gris y 01 caja con 05 controles remotos de portones automáticos y 01 radio receptora. Tiene sospechas sobre una mujer conocida como \"Signey\" quien es consumidora de drogas, fue vista en el lugar y posteriormente observada con el celular por un vecino. GPS del equipo indica ubicación en calle Central con Pasaje 17, domicilio donde no responden al procedimiento policial. Avalúo $800000.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 1978,
+    "direccion_georref": "CALLE CENTRAL 748",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALLE CENTRAL 748 , San Pedro de la Paz",
+    "lat": -36.84971501062464,
+    "lon": -73.13950198914814
   }
 ]
