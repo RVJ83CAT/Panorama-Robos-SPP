@@ -16324,5 +16324,23 @@
     "concat": "RUTA 160 8100 , San Pedro de la Paz",
     "lat": -36.86003372775716,
     "lon": -73.13311241658356
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "06-05-2026",
+    "dia": "MIERCOLES",
+    "hora": "17:00",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "CALLE 1 553",
+    "circunstancias": "La denunciante (M30) salió de su domicilio ubicado en sector Boca Sur a las 17:00 en dirección a Concepción y al regresar cerca de las 20:00 constató que el candado de la puerta principal se encontraba forzado. Sujetos desconocidos ingresaron  y sustrajeron desde el comedor 01 televisor TCL de 40 pulgadas color negro. Sin cámaras ni testigos. Avalúo $140000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 1995,
+    "direccion_georref": "CALLE 1 553",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALLE 1 553 , San Pedro de la Paz",
+    "lat": -36.83943959034679,
+    "lon": -73.1476997769921
   }
 ]
