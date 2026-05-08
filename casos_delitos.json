@@ -16342,5 +16342,23 @@
     "concat": "CALLE 1 553 , San Pedro de la Paz",
     "lat": -36.83943959034679,
     "lon": -73.1476997769921
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "07-05-2026",
+    "dia": "JUEVES",
+    "hora": "22:50",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "LOCALES COMERCIALES",
+    "direccion": "AVENIDA PEDRO AGUIRRE CERDA 1619",
+    "circunstancias": "Robo en empresa de materiales de ferretería. La víctima (H50) recibe llamado del presidente de la Junta de Vecinos alertando que el portón de acceso de su empresa se encontraba abierto. Al llegar constata puerta principal forzada e ingreso de desconocidos quienes sustrajeron discos de corte, soldaduras, herramientas, 01 notebook Asus negro, guantes de construcción y 01 camioneta KYC X5 blanca año 2024 PPU. TZFV32. El recinto permanecía sin personal desde las 19:00. Mantiene cámaras Verisure y seguros comprometidos. Encargo EUN 696681. Avalúo $25000000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 535,
+    "direccion_georref": "AVENIDA PEDRO AGUIRRE CERDA 1619",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA PEDRO AGUIRRE CERDA 1619 , San Pedro de la Paz",
+    "lat": -36.83858498647066,
+    "lon": -73.10417445072284
   }
 ]
