@@ -16360,5 +16360,41 @@
     "concat": "AVENIDA PEDRO AGUIRRE CERDA 1619 , San Pedro de la Paz",
     "lat": -36.83858498647066,
     "lon": -73.10417445072284
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "08-05-2026",
+    "dia": "VIERNES",
+    "hora": "08:30",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "SEDES SINDICALES",
+    "direccion": "PASAJE UNO 1156",
+    "circunstancias": "La denunciante (M34), presidenta de la Junta de Vecinos Nueva Estrella de Michaihue, fue alertada telefónicamente por una trabajadora del recinto respecto a un robo en la sede. Al llegar al lugar constató que desconocidos ingresaron por la parte posterior colindante con un sitio eriazo, escalando hasta el segundo piso donde realizaron un forado de aproximadamente 20 cm en una pared y cortaron cables de la alarma vecinal. Además forzaron el candado de acceso a la oficina, sustrayendo 04 fondos de aluminio de 15 litros, rollos de tela, distintos tipos de loza, 02 hervidores, 01 alargador y útiles de aseo. Mantiene cámaras, las cuales serán presentadas a Fiscalía. Daños consistentes en forado en ventanal del segundo piso. Avalúo $400000.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 2022,
+    "direccion_georref": "PASAJE UNO 1156",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE UNO 1156 , San Pedro de la Paz",
+    "lat": -36.84246464508168,
+    "lon": -73.14707234181569
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "08-05-2026",
+    "dia": "VIERNES",
+    "hora": "09:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "CALLE SAN PEDRO 630",
+    "circunstancias": "La víctima (H32) al salir al patio de su domicilio en horas de la mañana constata que desconocidos ingresaron durante la noche al patio trasero y cortaron el candado de seguridad de su bicicleta DARTMOOR aro 29 color verde claro modelo Primal, dándose posteriormente a la fuga en dirección desconocida. En el inmueble viven varias personas, pero ninguna escuchó ruidos. Sin cámaras, alarmas ni testigos. Sin seguros. Personal policial verificó que no existían cámaras ni huellas en el lugar. Avalúo $1500000.",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 538,
+    "direccion_georref": "CALLE SAN PEDRO 630",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALLE SAN PEDRO 630 , San Pedro de la Paz",
+    "lat": -36.83897648828607,
+    "lon": -73.08602925063455
   }
 ]
