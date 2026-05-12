@@ -16522,5 +16522,23 @@
     "concat": "CALLE ALGARROBO 640 , San Pedro de la Paz",
     "lat": -36.8334275340457,
     "lon": -73.14782771165682
+  },
+  {
+    "clasificacion": "DETENCION",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "12-05-2026",
+    "dia": "MARTES",
+    "hora": "03:48",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "DIEGO MUÑOZ 150",
+    "circunstancias": "Personal policial concurre por comunicado CENCO a domicilio de la víctima (H30), quien  al escuchar ruidos en el patio sorprendió a dos sujetos al interior del patio frontal del inmueble, observando a ambos junto a la camioneta. Al ser increpados (qué están haciendo ahí!) los individuos huyen saltando la reja del domicilio. Corren hacia el servicentro COPEC, y Carabineros intercepta a los sujetos en LOPE DE LANDA / GASPAR DE VERDUGO, procediendo detener a NAIM IGNACIO PERALTA SAN MARTIN (H18) CI. 22636748-9  y FELIPE IGNACIO HOPPE SANTOS (H19) CI. 22149540-3. En poder de Peralta se incauta 01 arma blanca artesanal, 01 alicate Tramontina y 01 destornillador, elementos comúnmente utilizados para cometer delitos. La víctima reconoce plenamente a ambos detenidos por características físicas, vestimentas y mochila Adidas azul marino utilizada durante el hecho.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 549,
+    "direccion_georref": "DIEGO MUÑOZ 150",
+    "comuna": "San Pedro de la Paz",
+    "concat": "DIEGO MUÑOZ 150 , San Pedro de la Paz",
+    "lat": -36.84666316976326,
+    "lon": -73.09774795949167
   }
 ]
