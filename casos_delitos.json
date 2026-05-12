@@ -16524,6 +16524,24 @@
     "lon": -73.14782771165682
   },
   {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO FRUSTRADO",
+    "fecha": "12-05-2026",
+    "dia": "MARTES",
+    "hora": "02:30",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "LOS ESCOLAPIOS 1737",
+    "circunstancias": "La víctima (M22) mientras se encontraba en el segundo piso de su domicilio en Villa San Pedro escucha fuertes golpes en la puerta principal, percibiendo que desconocidos intentaban ingresar utilizando algún objeto contundente. Por temor se mantiene en su dormitorio y avisa a su madre, quien contacta a un familiar para verificar la situación. Al descender constatan daños en la puerta principal, vidrio lateral quebrado y daños en la chapa del portón de acceso, la cual habría sido forzada para ingresar al inmueble. Los autores huyeron sin sustraer especies. El domicilio no mantiene cámaras de seguridad. Avalúo daños $2000000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 552,
+    "direccion_georref": "LOS ESCOLAPIOS 1737",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS ESCOLAPIOS 1737 , San Pedro de la Paz",
+    "lat": -36.841008667723926,
+    "lon": -73.11016357389194
+  },
+  {
     "clasificacion": "DETENCION",
     "delito": "ROBO EN LUGAR HABITADO",
     "fecha": "12-05-2026",
