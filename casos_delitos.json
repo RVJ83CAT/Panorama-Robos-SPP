@@ -16486,5 +16486,41 @@
     "concat": "AVENIDA PROGRESO 7270 , San Pedro de la Paz",
     "lat": -36.88903896060504,
     "lon": -73.13042481100777
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "11-05-2026",
+    "dia": "LUNES",
+    "hora": "09:30",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "VENUS & PLUTON",
+    "circunstancias": "La víctima (M26) luego de retirar $2000000 en efectivo desde banco Scotiabank de Villa San Pedro se dirigía a pie junto a su hijo hacia una caja vecina en sector Boca Sur, cuando fue abordada por dos sujetos movilizados en una motocicleta negra. Uno de los autores la toma por la espalda e intimida aparentemente con un arma de fuego apoyada en su espalda, manifestándole “ENTREGA TODO LO QUE TIENES O VAMOS A LASTIMAR A TU HIJO”, sustrayéndole $2000000 en efectivo y 01 casaca sin mangas color negro. Los individuos huyen en dirección desconocida. Sin testigos, cámaras ni lesiones. Avalúo $2020000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 2048,
+    "direccion_georref": "VENUS & PLUTON",
+    "comuna": "San Pedro de la Paz",
+    "concat": "VENUS & PLUTON , San Pedro de la Paz",
+    "lat": -36.826730856757216,
+    "lon": -73.14810168710896
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "11-05-2026",
+    "dia": "LUNES",
+    "hora": "18:00",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "CALLE ALGARROBO 640",
+    "circunstancias": "La víctima (M41) salió junto a sus hijos el día 08-05-2026 hacia la ciudad de Chillán, dejando su domicilio ubicado en Villa Costa Pacífico sin moradores y completamente cerrado. Al regresar el 11-05-2026 a las 18:00 constató daños en la chapa del portón peatonal eléctrico y una ventana corredera desmontada y con el vidrio quebrado en el sector del living. Desconocidos ingresaron al inmueble y sustrajeron diversas joyas de oro y plata, 02 televisores LG de 42 pulgadas, 01 Macbook Apple, 01 notebook Acer, 02 Apple Watch, electrodomésticos, herramientas, vestuario y accesorios de distintas marcas. El inmueble quedó completamente desordenado y además se registraron daños interiores. Mantiene seguros. Avalúo pendiente ante Fiscalía.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 2059,
+    "direccion_georref": "CALLE ALGARROBO 640",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALLE ALGARROBO 640 , San Pedro de la Paz",
+    "lat": -36.8334275340457,
+    "lon": -73.14782771165682
   }
 ]
