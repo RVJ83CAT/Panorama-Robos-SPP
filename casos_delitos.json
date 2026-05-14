@@ -16514,7 +16514,7 @@
     "rango_hora": "16:00 a 19:59",
     "lugar": "DOMICILIO PARTICULAR",
     "direccion": "CALLE ALGARROBO 640",
-    "circunstancias": "La víctima (M41) salió junto a sus hijos el día 08-05-2026 hacia la ciudad de Chillán, dejando su domicilio ubicado en Villa Costa Pacífico sin moradores y completamente cerrado. Al regresar el 11-05-2026 a las 18:00 constató daños en la chapa del portón peatonal eléctrico y una ventana corredera desmontada y con el vidrio quebrado en el sector del living. Desconocidos ingresaron al inmueble y sustrajeron diversas joyas de oro y plata, 02 televisores LG de 42 pulgadas, 01 Macbook Apple, 01 notebook Acer, 02 Apple Watch, electrodomésticos, herramientas, vestuario y accesorios de distintas marcas. El inmueble quedó completamente desordenado y además se registraron daños interiores. Mantiene seguros. Avalúo pendiente ante Fiscalía.",
+    "circunstancias": "El denunciante (M41) salió junto a sus hijos el día 08-05-2026 hacia la ciudad de Chillán, dejando su domicilio ubicado en Villa Costa Pacífico sin moradores y completamente cerrado. Al regresar el 11-05-2026 a las 18:00 constató daños en la chapa del portón peatonal eléctrico y una ventana corredera desmontada y con el vidrio quebrado en el sector del living. Desconocidos ingresaron al inmueble y sustrajeron diversas joyas de oro y plata, 02 televisores LG de 42 pulgadas, 01 Macbook Apple, 01 notebook Acer, 02 Apple Watch, electrodomésticos, herramientas, vestuario y accesorios de distintas marcas. El inmueble quedó completamente desordenado y además se registraron daños interiores. Mantiene seguros. Avalúo pendiente ante Fiscalía.",
     "cuadrante": "Cuadrante 01",
     "numero_parte": 2059,
     "direccion_georref": "CALLE ALGARROBO 640",
@@ -16550,7 +16550,7 @@
     "rango_hora": "00:00 a 03:59",
     "lugar": "DOMICILIO PARTICULAR",
     "direccion": "DIEGO MUÑOZ 150",
-    "circunstancias": "Personal policial concurre por comunicado CENCO a domicilio de la víctima (H30), quien  al escuchar ruidos en el patio sorprendió a dos sujetos al interior del patio frontal del inmueble, observando a ambos junto a la camioneta. Al ser increpados (qué están haciendo ahí!) los individuos huyen saltando la reja del domicilio. Corren hacia el servicentro COPEC, y Carabineros intercepta a los sujetos en LOPE DE LANDA / GASPAR DE VERDUGO, procediendo detener a NAIM IGNACIO PERALTA SAN MARTIN (H18) CI. 22636748-9  y FELIPE IGNACIO HOPPE SANTOS (H19) CI. 22149540-3. En poder de Peralta se incauta 01 arma blanca artesanal, 01 alicate Tramontina y 01 destornillador, elementos comúnmente utilizados para cometer delitos. La víctima reconoce plenamente a ambos detenidos por características físicas, vestimentas y mochila Adidas azul marino utilizada durante el hecho.",
+    "circunstancias": "Personal policial concurre por comunicado CENCO a domicilio del afectado (H30), quien  al escuchar ruidos en el patio sorprendió a dos sujetos al interior del patio frontal del inmueble, observando a ambos junto a la camioneta. Al ser increpados (qué están haciendo ahí!) los individuos huyen saltando la reja del domicilio. Corren hacia el servicentro COPEC, y Carabineros intercepta a los sujetos en LOPE DE LANDA / GASPAR DE VERDUGO, procediendo detener a NAIM IGNACIO PERALTA SAN MARTIN (H18) CI. 22636748-9  y FELIPE IGNACIO HOPPE SANTOS (H19) CI. 22149540-3. En poder de Peralta se incauta 01 arma blanca artesanal, 01 alicate Tramontina y 01 destornillador, elementos comúnmente utilizados para cometer delitos. La víctima reconoce plenamente a ambos detenidos por características físicas, vestimentas y mochila Adidas azul marino utilizada durante el hecho.",
     "cuadrante": "Cuadrante 07",
     "numero_parte": 549,
     "direccion_georref": "DIEGO MUÑOZ 150",
@@ -16558,5 +16558,23 @@
     "concat": "DIEGO MUÑOZ 150 , San Pedro de la Paz",
     "lat": -36.84666316976326,
     "lon": -73.09774795949167
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "13-05-2026",
+    "dia": "MIERCOLES",
+    "hora": "23:00",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "VICENTE HUIDOBRO ORIENTE 8837",
+    "circunstancias": "El denunciante (H63) mientras se encontraba en su domicilio en Villa Los Escritores salió al exterior y constató la sustracción de su automóvil Kia Rio JB color gris oscuro año 2011 PPU. DDSW89, el cual había dejado estacionado frente al inmueble con puertas y ventanas cerradas y con seguro activado. Desconoce la dinámica del delito y no hubo testigos. El sector mantiene cámaras comunitarias. Sin seguros comprometidos. Avalúo $4500000.",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 2096,
+    "direccion_georref": "VICENTE HUIDOBRO ORIENTE 8837",
+    "comuna": "San Pedro de la Paz",
+    "concat": "VICENTE HUIDOBRO ORIENTE 8837 , San Pedro de la Paz",
+    "lat": -36.90025290241937,
+    "lon": -73.14688470437484
   }
 ]
