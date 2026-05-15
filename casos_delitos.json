@@ -16666,5 +16666,23 @@
     "concat": "CALLE GALVARINO & CALLE TUCAPEL , San Pedro de la Paz",
     "lat": -36.853416146576045,
     "lon": -73.14602737961219
+  },
+  {
+    "clasificacion": "DETENCION",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "15-05-2026",
+    "dia": "VIERNES",
+    "hora": "10:39",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "AVENIDA MICHAIHUE FRENTE AL 578",
+    "circunstancias": "Personal policial que realizaba patrullaje preventivo por Avenida Michaihue es alertado por la víctima (H60), quien señala que mientras transitaba en dirección a Ruta 160 para dirigirse a su trabajo fue abordado por un sujeto vestido con ropas oscuras, quien lo golpeó en el costado izquierdo de la cabeza e intentó registrar los bolsillos de su casaca con la finalidad de sustraer especies. Al no encontrar objetos de valor, el sujeto huye por Avenida Michaihue, siendo seguido por la víctima quien solicita ayuda a Carabineros. Con las características aportadas, personal policial procede a la detención de JOAQUIN IGNACIO PAINE GODOY (H25) CI. 20438941-1  frente al Nro. 436 de Avenida Michaihue. La víctima resultó sin lesiones.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 2126,
+    "direccion_georref": "AVENIDA MICHAIHUE FRENTE AL 578",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA MICHAIHUE FRENTE AL 578 , San Pedro de la Paz",
+    "lat": -36.84393915923932,
+    "lon": -73.1372646655519
   }
 ]
