@@ -16921,6 +16921,24 @@
   },
   {
     "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "19-05-2026",
+    "dia": "MARTES",
+    "hora": "03:20",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LAS TORRES 372",
+    "circunstancias": "El denunciante (H46) señala que había facilitado su vehículo Toyota Corolla color rojo mica año 1996 PPU. PA1157 a su hermano. El móvil se encontraba estacionado en el exterior del domicilio ubicado en calle Las Torres con Las Marinas Nro. 372 departamento 102, sector Candelaria, cuando desconocidos sustrajeron el vehículo alrededor de las 03:20 horas. El hecho fue advertido durante la mañana, desconociendo la dinámica utilizada por los autores y sin antecedentes de testigos. Encargo EUN 697969. El sector mantiene cámaras municipales que podrían haber registrado los hechos. Avalúo $1700000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 1,
+    "direccion_georref": "LAS TORRES 372",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAS TORRES 372 , San Pedro de la Paz",
+    "lat": -36.82930729645647,
+    "lon": -73.12121148142498
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO EN LUGAR NO HABITADO",
     "fecha": "19-05-2026",
     "dia": "MARTES",
@@ -16954,5 +16972,23 @@
     "concat": "DIAGONAL BIO BIO & AVENIDA LAS TORRES , San Pedro de la Paz",
     "lat": -36.830164679618704,
     "lon": -73.12089529968803
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "19-05-2026",
+    "dia": "MARTES",
+    "hora": "18:30",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "PASAJE 94 1335",
+    "circunstancias": "La víctima (H49) al regresar de su trabajo verificó su vehículo Station Wagon marca Changan modelo CX70 color gris año 2019 PPU. LSGW71, estacionado fuera de su domicilio, percatándose que la puerta del copiloto se encontraba sin seguro y sin signos de fuerza. Al revisar el interior constató la sustracción de la totalidad de la documentación del vehículo, 01 lentes ópticos y $3000 en monedas. Desconoce identidad y dinámica utilizada por los autores. Sin cámaras ni testigos. Mantiene seguro, desconociendo el tipo. Avalúo $350000.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 2185,
+    "direccion_georref": "PASAJE 94 1335",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE 94 1335 , San Pedro de la Paz",
+    "lat": -36.8487568505429,
+    "lon": -73.14900318128375
   }
 ]
