@@ -16990,5 +16990,23 @@
     "concat": "PASAJE 94 1335 , San Pedro de la Paz",
     "lat": -36.8487568505429,
     "lon": -73.14900318128375
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "20-05-2026",
+    "dia": "MIERCOLES",
+    "hora": "03:00",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "PASAJE 34 3501",
+    "circunstancias": "La denunciante (M39) dejó estacionado frente a su domicilio automóvil Chevrolet Tracker color azul PPU. KKGX80, el cual no es de su propiedad. Al revisar el vehículo durante la mañana constató que desconocidos forzaron la chapa de la puerta del conductor, sustrayendo desde el interior la totalidad de la documentación del vehículo. El vehículo no mantiene seguros comprometidos. Daños en chapa delantera costado conductor. Sin cámaras ni testigos.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 2192,
+    "direccion_georref": "PASAJE 34 3501",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE 34 3501 , San Pedro de la Paz",
+    "lat": -36.85231442928215,
+    "lon": -73.14112384496924
   }
 ]
