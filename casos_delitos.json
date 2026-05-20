@@ -16874,7 +16874,7 @@
     "rango_hora": "00:00 a 03:59",
     "lugar": "OTROS LUGARES",
     "direccion": "DANIEL BELMAR S/N",
-    "circunstancias": "La víctima (H62) mientras se desempeñaba como guardia de seguridad en el Vivero Municipal de San Pedro de la Paz, recinto en desuso ubicado en calle Daniel Belmar s/n, realizó una ronda preventiva dejando cerrada su dependencia. Al regresar cerca de las 02:30 horas constató que desconocidos habían cortado un eslabón metálico donde mantenía un candado de seguridad, ingresando al lugar y sustrayendo 01 mochila marca Puma color crema y 01 bolso negro sin marca con diversas herramientas en su interior, especies que se encontraban sobre un tambor. Los autores huyeron en dirección desconocida. Sin testigos, cámaras ni sospechosos.",
+    "circunstancias": "El denunciante (H62) mientras se desempeñaba como guardia de seguridad en el Vivero Municipal de San Pedro de la Paz, recinto en desuso ubicado en calle Daniel Belmar s/n, realizó una ronda preventiva dejando cerrada su dependencia. Al regresar cerca de las 02:30 horas constató que desconocidos habían cortado un eslabón metálico donde mantenía un candado de seguridad, ingresando al lugar y sustrayendo 01 mochila marca Puma color crema y 01 bolso negro sin marca con diversas herramientas en su interior, especies que se encontraban sobre un tambor. Los autores huyeron en dirección desconocida. Sin testigos, cámaras ni sospechosos.",
     "cuadrante": "Cuadrante 01",
     "numero_parte": 2157,
     "direccion_georref": "DANIEL BELMAR S/N",
@@ -16982,7 +16982,7 @@
     "rango_hora": "16:00 a 19:59",
     "lugar": "VIA PUBLICA",
     "direccion": "PASAJE 94 1335",
-    "circunstancias": "La víctima (H49) al regresar de su trabajo verificó su vehículo Station Wagon marca Changan modelo CX70 color gris año 2019 PPU. LSGW71, estacionado fuera de su domicilio, percatándose que la puerta del copiloto se encontraba sin seguro y sin signos de fuerza. Al revisar el interior constató la sustracción de la totalidad de la documentación del vehículo, 01 lentes ópticos y $3000 en monedas. Desconoce identidad y dinámica utilizada por los autores. Sin cámaras ni testigos. Mantiene seguro, desconociendo el tipo. Avalúo $350000.",
+    "circunstancias": "El denunciante (H49) al regresar de su trabajo verificó su vehículo Station Wagon marca Changan modelo CX70 color gris año 2019 PPU. LSGW71, estacionado fuera de su domicilio, percatándose que la puerta del copiloto se encontraba sin seguro y sin signos de fuerza. Al revisar el interior constató la sustracción de la totalidad de la documentación del vehículo, 01 lentes ópticos y $3000 en monedas. Desconoce identidad y dinámica utilizada por los autores. Sin cámaras ni testigos. Mantiene seguro, desconociendo el tipo. Avalúo $350000.",
     "cuadrante": "Cuadrante 03",
     "numero_parte": 2185,
     "direccion_georref": "PASAJE 94 1335",
@@ -17008,5 +17008,23 @@
     "concat": "PASAJE 34 3501 , San Pedro de la Paz",
     "lat": -36.85231442928215,
     "lon": -73.14112384496924
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "20-05-2026",
+    "dia": "MIERCOLES",
+    "hora": "05:00",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "LOCALES COMERCIALES",
+    "direccion": "LA MARINA 1120",
+    "circunstancias": "El denunciante (H37) propietario del local comercial “Distribuidora de Abarrotes La Despencita”, ubicado en sector Candelaria, señaló que el día 19-05-2026 a las 20:00 horas cerró el local y se retiró junto a su esposa a otro domicilio. Posteriormente, a las 06:18 horas del día siguiente, fue alertado por vecinos indicando que un sujeto había ingresado al recinto. Al concurrir al lugar constató que un sujeto desconocido escaló el portón metálico y quebró parte de una plancha OSB para ingresar al inmueble, desde donde sustrajo 03 sacos de alimento para perros marca Purina de 12 kilos cada uno y 01 manga de papel higiénico marca Confort de 48 rollos, huyendo por el mismo lugar de acceso. Una cámars de seguridad interior registró que el autor vestía pantalón tipo militar y casaca azul, sin lograr identificarlo. Sin alarma ni seguros comprometidos. Avalúo total de especies y daños $80000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 2194,
+    "direccion_georref": "LA MARINA 1120",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LA MARINA 1120 , San Pedro de la Paz",
+    "lat": -36.82632060904707,
+    "lon": -73.12075818215892
   }
 ]
