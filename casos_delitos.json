@@ -17314,5 +17314,23 @@
     "concat": "WILLIAM CONDON 3057 , San Pedro de la Paz",
     "lat": -36.8616606923942,
     "lon": -73.10261737462892
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "26-05-2026",
+    "dia": "MARTES",
+    "hora": "19:30",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LOS PENSAMIENTOS & LAS ROSAS",
+    "circunstancias": "La víctima (H15) se reunió con un ex amigo identificado como “Matías” en el sector de Los Pensamientos con Las Rosas, instancia en la que comenzaron una discusión que derivó en una pelea. El sujeto extrajo un cuchillo desde sus vestimentas amenazándolo con propinarle puñaladas, para posteriormente empujarlo al suelo y agredirlo con golpes de puño y pies en distintas partes del cuerpo, principalmente en la cabeza. Luego le sustrajo una billetera marca Maui color negra con gris, la cual contenía $22000 en efectivo, huyendo en dirección desconocida. La agresión y robo se produjo porque un compañero de la víctima amenazó al tal Matías, entregando una dirección falsa. Al llegar al lugar encuentra no encuentra a quien lo amenazó, encontrándose con la víctima. Éste resultó con lesiones leves.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 599,
+    "direccion_georref": "LOS PENSAMIENTOS & LAS ROSAS",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS PENSAMIENTOS & LAS ROSAS , San Pedro de la Paz",
+    "lat": -36.83479876045257,
+    "lon": -73.10204249531935
   }
 ]
