@@ -17332,5 +17332,41 @@
     "concat": "LOS PENSAMIENTOS & LAS ROSAS , San Pedro de la Paz",
     "lat": -36.83479876045257,
     "lon": -73.10204249531935
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "27-05-2026",
+    "dia": "MIERCOLES",
+    "hora": "08:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "LAS GOLONDRINAS 430",
+    "circunstancias": "El afectado (H39) denunció la sustracción de su motocicleta marca Bajaj modelo Pulsar color azul año 2016 PPU. FWZ071, la cual mantenía estacionada desde hace aproximadamente dos meses en el domicilio de sus padres. Cerca de las 06:00 horas su padre le informó que desconocidos habían sustraído el móvil. Concurrió al lugar verificando el robo. Sin cámaras de vigilancia. Encargo Nro. 698844. Avalúo $700000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 2296,
+    "direccion_georref": "LAS GOLONDRINAS 430",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAS GOLONDRINAS 430 , San Pedro de la Paz",
+    "lat": -36.82946045152646,
+    "lon": -73.11724178738137
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN BIENES NACIONALES",
+    "fecha": "27-05-2026",
+    "dia": "MIERCOLES",
+    "hora": "13:40",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "CONDOMINIOS",
+    "direccion": "CALLE NUEVA 84 BLOCK A",
+    "circunstancias": "El denunciante (H65) regresó a su domicilio en Condominio Los Colonizadores durante su jornada laboral, dejando estacionada en el patio del condominio su bicicleta marca Forza mountain bike aro 27.5 color negro con diseños y letras celestes, asegurada con candado. Al regresar cerca de las 13:40 horas para dirigirse nuevamente a su trabajo, constató que desconocidos habían sustraído la bicicleta. Existen cámaras de seguridad en el condominio, pero no fue posible acceder a los registros debido a que la encargada se encuentra de vacaciones. Avalúo $400000.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 2295,
+    "direccion_georref": "CALLE NUEVA 84 BLOCK A",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALLE NUEVA 84 BLOCK A , San Pedro de la Paz",
+    "lat": -36.85450293679307,
+    "lon": -73.13393031413729
   }
 ]
