@@ -17391,7 +17391,7 @@
     "clasificacion": "DENUNCIA",
     "delito": "ROBO EN LUGAR HABITADO",
     "fecha": "27-05-2026",
-    "dia": "JUEVES",
+    "dia": "MIERCOLES",
     "hora": "19:30",
     "rango_hora": "16:00 a 19:59",
     "lugar": "DOMICILIO PARTICULAR",
@@ -17427,7 +17427,7 @@
     "clasificacion": "DETENCION",
     "delito": "ROBO CON VIOLENCIA",
     "fecha": "28-05-2026",
-    "dia": "MIERCOLES",
+    "dia": "JUEVES",
     "hora": "03:20",
     "rango_hora": "00:00 a 03:59",
     "lugar": "DOMICILIO PARTICULAR",
@@ -17440,5 +17440,23 @@
     "concat": "PIEDRA DEL SOL 274 , San Pedro de la Paz",
     "lat": -36.83064900073385,
     "lon": -73.14333222733721
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "28-05-2026",
+    "dia": "JUEVES",
+    "hora": "03:30",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "MAGDALENA PETIT 7761",
+    "circunstancias": "La víctima (M45) mientras dormía en su domicilio junto a su sobrino (H18) escuchó ruidos provenientes de la cocina y posteriormente fue abordada en su dormitorio por tres sujetos jóvenes que utilizaban linternas y no encendieron las luces del inmueble. Uno de ellos la intimidó manifestándole “DONDE TIENES PLATA... TRANQUILA, NO TE VOY A HACER NADA”. Los sujetos trasladaron a ambas víctimas hasta otro dormitorio, donde las maniataron de las muñecas con una malla de voleibol, registrando posteriormente todo el inmueble. Los sujetos ingresaron escalando el cierre perimetral metálico y forzando una ventana trasera para acceder a la cocina. Sustrajeron 02 notebooks (Lenovo color plomo y Samsung color negro) y 03 teléfonos celulares (Motorola G30, Samsung A20 e Iphone 11 en mal estado). Las víctimas resultaron sin lesiones. Avalúo $500000.",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 2317,
+    "direccion_georref": "MAGDALENA PETIT 7761",
+    "comuna": "San Pedro de la Paz",
+    "concat": "MAGDALENA PETIT 7761 , San Pedro de la Paz",
+    "lat": -36.89160966088336,
+    "lon": -73.13926018291315
   }
 ]
