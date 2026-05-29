@@ -17602,5 +17602,23 @@
     "concat": "RUTA 160 & PASAJE ANTONIO CASTRO , San Pedro de la Paz",
     "lat": -36.84927924030158,
     "lon": -73.13100048425751
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "29-05-2026",
+    "dia": "VIERNES",
+    "hora": "07:50",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "OTROS LUGARES",
+    "direccion": "DANIEL BELMAR 578",
+    "circunstancias": "La denunciante(M54) propietaria de empresa de fabricación de panderetas de hormigón ubicada en Daniel Belmar 578, Boca Sur, al llegar a iniciar labores constató que desconocidos sustrajeron el medidor de agua y dañaron una lata de uno de los galpones para ingresar. Desde el interior sustrajeron 04 tiras de ángulo de fierro y diversos materiales metálicos. Posteriormente verificó que en otro galpón forzaron el portón de acceso, sustrayendo 03 moldes de fierro para placas y 01 molde de pilar de fierro. El delito fue cometido mediante escalamiento y fuerza en las cosas. La víctima mantiene sospechas sobre un sujeto que habita en un ruco frente a la empresa, quien días antes fue observado vigilando el recinto. Sin cámaras, testigos ni seguros comprometidos. Avalúo  por informar a Fiscalía.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 2343,
+    "direccion_georref": "DANIEL BELMAR 578",
+    "comuna": "San Pedro de la Paz",
+    "concat": "DANIEL BELMAR 578 , San Pedro de la Paz",
+    "lat": -36.83737278862711,
+    "lon": -73.13644223907113
   }
 ]
