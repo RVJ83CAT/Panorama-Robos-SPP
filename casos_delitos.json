@@ -17836,5 +17836,23 @@
     "concat": "ARRAYANES 800 , San Pedro de la Paz",
     "lat": -36.88097341752479,
     "lon": -73.12987278935864
+  },
+  {
+    "clasificacion": "DETENCION",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "02-06-2026",
+    "dia": "MARTES",
+    "hora": "14:30",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "OTROS LUGARES",
+    "direccion": "LOS GUINDOS 1100",
+    "circunstancias": "La denunciante (M42) sorprendió a un sujeto conocido como \"Toco\" al interior de un galpón sustrayendo fierros. Posteriormente el sujeto huyó del lugar y profirió amenazas de muerte contra la víctima y su cónyuge, regresando presuntamente con un arma de fuego efectuando dos disparos en dirección al inmueble, impactando el portón de acceso. Con los antecedentes aportados por la víctima, personal policial ubicó y fiscalizó a VICTOR ARNOLDO BARRIENTOS DOMINGUEZ (H43) CI. 15186028-1 en la intersección de Los Cipreses con Pablo Neruda, procediendo a su detención. El sujeto se desplazaba en camioneta Lifan Truck PPU FGZX47, transportando en el pick-up 10 fierros trenzados reconocidos por la víctima como de su propiedad, los cuales fueron recuperados y entregados bajo acta. El detenido mantenía lesiones leves consistentes en esguince de dedo meñique. El ingreso al galpón fue realizado mediante fractura de una plancha de internit. Avalúo $500000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 2401,
+    "direccion_georref": "LOS GUINDOS 1100",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS GUINDOS 1100 , San Pedro de la Paz",
+    "lat": -36.88402998650775,
+    "lon": -73.12734729951251
   }
 ]
