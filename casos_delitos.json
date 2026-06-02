@@ -17782,5 +17782,41 @@
     "concat": "EUSCADIA 1810 , San Pedro de la Paz",
     "lat": -36.8455281980495,
     "lon": -73.11242657484294
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "31-05-2026",
+    "dia": "DOMINGO",
+    "hora": "18:00",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "PASAJE CHOLGUAN 655",
+    "circunstancias": "El denunciante (H50) dejó estacionado su automóvil Hyundai Accent color café año 2010 PPU. CGRJ28 frente a su domicilio ubicado en Villa Mar, aproximadamente a las 15:00 horas. Al regresar cerca de las 23:00 horas constató que el vehículo había sido sustraído. Una vecina indicó que alrededor de las 18:00 horas el automóvil ya no se encontraba en el lugar. No mantiene testigos ni sospechosos. El sector no posee cámaras de seguridad. EUN 699375. Avalúo $2800000.",
+    "cuadrante": "Cuadrante 05",
+    "numero_parte": 2372,
+    "direccion_georref": "PASAJE CHOLGUAN 655",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE CHOLGUAN 655 , San Pedro de la Paz",
+    "lat": -36.90443617958061,
+    "lon": -73.14996148874245
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "31-05-2026",
+    "dia": "DOMINGO",
+    "hora": "21:40",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "ANGEL CRUCHAGA & EDUARDO ANGUITA",
+    "circunstancias": "El denunciante (H45) dejó estacionado su automóvil Kia Rio 5 color rojo año 2009 PPU BYKL51 frente al local comercial \"La Vega\", mientras visitaba a un familiar. Aproximadamente a las 21:40 horas escuchó la activación de una alarma vehicular y al salir observó a un sujeto desconocido sustrayendo el móvil y huyendo en dirección norte por Avenida Costanera. Posteriormente revisó cámaras particulares del domicilio, observando a un individuo vestido completamente de negro ingresar al vehículo y ponerlo en marcha. La víctima presume el uso de algún dispositivo inhibidor de señal o método similar. En el interior del automóvil mantenía diversas herramientas de trabajo. Mantiene cámaras. EUN 699374. Avalúo $6000000.",
+    "cuadrante": "Cuadrante 05",
+    "numero_parte": 2371,
+    "direccion_georref": "ANGEL CRUCHAGA & EDUARDO ANGUITA",
+    "comuna": "San Pedro de la Paz",
+    "concat": "ANGEL CRUCHAGA & EDUARDO ANGUITA , San Pedro de la Paz",
+    "lat": -36.90007920264895,
+    "lon": -73.1481517771874
   }
 ]
