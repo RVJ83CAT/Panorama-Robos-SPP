@@ -18322,5 +18322,23 @@
     "concat": "GALVARINO 45 , San Pedro de la Paz",
     "lat": -36.84688529468579,
     "lon": -73.1442673199689
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "05-06-2026",
+    "dia": "VIERNES",
+    "hora": "10:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "LOCALES COMERCIALES",
+    "direccion": "LAS VIOLETAS 1782",
+    "circunstancias": "El denunciante (H49) dejó estacionado su automóvil Kia Soluto color blanco año 2023 en un estacionamiento de uso público a las 09:30 horas. Al regresar a las 10:00 horas constató la sustracción desde el interior del portamaletero de diversos productos alimenticios adquiridos previamente en supermercado Versluys, consistentes en trutro de pollo, queso mantecoso Emporio Alemán, jamón pierna “Receta del Abuelo”, carne molida, pulpa pierna de cerdo y pechuga de pollo deshuesada. El vehículo se encontraba cerrado y el afectado desconoce la dinámica utilizada por los autores. No existen cámaras de seguridad ni testigos. Sin lesiones ni seguros comprometidos. Avalúo $58473.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 634,
+    "direccion_georref": "LAS VIOLETAS 1782",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAS VIOLETAS 1782 , San Pedro de la Paz",
+    "lat": -36.83217611826153,
+    "lon": -73.1105460823638
   }
 ]
