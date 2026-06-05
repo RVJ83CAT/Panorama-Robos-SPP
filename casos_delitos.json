@@ -18278,7 +18278,7 @@
     "rango_hora": "16:00 a 19:59",
     "lugar": "TALLER",
     "direccion": "LOS MAÑIOS 6377",
-    "circunstancias": "La víctima (H41, venezolano, mecánico) dejó estacionado su vehículo Kia Soluto color azul año 2025 PPU VCKZ-96 frente a su lugar de trabajo ubicado en calle Los Mañios 6377. Al finalizar su jornada laboral constató la desaparición de su billetera y posteriormente, al revisar registros de cámaras de seguridad, verificó que dos sujetos masculinos con vestimenta oscura y a rostro descubierto forzaron la chapa de la puerta delantera izquierda del vehículo, sustrayendo 01 billetera marca Victorinox color negro, cédula de identidad, 01 tarjeta de débito Banco BCI y 01 licencia de conducir clase B. Presentó daños consistentes en chapa de puerta delantera izquierda forzada. Sin testigos. Existen cámaras de seguridad. Avalúo $120000.",
+    "circunstancias": "El denunciante (H41, venezolano, mecánico) dejó estacionado su vehículo Kia Soluto color azul año 2025 PPU VCKZ-96 frente a su lugar de trabajo ubicado en calle Los Mañios 6377. Al finalizar su jornada laboral constató la desaparición de su billetera y posteriormente, al revisar registros de cámaras de seguridad, verificó que dos sujetos masculinos con vestimenta oscura y a rostro descubierto forzaron la chapa de la puerta delantera izquierda del vehículo, sustrayendo 01 billetera marca Victorinox color negro, cédula de identidad, 01 tarjeta de débito Banco BCI y 01 licencia de conducir clase B. Presentó daños consistentes en chapa de puerta delantera izquierda forzada. Sin testigos. Existen cámaras de seguridad. Avalúo $120000.",
     "cuadrante": "Cuadrante 06",
     "numero_parte": 2426,
     "direccion_georref": "LOS MAÑIOS 6377",
@@ -18286,6 +18286,24 @@
     "concat": "LOS MAÑIOS 6377 , San Pedro de la Paz",
     "lat": -36.87930072949893,
     "lon": -73.13821743723545
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "03-06-2026",
+    "dia": "MIERCOLES",
+    "hora": "20:30",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "AVENIDA MICHIMALONCO 909",
+    "circunstancias": "El denunciante (H39) dejó estacionado su vehículo Mercedes Benz X250 color azul PPU PHPF-22 al exterior del local Gohan, ubicado en Avenida Michimalonco 909. Al regresar aproximadamente 30 minutos después constató que desconocidos quebraron el vidrio trasero izquierdo del móvil y sustrajeron 01 maleta Saxoline negra con prendas de vestir y zapatillas, 01 mochila Cuero Cecilia Nilo con pasaporte y útiles de aseo personal, y 01 mochila Mett con un manojo de llaves y agenda de trabajo perteneciente a un tercero. Los autores huyeron en dirección desconocida. Se desconoce existencia de cámaras. El vehículo resultó con daños en el vidrio trasero izquierdo. Sin seguros asociados ni sospechosos identificados. Avalúo $3000000.",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 4906,
+    "direccion_georref": "AVENIDA MICHIMALONCO 909",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA MICHIMALONCO 909 , San Pedro de la Paz",
+    "lat": -36.84179416324802,
+    "lon": -73.09129031022776
   },
   {
     "clasificacion": "DENUNCIA",
