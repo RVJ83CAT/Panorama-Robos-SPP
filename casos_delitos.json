@@ -18530,7 +18530,7 @@
     "rango_hora": "16:00 a 19:59",
     "lugar": "DOMICILIO PARTICULAR",
     "direccion": "AVENIDA ANDALUE 1720",
-    "circunstancias": "Pendiente",
+    "circunstancias": "El afectado (H39) señaló que el día 09-06-2026, alrededor de las 21:20 horas, salió de su domicilio con destino a la casa de su pareja. Al regresar el 10-06-2026 cerca de las 20:40 horas constató que el portón de acceso se encontraba forzado, el vidrio contiguo a la puerta principal estaba quebrado y la puerta permanecía abierta. Al ingresar verificó desorden en las habitaciones del segundo piso y la sustracción de 02 pistolas marca Taurus modelo PT-99AF calibre 9 mm, 50 municiones calibre 9 mm; 01 Smart TV Samsung de 55 pulgadas; 01 notebook MSI modelo GE75 color negro; 01 reloj Longines modelo Conquest color plateado y 01 cubrecama. Las armas y municiones se encontraban almacenadas sobre un estante sin medidas adicionales de seguridad. No existen testigos. No mantiene cámaras de seguridad ni seguros asociados al inmueble o especies. Se estableció preliminarmente que sujetos ingresaron forzando el portón con un objeto contundente y posteriormente quebraron el ventanal contiguo a la puerta principal para acceder al domicilio. Cámaras del sector registraron a las 19:54 horas un vehículo Station Wagon rojo similar a un Toyota RAV4, del cual descendieron dos sujetos con vestimentas oscuras que ingresaron al inmueble, retirándose a las 20:13 horas por Avenida Andalué en dirección a Los Canelos. Avalúo pendiente.",
     "cuadrante": "Cuadrante 07",
     "numero_parte": 648,
     "direccion_georref": "AVENIDA ANDALUE 1720",
@@ -18538,5 +18538,23 @@
     "concat": "AVENIDA ANDALUE 1720 , San Pedro de la Paz",
     "lat": -36.85291431919705,
     "lon": -73.09855547081368
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "11-06-2026",
+    "dia": "JUEVES",
+    "hora": "05:23",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "QUINEL ORIENTE 2520",
+    "circunstancias": "La afectada (M50) mientras descansaba en su domicilio ubicado en Quinel Oriente 2520 escuchó ruidos provenientes del primer piso cerca de las 05:30 horas, pensando inicialmente que se trataba de sus gatos o de una broma de su hijo. Posteriormente escuchó la apertura de la puerta principal y al salir de su habitación constató que desconocidos huían del lugar a bordo de su vehículo Station Wagon Nissan Juke color plateado año 2016 PPU. HJYD97, el cual se encontraba estacionado en el patio del inmueble. Al revisar el lugar donde mantenía las llaves del automóvil verificó que estas habían sido sustraídas. La víctima presume que los autores ingresaron saltando el cierre perimetral y accediendo por una puerta corrediza posterior de fácil apertura, sin existir signos de fuerza en accesos o ventanas. No existen cámaras de seguridad ni testigos. Encargo nacional EUN 700489. No hay seguros comprometidos. Avalúo $9000000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 650,
+    "direccion_georref": "QUINEL ORIENTE 2520",
+    "comuna": "San Pedro de la Paz",
+    "concat": "QUINEL ORIENTE 2520 , San Pedro de la Paz",
+    "lat": -36.85921226911369,
+    "lon": -73.09564000945367
   }
 ]
