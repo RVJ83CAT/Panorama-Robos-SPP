@@ -18502,5 +18502,41 @@
     "concat": "LOS MAÑIOS 4455 , San Pedro de la Paz",
     "lat": -36.85903237694716,
     "lon": -73.13290657556182
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "10-06-2026",
+    "dia": "MIERCOLES",
+    "hora": "12:30",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "CALLEJON LAGUNILLAS & RUTA 160",
+    "circunstancias": "La víctima (H34, venezolano) transitaba por Ruta 160 en dirección a Coronel y al llegar a la intersección con Callejón Lagunillas ingresó a una zona con árboles para orinar. En ese momento fue abordado por un sujeto desconocido que lo intimidó por la espalda con un elemento no identificado, exigiéndole “OYE CONCHETUMARE ENTREGAME EL BANANO”. La víctima entregó 01 banano color azul marino que contenía su cédula de identidad, audífonos Iphone y $1100000 en efectivo. El sujeto huyó en dirección desconocida y la víctima se retiró del lugar. Desconoce existencia de cámaras. Sin lesiones. Mantiene seguro contratado, desconociendo cobertura. Avalúo $1100000.",
+    "cuadrante": "Cuadrante 04",
+    "numero_parte": 2453,
+    "direccion_georref": "CALLEJON LAGUNILLAS & RUTA 160",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALLEJON LAGUNILLAS & RUTA 160 , San Pedro de la Paz",
+    "lat": -36.85664070895757,
+    "lon": -73.13281488307643
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "10-06-2026",
+    "dia": "MIERCOLES",
+    "hora": "19:54",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "AVENIDA ANDALUE 1720",
+    "circunstancias": "Pendiente",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 648,
+    "direccion_georref": "AVENIDA ANDALUE 1720",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA ANDALUE 1720 , San Pedro de la Paz",
+    "lat": -36.85291431919705,
+    "lon": -73.09855547081368
   }
 ]
