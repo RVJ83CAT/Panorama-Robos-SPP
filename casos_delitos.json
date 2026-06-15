@@ -18934,5 +18934,41 @@
     "concat": "LOS MAÑIOS 4455 , San Pedro de la Paz",
     "lat": -36.85921468392712,
     "lon": -73.13291654878901
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "14-06-2026",
+    "dia": "DOMINGO",
+    "hora": "18:30",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "EL PROGRESO 86",
+    "circunstancias": "El afectado (H41), chofer, dejó estacionado su automóvil Mitsubishi ASX color negro año 2011 PPU DGHV47 frente al domicilio ubicado en calle El Progreso Nro. 86, sector Lomas Coloradas, con la finalidad de que un conocido coordinara la revisión mecánica del móvil. Al día siguiente fue contactado telefónicamente por su amigo CLAUDIO DIAZ, quien consultó si había retirado el vehículo del lugar, estableciendo que desconocidos habrían sustraído el automóvil mientras permanecía estacionado en la vía pública. La víctima desconoce la dinámica utilizada para cometer el ilícito. Sin cámaras ni seguros comprometidos. Encargo EUN 700889. Avalúo $4500000.",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 2573,
+    "direccion_georref": "EL PROGRESO 86",
+    "comuna": "San Pedro de la Paz",
+    "concat": "EL PROGRESO 86 , San Pedro de la Paz",
+    "lat": -36.88545282948189,
+    "lon": -73.13022006220486
+  },
+  {
+    "clasificacion": "DETENCION",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "14-06-2026",
+    "dia": "DOMINGO",
+    "hora": "23:10",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LOS ACACIOS & AMBROSIO OHIGGINS",
+    "circunstancias": "El afectado (H30) escuchó la alarma del vehículo Toyota Raize año 2024 PPU TRFT49, estacionado frente a su domicilio, constatando la sustracción del vidrio del espejo retrovisor derecho y las 04 tapas de ruedas. Al inspeccionar el sector observó a 04 sujetos huyendo, logrando junto a familiares reducir a 02 de ellos en la intersección de Los Acacios con Ambrosio O'Higgins, mientras otros 02 escaparon con las especies. Los detenidos fueron identificados como JUAN DAVID SEPULVEDA BUSTOS (H18) CI. 22735396-1 y BENJAMIN ANDRES ORELLANA INZUNZA (H16) CI. 23335720-0. Posteriormente una segunda afectada (M30) denunció daños en su vehículo Nissan Qashqai PPU DDWC56, estacionado frente a su domicilio, consistente en la fractura de la luneta trasera izquierda, sin sustracción de especies. Avalúo total de daños y especies $413263. Ambos imputados fueron detenidos por Carabineros.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 670,
+    "direccion_georref": "LOS ACACIOS & AMBROSIO OHIGGINS",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS ACACIOS & AMBROSIO OHIGGINS , San Pedro de la Paz",
+    "lat": -36.84025705555214,
+    "lon": -73.10326765281668
   }
 ]
