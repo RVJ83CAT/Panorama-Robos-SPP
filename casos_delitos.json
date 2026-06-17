@@ -19186,5 +19186,23 @@
     "concat": "AVENIDA 2 PONIENTE & 4 NORTE , San Pedro de la Paz",
     "lat": -36.85801398443851,
     "lon": -73.1337108117371
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "17-06-2026",
+    "dia": "MIERCOLES",
+    "hora": "11:45",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LONGITUDINAL UNO & RENE SCHNEIDER",
+    "circunstancias": "La víctima (M38) descendía de locomoción colectiva en la intersección de Longitudinal Uno con René Schneider cuando fue abordada por dos sujetos de aproximadamente 1,80 metros de estatura, ambos con vestimentas oscuras y acento chileno. Uno de los individuos le colocó un cuchillo a la altura de la cadera exigiéndole mantenerse tranquila, mientras el segundo sustrajo desde el bolsillo de sus vestimentas la suma de $1980000 en efectivo, dinero que había retirado previamente desde una sucursal Scotiabank para pagar un trabajo encargado. Los autores huyeron a bordo de un vehículo color negro, sin que la víctima pudiera identificar marca o patente. Sin lesiones, testigos ni cámaras de seguridad. Avalúo $1980000.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 680,
+    "direccion_georref": "LONGITUDINAL UNO & RENE SCHNEIDER",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LONGITUDINAL UNO & RENE SCHNEIDER , San Pedro de la Paz",
+    "lat": -36.84231152809884,
+    "lon": -73.14119557961747
   }
 ]
