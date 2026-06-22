@@ -19420,5 +19420,23 @@
     "concat": "FOBOS 900 , San Pedro de la Paz",
     "lat": -36.8272020136263,
     "lon": -73.14907867479609
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "22-06-2026",
+    "dia": "LUNES",
+    "hora": "05:55",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "AVENIDA CENTRAL 1745",
+    "circunstancias": "La víctima (M42) mientras se encontraba en las afueras del Cecof Boca Sur Viejo fue abordada sorpresivamente por un individuo de sexo masculino que vestía ropas oscuras, quien la golpeó con un taladro eléctrico y le sustrajo un bolso tipo banano que contenía un set de llaves de casa y un carnet de control médico. El autor huyó hacia la cancha de fútbol ubicada a un costado del centro asistencial. La víctima resultó con contusión en cráneo, diagnosticada como lesión leve. Sin testigos ni cámaras de seguridad. Avalúo $10000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 2687,
+    "direccion_georref": "AVENIDA CENTRAL 1745",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA CENTRAL 1745 , San Pedro de la Paz",
+    "lat": -36.82728430546364,
+    "lon": -73.13921023317744
   }
 ]
