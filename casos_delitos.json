@@ -19424,6 +19424,24 @@
   {
     "clasificacion": "DENUNCIA",
     "delito": "ROBO CON VIOLENCIA",
+    "fecha": "21-06-2026",
+    "dia": "DOMINGO",
+    "hora": "23:00",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "CASA CONTAINER S/N PASAJE EL ESFUERZO",
+    "circunstancias": "La víctima (H52) se encontraba en su domicilio cuando una persona llamó a la puerta. Al abrir, fue golpeado en la cabeza con un objeto contundente, resultando con contusión craneal de carácter leve. Posteriormente ingresaron dos sujetos encapuchados vestidos con ropas oscuras, quienes lo arrojaron al suelo, lo obligaron a permanecer mirando hacia abajo y le ataron las manos por la espalda. Los autores registraron el inmueble y sustrajeron una bicicleta marca Merida color café y un teléfono celular Samsung Galaxy S26 color negro, para luego huir del lugar. La víctima mantiene sospechas sobre un familiar (Nicolas Saez) con quien mantiene conflictos previos. Sin cámaras ni testigos. Lesiones leves. Avalúo $800000.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 2694,
+    "direccion_georref": "CASA CONTAINER S/N PASAJE EL ESFUERZO",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CASA CONTAINER S/N PASAJE EL ESFUERZO , San Pedro de la Paz",
+    "lat": -36.84318661580527,
+    "lon": -73.13307703771083
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
     "fecha": "22-06-2026",
     "dia": "LUNES",
     "hora": "05:55",
@@ -19438,5 +19456,23 @@
     "concat": "AVENIDA CENTRAL 1745 , San Pedro de la Paz",
     "lat": -36.82728430546364,
     "lon": -73.13921023317744
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO FRUSTRADO",
+    "fecha": "22-06-2026",
+    "dia": "LUNES",
+    "hora": "22:10",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "ERNESTO PINTO LAGARRIGUE 1528",
+    "circunstancias": "La víctima (M61) se encontraba viendo televisión en el comedor de su domicilio cuando escuchó a su esposo (H58) gritar que le pasara una pistola, ya que forcejeaba en una ventana con un grupo de sujetos que habían ingresado al patio del inmueble. La denunciante solicitó ayuda telefónica a Carabineros y, segundos después, los autores huyeron a bordo de un vehículo sedán color blanco, desconociendo marca, modelo y patente, en dirección a San Pedro de la Paz. Los individuos no lograron sustraer especies y no ocasionaron daños de ingreso, salvo descarrilar el portón principal. La víctima señala que es la tercera ocasión en que desconocidos ingresan a su propiedad. Sin cámaras de seguridad. Sin lesiones.",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 703,
+    "direccion_georref": "ERNESTO PINTO LAGARRIGUE 1528",
+    "comuna": "San Pedro de la Paz",
+    "concat": "ERNESTO PINTO LAGARRIGUE 1528 , San Pedro de la Paz",
+    "lat": -36.8547733846087,
+    "lon": -73.07264977789998
   }
 ]
