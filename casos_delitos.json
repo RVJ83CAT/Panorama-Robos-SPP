@@ -19512,6 +19512,24 @@
     "lon": -73.07264977789998
   },
   {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "23-06-2026",
+    "dia": "MARTES",
+    "hora": "03:52",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LAGUNILLAS 79",
+    "circunstancias": "La víctima (H37) dejó estacionado su vehículo Toyota RAV4 PPU SCLJ85 frente a su domicilio ubicado en calle Lagunillas N°79. Durante la madrugada escuchó un ruido extraño y constató que desconocidos habían forzado una ventana para ingresar al móvil, utilizando algún objeto para hacer palanca en el marco. Los autores ocasionaron daños consistentes en la destrucción de ambos vidrios laterales traseros izquierdos fijos y sustrajeron 01 gafa de sol marca Ray Ban que se encontraba al interior de la guantera. Sin antecedentes de autores ni testigos. Daños en los vidrios laterales del vehículo. Avalúo especies sustraídas $180000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": "CV053137",
+    "direccion_georref": "LAGUNILLAS 79",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAGUNILLAS 79 , San Pedro de la Paz",
+    "lat": -36.843101446485896,
+    "lon": -73.10325286365497
+  },
+  {
     "clasificacion": "DETENCION",
     "delito": "ROBO EN LUGAR NO HABITADO",
     "fecha": "23-06-2026",
