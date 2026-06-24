@@ -19582,5 +19582,41 @@
     "concat": "JOSE URRUTIA MENDIBURO & AMBROSIO O'HIGGINS , San Pedro de la Paz",
     "lat": -36.839777118726026,
     "lon": -73.11208686239966
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "24-06-2026",
+    "dia": "MIERCOLES",
+    "hora": "06:00",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "LA MARINA 984",
+    "circunstancias": "La víctima (M61) se encontraba junto a su esposo (H86) en su domicilio, dejando todas las puertas cerradas antes de dormir. Alrededor de las 06:00 horas constató que la puerta principal se encontraba abierta, al igual que la reja metálica del antejardín, observando además la protección metálica del ventanal del living doblada hacia afuera. Sujetos ingresaron al inmueble y sustrajeron 01 televisor LG de 42 pulgadas, una maleta con herramientas que contenía 01 taladro percutor DeWalt, 01 atornillador inalámbrico DeWalt, 01 sierra circular Bosch, 01 caladora Makita, 01 esmeril angular Black & Decker, 01 cepillo eléctrico DeWalt, diversas herramientas y 01 tijera de podar. La mayoría de las herramientas mantenían marcadas las iniciales “C.P.”. Existen cámaras en un domicilio frente al lugar, pero no registran grabaciones. Avalúo pendiente.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 2718,
+    "direccion_georref": "LA MARINA 984",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LA MARINA 984 , San Pedro de la Paz",
+    "lat": -36.82780541497957,
+    "lon": -73.12164555079309
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "24-06-2026",
+    "dia": "MIERCOLES",
+    "hora": "08:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "JOSE URRUTIA 14",
+    "circunstancias": "El afectado (M61) al salir de su domicilio en Villa San Pedro, constató que una casa de visitas emplazada en el mismo terreno mantenía dos ventanas quebradas. Al ingresar para verificar la situación observó que desconocidos habían sustraído 01 televisor Samsung color negro de 34 pulgadas y 01 lámpara de velador color café con pantalla verde. La afectada desconoce la fecha exacta de ocurrencia del hecho debido a que el inmueble no se encuentra habitado permanentemente y es utilizado únicamente para visitas. No mantiene cámaras de seguridad ni seguros asociados. Avalúo pendiente.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 708,
+    "direccion_georref": "JOSE URRUTIA 14",
+    "comuna": "San Pedro de la Paz",
+    "concat": "JOSE URRUTIA 14 , San Pedro de la Paz",
+    "lat": -36.838895476335054,
+    "lon": -73.11206732733416
   }
 ]
