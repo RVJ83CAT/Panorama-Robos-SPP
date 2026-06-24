@@ -19477,24 +19477,6 @@
   },
   {
     "clasificacion": "DENUNCIA",
-    "delito": "ROBO FRUSTRADO",
-    "fecha": "22-06-2026",
-    "dia": "LUNES",
-    "hora": "22:10",
-    "rango_hora": "20:00 a 23:59",
-    "lugar": "DOMICILIO PARTICULAR",
-    "direccion": "ERNESTO PINTO LAGARRIGUE 1528",
-    "circunstancias": "La víctima (M61) se encontraba viendo televisión en el comedor de su domicilio cuando escuchó a su esposo (H58) gritar que le pasara una pistola, ya que forcejeaba en una ventana con un grupo de sujetos que habían ingresado al patio del inmueble. La denunciante solicitó ayuda telefónica a Carabineros y, segundos después, los autores huyeron a bordo de un vehículo sedán color blanco, desconociendo marca, modelo y patente, en dirección a San Pedro de la Paz. Los individuos no lograron sustraer especies y no ocasionaron daños de ingreso, salvo descarrilar el portón principal. La víctima señala que es la tercera ocasión en que desconocidos ingresan a su propiedad. Sin cámaras de seguridad. Sin lesiones.",
-    "cuadrante": "Cuadrante 08",
-    "numero_parte": 703,
-    "direccion_georref": "ERNESTO PINTO LAGARRIGUE 1528",
-    "comuna": "San Pedro de la Paz",
-    "concat": "ERNESTO PINTO LAGARRIGUE 1528 , San Pedro de la Paz",
-    "lat": -36.8547733846087,
-    "lon": -73.07264977789998
-  },
-  {
-    "clasificacion": "DENUNCIA",
     "delito": "ROBO CON INTIMIDACION",
     "fecha": "22-06-2026",
     "dia": "LUNES",
@@ -19510,6 +19492,24 @@
     "concat": "AVENIDA COSTANERA & CALLE 1 , San Pedro de la Paz",
     "lat": -36.84199895868505,
     "lon": -73.15295060460062
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO FRUSTRADO",
+    "fecha": "22-06-2026",
+    "dia": "LUNES",
+    "hora": "22:10",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "ERNESTO PINTO LAGARRIGUE 1528",
+    "circunstancias": "La víctima (M61) se encontraba viendo televisión en el comedor de su domicilio cuando escuchó a su esposo (H58) gritar que le pasara una pistola, ya que forcejeaba en una ventana con un grupo de sujetos que habían ingresado al patio del inmueble. La denunciante solicitó ayuda telefónica a Carabineros y, segundos después, los autores huyeron a bordo de un vehículo sedán color blanco, desconociendo marca, modelo y patente, en dirección a San Pedro de la Paz. Los individuos no lograron sustraer especies y no ocasionaron daños de ingreso, salvo descarrilar el portón principal. La víctima señala que es la tercera ocasión en que desconocidos ingresan a su propiedad. Sin cámaras de seguridad. Sin lesiones.",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 703,
+    "direccion_georref": "ERNESTO PINTO LAGARRIGUE 1528",
+    "comuna": "San Pedro de la Paz",
+    "concat": "ERNESTO PINTO LAGARRIGUE 1528 , San Pedro de la Paz",
+    "lat": -36.8547733846087,
+    "lon": -73.07264977789998
   },
   {
     "clasificacion": "DETENCION",
@@ -19546,5 +19546,23 @@
     "concat": "AVENIDA COSTANERA SECTOR COSTERO , San Pedro de la Paz",
     "lat": -36.88190460929364,
     "lon": -73.1501223411054
+  },
+  {
+    "clasificacion": "DETENCION",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "24-06-2026",
+    "dia": "MIERCOLES",
+    "hora": "01:25",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "JOSE URRUTIA MENDIBURO & AMBROSIO O'HIGGINS",
+    "circunstancias": "Personal policial concurrió inicialmente a verificar un comunicado por sujetos sospechosos observando domicilios en motocicleta en el sector Antonio de Las Peñas con Pasaje Los Batros. Posteriormente, una testigo (M35) informó que observó a dos individuos escalar desde el exterior e ingresar al patio trasero de una vivienda deshabitada ubicada en Pasaje Los Batros N° 7. Con las características aportadas, personal policial ubicó y detuvo a IAN CARLOS BURGOS GARCES (H21) CI. 21770979-2  y LUIS FERNANDO PEÑAILILLO FLORES (H20) CI. 22086389-1, quienes intentaron ocultarse entre arbustos en la intersección de José Urrutia Mendiburo con Ambrosio O'Higgins. Los imputados fueron detenidos por su participación en un robo frustrado mediante escalamiento. Durante el registro se encontraron dos llaves de contacto de vehículos, una de ellas asociada preliminarmente a una motocicleta Yamaha FZN 150 color negro PPU DVB057 utilizada por los detenidos. Existían cámaras de seguridad con transmisión en tiempo real, sin almacenamiento de registros. Ambos imputados mantenían lesiones leves en sus manos.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 706,
+    "direccion_georref": "JOSE URRUTIA MENDIBURO & AMBROSIO O'HIGGINS",
+    "comuna": "San Pedro de la Paz",
+    "concat": "JOSE URRUTIA MENDIBURO & AMBROSIO O'HIGGINS , San Pedro de la Paz",
+    "lat": -36.839777118726026,
+    "lon": -73.11208686239966
   }
 ]
