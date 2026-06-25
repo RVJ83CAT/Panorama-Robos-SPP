@@ -19692,6 +19692,24 @@
     "lon": -73.09479544329469
   },
   {
+    "clasificacion": "DETENCION",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "25-06-2026",
+    "dia": "JUEVES",
+    "hora": "04:40",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "AVENIDA WILLIAM CONDON 3250",
+    "circunstancias": "PENDIENTE",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 712,
+    "direccion_georref": "AVENIDA WILLIAM CONDON 3250",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA WILLIAM CONDON 3250 , San Pedro de la Paz",
+    "lat": -36.86143735479354,
+    "lon": -73.10319677526373
+  },
+  {
     "clasificacion": "DENUNCIA",
     "delito": "ROBO DE VEHICULO MOTORIZADO",
     "fecha": "25-06-2026",
