@@ -19700,7 +19700,7 @@
     "rango_hora": "04:00 a 07:59",
     "lugar": "DOMICILIO PARTICULAR",
     "direccion": "AVENIDA WILLIAM CONDON 3250",
-    "circunstancias": "PENDIENTE",
+    "circunstancias": "Personal policial del Cuadrante 07 recibió llamado del guardia (H33), quien informó el robo de un vehículo Toyota Raize color plateado año 2023 PPU SLJR77 sustraído desde un domicilio ubicado en Avenida William Condon 3250, Fundo El Venado. Se inició seguimiento controlado del móvil por Puente Llacolén, Costanera, Puente Bicentenario y Ruta 156. Al llegar al sector Los Cruceros N°3190 de Patagual, comuna de Coronel, el vehículo colisionó con una barrera metálica, descendiendo cinco individuos que huyeron a pie. Personal policial logró la detención de ROMAN SEBASTIAN CARRILLO SUAZO (H16) CI. 23094450-4, ANDERSON MILAN TAPIA VALDEBENITO (H15) CI. 23417926-8, BENJAMIN ALONSO RODRIGUEZ SOTO (H17) CI. 23027051-1 y ANGEL GABRIEL OLIVARES SALAMANCA (H15) CI. 23612867-9. Fueron identificados como uno de los ocupantes del vehículo sustraído. El afectado (H35) indicó que desconocidos escalaron la reja del inmueble, fracturaron una ventana de la cocina e ingresaron al domicilio, desde donde sustrajeron las llaves del vehículo Toyota Raize, llaves de otro vehículo Hyundai Accent PPU CHXP27, llaves del inmueble, billetera con documentos personales, tarjetas bancarias, $50000 en efectivo y una tablet Samsung. El vehículo fue recuperado con daños producto del choque, recuperándose únicamente la tablet.",
     "cuadrante": "Cuadrante 07",
     "numero_parte": 712,
     "direccion_georref": "AVENIDA WILLIAM CONDON 3250",
@@ -19718,7 +19718,7 @@
     "rango_hora": "04:00 a 07:59",
     "lugar": "VIA PUBLICA",
     "direccion": "PASAJE PUENTE LA PIRAMIDE 1258 ",
-    "circunstancias": "PENDIENTE",
+    "circunstancias": "El afectado (H26) al salir de su domicilio en sector Pedro Luna para dirigirse a su trabajo constató la sustracción de su automóvil Hyundai Accent color beige año 2008 PPU BRSC81, el cual mantenía estacionado frente a su vivienda. Señala que cerca de las 02:00 horas despertó por ladridos de perros, presumiendo que en ese horario ocurrió el robo. El vehículo no cuenta con sistema GPS. Sin testigos. Avalúo $2800000. Posteriormente el vehículo apareció sen sector San Pedro de la Costa.",
     "cuadrante": "Cuadrante 03",
     "numero_parte": 2728,
     "direccion_georref": "PASAJE PUENTE LA PIRAMIDE 1258 ",
@@ -19726,5 +19726,23 @@
     "concat": "PASAJE PUENTE LA PIRAMIDE 1258  , San Pedro de la Paz",
     "lat": -36.85811811316157,
     "lon": -73.14717785504466
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "25-06-2026",
+    "dia": "JUEVES",
+    "hora": "09:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "LAS AZUCENAS PARCELA 4",
+    "circunstancias": "La víctima (H76) concurrió a comprar pan en un negocio del sector (Padre Hurtado) y al regresar a su domicilio alrededor de las 09:15 horas constató que la puerta principal se encontraba abierta. Al revisar sus pertenencias advirtió la sustracción de 01 chaqueta de cuero color negro que mantenía colgada en el ropero de su dormitorio. La víctima atribuye el hecho a FRANCO ANDRES SEPULVEDA PEREIRA, indicando que anteriormente le habría sustraído diversas especies desde su domicilio y patio, existiendo denuncias previas en su contra. Avalúo $70000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 2733,
+    "direccion_georref": "LAS AZUCENAS PARCELA 4",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAS AZUCENAS PARCELA 4 , San Pedro de la Paz",
+    "lat": -36.82537941154096,
+    "lon": -73.13291585377151
   }
 ]
