@@ -19942,5 +19942,23 @@
     "concat": "CALLE CENTRAL 2669 , San Pedro de la Paz",
     "lat": -36.843587669689725,
     "lon": -73.14841015126949
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "30-06-2026",
+    "dia": "MARTES",
+    "hora": "06:50",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "TUCAPEL & PASAJE 1",
+    "circunstancias": "La víctima (M30) transitaba por calle Tucapel en dirección a Avenida Costanera cuando fue interceptada por un sujeto de contextura delgada que se movilizaba en una motocicleta. Este descendió del vehículo, la arrinconó contra una pandereta y la intimidó manifestándole \"PASAME TODAS TUS COSAS\", mientras la amenazaba con un objeto puntiagudo apoyado en la espalda. La víctima entregó una cartera marca Via Uno color café oscuro con billetera Michael Kors roja, teléfono Iphone 13 Pro Max, audífonos JBL negros, perfume La Vie Est Belle 50 ml y cargador Iphone. Además, sustrajo una mochila Kipling gris oscuro con un Ipad Pro gris, computador HP con cargador, cosmetiquero con maquillaje, lentes ópticos y de sol Ray Ban y un parlante JBL 5 negro. El sujeto huyó en motocicleta por Avenida Costanera. La víctima resultó sin lesiones. Mantiene seguros asociados. Avalúo $3800000.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 2801,
+    "direccion_georref": "TUCAPEL & PASAJE 1",
+    "comuna": "San Pedro de la Paz",
+    "concat": "TUCAPEL & PASAJE 1 , San Pedro de la Paz",
+    "lat": -36.85362156556524,
+    "lon": -73.14429730001406
   }
 ]
