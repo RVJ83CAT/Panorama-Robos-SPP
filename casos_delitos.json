@@ -19960,5 +19960,23 @@
     "concat": "TUCAPEL & PASAJE 1 , San Pedro de la Paz",
     "lat": -36.85362156556524,
     "lon": -73.14429730001406
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "01-07-2026",
+    "dia": "MIERCOLES",
+    "hora": "07:55",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "LOCALES COMERCIALES",
+    "direccion": "INGENIERO ERNESTO PINTO LAGARRIGUE 2840",
+    "circunstancias": "La víctima (H46) al llegar al Strip Center Montahue observó al interior del recinto a dos sujetos de aproximadamente 30 a 35 años sustrayendo fierros para construcción de 3,5 metros, los cuales eran pasados por sobre el cierre perimetral a otros dos hombres y una mujer que los cargaban en una camioneta antigua color blanco de cabina simple, con estructura metálica y planchas de cholguán, manteniendo sus placas patentes ocultas. Al advertir que serían denunciados, los cinco involucrados huyeron por Ruta 156 en dirección a Santa Juana. La víctima reconoció a uno de los sujetos como \"Claudio\", a quien anteriormente había contratado para retiro de escombros y del cual mantiene dos números telefónicos. Sin cámaras de seguridad, y sin seguros comprometidos. Avalúo $250000.",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 737,
+    "direccion_georref": "INGENIERO ERNESTO PINTO LAGARRIGUE 2840",
+    "comuna": "San Pedro de la Paz",
+    "concat": "INGENIERO ERNESTO PINTO LAGARRIGUE 2840 , San Pedro de la Paz",
+    "lat": -36.86688452248492,
+    "lon": -73.06868634698615
   }
 ]
