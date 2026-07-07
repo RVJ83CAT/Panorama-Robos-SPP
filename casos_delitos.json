@@ -20266,5 +20266,23 @@
     "concat": "LOS RODODENDROS 971 , San Pedro de la Paz",
     "lat": -36.82461212138912,
     "lon": -73.1323720787741
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "06-07-2026",
+    "dia": "LUNES",
+    "hora": "17:16",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "CALLEJON LAGUNILLAS 1870",
+    "circunstancias": "Un sujeto desconocido de, contextura mediana, vistiendo pantalón deportivo azul, chaqueta azul oscuro con capucha, zapatillas amarillas y mochila azul con franjas blancas y logo Adidas, movilizado en una bicicleta mountainbike marca Oxford color negro, ingresa desmontando el portón metálico corredizo del acceso mediante una herramienta. Una vez en el interior del inmueble se dirige al garaje donde se encontraba estacionado un vehículo Toyota RAV4, año 2018, color blanco, PPU JZZY-83, de propiedad de (M83), quebrando con un objeto contundente ambas lunetas laterales para acceder al habitáculo. Sustrae un bolso negro con un kit de primeros auxilios, herramientas y elementos de seguridad del vehículo, provocando daños y pérdidas avaluadas en $450000. Al activarse las alarmas de movimiento del inmueble huye por el mismo acceso en dirección al camino principal. El propietario del inmueble había salido alrededor de las 17:16 horas y regresó a las 18:15 horas, siendo alertado por vecinos. El inmueble cuenta con cámaras.",
+    "cuadrante": "Cuadrante 04",
+    "numero_parte": 2882,
+    "direccion_georref": "CALLEJON LAGUNILLAS 1870",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALLEJON LAGUNILLAS 1870 , San Pedro de la Paz",
+    "lat": -36.85761016597272,
+    "lon": -73.1203482136595
   }
 ]
