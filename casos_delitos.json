@@ -20338,5 +20338,41 @@
     "concat": "LOS SAUCES & JAVIERA CARRERA , San Pedro de la Paz",
     "lat": -36.88553221058119,
     "lon": -73.13833474971283
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "09-07-2026",
+    "dia": "JUEVES",
+    "hora": "07:50",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "ESTABLECIMIENTO EDUCACIONAL",
+    "direccion": "ELEUTERIO RAMIREZ 628",
+    "circunstancias": "Sujetos desconocidos ingresan durante la noche al Jardín Infantil Candelaria (JUNJI) mediante escalamiento del muro perimetral posterior, accediendo al patio de servicio. Posteriormente utilizan la fuerza para desmontar y sustraer 01 calefón Splendid de 11 litros color blanco, ambas llaves de paso (gas y agua) y cañerías de cobre, retirándose por la misma vía de acceso en dirección desconocida. Avalúo de las especies: $200.000. La directora (M65) descubre el robo al llegar a las 07:50 horas a trabajar. El establecimiento permanecía sin ocupantes durante la noche. Modus operandi: escalamiento del cierre perimetral y desmontaje de instalaciones sanitarias para sustraer cobre. El recinto posee cámaras de seguridad, pero se encontraban fuera de funcionamiento. La denunciante señala que el jardín ha sufrido hechos similares anteriormente, incluyendo un intento de robo el fin de semana anterior que solo ocasionó daños menores.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 2907,
+    "direccion_georref": "ELEUTERIO RAMIREZ 628",
+    "comuna": "San Pedro de la Paz",
+    "concat": "ELEUTERIO RAMIREZ 628 , San Pedro de la Paz",
+    "lat": -36.826242875405605,
+    "lon": -73.12655835845311
+  },
+  {
+    "clasificacion": "DETENCION",
+    "delito": "ROBO FRUSTRADO",
+    "fecha": "09-07-2026",
+    "dia": "JUEVES",
+    "hora": "14:00",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "AVENIDA COSTANERA & 3 NORTE",
+    "circunstancias": "Personal de Carabineros concurrió por comunicado de CENCO a verificar un procedimiento de robo en la empresa ESSBIO. En el lugar fue sorprendido y detenido CARLOS ALEJANDRO CONTRERAS MUÑOZ (H33), CI. 18409966-7, quien intentó cometer un robo mediante escalamiento, sin lograr sustraer especies. Fue detenido por Carabineros a las 14:10.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 2908,
+    "direccion_georref": "AVENIDA COSTANERA & 3 NORTE",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA COSTANERA & 3 NORTE , San Pedro de la Paz",
+    "lat": -36.85819956591018,
+    "lon": -73.14838109787036
   }
 ]
