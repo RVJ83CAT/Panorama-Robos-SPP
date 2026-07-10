@@ -20374,5 +20374,41 @@
     "concat": "AVENIDA COSTANERA & 3 NORTE , San Pedro de la Paz",
     "lat": -36.85819956591018,
     "lon": -73.14838109787036
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "09-07-2026",
+    "dia": "JUEVES",
+    "hora": "19:00",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "LOCALES COMERCIALES",
+    "direccion": "MIGUEL BRAYER 1151",
+    "circunstancias": "Una víctima (F49) propietaria de la verdulería y frutería \"La Esquina\" fue intimidada por un sujeto desconocido de sexo masculino que vestía completamente de negro. El individuo extrajo dos pistolas, amenazándola para exigir la recaudación del local, logrando sustraer aproximadamente $10.000 en dinero en efectivo y un saco de papas (malla de papas), para luego huir en dirección desconocida. La víctima manifestó encontrarse en estado de shock, por lo que no pudo aportar mayores características del autor y se negó a formalizar la denuncia, siendo informados los hechos por oficio. El local no posee cámaras de seguridad, no existen testigos ni seguro contra robo.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 2916,
+    "direccion_georref": "MIGUEL BRAYER 1151",
+    "comuna": "San Pedro de la Paz",
+    "concat": "MIGUEL BRAYER 1151 , San Pedro de la Paz",
+    "lat": -36.83432510572983,
+    "lon": -73.14675823977034
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "09-07-2026",
+    "dia": "JUEVES",
+    "hora": "19:45",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "SAN FABIAN DE CONUCO 1612",
+    "circunstancias": "Sujetos desconocidos ingresan a un domicilio particular ubicado en Villa San Pedro mediante fractura de una ventana (daños en marco de aproximadamente 2 x 2 metros). Sustraen diversas especies, principalmente equipos tecnológicos, avaluadas por la víctima en $4.000.000. Modus operandi: fractura de ventana para ingresar al inmueble, recorren el interior y sustraen además las tarjetas SD de las cámaras de seguridad con el fin de eliminar evidencia. El inmueble contaba con cámaras particulares, pero estas no registraron el hecho debido al robo de los dispositivos de almacenamiento. Moradores: la víctima se encontraba ausente al momento del delito y regresó posteriormente. No mantiene seguros comprometidos. Equipos sustraídos sin sistema GPS, por lo que no fue posible efectuar rastreo.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 759,
+    "direccion_georref": "SAN FABIAN DE CONUCO 1612",
+    "comuna": "San Pedro de la Paz",
+    "concat": "SAN FABIAN DE CONUCO 1612 , San Pedro de la Paz",
+    "lat": -36.84251771592685,
+    "lon": -73.1058900962828
   }
 ]
