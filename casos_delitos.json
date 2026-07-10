@@ -20410,5 +20410,23 @@
     "concat": "SAN FABIAN DE CONUCO 1612 , San Pedro de la Paz",
     "lat": -36.84251771592685,
     "lon": -73.1058900962828
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "10-07-2026",
+    "dia": "VIERNES",
+    "hora": "11:23",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "CEMENTERIO",
+    "direccion": "RUTA 160 KM 10",
+    "circunstancias": "Empresa afectada: Parques San Pedro (cementerio). El prevencionista de riesgos (H36) fue alertado a las 11:23 por el administrador, quien durante una ronda rutinaria detectó que sujetos desconocidos, aprovechando la oscuridad durante horario nocturno, sustrajeron 32 mallas marca ACMA del cierre perimetral instaladas en el costado sur del cementerio. Avalúo de las especies: $1400000. Modus operandi: desarme y sustracción del cierre perimetral sin ser detectados. No existen cámaras debido a que corresponde a un punto ciego. La empresa mantiene seguro vigente.",
+    "cuadrante": "Cuadrante 04",
+    "numero_parte": 2923,
+    "direccion_georref": "RUTA 160 KM 10",
+    "comuna": "San Pedro de la Paz",
+    "concat": "RUTA 160 KM 10 , San Pedro de la Paz",
+    "lat": -36.87013471586046,
+    "lon": -73.13612124268197
   }
 ]
