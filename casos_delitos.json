@@ -20358,6 +20358,24 @@
     "lon": -73.12655835845311
   },
   {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "09-07-2026",
+    "dia": "JUEVES",
+    "hora": "12:00",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "DIAGONAL BIO BIO & LAS PALOMAS",
+    "circunstancias": "Sujetos desconocidos sustraen diversas especies desde el interior de un automóvil Kia Soluto, color rojo, año 2021, patente PRFZ-85, estacionado en la vía pública mientras su propietario se encontraba trabajando.El afectado (H35) dejó el vehículo estacionado el 08-07-2026 a las 08:00 horas en Avenida Diagonal Biobío 165 y constató el robo el 09-07-2026 a las 12:00 horas. Los sujetos sustrajeron una caja con productos cosméticos marca Ésika (11 labiales, 9 perfumes, 6 cremas corporales, 3 encrespadores de pestañas, 2 bases de maquillaje, 3 talcos para pies, 4 frascos de sérum, 6 protectores solares, 4 esmaltes de uñas, 1 billetera de hombre, 3 sets de aros, 3 sets de gargantillas, 2 protectores térmicos, 5 desodorantes y otros productos de belleza). Avalúo aproximado de $900000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 773,
+    "direccion_georref": "DIAGONAL BIO BIO & LAS PALOMAS",
+    "comuna": "San Pedro de la Paz",
+    "concat": "DIAGONAL BIO BIO & LAS PALOMAS , San Pedro de la Paz",
+    "lat": -36.83509675895449,
+    "lon": -73.12009873873515
+  },
+  {
     "clasificacion": "DETENCION",
     "delito": "ROBO FRUSTRADO",
     "fecha": "09-07-2026",
@@ -20626,5 +20644,23 @@
     "concat": "PASAJE 18 N° 587 , San Pedro de la Paz",
     "lat": -36.83885722709186,
     "lon": -73.14686731019493
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "13-07-2026",
+    "dia": "LUNES",
+    "hora": "08:30",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PASAJE 9 DE JULIO 726",
+    "circunstancias": "Durante la madrugada, sujetos desconocidos sustraen un panel de malla metálica tipo Acma galvanizada (3 x 2,5 m), avaluada en $30000, perteneciente al cierre perimetral posterior del inmueble. La denunciante (M39) se dirige a Concepción para dejar a su hija al colegio regresando aproximadamente a las 08:30 horas, momento en que se percata del robo. Los sujetos desmontaron el cierre cortando o desatando los alambres que lo fijaban a una estaca y a un muro de pandereta, sin ocasionar daños adicionales, para posteriormente retirarlo por inmuebles colindantes, aprovechando la ausencia de moradores. No existen cámaras de seguridad ni seguros comprometidos. La denunciante sospecha de sujetos en situación de calle consumidores de alcohol o drogas que frecuentan el sector.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 2968,
+    "direccion_georref": "PASAJE 9 DE JULIO 726",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE 9 DE JULIO 726 , San Pedro de la Paz",
+    "lat": -36.836619550137,
+    "lon": -73.1392093549046
   }
 ]
