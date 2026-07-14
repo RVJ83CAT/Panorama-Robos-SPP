@@ -20683,6 +20683,24 @@
   },
   {
     "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "13-07-2026",
+    "dia": "LUNES",
+    "hora": "20:00",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LAS MARGARITAS 1695",
+    "circunstancias": "Sujetos desconocidos sustraen un estanque móvil de petróleo marca Petromax, color negro, avaluado en $2000000 desde una camioneta marca Maxus, modelo T60, año 2025, color blanco PPU. VGVG-71, estacionada en la vía pública en el sector Huertos Familiares. El propietario (H48) dejó el vehículo estacionado aproximadamente a las 20:00 del 13-07-2026 y al regresar cerca de las 07:00 del 14-07-2026 constató el robo. Modus operandi: utilizando herramientas aptas para el delito, los autores cortaron las líneas/correas de color rojo que sujetaban el estanque a la camioneta, retirándolo rápidamente para luego huir en dirección desconocida. No existen cámaras de vigilancia en el lugar.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 2983,
+    "direccion_georref": "LAS MARGARITAS 1695",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAS MARGARITAS 1695 , San Pedro de la Paz",
+    "lat": -36.83680660267689,
+    "lon": -73.10814996071157
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO EN LUGAR NO HABITADO",
     "fecha": "13-07-2026",
     "dia": "LUNES",
@@ -20698,5 +20716,23 @@
     "concat": "ERNESTO PINTO LAGARRIGUE 2840 , San Pedro de la Paz",
     "lat": -36.86673033973573,
     "lon": -73.06870014201881
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "14-07-2026",
+    "dia": "MARTES",
+    "hora": "10:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "ANDALUE 2556",
+    "circunstancias": "Inmueble deshabitado y en venta desde hace aproximadamente tres semanas. El propietario (H55) había concurrido por última vez el 13-07-2026 a las 19:00 horas, regresando el 14-07-2026 a las 10:00 horas, momento en que encontró la puerta principal abierta. Desconocidos, aprovechando la ausencia de moradores, escalaron el cerco perimetral de aproximadamente 1,60 m, ingresaron al patio y accedieron al inmueble por una ventana posterior de 86 x 90 cm. Posteriormente sustrajeron una estufa a pellet Bosca Black Vision, color negro, desde el comedor y una cuatrimoto Honda modelo 1100, color azul con negro, ubicada en el patio. Para abandonar el lugar, retiraron el seguro del portón eléctrico permitiendo su apertura manual y huyeron en dirección desconocida con las especies. Avalúo aproximado $1320000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 780,
+    "direccion_georref": "ANDALUE 2556",
+    "comuna": "San Pedro de la Paz",
+    "concat": "ANDALUE 2556 , San Pedro de la Paz",
+    "lat": -36.85757282102552,
+    "lon": -73.09516479937514
   }
 ]
