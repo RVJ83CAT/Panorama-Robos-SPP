@@ -20662,5 +20662,41 @@
     "concat": "PASAJE 9 DE JULIO 726 , San Pedro de la Paz",
     "lat": -36.836619550137,
     "lon": -73.1392093549046
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "13-07-2026",
+    "dia": "LUNES",
+    "hora": "18:50",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "LOCAL COMERCIAL",
+    "direccion": "PASAJE UNO 471",
+    "circunstancias": "La denunciante (M50) estaba en la cocina de su inmueble, el cual corresponde a un local comercial con residencia (llamado \"Las Cuatros Torres\") escucha los gritos de su esposo (H53) que atendía el negocio. Cuatro sujetos desconocidos, todos con el rostro cubierto, ingresan al local; uno vestía overol blanco y los otros tres casacas negras. Dos de ellos portaban armas de fuego con las que intimidaron al dependiente exigiendo la entrega del dinero (\"¿dónde está la plata?\"). Posteriormente saltan el mesón de atención, registran una gaveta blanca y cajas metálicas donde se almacenaba la recaudación, sustrayendo aproximadamente $600000 en dinero en efectivo, para luego huir en dirección desconocida. El lugar mantiene cámaras de seguridad.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 2972,
+    "direccion_georref": "PASAJE UNO 471",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE UNO 471 , San Pedro de la Paz",
+    "lat": -36.82954674183883,
+    "lon": -73.12436611378175
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "13-07-2026",
+    "dia": "LUNES",
+    "hora": "22:30",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "LOCALES COMERCIALES",
+    "direccion": "ERNESTO PINTO LAGARRIGUE 2840",
+    "circunstancias": "Sujetos desconocidos ingresan al Streep Center \"MONTAHUE\", en etapa de construcción, el cual permanecía sin trabajadores ni moradores durante toda la jornada. El propietario (H46) concurre a las 22:30 horas para verificar las instalaciones y detecta que los candados del portón del cierre perimetral habían sido cortados. Modus operandi: corte de candados de seguridad, ingreso al recinto y sustracción de un generador eléctrico FAW, alternador modelo LY184 HP, motor modelo 4DW94-55DG32, color gris, 1.500 RPM, avaluado en $12000000. Los sujetos huyen en dirección desconocida, presumiblemente utilizando un vehículo debido al peso de la especie sustraída.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 775,
+    "direccion_georref": "ERNESTO PINTO LAGARRIGUE 2840",
+    "comuna": "San Pedro de la Paz",
+    "concat": "ERNESTO PINTO LAGARRIGUE 2840 , San Pedro de la Paz",
+    "lat": -36.86673033973573,
+    "lon": -73.06870014201881
   }
 ]
