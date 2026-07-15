@@ -20806,5 +20806,41 @@
     "concat": "LOS MAÑÍOS 7373 , San Pedro de la Paz",
     "lat": -36.88926821013153,
     "lon": -73.14041434657436
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO FRUSTRADO",
+    "fecha": "14-07-2026",
+    "dia": "MARTES",
+    "hora": "20:35",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PASAJE GALVARINO 2064",
+    "circunstancias": "A las 20:35 horas, mientras el morador (H81) permanecía al interior del inmueble, escuchó que desconocidos forzaban la puerta principal y desmontan el portón eléctrico. Dos sujetos, aparentemente hombres jóvenes, utilizaron un elemento metálico tipo fierro para golpear la puerta y fracturar el vidrio lateral de acceso con la finalidad de ingresar al domicilio. Al percatarse de la presencia del propietario, éste comenzó a pedir auxilio, frustrando el delito. Los individuos huyeron corriendo y abordaron un vehículo color blanco que los esperaba en el exterior, con otros ocupantes en su interior. Avalúo de daños: $200000. No se registró sustracción de especies.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 2992,
+    "direccion_georref": "PASAJE GALVARINO 2064",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE GALVARINO 2064 , San Pedro de la Paz",
+    "lat": -36.829119895205686,
+    "lon": -73.11515054907261
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO FRUSTRADO",
+    "fecha": "14-07-2026",
+    "dia": "MARTES",
+    "hora": "20:45",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PASAJE MANUEL ROBLES 141",
+    "circunstancias": "Sujetos desconocidos, correspondientes a cuatro (04) sujetos jóvenes, de vestimentas oscuras, intentan ingresar al inmueble particular forzando la chapa de la reja del portón de acceso. El propietario (H36) que se encontraba al interior del domicilio escuchando música, percibe ruidos provenientes del jardín aproximadamente a las 20:45 horas y, al observar por la ventana, sorprende a los individuos manipulando el acceso principal. Al ser descubiertos, los sujetos huyen inmediatamente en un vehículo color blanco, sin que la víctima lograra observar la patente. Avalúo aproximado $45000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 2995,
+    "direccion_georref": "PASAJE MANUEL ROBLES 141",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE MANUEL ROBLES 141 , San Pedro de la Paz",
+    "lat": -36.82979952229311,
+    "lon": -73.11154182491536
   }
 ]
