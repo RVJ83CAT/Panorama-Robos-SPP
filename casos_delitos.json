@@ -21622,6 +21622,24 @@
     "delito": "ROBO EN LUGAR NO HABITADO",
     "fecha": "25-07-2026",
     "dia": "SABADO",
+    "hora": "21:00",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "FARMACIA",
+    "direccion": "CAMILO MORI 1083",
+    "circunstancias": "Robo en farmacia \"FARMA EXPRESS\" (Local C). El local quedó cerrado y asegurado con candados el 25-07-2026 a las 21:00 por personal de la farmacia, siendo descubierto el robo el 27-07-2026 aproximadamente a las 11:30 al momento de reabrir. Sujetos ingresaron mediante fractura y forzamiento de las aldabas metálicas de los candados de acceso, rompiendo las fijaciones de seguridad. Una vez en el interior registraron dependencias, abrieron cajones y cajas recaudadoras, accediendo además al mueble de medicamentos sujetos a control. Se constataron daños en una plancha acrílica y la cámara de vigilancia fue encontrada en el suelo. Sustrajeron aproximadamente $300000 en efectivo y medicamentos sujetos a control, entre ellos Obexol, Elvenir, clonazepam, clotiazepam, zolpidem, alprazolam, Fentex, lorazepam y Sentía. Avalúo total aproximado: $1200000. El establecimiento no mantiene alarma, solo sensor de movimiento.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 832,
+    "direccion_georref": "CAMILO MORI 1083",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CAMILO MORI 1083 , San Pedro de la Paz",
+    "lat": -36.84281816218324,
+    "lon": -73.09500921496004
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "25-07-2026",
+    "dia": "SABADO",
     "hora": "23:05",
     "rango_hora": "20:00 a 23:59",
     "lugar": "EMPRESA",
@@ -21652,5 +21670,23 @@
     "concat": "PASAJE A 308 , San Pedro de la Paz",
     "lat": -36.83872591046574,
     "lon": -73.1419705455888
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "27-07-2026",
+    "dia": "LUNES",
+    "hora": "08:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "EMPRESA",
+    "direccion": "COLO COLO 80",
+    "circunstancias": "Sujetos desconocidos ingresan a la empresa AKRO tras dañar la reja del cierre perimetral. La empresa permaneció sin trabajadores desde el domingo 26-07-2026 hasta las 08:00 horas del 27-07-2026, momento en que el administrador llega al lugar. Los sujetos fuerzan la carrocería de una camioneta JAC X200, desde donde sustraen herramientas. Además sustraen la llave de contacto de un camión JAC Urban 1055, PPU VBZD82, y una llave del mismo vehículo. Especies sustraídas: martillo carpintero, maceta de 4 lb, galletera Makita 4\", taladro Makita, máquina de soldar Gladiador, alicate, llave francesa 7\", 4 palas carboneras, 4 horquetas y 4 barrehojas. Avalúo aproximado: $350000. La empresa mantiene cámaras de seguridad de la empresa \"MAS PROTECCIÓN\".",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 833,
+    "direccion_georref": "COLO COLO 80",
+    "comuna": "San Pedro de la Paz",
+    "concat": "COLO COLO 80 , San Pedro de la Paz",
+    "lat": -36.83969106567088,
+    "lon": -73.09309615557
   }
 ]
