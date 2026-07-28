@@ -21547,6 +21547,24 @@
   },
   {
     "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "24-07-2026",
+    "dia": "VIERNES",
+    "hora": "21:00",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "PARADERO EL ROSARIO & RUTA 160",
+    "circunstancias": "Una víctima (M22) descendía de un bus de locomoción colectiva en el paradero Villa El Rosario cuando, al dirigirse a la pasarela para cruzar la Ruta 160, fue abordada por un sujeto masculino que vestía ropa negra y permanecía encapuchado. El individuo la intimidó utilizando un elemento punzante, obligándola a entregar un teléfono celular marca Nubia, modelo ZTE Neo 03, color negro, avaluado en $300000. Posteriormente el delincuente huyó en dirección a la línea férrea.",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 6363,
+    "direccion_georref": "PARADERO EL ROSARIO & RUTA 160",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PARADERO EL ROSARIO & RUTA 160 , San Pedro de la Paz",
+    "lat": -36.89283575399973,
+    "lon": -73.14161971876108
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO FRUSTRADO",
     "fecha": "25-07-2026",
     "dia": "SABADO",
@@ -21688,5 +21706,23 @@
     "concat": "COLO COLO 80 , San Pedro de la Paz",
     "lat": -36.83969106567088,
     "lon": -73.09309615557
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "27-07-2026",
+    "dia": "LUNES",
+    "hora": "10:30",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "RECINTO DEPORTIVO",
+    "direccion": "PABLO NERUDA & LONGITUDINAL UNO",
+    "circunstancias": "Sujetos desconocidos ingresan durante la madrugada al Gimnasio Municipal Michaihue, recinto deportivo administrado por la Municipalidad de San Pedro de la Paz. Para acceder removieron una reja metálica de protección instalada en una puerta posterior, ingresando al interior donde rompieron una pared del baño para personas con discapacidad, ocasionando importantes daños estructurales. Finalmente sustrajeron únicamente la reja metálica de protección utilizada para asegurar el acceso. El administrador descubrió el delito al llegar aproximadamente a las 10:30 horas para iniciar la jornada laboral. Avalúo aproximado $1000000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3188,
+    "direccion_georref": "PABLO NERUDA & LONGITUDINAL UNO",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PABLO NERUDA & LONGITUDINAL UNO , San Pedro de la Paz",
+    "lat": -36.84299336024653,
+    "lon": -73.14676003296377
   }
 ]
