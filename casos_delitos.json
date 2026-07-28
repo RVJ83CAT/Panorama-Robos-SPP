@@ -21796,5 +21796,41 @@
     "concat": "PABLO NERUDA & LONGITUDINAL UNO , San Pedro de la Paz",
     "lat": -36.84299336024653,
     "lon": -73.14676003296377
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO POR SORPRESA",
+    "fecha": "27-07-2026",
+    "dia": "LUNES",
+    "hora": "17:40",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "LOCOMOCIÓN COLECTIVA",
+    "direccion": "CARABINERO & AVENIDA LAS TORRES",
+    "circunstancias": "La víctima (M37) mientras viajaba en un bus de la línea 23 San Pedro del Mar, máquina N.° 55, en el paradero sector Candelaria, el conductor detuvo la marcha para permitir el ascenso de una gran cantidad de pasajeros. Durante el trayecto, sujetos desconocidos aprovecharon la aglomeración para abrir el cierre de la cartera de la víctima y sustraer, sin que ésta se percatara en ese momento, una billetera con $120000 en dinero en efectivo, cédula de identidad, Tarjeta Nacional Estudiantil, licencia de conducir clase B, tarjeta BancoEstado CuentaRUT y tarjeta Mercado Pago. El hecho fue advertido únicamente al llegar a su domicilio. Avalúo total $180000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 839,
+    "direccion_georref": "CARABINERO & AVENIDA LAS TORRES",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CARABINERO & AVENIDA LAS TORRES , San Pedro de la Paz",
+    "lat": -36.82740572542944,
+    "lon": -73.12819345994592
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "27-07-2026",
+    "dia": "LUNES",
+    "hora": "23:00",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LAS ROSAS 1983",
+    "circunstancias": "Sustracción de una camioneta Nissan Navara, año 2023, color gris oscuro, patente SFZX94, avaluada en $18000000, estacionada en la vía pública frente al domicilio de la víctima. El propietario dejó el vehículo aproximadamente a las 11:00 horas y constató el robo alrededor de las 23:00 horas, tras observar en Facebook una publicación ofreciendo en venta una camioneta de similares características con la patente oculta, verificando inmediatamente que su vehículo ya no se encontraba en el lugar. Posteriormente obtuvo antecedentes de que el móvil estaría circulando en Vitacura y siendo ofrecido en venta en Providencia. No existen testigos ni cámaras de seguridad. Vehículo con seguro HDI Seguros. EUN 705455.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 840,
+    "direccion_georref": "LAS ROSAS 1983",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAS ROSAS 1983 , San Pedro de la Paz",
+    "lat": -36.83419490836164,
+    "lon": -73.11410261215612
   }
 ]
