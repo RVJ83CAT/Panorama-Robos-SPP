@@ -21886,5 +21886,41 @@
     "concat": "AVENIDA PORTAL SAN PEDRO 6950 , San Pedro de la Paz",
     "lat": -36.883732223619845,
     "lon": -73.14079393676768
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "29-07-2026",
+    "dia": "MIERCOLES",
+    "hora": "12:15",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "MAR / PLAYA",
+    "direccion": "CALETA ALTO DEL REY",
+    "circunstancias": "La víctima (H37) se encontraba pescando en la desembocadura de Caleta Alto del Rey cuando fue abordado por dos sujetos desconocidos. El primero era de contextura delgada, alto, vestía casaca azul y roja y pantalón de buzo Adidas azul; el segundo era de tez blanca, ojos celestes, cabello rubio, vestía casaca negra y jeans, portando un arma de fuego tipo pistola color negro. Mediante intimidación con arma de fuego y amenazas de muerte (\"entrega las weas conchetumare o si no te voy a poner un balazo\"), obligaron a la víctima a entregar las especies. Sustrajeron un teléfono celular OPPO Reno 6 color café y carcasa transparente, un notebook Lenovo modelo N4000, una caña de pescar Okuma Competition azul y negro, una caja azul y plomo con implementos de pesca y una pistola plástica para Airsoft color verde oscuro con balines. Avalúo total: $1535000. ",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3210,
+    "direccion_georref": "CALETA ALTO DEL REY",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALETA ALTO DEL REY , San Pedro de la Paz",
+    "lat": -36.82471924098758,
+    "lon": -73.14775933937214
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "29-07-2026",
+    "dia": "MIERCOLES",
+    "hora": "13:10",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "ESTACIONAMIENTO",
+    "direccion": "AVENIDA LAGUNA GRANDE 115",
+    "circunstancias": "Sujetos desconocidos ingresan al interior de una camioneta Great Wall Wingle 5 Lux, color blanco titanio, año 2021, PPU. PDHK29, estacionada en el estacionamiento del Supermercado Líder San Pedro mientras su conductor permanecía aproximadamente 15 minutos realizando trámites en el Registro Civil. Al regresar, la víctima constató el interior del vehículo desordenado y la guantera abierta, verificando la sustracción de un lente de sol marca Oakley, color negro con cristales azules, avaluado en $140000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 3209,
+    "direccion_georref": "AVENIDA LAGUNA GRANDE 115",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA LAGUNA GRANDE 115 , San Pedro de la Paz",
+    "lat": -36.83916241671168,
+    "lon": -73.11945751293067
   }
 ]
