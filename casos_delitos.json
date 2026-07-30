@@ -21940,5 +21940,41 @@
     "concat": "AVENIDA LAGUNA GRANDE 115 , San Pedro de la Paz",
     "lat": -36.83916241671168,
     "lon": -73.11945751293067
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "29-07-2026",
+    "dia": "MIERCOLES",
+    "hora": "22:40",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "CAMILO MORI 78",
+    "circunstancias": "Autores desconocidos aprovechan que el inmueble permanecía sin moradores entre las 12:00 y las 22:40 horas. Modus operandi: levantan el portón metálico de acceso vehicular sacándolo de su base, ingresan al antejardín y acceden a la vivienda por una ventana del primer piso que se encontraba abierta. Sustraen 01 estufa a pellet marca Bosca y huyen del lugar. No se utilizaron armas. No se registran testigos, cámaras de seguridad ni sospechosos identificados. La denuncia fue realizada de oficio por Carabineros debido a que la víctima optó por no denunciar formalmente.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 848,
+    "direccion_georref": "CAMILO MORI 78",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CAMILO MORI 78 , San Pedro de la Paz",
+    "lat": -36.842127593175874,
+    "lon": -73.0978368512902
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "30-07-2026",
+    "dia": "JUEVES",
+    "hora": "00:00",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "LAS GOLONDRINAS 516",
+    "circunstancias": "Sujetos desconocidos ingresan a un domicilio particular aprovechando que la puerta principal se encontraba en mal estado, quedando asegurada únicamente con el pestillo debido a que la madera se expande con la humedad. Modus operandi: ingreso por puerta principal vulnerable, sin ejercer violencia adicional ni uso de armas. La moradora se encontraba al interior del inmueble y descubrió el delito alrededor de las 00:00 horas al levantarse para ir al baño, encontrando la puerta principal abierta y una cartera registrada. Los autores sustrajeron 03 cajas plásticas con ruedas color negro que contenían herramientas eléctricas: sierra circular D-Wall, taladro Stanley, galletera Bosch, cepilladora eléctrica Bosch, taladro inalámbrico Uberman, taladro de impacto, caja con llaves punta corona y diversas herramientas de electricidad. Además sustrajeron desde una cartera un portadocumentos con documentos personales y $100.000 en dinero efectivo. Avalúo aproximado: $800.000. No existen testigos. El inmueble no mantiene seguros asociados. Posee cámaras de vigilancia, pero se encontraban fuera de funcionamiento al momento del delito. Se desconoce la cantidad de participantes y la hora exacta de ingreso.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 3228,
+    "direccion_georref": "LAS GOLONDRINAS 516",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAS GOLONDRINAS 516 , San Pedro de la Paz",
+    "lat": -36.82781809991464,
+    "lon": -73.1168871452368
   }
 ]
