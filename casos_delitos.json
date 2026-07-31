@@ -21889,6 +21889,24 @@
   },
   {
     "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "29-07-2026",
+    "dia": "MIÉRCOLES",
+    "hora": "07:00",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "UNO DE ENERO 783",
+    "circunstancias": "Robo en inmueble correspondiente al domicilio de una persona fallecida dos semanas antes. Los familiares se encontraban en Talca. Una vecina escuchó ruidos alrededor de las 07:00 horas del 29-07-2026 y el familiar concurrió al inmueble el 30-07-2026, constatando el robo. Sujetos desconocidos ingresaron mediante fractura de la puerta del patio, registrando completamente la vivienda y causando daños en puertas y tuberías. Sustrajeron 02 cilindros de gas, 01 calefón, 01 cámara de video Samsung HI8, 01 generador eléctrico a combustible, 01 máquina de oxígeno Auto CPAP ResMed y  desde un automóvil Suzuki Maruti, color beige, año 2005 PPU. YX9479 estacionado en antejardín sustrajeron la radio, provocando daños en su interior.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3235,
+    "direccion_georref": "UNO DE ENERO 783",
+    "comuna": "San Pedro de la Paz",
+    "concat": "UNO DE ENERO 783 , San Pedro de la Paz",
+    "lat": -36.83587980302149,
+    "lon": -73.14233480309923
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO CON INTIMIDACION",
     "fecha": "29-07-2026",
     "dia": "MIERCOLES",
@@ -21994,5 +22012,23 @@
     "concat": "MANUEL RODRIGUEZ 101 , San Pedro de la Paz",
     "lat": -36.8432297812962,
     "lon": -73.13980287152603
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "30-07-2026",
+    "dia": "JUEVES",
+    "hora": "19:30",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "GALVARINO & PEDRO AGUIRRE CERDA",
+    "circunstancias": "La víctima (H23) transitaba por el lugar cuando fue abordada por tres sujetos desconocidos. Uno vestía completamente de negro y mantenía el rostro cubierto; otro usaba casaca azul y zapatillas rojas; el tercero vestía casaca amarilla. Inicialmente le solicitaron cigarros y posteriormente la hora, utilizando esta maniobra para acercarse. Al responder negativamente comenzaron a insultarlo y los tres lo atacaron con golpes de puño y pie, logrando sustraer un parlante portátil color rojo, avaluado en $50000, para luego huir por calle Galvarino hacia calle Lota. La víctima sufrió lesiones leves, además señaló poder reconocer a dos de los autores: uno de tez morena, barba corta y contextura gruesa (aprox. 35 años o menos) y otro de tez clara, sin barba, contextura delgada (aprox. 45 a 50 años).",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 849,
+    "direccion_georref": "GALVARINO & PEDRO AGUIRRE CERDA",
+    "comuna": "San Pedro de la Paz",
+    "concat": "GALVARINO & PEDRO AGUIRRE CERDA , San Pedro de la Paz",
+    "lat": -36.83904315325687,
+    "lon": -73.09183868563362
   }
 ]
