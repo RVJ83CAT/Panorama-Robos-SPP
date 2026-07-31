@@ -22030,5 +22030,23 @@
     "concat": "GALVARINO & PEDRO AGUIRRE CERDA , San Pedro de la Paz",
     "lat": -36.83904315325687,
     "lon": -73.09183868563362
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "31-07-2026",
+    "dia": "VIERNES",
+    "hora": "03:17",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "CONSTRUCTORA",
+    "direccion": "SEGUNDA LONGITUDINAL 91",
+    "circunstancias": "Un sujeto desconocido, vistiendo traje de agua color azul, ingresó a la Constructora Plaza Sur WW cortando la malla metálica perimetral verde. Aprovechando que el recinto se encontraba en horario nocturno, sustrajo 2 tapas de alcantarillado de fierro color negro y huyó en dirección desconocida. El hecho fue advertido durante una ronda efectuada por el guardia del recinto, quien dio aviso inmediato a Carabineros. El recinto mantenía servicio de guardia, cámaras de seguridad y seguro comprometido.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3241,
+    "direccion_georref": "SEGUNDA LONGITUDINAL 91",
+    "comuna": "San Pedro de la Paz",
+    "concat": "SEGUNDA LONGITUDINAL 91 , San Pedro de la Paz",
+    "lat": -36.8395192023224,
+    "lon": -73.13865379160015
   }
 ]
