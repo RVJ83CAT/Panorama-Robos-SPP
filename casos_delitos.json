@@ -22228,5 +22228,41 @@
     "concat": "CANDELARIA 2058 , San Pedro de la Paz",
     "lat": -36.8339937085649,
     "lon": -73.12043324669479
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "03-08-2026",
+    "dia": "LUNES",
+    "hora": "09:20",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "CORONEL PATIÑO 639",
+    "circunstancias": "Sujetos desconocidos sustraen la placa patente delantera del automóvil Toyota Yaris, color dorado, año 2008, PPU BBYD55, estacionado frente al domicilio del afectado en el sector Boca Sur. El afectado (H21) detectó el robo al salir de su inmueble para dirigirse a su trabajo. El vehículo aún figura inscrito a nombre del anterior propietario debido a trámites notariales pendientes.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3293,
+    "direccion_georref": "CORONEL PATIÑO 639",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CORONEL PATIÑO 639 , San Pedro de la Paz",
+    "lat": -36.83782472353738,
+    "lon": -73.14359892895469
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "03-08-2026",
+    "dia": "LUNES",
+    "hora": "17:30",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "PASAJE UNO & MIGUEL BRAYER",
+    "circunstancias": "La víctima (H16) desciende de un bus de la línea 23P y mientras caminaba hacia su domicilio es abordado por un sujeto desconocido, de aproximadamente 1,78 m de estatura, contextura delgada, tez clara, vistiendo zapatillas blancas, gorro de lana gris, jogger negro y casaca negra. El individuo solicita el teléfono celular con el pretexto de realizar una llamada y posteriormente exige dinero. Al reclamar la devolución del equipo, el sujeto intimida a la víctima manifestando que le dispararía en un pie si insistía, indicando además que tenía condenas anteriores por delitos similares. Sustrae un teléfono celular Xiaomi Redmi Note 14, color negro, además de dinero en efectivo contenido en un banano. El individuo huye por Pasaje Uno. Avalúo $285000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3295,
+    "direccion_georref": "PASAJE UNO & MIGUEL BRAYER",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE UNO & MIGUEL BRAYER , San Pedro de la Paz",
+    "lat": -36.83574362226176,
+    "lon": -73.14663725218824
   }
 ]
