@@ -22336,5 +22336,23 @@
     "concat": "DOCE DE FEBRERO 417 , San Pedro de la Paz",
     "lat": -36.83970022092021,
     "lon": -73.14201566219647
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "05-08-2026",
+    "dia": "MIERCOLES",
+    "hora": "15:00",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "RENE SCHEIDER 290",
+    "circunstancias": "Sujetos desconocidos sustraen un automóvil estacionado frente al Colegio Michaihue. Vehículo marca Kia, modelo Rio, año 2010, color rojo, PPU CBKR-90, avalúo $2000000. La víctima (M51) dejó el vehículo estacionado a las 08:00 horas mientras desarrollaba labores como profesora y constató el robo a las 15:00 horas al finalizar su jornada laboral. Modus operandi: sustracción sin evidencia de forzamiento de puertas o cerraduras, presuntamente mediante utilización de llave falsa o dispositivo electrónico. Carabineros recibió información sobre el hallazgo del vehículo abandonado en Pasaje 14 con Pasaje D, sector Boca Sur,",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 3314,
+    "direccion_georref": "RENE SCHEIDER 290",
+    "comuna": "San Pedro de la Paz",
+    "concat": "RENE SCHEIDER 290 , San Pedro de la Paz",
+    "lat": -36.84339687907055,
+    "lon": -73.1408895061511
   }
 ]
