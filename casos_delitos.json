@@ -22300,5 +22300,41 @@
     "concat": "SEGUNDA LONGITUDINAL & PASAJE 15 , San Pedro de la Paz",
     "lat": -36.83987960365332,
     "lon": -73.1439186059663
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "04-08-2026",
+    "dia": "MARTES",
+    "hora": "21:30",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "PASAJE TRECE 514",
+    "circunstancias": "Víctima (M53). Mientras transitaba manipulando su teléfono celular, una mujer le arrebató el equipo desde sus manos. Al intentar recuperarlo se produjo un forcejeo, instante en que el perro la rasguñó por la espalda y posteriormente la delincuente le propinó una patada en el rostro, ocasionándole lesiones leves (contusión frontal). La involucuada es conocida por el nombre de \"Karen\" (Vejar), en situación de calle y consumidora de drogas, vestía pantalón rojo y polerón color claro, acompañada habitualmente por un perro de color negro. Huye con el teléfono celular Samsung color rosado con carcasa roja en dirección desconocida. Avalúo $280000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 869,
+    "direccion_georref": "PASAJE TRECE 514",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE TRECE 514 , San Pedro de la Paz",
+    "lat": -36.83940317974624,
+    "lon": -73.14178337120111
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO VIOLENTO DE VEHICULO",
+    "fecha": "04-08-2026",
+    "dia": "MARTES",
+    "hora": "23:15",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "OTROS LUGARES",
+    "direccion": "DOCE DE FEBRERO 417",
+    "circunstancias": "La víctima (H64) es conductor de aplicación de transporte de servicio de Uber. Conducía un vehículo Peugeot 301, color gris, año 2020, PPU LKBB88. Tras aceptar un viaje desde la comuna de Lota con destino a San Pedro de la Paz, un sujeto desconocido de sexo masculino, aproximadamente 1,66 m de estatura, vistiendo casaca azul y gorro azul, abordó el vehículo. Al llegar al sector Boca Sur, el individuo extrajo un revólver, intimidó a la víctima y le sustrajo las llaves del vehículo. Al oponer resistencia, la víctima fue golpeada en la cabeza con el arma. Posteriormente fue abandonado en la vía pública, desconociendo el lugar exacto debido a que también le sustrajeron su teléfono celular Honor color negro, compañía WOM, además de un portadocumentos con cédula de identidad, licencia de conducir clases A2 y B, tarjetas bancarias y $70000 en dinero en efectivo. El vehículo fue robado, Encargo EUN 706267. Lesión sangrante leve.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 871,
+    "direccion_georref": "DOCE DE FEBRERO 417",
+    "comuna": "San Pedro de la Paz",
+    "concat": "DOCE DE FEBRERO 417 , San Pedro de la Paz",
+    "lat": -36.83970022092021,
+    "lon": -73.14201566219647
   }
 ]
