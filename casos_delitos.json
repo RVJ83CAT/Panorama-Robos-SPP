@@ -22264,5 +22264,41 @@
     "concat": "PASAJE UNO & MIGUEL BRAYER , San Pedro de la Paz",
     "lat": -36.83574362226176,
     "lon": -73.14663725218824
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "04-08-2026",
+    "dia": "MARTES",
+    "hora": "12:01",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "VICTORIA & LOTA",
+    "circunstancias": "La víctima (H21) es abordada mientras caminaba por la intersección de calle Lota con Victoria, luego de descender de un bus de la línea San Remo proveniente de Concepción. Minutos antes había retirado $1800000 en efectivo desde sucursales de Banco de Chile y Banco BCI, dinero que transportaba al interior de una mochila. Un sujeto (H50 aprox.), contextura gruesa, tez morena, 1,68 m de estatura aprox., barba canosa, cabello largo, vistiendo casaca roja y pantalón de buzo oscuro, se movilizaba en una bicicleta de tamaño pequeño y lo abordó por la espalda. Mediante intimidación con una cuchilla colocada a la altura del abdomen, lo amenazó exigiendo la entrega de la mochila, logrando sustraer una mochila marca Xtreme color azul oscuro con llavero de la Universidad Católica, contenedora de un computador Apple MacBook Air color azul con sistema GPS (desactivado), audífonos Apple color blanco y $1800000 en dinero efectivo. Avalúo total: $3.600.000. El autor huyó en bicicleta por calle Victoria.",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 6582,
+    "direccion_georref": "VICTORIA & LOTA",
+    "comuna": "San Pedro de la Paz",
+    "concat": "VICTORIA & LOTA , San Pedro de la Paz",
+    "lat": -36.83986398050687,
+    "lon": -73.0944069423306
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "05-08-2026",
+    "dia": "MIERCOLES",
+    "hora": "00:30",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "SEGUNDA LONGITUDINAL & PASAJE 15",
+    "circunstancias": "PENDIENTE",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 868,
+    "direccion_georref": "SEGUNDA LONGITUDINAL & PASAJE 15",
+    "comuna": "San Pedro de la Paz",
+    "concat": "SEGUNDA LONGITUDINAL & PASAJE 15 , San Pedro de la Paz",
+    "lat": -36.83987960365332,
+    "lon": -73.1439186059663
   }
 ]
