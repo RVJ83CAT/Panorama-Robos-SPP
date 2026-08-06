@@ -21744,6 +21744,24 @@
     "lon": -73.13030640912332
   },
   {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "26-07-2026",
+    "dia": "DOMINGO",
+    "hora": "06:00",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "SEGUNDA TRANSVERSAL & RODRIGUEZ ALDEA",
+    "circunstancias": "La víctima (H67) esperaba locomoción colectiva en un paradero del sector Boca Sur cuando fue abordado por dos sujetos desconocidos, ambos con el rostro cubierto. Uno de ellos forcejeó para arrebatarle la mochila mientras el segundo lo intimidó con un cuchillo tipo cortapluma. Ambos lo agredieron con golpes de pie en las piernas para vencer su resistencia y sustraer sus pertenencias. Los sujetos huyeron en dirección desconocida. Especies sustraídas: mochila con un par de lentes ópticos multifocales tipo antiparras y documentación personal. Avalúo aproximado: $300000. La víctima fue auxiliada por un compañero de trabajo y trasladada a un centro asistencial.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3336,
+    "direccion_georref": "SEGUNDA TRANSVERSAL & RODRIGUEZ ALDEA",
+    "comuna": "San Pedro de la Paz",
+    "concat": "SEGUNDA TRANSVERSAL & RODRIGUEZ ALDEA , San Pedro de la Paz",
+    "lat": -36.83697551080062,
+    "lon": -73.14089511737997
+  },
+  {
     "clasificacion": "DETENCION",
     "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
     "fecha": "26-07-2026",
