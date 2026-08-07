@@ -22444,5 +22444,23 @@
     "concat": "LAS PITRAS 541 , San Pedro de la Paz",
     "lat": -36.876948374725,
     "lon": -73.13010814781777
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "06-08-2026",
+    "dia": "JUEVES",
+    "hora": "14:00",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "4 NORTE & 3 NORTE",
+    "circunstancias": "La víctima (H48) caminaba por la intersección de calles 3 Norte y 4 Norte con destino a un condominio para coordinar trabajos de reparación en su domicilio, siendo interceptado por 02 sujetos desconocidos. El primero, de tez blanca, contextura delgada, aproximadamente 1,70 m, vestía ropa deportiva oscura y jockey negro; el segundo, de tez morena, aproximadamente 1,75 m, vestía polerón oscuro con capucha y pantalón tipo jeans. Intimidan a la víctima con un cuchillo, amenazándola verbalmente (\"No te acerques o te vamos a pegar tu puntazo, corre mejor a otro lado\"), obligándola a entregar una mochila color azul. En su interior mantenía $1970000 en dinero efectivo, los cuales fueron sustraídos. Los sujetos huyeron del lugar.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 3347,
+    "direccion_georref": "4 NORTE & 3 NORTE",
+    "comuna": "San Pedro de la Paz",
+    "concat": "4 NORTE & 3 NORTE , San Pedro de la Paz",
+    "lat": -36.85996499168797,
+    "lon": -73.13938634821199
   }
 ]
