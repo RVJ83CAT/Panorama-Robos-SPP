@@ -22462,5 +22462,23 @@
     "concat": "4 NORTE & 3 NORTE , San Pedro de la Paz",
     "lat": -36.85996499168797,
     "lon": -73.13938634821199
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "07-08-2026",
+    "dia": "VIERNES",
+    "hora": "08:50",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "DOCE DE FEBRERO S/N (SITIO ERIAZO DETRÁS DEL SAR BOCA SUR)",
+    "circunstancias": "La víctima (H29) es abordada mientras permanecía solo en un sitio eriazo ubicado detrás del SAR Boca Sur. Tres delincuentes, correspondientes a dos mujeres (M30 aprox. y otra adulta de tez blanca, cabello rubio, vestimenta amarilla) y un hombre adulto, lo interceptan sorpresivamente. La segunda mujer portaba aparentemente una pistola y el hombre un arma aparentemente tipo escopeta, utilizando ambas para intimidarlo y obligarlo a desnudarse y entregar todas sus pertenencias. Sustraen un teléfono celular Honor color gris (Movistar), una mochila negra marca Buba con documentación, billetera de cuero color café, tarjeta CuentaRUT, anexo de contrato de trabajo, llave de oficina, además de zapatos marca Guante, pantalón negro y abrigo negro marca Zoviet. Posteriormente lo atan de pies y manos utilizando su propia ropa y cables encontrados en el lugar, inmovilizándolo mientras exigían números telefónicos de familiares y contactos para solicitar dinero (extorsión). La víctima logra zafarse de las amarras y huye hasta el SAR Boca Sur donde solicita ayuda. Presenta contusiones múltiples y herida cortante leve. Avalúo $1000000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3366,
+    "direccion_georref": "DOCE DE FEBRERO S/N (SITIO ERIAZO DETRÁS DEL SAR BOCA SUR)",
+    "comuna": "San Pedro de la Paz",
+    "concat": "DOCE DE FEBRERO S/N (SITIO ERIAZO DETRÁS DEL SAR BOCA SUR) , San Pedro de la Paz",
+    "lat": -36.84035712922343,
+    "lon": -73.13985458003184
   }
 ]
