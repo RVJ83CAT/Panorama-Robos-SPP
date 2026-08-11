@@ -22732,5 +22732,23 @@
     "concat": "CALLE NUEVA 4000, TORRE S , San Pedro de la Paz",
     "lat": -36.853588145068656,
     "lon": -73.13439729926597
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "11-08-2026",
+    "dia": "MARTES",
+    "hora": "11:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "SEGUNDA LONGITUDINAL & PASAJE 11",
+    "circunstancias": "El denunciante (H36) estacionó su vehículo Chevrolet Sail color azul, año 2011 PPU. CYGC71frente a la cancha del club deportivo 21 de Mayo, al momento de realizar unos trabajos de carpintería en una obra en proceso. En un momento observó que desde el maletero del vehículo habrian sustraíso 01 sierra circular Dework, 02 bateria amrillas para sierra circular de 8 amperes, 1 cargador de bateria, 1 atornillador con tope, 01 galletera verde marca Total, 2 extensiones de 40 metros color negro, 1 foco halógeno, 1 mochila marca Lippi, 1 billetera de cuero con documentos y un laser marca Bosch. Avalúo $1500000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3425,
+    "direccion_georref": "SEGUNDA LONGITUDINAL & PASAJE 11",
+    "comuna": "San Pedro de la Paz",
+    "concat": "SEGUNDA LONGITUDINAL & PASAJE 11 , San Pedro de la Paz",
+    "lat": -36.83946437532877,
+    "lon": -73.13945388443469
   }
 ]
