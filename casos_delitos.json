@@ -22912,5 +22912,23 @@
     "concat": "DIAGONAL BIO BIO 1071 , San Pedro de la Paz",
     "lat": -36.82731533736724,
     "lon": -73.11992324759012
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "14-08-2026",
+    "dia": "VIERNES",
+    "hora": "04:30",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "LOS ESCOLAPIOS 1733",
+    "circunstancias": "Sujetos desconocidos ingresaron durante la madrugada al  inmueble. El afectado (H69) se encontraba pernoctando en el segundo piso cuando, aproximadamente a las 04:30 horas, su perro comenzó a ladrar insistentemente, seguido de ruidos provenientes del primer piso. Al descender, observó dos chaquetas abandonadas en el sector del comedor y no encontró personas al interior. Observó que una ventana ubicada en la parte frontal del inmueble se encontraba abierta, estableciéndose esta como la vía de ingreso utilizada por los sujetos. No pudo determinar la cantidad, sexo ni características físicas de los sujetos. Robaron 01 batidora amasadora de pedestal, 01 sierra caladora color naranjo, 01 radio de música a carga solar, 01 chaqueta negra marca Merrell y 05 botellas de diferentes licores. Avalúo $1000000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 912,
+    "direccion_georref": "LOS ESCOLAPIOS 1733",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS ESCOLAPIOS 1733 , San Pedro de la Paz",
+    "lat": -36.84095692595232,
+    "lon": -73.1099372847218
   }
 ]
