@@ -22699,6 +22699,24 @@
   },
   {
     "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "10-08-2026",
+    "dia": "LUNES",
+    "hora": "14:30",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "LOCAL COMERCIAL",
+    "direccion": "CALLE LOS SAUCES 23",
+    "circunstancias": "El afectado (H56) dejó el automóvil Hyundai Grand i10, año 2019, color blanco, PPU LCCX23, en el estacionamiento del local comercial MI CASA, e ingresa al establecimiento por aproximadamente 30 minutos. Al regresar y dirigirse posteriormente a su lugar de trabajo comenzó a retirar sus herramientas desde el vehículo, percatándose de la sustracción de 01 escalera plegable, 01 rotamartillo y 01 taladro inalámbrico, especies avaluadas en aproximadamente $500000. El hecho fue advertido inicialmente alrededor de las 14:30 horas. Posteriormente, el 11-08-2026, cerca de las 19:00 horas, el afectado concurrió nuevamente al local comercial MI CASA para solicitar acceso a las cámaras de seguridad observándose a 02 sujetos desconocidos sustrayendo las especies desde el interior del vehículo, desplazándose posteriormente en un automóvil. El vehículo se encontraba asegurado.",
+    "cuadrante": "Cuadrante 05",
+    "numero_parte": 3536,
+    "direccion_georref": "CALLE LOS SAUCES 23",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALLE LOS SAUCES 23 , San Pedro de la Paz",
+    "lat": -36.885134010095946,
+    "lon": -73.13948344084719
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO DE VEHICULO MOTORIZADO",
     "fecha": "10-08-2026",
     "dia": "LUNES",
@@ -23128,5 +23146,23 @@
     "concat": "DOCE DE FEBRERO & PASAJE JEREMIAS , San Pedro de la Paz",
     "lat": -36.83510258920315,
     "lon": -73.14077613318295
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN BIENES NACIONALES",
+    "fecha": "17-08-2026",
+    "dia": "LUNES",
+    "hora": "19:00",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "HOSPITAL / SAR LOMAS COLORADAS",
+    "direccion": "LOS SAUCES 56",
+    "circunstancias": "El afectado (H70) concurrió al SAR de Lomas Coloradas aproximadamente a las 17:00 horas con la finalidad de retirar medicamentos. Dejó estacionada una bicicleta marca Oxford, color negro, en el sector destinado específicamente para bicicletas, asegurándola mediante una cadena con candado. Al regresar aproximadamente a las 19:00 horas constató que individuos desconocidos habían robado la bicicleta, sin mantener antecedentes respecto de la identidad de los autores. Avalúo $450000.",
+    "cuadrante": "Cuadrante ",
+    "numero_parte": 3544,
+    "direccion_georref": "LOS SAUCES 56",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS SAUCES 56 , San Pedro de la Paz",
+    "lat": -36.88560657805923,
+    "lon": -73.1391261769174
   }
 ]
