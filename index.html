@@ -2,957 +2,1969 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Mapa Delitos - San Pedro de la Paz</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css"/>
+
   <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
   <script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.css">
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/plotly_renderers.min.js"></script>
   <style>
-    body, html { margin:0; padding:0; height:100%; font-family:Arial, sans-serif; overflow:hidden; background:#000; }
-    #map { width:100%; height:100vh; }
-    .header-bar { position:fixed; top:0; left:0; width:100%; height:60px; background:#05690c; z-index:1004; box-shadow:0 4px 15px rgba(0,0,0,0.7); }
-    .titulo-principal { position:absolute; top:2px; left:0; width:100%; text-align:center; font-size:30px; font-weight:900; color:#ffffff; text-shadow:none; }
-    .subtitulo-filtros { position:absolute; bottom:2px; left:0; width:100%; text-align:center; font-size:16px; color:#ffffff; opacity:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding:0 80px; box-sizing:border-box; text-shadow:none; }
-    #panelDetalles { position:fixed; left:0; top:60px; width:400px; height:calc(100% - 60px); background:#f8f9fa; z-index:1001; box-shadow:2px 0 10px rgba(0,0,0,0.3); transition:transform 0.4s ease; transform:translateX(-100%); }
-    #panelDetalles.visible { transform:translateX(0); }
-    #sidebar { position:fixed; right:0; top:60px; width:360px; height:calc(100% - 60px); background:#2c3e50; color:white; z-index:1001; box-shadow:-2px 0 10px rgba(0,0,0,0.4); transition:transform 0.4s ease; transform:translateX(100%); padding:20px; overflow-y:auto; }
-    #sidebar.visible { transform:translateX(0); }
-    #triggerDerecho { position:fixed; right:0; top:60px; width:38px; height:calc(100% - 60px); background:rgba(44,62,80,0.95); z-index:1002; cursor:pointer; writing-mode:vertical-rl; text-orientation:mixed; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:16px; color:white; }
-    .btn-container { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); z-index:1002; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; max-width:95%; }
-    .btn-fijo { padding:12px 18px; border:none; border-radius:8px; font-weight:bold; font-size:14px; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,0.5); color:white; min-width:100px; text-align:center; }
-    #btnLista { background:#27ae60; }
-    #btnExport { background:#8e24aa; }
-    #btnCluster { background:#1565c0; }
-    #btnCentrar { background:#e91e63; }
-    #btnPrepararImpresion { background:#ff9800; }
-    #btnDashboard { background:#2196f3; }
-    #btnCompare { background:#9c27b0; }
-    .filtro-grupo { margin-bottom:20px; }
-    .filtro-grupo label { display:block; margin-bottom:6px; font-weight:bold; color:#39ff14; }
-    .filtro-grupo select, .filtro-grupo input { width:100%; padding:10px; border-radius:6px; border:none; background:#34495e; color:white; font-size:14px; }
-    #logo { position:fixed; top:0; right:0; z-index:1005; width:240px; height:auto; }
-    #printModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:3000; overflow:auto; padding:20px; }
-    #printContent { position:relative; width:215.9mm; min-height:330.2mm; margin:auto; background:#05690c; box-shadow:0 0 10px #000; padding:10mm; }
-    #printContent > div { position:absolute; border:1px dashed #ccc; cursor:move; overflow:hidden; padding:10px; background:white; box-shadow:0 4px 10px rgba(0,0,0,0.3); }
-    .resizer { position:absolute; width:10px; height:10px; background:#05690c; z-index:2; }
+    :root {
+      --green: #05690c;
+      --green-light: #07900f;
+      --panel-bg: #1a1e24;
+      --panel-border: #2e3640;
+      --accent: #39ff14;
+      --text: #e0e6f0;
+      --text-dim: #7a8899;
+      --red: #d32f2f;
+      --blue: #1976d2;
+      --purple: #8e24aa;
+      --orange: #ff9800;
+      --cyan: #00bcd4;
+      --radius: 10px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html { height: 100%; font-family: Arial, sans-serif; overflow: hidden; background: #0d1117; }
+
+    #map { width: 100%; height: 100vh; }
+
+    /* ── HEADER ── */
+    .header-bar {
+      position: fixed; top: 0; left: 0; width: 100%; height: 56px;
+      background: linear-gradient(135deg, #04500a 0%, var(--green) 60%, #07800e 100%);
+      z-index: 1004; box-shadow: 0 3px 20px rgba(0,0,0,0.7);
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 2px solid var(--accent);
+    }
+    .titulo-principal {
+      font-size: clamp(14px, 2.2vw, 26px); font-weight: 700; color: #fff;
+      letter-spacing: 2px; text-transform: uppercase; text-align: center;
+      padding: 0 200px 0 60px; line-height: 1.1;
+    }
+    .subtitulo-filtros {
+      position: absolute; bottom: 2px; left: 0; width: 100%; text-align: center;
+      font-size: clamp(10px, 1.1vw, 13px); color: rgba(255,255,255,0.85);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      padding: 0 220px 0 60px; font-family: Arial, monospace;
+    }
+
+    /* ── CONTEO LATERAL IZQUIERDO ── */
+    #conteoPanel {
+      position: fixed; left: 0; top: 56px; width: 52px; height: calc(100% - 56px);
+      background: rgba(4,50,10,0.92); z-index: 1003; display: flex;
+      flex-direction: column; align-items: center; justify-content: flex-start;
+      padding-top: 12px; gap: 6px; border-right: 1px solid rgba(57,255,20,0.15);
+      backdrop-filter: blur(6px);
+    }
+    .conteo-item {
+      display: flex; flex-direction: column; align-items: center;
+      background: rgba(0,0,0,0.35); border-radius: 8px; padding: 6px 4px;
+      width: 44px; cursor: default; border: 1px solid rgba(57,255,20,0.1);
+      transition: background 0.2s;
+    }
+    .conteo-item:hover { background: rgba(57,255,20,0.08); }
+    .conteo-num {
+      font-size: 16px; font-weight: 700; color: var(--accent);
+      font-family: Arial, monospace; line-height: 1;
+    }
+    .conteo-label {
+      font-size: 8px; color: rgba(255,255,255,0.6); text-align: center;
+      text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2;
+      margin-top: 2px;
+    }
+    .conteo-divider {
+      width: 36px; height: 1px; background: rgba(57,255,20,0.2); margin: 2px 0;
+    }
+
+    /* ── PANEL DETALLES / LISTA ── */
+    #panelDetalles {
+      position: fixed; left: 52px; top: 56px; width: 380px; height: calc(100% - 56px);
+      background: var(--panel-bg); z-index: 1001;
+      box-shadow: 3px 0 20px rgba(0,0,0,0.5);
+      transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+      transform: translateX(calc(-100% - 52px));
+      display: flex; flex-direction: column;
+    }
+    #panelDetalles.visible { transform: translateX(0); }
+    .panel-header {
+      padding: 14px 16px; background: rgba(5,105,12,0.85);
+      color: #fff; font-size: 15px; font-weight: 700; letter-spacing: 1px;
+      border-bottom: 1px solid rgba(57,255,20,0.3);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    /* ── PANEL RUTA ── */
+    #panelRuta {
+      position: fixed; left: 52px; top: 56px; width: 360px; height: calc(100% - 56px);
+      background: var(--panel-bg); z-index: 1001;
+      box-shadow: 3px 0 20px rgba(0,0,0,0.5);
+      transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+      transform: translateX(calc(-100% - 52px)); overflow-y: auto;
+    }
+    #panelRuta.visible { transform: translateX(0); }
+
+    /* ── SIDEBAR FILTROS ── */
+    #sidebar {
+      position: fixed; right: 0; top: 56px; width: 320px; height: calc(100% - 56px);
+      background: var(--panel-bg); color: var(--text);
+      z-index: 1001; box-shadow: -3px 0 20px rgba(0,0,0,0.6);
+      transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+      transform: translateX(100%); padding: 14px 14px 80px;
+      overflow-y: auto; border-left: 1px solid var(--panel-border);
+    }
+    #sidebar.visible { transform: translateX(0); }
+    #triggerDerecho {
+      position: fixed; right: 0; top: 56px; width: 36px; height: calc(100% - 56px);
+      background: rgba(4,50,10,0.92); z-index: 1002; cursor: pointer;
+      writing-mode: vertical-rl; text-orientation: mixed;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 13px; color: var(--accent);
+      letter-spacing: 2px; border-left: 1px solid rgba(57,255,20,0.2);
+      backdrop-filter: blur(4px); transition: background 0.2s;
+    }
+    #triggerDerecho:hover { background: rgba(57,255,20,0.1); }
+    .filtro-grupo { margin-bottom: 14px; }
+    .filtro-grupo label {
+      display: block; margin-bottom: 5px; font-weight: 600;
+      color: var(--accent); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    }
+    .filtro-grupo select, .filtro-grupo input {
+      width: 100%; padding: 8px 10px; border-radius: 6px;
+      border: 1px solid var(--panel-border); background: rgba(255,255,255,0.05);
+      color: var(--text); font-size: 13px; font-family: Arial, sans-serif;
+      transition: border-color 0.2s;
+    }
+    .filtro-grupo select:focus, .filtro-grupo input:focus {
+      outline: none; border-color: var(--accent);
+    }
+    .filtro-grupo select option { background: #1a1e24; }
+
+    /* ── BOTONES INFERIORES ── */
+    .btn-container {
+      position: fixed; bottom: 12px; left: 60px; right: 44px;
+      z-index: 1002; display: flex; gap: 6px; justify-content: center;
+      flex-wrap: wrap; max-width: calc(100% - 104px);
+    }
+    .btn-fijo {
+      padding: 9px 13px; border: none; border-radius: 8px;
+      font-weight: 700; font-size: 12px; cursor: pointer;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.5); color: white;
+      font-family: Arial, sans-serif; letter-spacing: 0.5px;
+      transition: transform 0.15s, box-shadow 0.15s; white-space: nowrap;
+    }
+    .btn-fijo:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+    .btn-fijo:active { transform: translateY(0); }
+    #btnLista { background: #27ae60; }
+    #btnExport { background: var(--purple); }
+    #btnCluster { background: #1565c0; }
+    #btnHotspot { background: #e65100; }
+    #btnCentrar { background: #c62828; }
+    #btnPrepararImpresion { background: var(--orange); }
+    #btnDashboard { background: #0277bd; }
+    #btnCompare { background: #6a1b9a; }
+    #btnRuta { background: var(--cyan); }
+    #btnDibujo { background: #2e7d32; }
+    #btnSeleccion { background: #37474f; }
+
+    /* ── LOGO ── */
+    #logo {
+      position: fixed; top: 0; right: 36px; z-index: 1005;
+      width: clamp(130px, 14vw, 200px); height: auto;
+    }
+
+    /* ── LEAFLET OVERRIDES ── */
+    .leaflet-top.leaflet-right { top: 70px !important; right: 44px; }
+    .leaflet-control-zoom { border: 1px solid rgba(57,255,20,0.3) !important; }
+    .leaflet-control-zoom a {
+      background: rgba(4,50,10,0.9) !important; color: var(--accent) !important;
+      font-size: 18px !important; line-height: 28px !important;
+      border-bottom: 1px solid rgba(57,255,20,0.2) !important;
+    }
+    .leaflet-control-zoom a:hover { background: rgba(57,255,20,0.15) !important; }
+    .transparent-marker { background: transparent !important; border: none !important; }
+
+    /* ── CASO CARD ── */
+    .caso-item {
+      padding: 12px 14px; margin-bottom: 10px; background: rgba(255,255,255,0.04);
+      border-radius: 8px; cursor: pointer; border-left: 5px solid var(--blue);
+      transition: background 0.2s, transform 0.15s;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .caso-item:hover { background: rgba(57,255,20,0.06); transform: translateX(3px); }
+    .caso-item.activo { background: rgba(57,255,20,0.1); }
+    .caso-num {
+      font-weight: 900; font-size: 22px; margin-right: 8px;
+      font-family: Arial, sans-serif;
+    }
+    .caso-tag {
+      background: rgba(255,255,255,0.15); color: #fff;
+      padding: 2px 6px; border-radius: 4px; font-size: 10px; margin-left: 6px;
+    }
+    .caso-sub { font-size: 11px; color: #ffffff; margin: 4px 0; font-weight: 600; }
+    .caso-circ { font-size: 11px; color: #f0f4f8; line-height: 1.35; margin-top: 6px; }
+
+    /* ── RUTA INSTRUCCIONES ── */
+    .ruta-step {
+      padding: 10px 14px; border-bottom: 1px solid var(--panel-border);
+      font-size: 13px; color: var(--text); display: flex; gap: 10px; align-items: flex-start;
+    }
+    .ruta-step-num {
+      background: var(--cyan); color: #000; border-radius: 50%;
+      width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+    .ruta-step-km { font-size: 11px; color: #cfd8dc; white-space: nowrap; margin-top: 2px; }
+
+    /* ── DASHBOARD MODAL ── */
+    #dashboardModal {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.8); z-index: 2000; overflow: auto;
+      backdrop-filter: blur(4px);
+    }
+    .dash-wrapper {
+      width: 95%; max-width: 1400px; margin: 20px auto;
+      background: #141820; border-radius: 14px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      border: 1px solid var(--panel-border); overflow: hidden;
+    }
+    .dash-header {
+      padding: 16px 22px; background: linear-gradient(135deg, #04500a, var(--green));
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 2px solid var(--accent);
+    }
+    .dash-header h2 { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+    .dash-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px; padding: 20px;
+    }
+    .dash-panel {
+      background: rgba(255,255,255,0.03); border-radius: 10px;
+      border: 1px solid var(--panel-border); padding: 16px; overflow: auto;
+    }
+    .dash-panel h3 {
+      color: var(--accent); font-size: 13px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px;
+      padding-bottom: 8px; border-bottom: 1px solid rgba(57,255,20,0.2);
+    }
+    .dash-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .dash-table th {
+      background: rgba(5,105,12,0.5); color: var(--accent); padding: 7px 10px;
+      text-align: left; font-size: 11px; letter-spacing: 1px;
+    }
+    .dash-table td { padding: 6px 10px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text); }
+    .dash-table tr:last-child td { color: var(--accent); font-weight: 700; background: rgba(57,255,20,0.05); }
+    .dash-panel-wide { grid-column: span 2; }
+    @media (max-width: 900px) { .dash-panel-wide { grid-column: span 1; } }
+
+    /* ── PRINT MODAL ── */
+    #printModal {
+      display: none; position: fixed; inset: 0;
+      background: #2a2a2a; z-index: 3000; overflow: auto; padding: 20px 20px 60px;
+    }
+    #printContent {
+      position: relative; width: 215.9mm; min-height: 330.2mm;
+      margin: auto; background: white; box-shadow: 0 0 30px rgba(0,0,0,0.9); padding: 0;
+    }
+    #printContent > div {
+      position: absolute; border: 1px dashed rgba(0,0,0,0.18); cursor: move;
+      overflow: hidden; background: white;
+    }
+    #printHeader {
+      position: absolute; top:0; left:0; width:100%; height:80px;
+      background: #05690c;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    #printContent [contenteditable] {
+      -webkit-spell-checking: none;
+      spell-checking: none;
+      text-decoration: none !important;
+    }
+    #printContent [contenteditable]:focus { outline: none; }
+    .print-titulo-principal  { font-size:30px; font-weight:900; color:#ffffff; text-align:center; }
+    .print-subtitulo-filtros { font-size:20px; font-weight:900; color:#ffffff; text-align:center; }
+    .resizer {
+      position: absolute; width: 10px; height: 10px;
+      background: #05690c; z-index: 2;
+    }
     .resizer.nw { top:-5px; left:-5px; cursor:nw-resize; }
-    .resizer.n { top:-5px; left:50%; cursor:n-resize; }
+    .resizer.n  { top:-5px; left:50%; cursor:n-resize; }
     .resizer.ne { top:-5px; right:-5px; cursor:ne-resize; }
-    .resizer.w { left:-5px; top:50%; cursor:w-resize; }
-    .resizer.e { right:-5px; top:50%; cursor:e-resize; }
+    .resizer.w  { left:-5px; top:50%; cursor:w-resize; }
+    .resizer.e  { right:-5px; top:50%; cursor:e-resize; }
     .resizer.sw { bottom:-5px; left:-5px; cursor:sw-resize; }
-    .resizer.s { bottom:-5px; left:50%; cursor:s-resize; }
+    .resizer.s  { bottom:-5px; left:50%; cursor:s-resize; }
     .resizer.se { bottom:-5px; right:-5px; cursor:se-resize; }
-    #printMap { width:100%; height:100%; }
-    .caso-card { padding:14px; background:white; border-radius:8px; border-left:6px solid #1976d2; line-height:1.4; box-shadow:0 2px 8px rgba(0,0,0,0.2); }
-    #printHeader { position:absolute; top:0; left:0; width:100%; height:80px; background:#05690c; box-shadow:0 4px 15px rgba(0,0,0,0.7); display:flex; flex-direction:column; align-items:center; justify-content:center; }
-    #printLogo { position:absolute; top:5px; right:10px; width:200px; }
-    .print-titulo-principal { font-size:30px; font-weight:900; color:#ffffff; text-shadow:none; text-align:center; }
-    .print-subtitulo-filtros { font-size:20px; font-weight:900; color:#ffffff; text-shadow:none; opacity:1; text-align:center; }
-    .leaflet-top.leaflet-right { top: 80px !important; right: 30px; }
-    .element-controls { position:absolute; top:-25px; left:0; display:flex; gap:5px; }
-    .element-btn { padding:2px 5px; font-size:10px; cursor:pointer; background:#ddd; border:1px solid #ccc; border-radius:3px; min-width:22px; text-align:center; }
-    .element-btn.bring-front { background:#4caf50; color:white; }
-    .element-btn.send-back { background:#f44336; color:white; }
+    .print-btn {
+      padding: 9px 16px; border-radius: 7px; border: none; cursor: pointer;
+      font-weight: 700; font-size: 13px; font-family: Arial, sans-serif;
+      transition: opacity 0.2s; color: white;
+    }
+    .print-btn:hover { opacity: 0.85; }
+
+    /* ── PANEL DIBUJO ── */
+    #panelDibujo {
+      position: fixed; left: 52px; top: 56px; width: 300px;
+      background: var(--panel-bg); z-index: 1001;
+      box-shadow: 3px 0 20px rgba(0,0,0,0.5);
+      transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+      transform: translateX(calc(-100% - 52px));
+      display: flex; flex-direction: column;
+      max-height: calc(100% - 56px);
+    }
+    #panelDibujo.visible { transform: translateX(0); }
+
+    /* ── PANEL SELECCIÓN MANUAL ── */
+    #panelSeleccion {
+      position: fixed; right: 36px; top: 56px; width: 320px;
+      height: calc(100% - 130px);
+      background: var(--panel-bg); z-index: 1001;
+      box-shadow: -3px 0 20px rgba(0,0,0,0.5);
+      transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+      transform: translateX(calc(100% + 36px));
+      display: flex; flex-direction: column;
+      border-left: 1px solid var(--panel-border);
+      border-radius: var(--radius) 0 0 var(--radius);
+    }
+    #panelSeleccion.visible { transform: translateX(0); }
+
+    /* ── SCROLL CUSTOM ── */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+    ::-webkit-scrollbar-thumb { background: rgba(57,255,20,0.25); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(57,255,20,0.4); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .titulo-principal { font-size: 13px; padding: 0 160px 0 56px; }
+      .subtitulo-filtros { font-size: 9px; padding: 0 160px 0 56px; }
+      #panelDetalles { width: 100%; }
+      #panelRuta { width: 100%; }
+      #sidebar { width: 100%; }
+      #logo { width: 120px; right: 36px; }
+      #conteoPanel { width: 44px; }
+      .btn-fijo { font-size: 11px; padding: 8px 9px; }
+      .btn-container { left: 50px; right: 40px; }
+    }
+    @media (max-width: 480px) {
+      #conteoPanel { display: none; }
+      .btn-container { left: 4px; right: 40px; }
+      #panelDetalles { left: 0; }
+      #panelRuta { left: 0; }
+    }
+
+    /* ── PRINT STYLES ── */
     @media print {
       @page { margin: 0; size: auto; }
       body * { visibility: hidden; }
       #printModal, #printModal * { visibility: visible; }
-      #printModal { position: fixed !important; inset: 0 !important; background: white !important; margin: 0 !important; padding: 0 !important; }
-      #printContent { inset: 0 !important; margin: 0 !important; padding: 0 !important; width: 100% !important; height: 100% !important; background: white !important; box-shadow: none !important; }
+      #printModal { position: fixed !important; inset: 0 !important; background: white !important; margin: 0 !important; padding: 0 !important; overflow: visible !important; }
+      #printContent { inset: 0 !important; margin: 0 !important; padding: 0 !important; width: 100% !important; min-height: unset !important; background: white !important; box-shadow: none !important; overflow: visible !important; }
       #printContent > div { background: white !important; border: none !important; box-shadow: none !important; }
-      .caso-card { background: white !important; box-shadow: none !important; border: 1px solid #ddd !important; }
-      .resizer, .leaflet-control-layers, .btn-container, #triggerDerecho, #sidebar, #panelDetalles, #logo, .element-controls { display: none !important; }
-      #printHeader { background: #05690c !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .caso-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-shadow: none !important; border: 1px solid #ccc !important; }
-      #printButtons, .resizer, .element-controls { display: none !important; }
+      #printButtons { display: none !important; }
+      .resizer { display: none !important; }
+      #printHeader { background: #05690c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
-    #dashboardModal { overflow: auto; }
-    #pivotContainer { height: auto; min-height: 80vh; overflow-y: auto; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 15px; position:relative; }
-    .dash-panel { position:absolute; background:#fff; border-radius:10px; box-shadow:0 3px 12px rgba(0,0,0,0.08); padding:14px; min-width:280px; min-height:140px; cursor:move; border:1px dashed #ccc; }
-    .dash-panel h3 { margin:0 0 10px;color:#0078d4;font-size:16px;border-bottom:2px solid #0078d4;padding-bottom:6px; }
-    .resizer { position:absolute; width:10px; height:10px; background:#05690c; z-index:2; }
-    .resizer.nw { top:-5px; left:-5px; cursor:nw-resize; }
-    .resizer.n { top:-5px; left:50%; cursor:n-resize; }
-    .resizer.ne { top:-5px; right:-5px; cursor:ne-resize; }
-    .resizer.w { left:-5px; top:50%; cursor:w-resize; }
-    .resizer.e { right:-5px; top:50%; cursor:e-resize; }
-    .resizer.sw { bottom:-5px; left:-5px; cursor:sw-resize; }
-    .resizer.s { bottom:-5px; left:50%; cursor:s-resize; }
-    .resizer.se { bottom:-5px; right:-5px; cursor:se-resize; }
+
+    /* ── HOTSPOT LEGEND ── */
+    .hotspot-legend {
+      position: fixed; bottom: 80px; left: 60px;
+      background: rgba(4,50,10,0.92); border: 1px solid rgba(57,255,20,0.2);
+      border-radius: 8px; padding: 10px 14px; z-index: 1002;
+      font-size: 12px; color: var(--text); display: none;
+    }
+    .hotspot-legend.visible { display: block; }
+    .hl-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .hl-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── BADGE MODO ── */
+    .modo-badge {
+      position: fixed; top: 62px; left: 60px; z-index: 1003;
+      background: rgba(230,81,0,0.9); color: #fff; font-size: 11px;
+      padding: 4px 10px; border-radius: 0 0 8px 8px; font-weight: 700;
+      letter-spacing: 1px; display: none;
+    }
+    .modo-badge.visible { display: block; }
   </style>
 </head>
 <body>
-  <img id="logo" src="./iconos/logo-sexta.png" alt="Logo Sexta" loading="lazy">
-  <div id="map"></div>
-  <div class="header-bar">
-    <div class="titulo-principal">PANORAMA DE LOS ROBOS - COMUNA DE SAN PEDRO DE LA PAZ</div>
-    <div class="subtitulo-filtros" id="subtituloFiltros">Todos los casos</div>
+
+<img id="logo" src="./iconos/logo-sexta.png" alt="Logo Sexta" loading="lazy">
+<div id="map"></div>
+
+<!-- HEADER -->
+<div class="header-bar">
+  <div class="titulo-principal">PANORAMA DE LOS ROBOS — COMUNA DE SAN PEDRO DE LA PAZ</div>
+  <div class="subtitulo-filtros" id="subtituloFiltros">Todos los casos</div>
+</div>
+
+<!-- CONTEO LATERAL -->
+<div id="conteoPanel">
+  <div class="conteo-item" title="Total filtrado">
+    <span class="conteo-num" id="cntTotal">0</span>
+    <span class="conteo-label">Total</span>
   </div>
-  <div id="panelDetalles">
-    <div style="padding:15px; background:#2c3e50; color:white; font-size:19px; font-weight:bold;">
-      Lista de Casos <span id="filtrosActivos" style="float:right;font-size:14px;opacity:0.9;">—</span>
+  <div class="conteo-divider"></div>
+  <div class="conteo-item" title="Robo con violencia/intimidación/sorpresa">
+    <span class="conteo-num" id="cntViol" style="color:#f44336">0</span>
+    <span class="conteo-label">Viol.</span>
+  </div>
+  <div class="conteo-item" title="Robo en lugar habitado">
+    <span class="conteo-num" id="cntHab" style="color:#ff9800">0</span>
+    <span class="conteo-label">Hab.</span>
+  </div>
+  <div class="conteo-item" title="Robo de vehículo motorizado">
+    <span class="conteo-num" id="cntVeh" style="color:#00bcd4">0</span>
+    <span class="conteo-label">Veh.</span>
+  </div>
+  <div class="conteo-item" title="Robo de accesorios/interior vehículo">
+    <span class="conteo-num" id="cntAcc" style="color:#9c27b0">0</span>
+    <span class="conteo-label">Acc.</span>
+  </div>
+  <div class="conteo-item" title="Otros delitos">
+    <span class="conteo-num" id="cntOtros" style="color:#78909c">0</span>
+    <span class="conteo-label">Otros</span>
+  </div>
+  <div class="conteo-divider"></div>
+  <div class="conteo-item" title="Período anterior">
+    <span class="conteo-num" id="cntPrev" style="color:#ff5722">0</span>
+    <span class="conteo-label">Ant.</span>
+  </div>
+</div>
+
+<!-- MODO BADGE -->
+<div class="modo-badge" id="modoBadge">MODO HOTSPOT</div>
+
+<!-- PANEL LISTA DE CASOS -->
+<div id="panelDetalles">
+  <div class="panel-header">
+    <span>Lista de Casos</span>
+    <span id="filtrosActivos" style="font-size:12px;opacity:0.8;">—</span>
+  </div>
+  <div id="listaCasos" style="padding:12px;overflow-y:auto;flex:1;"></div>
+</div>
+
+<!-- PANEL RUTA -->
+<div id="panelRuta">
+  <div class="panel-header" style="background:rgba(0,150,170,0.9);">
+    <span>🗺️ Ruta Óptima</span>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <span id="rutaInfo" style="font-size:11px;font-family:Arial,monospace;"></span>
+      <button onclick="mapa.cerrarRuta()" style="background:none;border:none;color:white;font-size:18px;cursor:pointer;line-height:1;">✕</button>
     </div>
-    <div id="listaCasos" style="padding:15px; overflow-y:auto; height:calc(100% - 60px);"></div>
   </div>
-  <div id="sidebar">
-    <h3 style="margin-top:0; color:#39ff14;">Filtros</h3>
-    <div class="filtro-grupo"><label>Clasificación</label><select id="filtroClasificacion" multiple size="5"><option value="">TODOS</option></select></div>
-    <div class="filtro-grupo"><label>Delito</label><select id="filtroDelito" multiple size="8"><option value="">TODOS</option></select></div>
-    <div class="filtro-grupo"><label>Lugar del Delito</label><select id="filtroLugar" multiple size="6"><option value="">TODOS</option></select></div>
-    <div class="filtro-grupo"><label>Día</label><select id="filtroDia" multiple size="7"><option value="">TODOS</option></select></div>
-    <div class="filtro-grupo"><label>Rango Horario</label><select id="filtroRangoHora" multiple size="6">
-      <option value="">TODOS</option><option>00:00 a 03:59</option><option>04:00 a 07:59</option><option>08:00 a 11:59</option><option>12:00 a 15:59</option><option>16:00 a 19:59</option><option>20:00 a 23:59</option>
-    </select></div>
-    <div class="filtro-grupo"><label>Semana del Año</label><select id="filtroSemana" multiple size="6"><option value="">TODOS</option></select></div>
-    <div class="filtro-grupo"><label>Cuadrante</label><select id="filtroCuadrante" multiple size="6"><option value="">TODOS</option></select></div>
-    <div style="display:flex; gap:10px;">
-      <div class="filtro-grupo" style="flex:1;"><label>Fecha Inicio</label><input type="date" id="fechaInicio"></div>
-      <div class="filtro-grupo" style="flex:1;"><label>Fecha Fin</label><input type="date" id="fechaFin"></div>
-    </div>
-    <div class="filtro-grupo"><label>Búsqueda en Circunstancias (usa +)</label><input type="text" id="buscarCircunstancias" placeholder="Ej: Kia + bicicleta + alarma"></div>
+  <div id="listaInstrucciones" style="padding:10px;"></div>
+</div>
+
+<!-- PANEL DIBUJO / POLÍGONO -->
+<div id="panelDibujo">
+  <div class="panel-header" style="background:rgba(23,84,26,0.9);">
+    <span>✏️ Filtro por Zona</span>
+    <button onclick="mapa.cerrarDibujo()" style="background:none;border:none;color:white;font-size:18px;cursor:pointer;">✕</button>
   </div>
-  <div id="triggerDerecho">FILTROS ►</div>
-  <div class="btn-container">
-    <button class="btn-fijo" id="btnLista">Lista</button>
-    <button class="btn-fijo" id="btnExport">Exportar</button>
-    <button class="btn-fijo" id="btnCluster">Cluster</button>
-    <button class="btn-fijo" id="btnCentrar">Centrar</button>
-    <button class="btn-fijo" id="btnPrepararImpresion">Impresión</button>
-    <button class="btn-fijo" id="btnDashboard">Dashboard</button>
-    <button class="btn-fijo" id="btnCompare">Sem. Ant.</button>
-  </div>
-  <div id="dashboardModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:2000; overflow:auto;">
-    <div style="width:92%; max-width:1600px; margin:2% auto; background:white; padding:20px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.3);">
-      <h2 style="margin-top:0; color:#0078d4;">Dashboard Analítico</h2>
-      <div id="pivotContainer"></div>
-      <div style="margin-top:15px; text-align:right;">
-        <button id="cerrarDashboard" style="padding:10px 24px; background:#dc3545; color:white; border:none; border-radius:6px; cursor:pointer;">Cerrar</button>
+  <div style="padding:12px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:0;">
+
+    <!-- OPCIONES DE ESTILO -->
+    <div style="background:rgba(255,255,255,0.04);border:1px solid var(--panel-border);border-radius:8px;padding:12px;margin-bottom:12px;">
+      <p style="color:var(--accent);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">🎨 Estilo del Polígono</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+        <div>
+          <label style="color:var(--text-dim);font-size:10px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:3px;">Color Borde</label>
+          <input type="color" id="zonaColorBorde" value="#39ff14" style="width:100%;height:30px;border:none;border-radius:4px;cursor:pointer;background:none;padding:0;">
+        </div>
+        <div>
+          <label style="color:var(--text-dim);font-size:10px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:3px;">Color Relleno</label>
+          <input type="color" id="zonaColorRelleno" value="#39ff14" style="width:100%;height:30px;border:none;border-radius:4px;cursor:pointer;background:none;padding:0;">
+        </div>
+      </div>
+
+      <div style="margin-bottom:8px;">
+        <label style="color:var(--text-dim);font-size:10px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:3px;">Tipo de Línea</label>
+        <select id="zonaTipoLinea" style="width:100%;padding:6px 8px;border-radius:5px;border:1px solid var(--panel-border);background:rgba(255,255,255,0.05);color:var(--text);font-size:12px;">
+          <option value="solid">──── Sólida</option>
+          <option value="dashed">- - - Discontinua</option>
+          <option value="dotted">···· Punteada</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:8px;">
+        <label style="color:var(--text-dim);font-size:10px;text-transform:uppercase;letter-spacing:1px;display:flex;justify-content:space-between;margin-bottom:3px;">
+          <span>Grosor Borde</span><span id="lblGrosor" style="color:var(--accent);">3px</span>
+        </label>
+        <input type="range" id="zonaGrosor" min="1" max="12" value="3" style="width:100%;accent-color:var(--accent);">
+      </div>
+
+      <div style="margin-bottom:4px;">
+        <label style="color:var(--text-dim);font-size:10px;text-transform:uppercase;letter-spacing:1px;display:flex;justify-content:space-between;margin-bottom:3px;">
+          <span>Transparencia Relleno</span><span id="lblOpacidad" style="color:var(--accent);">15%</span>
+        </label>
+        <input type="range" id="zonaOpacidad" min="0" max="100" value="15" style="width:100%;accent-color:var(--accent);">
+      </div>
+
+      <!-- Vista previa -->
+      <div style="margin-top:10px;text-align:center;">
+        <svg id="zonaPreview" width="100%" height="36" viewBox="0 0 240 36">
+          <rect id="previewRect" x="6" y="8" width="228" height="20" rx="3"
+            stroke="#39ff14" stroke-width="3" fill="#39ff14" fill-opacity="0.15" stroke-dasharray="none"/>
+        </svg>
       </div>
     </div>
-  </div>
-  <div id="printModal">
-    <div id="printContent"></div>
-    <div id="printButtons" style="text-align:center; margin-top:20px;">
-      <label>Fuente: <select id="fontSizeSelect">
-        <option value="1">1px</option><option value="2">2px</option><option value="3">3px</option><option value="4">4px</option><option value="5">5px</option><option value="6">6px</option><option value="7">7px</option><option value="8">8px</option><option value="9">9px</option><option value="10">10px</option><option value="11">11px</option><option value="12">12px</option><option value="13">13px</option><option value="14">14px</option><option value="15">15px</option><option value="16">16px</option><option value="17">17px</option><option value="18">18px</option><option value="19">19px</option><option value="20">20px</option>
-      </select></label>
-      <label>Fuente Tipo: <select id="fontFamilySelect">
-        <option value="Arial">Arial</option><option value="Times New Roman">Times New Roman</option><option value="Courier New">Courier New</option><option value="Verdana">Verdana</option><option value="Georgia">Georgia</option>
-      </select></label>
-      <label>Formato: <select id="paperSizeSelect">
-        <option value="A4">A4</option><option value="Letter">Letter</option><option value="Legal">Legal</option><option value="Folio" selected>Folio</option>
-        <option value="8.5x13">8.5" x 13"</option>
-      </select></label>
-      <label>Orientación: <select id="orientationSelect">
-        <option value="portrait">Vertical</option><option value="landscape">Horizontal</option>
-      </select></label>
-      <button id="printButton">Imprimir</button>
-      <button id="closeButton">Cerrar</button>
+
+    <!-- BOTONES DIBUJAR -->
+    <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:12px;">
+      <p style="color:var(--accent);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px;">✏️ Dibujar Zona</p>
+      <button id="btnIniciarDibujo" class="print-btn" style="background:var(--green);color:white;width:100%;">✏️ Polígono</button>
+      <button id="btnRectangulo" class="print-btn" style="background:#1565c0;color:white;width:100%;">▭ Rectángulo</button>
+      <button id="btnCirculo" class="print-btn" style="background:#6a1b9a;color:white;width:100%;">⊙ Círculo</button>
+      <button id="btnBorrarForma" class="print-btn" style="background:#b71c1c;color:white;width:100%;">🗑 Borrar Forma</button>
+    </div>
+
+    <!-- FILTRAR / LIMPIAR -->
+    <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:12px;">
+      <p style="color:var(--accent);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px;">🎯 Aplicar Filtro</p>
+      <button id="btnAplicarPoligono" class="print-btn" style="background:#e65100;color:white;width:100%;">🎯 Filtrar casos en zona</button>
+      <button id="btnLimpiarPoligono" class="print-btn" style="background:#37474f;color:white;width:100%;">✕ Quitar filtro de zona</button>
+    </div>
+
+    <!-- CARGAR ARCHIVO -->
+    <div style="border-top:1px solid var(--panel-border);padding-top:12px;margin-bottom:12px;">
+      <p style="color:var(--text-dim);font-size:11px;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">📂 Cargar Zona desde Archivo</p>
+      <label style="display:block;background:rgba(255,255,255,0.05);border:1px dashed var(--panel-border);border-radius:7px;padding:12px;text-align:center;cursor:pointer;color:var(--text-dim);font-size:12px;">
+        GeoJSON / KML / GPX
+        <input type="file" id="inputArchivoZona" accept=".geojson,.json,.kml,.gpx" style="display:none;">
+      </label>
+    </div>
+
+    <!-- EXPORTAR -->
+    <div style="margin-bottom:12px;">
+      <button id="btnExportarZona" class="print-btn" style="background:#0277bd;color:white;width:100%;">💾 Guardar como GeoJSON</button>
+    </div>
+
+    <!-- INFO -->
+    <div id="infoPoligono" style="padding:10px;background:rgba(57,255,20,0.05);border-radius:7px;border:1px solid rgba(57,255,20,0.15);display:none;">
+      <p style="color:var(--accent);font-size:12px;font-weight:700;" id="textoPoligono">—</p>
     </div>
   </div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-  <script>
-    function removeAccents(str) { return str.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
-    function createClusterGroup() {
-      return L.markerClusterGroup({
-        maxClusterRadius: 60,
-        singleMarkerMode: true,
-        iconCreateFunction: cluster => {
-          const count = cluster.getChildCount();
-          let bg = count >= 50 ? '#d32f2f' : count >= 30 ? '#f44336' : count >= 20 ? '#ff5722' : count >= 10 ? '#ff9800' : count >= 5 ? '#ffc107' : '#8bc34a';
-          return L.divIcon({
-            html: `<div style="background:${bg};color:white;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;border:4px solid white;box-shadow:0 0 15px #000;">${count}</div>`,
-            className: '', iconSize: [46,46]
-          });
-        }
-      });
-    }
-    class MapaDelitos {
-      constructor() {
-        this.map = L.map('map', { maxZoom: 25, zoomSnap: 0.1, zoomDelta: 0.1 }).setView([-36.84, -73.105], 13);
-        this.datos = []; this.filtrados = []; this.previousFiltrados = [];
-        this.clusterEnabled = true;
-        this.comparePrevious = false;
-        this.overlayLayers = {};
-        this.baseLayers = {};
-        this.palabrasBuscadas = [];
-        this.baseLayers = {
-          "Callejero (OSM)": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "Satélite (Esri)": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
-          "Topográfico": L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)' }),
-          "Oscuro": L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { attribution: '© OpenStreetMap contributors © CARTO' }),
-          "Humanitarian": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '© OpenStreetMap contributors © CARTO' }),
-          "Carto Voyager": L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { attribution: '© OpenStreetMap contributors © CARTO' }),
-          "Esri Street": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'),
-          "Google Maps": L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', { maxZoom: 20 }),
-          "Waze": L.tileLayer('https://worldtiles1.waze.com/tiles/{z}/{x}/{y}.png', { maxZoom: 19 }),
-          "OSM Francia": L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "Carto Positron": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', { attribution: '© OpenStreetMap contributors © CARTO' }),
-          "OpenStreetMap.DE": L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "OpenStreetMap Mapnik": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "OpenStreetMap Public Transport": L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "OpenStreetMap Humanitarian": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
-          "ÖPNV-Karte": L.tileLayer('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png', {
-            attribution: '© <a href="https://memomaps.de/">ÖPNV-Karte</a> | Map data © OpenStreetMap contributors',
-            maxZoom: 19
-          })
-        };
-        this.baseLayers["Callejero (OSM)"].addTo(this.map);
-        this.clusterGroup = createClusterGroup();
-        this.marcadoresLayer = L.layerGroup();
-        this.previousLayer = L.layerGroup();
-        this.map.addLayer(this.clusterGroup);
-        this.delitoIcons = {
-          'ROBO DE ACCESORIOS DE VEHICULOS': L.icon({ iconUrl: './iconos/ico-robo-accesorios-especies-interior-vehiculo.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'ROBO EN LUGAR HABITADO': L.icon({ iconUrl: './iconos/ico-robo-lugar-habitado.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'ROBO EN LUGAR NO HABITADO': L.icon({ iconUrl: './iconos/ico-robo-lugar-no-habitado.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'ROBO DE VEHICULO MOTORIZADO': L.icon({ iconUrl: './iconos/ico-robo-vehiculo-motorizado.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'ROBO POR SORPRESA': L.icon({ iconUrl: './iconos/ico-robo-sorpresa.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'ROBO EN BIENES NACIONALES': L.icon({ iconUrl: './iconos/ico-robo-bienes-nacionales-uso-publico.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'ROBO CON INTIMIDACION': L.icon({ iconUrl: './iconos/ico-robo-intimidacion.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'ROBO FRUSTRADO': L.icon({ iconUrl: './iconos/ico-robo-frustrado.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'ROBO CON VIOLENCIA': L.icon({ iconUrl: './iconos/ico-robo-violencia.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'APROPIACION DE CABLES DE TENDIDO ELECTRICO': L.icon({ iconUrl: './iconos/ico_robo_cable_tendido_electrico.png', iconSize: [32,32], iconAnchor: [16,32] }),
-          'ROBO VIOLENTO DE VEHICULO': L.icon({ iconUrl: './iconos/ico_robo_vehiculo_sorpresa_violencia_int.png', iconSize: [32,32], iconAnchor: [16,32] })
-        };
-        this.cargarDatos();
-      }
-      getPrevPopup(c) {
-        let html = this.popupCaso(c, 0);
-        html = html.replace(/#1 - /, '');
-        html += '<br><small style="color:#ff5722;font-weight:bold;">● Período anterior</small>';
-        return html;
-      }
-      async loadOverlays() {
-        const overlays = [
-          { url: 'BARRIOS-SPP-2024.json', name: 'Barrios SPP 2024', color: '#ff7800', fillOpacity: 0.1 },
-          { url: 'cuadrantes.geojson', name: 'Cuadrantes', color: '#ff0000', weight: 5, fillOpacity: 0, fill: false },
-          { url: 'CALLE SIN VIOLENCIA-SEPTIEMBRE 2025.geojson', name: 'Calle sin Violencia Sept 2025', color: '#ffeb3b', fillOpacity: 0.2 },
-          { url: 'CALLE-SIN-VIOLENCIA.geojson', name: 'Calle sin Violencia', color: '#ffeb3b', fillOpacity: 0.15 },
-          { url: 'BARRIO-PRIORITARIO.geojson', name: 'Barrio Prioritario', color: '#4caf50', fillOpacity: 0.2 }
-        ];
-        for (const o of overlays) {
-          try {
-            const res = await fetch(o.url + '?t=' + Date.now());
-            if (!res.ok) continue;
-            const data = await res.json();
-            const style = o.name === 'Cuadrantes'
-              ? { color: o.color, weight: o.weight, opacity: 1, fillOpacity: 0, fill: false }
-              : { color: o.color, weight: o.weight || 4, fillOpacity: o.fillOpacity || 0.1 };
-            const layer = L.geoJSON(data, { style }).bindPopup(l => {
-              let html = `<b>${o.name}</b><hr>`;
-              for (const [k,v] of Object.entries(l.feature.properties||{})) html += `<b>${k}:</b> ${v}<br>`;
-              return html;
-            });
-            this.overlayLayers[o.name] = layer;
-          } catch(e) {}
-        }
-        this.layersControl = L.control.layers(this.baseLayers, this.overlayLayers, {
-          position: 'topright',
-          collapsed: true
-        }).addTo(this.map);
-        this.layersControl.getContainer().style.top = '80px';
-      }
-      getColor(d) {
-        if (['ROBO CON VIOLENCIA','ROBO CON INTIMIDACION','ROBO POR SORPRESA','ROBO VIOLENTO DE VEHICULO'].includes(d)) return '#d32f2f';
-        if (d === 'ROBO FRUSTRADO') return '#8e24aa';
-        return '#1976d2';
-      }
-      crearMarcador(c, i) {
-        const icono = this.delitoIcons[c.delito] || L.icon({ iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png', iconSize: [25,41], iconAnchor: [12,41] });
-        const div = L.divIcon({
-          html: `<div style="position:relative;">
-                   <img src="${icono.options.iconUrl}" width="32" height="32" style="filter: drop-shadow(2px 2px 4px #000);">
-                   <div style="position:absolute;top:-35px;left:50%;transform:translateX(-50%);color:${this.getColor(c.delito)};font-weight:900;font-size:25px;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;">
-                     ${i+1}
-                   </div>
-                 </div>`,
-          className: 'transparent-marker',
-          iconSize: [32,32], iconAnchor: [16,32]
-        });
-        const marker = L.marker([c.lat, c.lon], { icon: div });
-        marker.bindPopup(this.popupCaso(c, i));
-        marker.on('click', () => this.irACaso(i));
-        return marker;
-      }
-      popupCaso(c, i) {
-        return `<div style="min-width:280px;">
-                  <b>#${i+1} - ${c.delito}</b><hr>
-                  <b>N° Parte:</b> ${c.numero_parte || '—'}<br>
-                  <b>Fecha:</b> ${c.fecha} ${c.hora}<br>
-                  <b>Lugar:</b> ${c.lugar}<br>
-                  <b>Dirección:</b> ${c.direccion}<br>
-                  <b>Cuadrante:</b> ${c.cuadrante || '—'}<br>
-                  <b>Circunstancias:</b> ${c.circunstancias || 'Sin detalles'}
-                </div>`;
-      }
-      aplicarFiltros() {
-        const s = {
-          clasif: [...document.getElementById('filtroClasificacion').selectedOptions].map(o => o.value).filter(v => v),
-          delito: [...document.getElementById('filtroDelito').selectedOptions].map(o => o.value).filter(v => v),
-          lugar: [...document.getElementById('filtroLugar').selectedOptions].map(o => o.value).filter(v => v),
-          dia: [...document.getElementById('filtroDia').selectedOptions].map(o => o.value).filter(v => v),
-          rango: [...document.getElementById('filtroRangoHora').selectedOptions].map(o => o.value).filter(v => v),
-          semana: [...document.getElementById('filtroSemana').selectedOptions].map(o => o.value).filter(v => v),
-          cuadrante: [...document.getElementById('filtroCuadrante').selectedOptions].map(o => o.value).filter(v => v),
-          inicio: document.getElementById('fechaInicio').value,
-          fin: document.getElementById('fechaFin').value,
-          texto: document.getElementById('buscarCircunstancias').value.trim()
-        };
-        this.palabrasBuscadas = s.texto ? s.texto.toLowerCase().split('+').map(p => p.trim()).filter(p => p) : [];
-        this.filtrados = this.datos.filter(c => {
-          const [d, m, y] = c.fecha.split('-');
-          const fechaISO = `${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
-          if (s.clasif.length && !s.clasif.includes(c.clasificacion)) return false;
-          if (s.delito.length && !s.delito.includes(c.delito)) return false;
-          if (s.lugar.length && !s.lugar.includes(c.lugar)) return false;
-          if (s.dia.length && !s.dia.includes(c.dia)) return false;
-          if (s.semana.length && !s.semana.includes(c.semana)) return false;
-          if (s.rango.length) {
-            const h = parseInt(c.hora.split(':')[0]);
-            const rangos = {
-              '00:00 a 03:59': h <= 3,
-              '04:00 a 07:59': h >= 4 && h <= 7,
-              '08:00 a 11:59': h >= 8 && h <= 11,
-              '12:00 a 15:59': h >= 12 && h <= 15,
-              '16:00 a 19:59': h >= 16 && h <= 19,
-              '20:00 a 23:59': h >= 20
-            };
-            if (!s.rango.some(r => rangos[r])) return false;
-          }
-          if (s.cuadrante.length && !s.cuadrante.includes(c.cuadrante)) return false;
-          if (s.inicio && fechaISO < s.inicio) return false;
-          if (s.fin && fechaISO > s.fin) return false;
-          if (s.texto) {
-            const textoCaso = (c.circunstancias || '').toLowerCase();
-            if (!this.palabrasBuscadas.every(p => textoCaso.includes(p))) return false;
-          }
-          return true;
-        });
-        if (this.comparePrevious) {
-          let fechaReferencia = new Date();
-          if (this.filtrados.length > 0) {
-            const fechas = this.filtrados.map(c => {
-              const [d,m,y] = c.fecha.split('-');
-              return new Date(y, m-1, d);
-            });
-            fechaReferencia = new Date(Math.min(...fechas));
-          } else if (s.inicio) {
-            const [y,m,d] = s.inicio.split('-');
-            fechaReferencia = new Date(y, m-1, d);
-          }
-          const dia = fechaReferencia.getDay();
-          const diff = dia === 0 ? 6 : dia - 1;
-          const lunesActual = new Date(fechaReferencia);
-          lunesActual.setDate(lunesActual.getDate() - diff);
-          const lunesAnterior = new Date(lunesActual);
-          lunesAnterior.setDate(lunesAnterior.getDate() - 7);
-          const domingoAnterior = new Date(lunesAnterior);
-          domingoAnterior.setDate(domingoAnterior.getDate() + 6);
-          const prevStartISO = lunesAnterior.toISOString().split('T')[0];
-          const prevEndISO = domingoAnterior.toISOString().split('T')[0];
-          this.previousFiltrados = this.datos.filter(cc => {
-            const [d,m,y] = cc.fecha.split('-');
-            const fechaISO = `${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
-            if (s.clasif.length && !s.clasif.includes(cc.clasificacion)) return false;
-            if (s.delito.length && !s.delito.includes(cc.delito)) return false;
-            if (s.lugar.length && !s.lugar.includes(cc.lugar)) return false;
-            if (s.dia.length && !s.dia.includes(cc.dia)) return false;
-            if (s.rango.length) {
-              const h = parseInt(cc.hora.split(':')[0]);
-              const rangos = {'00:00 a 03:59': h<=3,'04:00 a 07:59': h>=4&&h<=7,'08:00 a 11:59': h>=8&&h<=11,
-                              '12:00 a 15:59': h>=12&&h<=15,'16:00 a 19:59': h>=16&&h<=19,'20:00 a 23:59': h>=20};
-              if (!s.rango.some(r => rangos[r])) return false;
-            }
-            if (s.cuadrante.length && !s.cuadrante.includes(cc.cuadrante)) return false;
-            if (s.texto) {
-              const textoCaso = (cc.circunstancias || '').toLowerCase();
-              if (!this.palabrasBuscadas.every(p => textoCaso.includes(p))) return false;
-            }
-            return fechaISO >= prevStartISO && fechaISO <= prevEndISO;
-          });
-        } else {
-          this.previousFiltrados = [];
-        }
-        const partes = [];
-        if (s.clasif.length) partes.push(s.clasif.join(', '));
-        if (s.delito.length) partes.push(s.delito.join(', '));
-        if (s.lugar.length) partes.push(s.lugar.join(', '));
-        if (s.dia.length) partes.push(s.dia.join(', '));
-        if (s.rango.length) partes.push(s.rango.join(', '));
-        if (s.semana.length) partes.push(s.semana.join(', '));
-        if (s.cuadrante.length) partes.push(s.cuadrante.join(', '));
-        if (s.inicio || s.fin) partes.push(`Fechas: ${s.inicio || '...'} → ${s.fin || '...'}`);
-        if (s.texto) partes.push(`"${s.texto}"`);
-        let subt = partes.length ? partes.join(' | ') : 'Todos los casos';
-        if (this.comparePrevious) subt += ' + Período Anterior';
-        document.getElementById('filtrosActivos').textContent = `${this.filtrados.length} casos${this.comparePrevious && this.previousFiltrados.length ? ` (+${this.previousFiltrados.length} ant.)` : ''}`;
-        document.getElementById('subtituloFiltros').textContent = subt;
-        this.renderizar();
-      }
-      resaltarTexto(texto, palabras) {
-        if (!palabras.length) return texto;
-        const regex = new RegExp(`(${palabras.join('|')})`, 'gi');
-        return texto.replace(regex, '<span style="background:yellow;">$1</span>');
-      }
-      exportarDatos() {
-        if (this.filtrados.length === 0) return alert('No hay datos para exportar');
-        const data = this.filtrados.map((c, i) => ({
-          N: i+1,
-          "N° Parte": c.numero_parte || '',
-          Clasificacion: c.clasificacion || '',
-          Delito: c.delito || '',
-          Fecha: c.fecha || '',
-          Hora: c.hora || '',
-          Dia: c.dia || '',
-          Lugar: c.lugar || '',
-          Direccion: c.direccion || '',
-          Cuadrante: c.cuadrante || '',
-          Circunstancias: c.circunstancias || '',
-          Lat: c.lat || '',
-          Lon: c.lon || ''
-        }));
-        const ws = XLSX.utils.json_to_sheet(data);
-        const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "Delitos");
-        const fecha = new Date().toISOString().slice(0,10);
-        XLSX.writeFile(wb, `delitos_spp_${fecha}.xlsx`);
-      }
-      renderizar(map = this.map, clusterGroup = this.clusterGroup, marcadoresLayer = this.marcadoresLayer) {
-        clusterGroup.clearLayers();
-        marcadoresLayer.clearLayers();
-        this.previousLayer.clearLayers();
-        this.filtrados.forEach((c, i) => {
-          if (c.lat && c.lon) {
-            const m = this.crearMarcador(c, i);
-            this.clusterEnabled ? clusterGroup.addLayer(m) : marcadoresLayer.addLayer(m);
-          }
-        });
-        if (this.comparePrevious) {
-          this.previousFiltrados.forEach(c => {
-            if (c.lat && c.lon) {
-              const pointMarker = L.circleMarker([c.lat, c.lon], {
-                radius: 9.1,
-                fillColor: '#ff5722',
-                color: '#ffffff',
-                weight: 3,
-                opacity: 1,
-                fillOpacity: 1.0
-              }).bindPopup(this.getPrevPopup(c));
-              this.previousLayer.addLayer(pointMarker);
-            }
-          });
-        }
-        if (this.clusterEnabled) {
-          map.hasLayer(marcadoresLayer) && map.removeLayer(marcadoresLayer);
-          !map.hasLayer(clusterGroup) && map.addLayer(clusterGroup);
-        } else {
-          map.hasLayer(clusterGroup) && map.removeLayer(clusterGroup);
-          !map.hasLayer(marcadoresLayer) && map.addLayer(marcadoresLayer);
-        }
-        if (this.comparePrevious) {
-          !map.hasLayer(this.previousLayer) && map.addLayer(this.previousLayer);
-        } else {
-          map.hasLayer(this.previousLayer) && map.removeLayer(this.previousLayer);
-        }
-        this.actualizarLista();
-      }
-      actualizarLista() {
-        const html = this.filtrados.map((c, i) => {
-          const circResaltado = this.resaltarTexto(c.circunstancias || 'Sin detalles', this.palabrasBuscadas);
-          return `
-            <div class="caso-item" onclick="mapa.irACaso(${i})" style="padding:14px;margin-bottom:12px;background:white;border-radius:8px;cursor:pointer;border-left:6px solid ${this.getColor(c.delito)};">
-              <span style="color:${this.getColor(c.delito)};font-weight:900;font-size:24px;margin-right:10px;">${i+1}</span>
-              <strong>${c.delito}</strong>
-              ${c.numero_parte ? `<span style="background:#333;color:#fff;padding:2px 6px;border-radius:4px;font-size:10px;margin-left:8px;">P:${c.numero_parte}</span>` : ''}
-              <br>
-              <small>${c.direccion} • ${c.fecha} ${c.hora} • ${c.cuadrante || '—'}</small>
-              <div style="margin-top:8px;font-size:11px;color:#444;line-height:1.0;">${circResaltado}</div>
-            </div>
-          `;
-        }).join('');
-        document.getElementById('listaCasos').innerHTML = html;
-      }
-      irACaso(i) {
-        const c = this.filtrados[i];
-        this.map.setView([c.lat, c.lon], 18);
-        document.querySelectorAll('.caso-item').forEach(el => el.style.background = 'white');
-        const el = document.querySelector(`#listaCasos .caso-item:nth-child(${i+1})`);
-        if (el) el.style.background = '#d4edda';
-      }
-      prepararImpresion() {
-        const printModal = document.getElementById('printModal');
-        const printContent = document.getElementById('printContent');
-        printContent.innerHTML = '';
-        const mainArea = document.createElement('div');
-        mainArea.id = 'printMain';
-        mainArea.style.cssText = 'position:relative; width:100%; height:100%; background:white; margin:0; padding:0; overflow:hidden;';
-        printContent.appendChild(mainArea);
-        const header = document.createElement('div');
-        header.id = 'printHeader';
-        header.style.cssText = 'position:absolute; top:0; left:0; width:100%; height:80px; background:#05690c; color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(0,0,0,0.5); border:1px dashed #ccc; cursor:move; overflow:hidden; z-index:100;';
-        header.innerHTML = `
-          <div class="print-titulo-principal" contenteditable="true" style="font-size:32px; font-weight:900; color:#ffffff;">
-            ${document.querySelector('.titulo-principal').textContent}
-          </div>
-          <div class="print-subtitulo-filtros" contenteditable="true" style="font-size:18px; font-weight:700; color:#ffffff; margin-top:4px;">
-            ${document.getElementById('subtituloFiltros').textContent}
-          </div>
-        `;
-        mainArea.appendChild(header);
-        this.makeDraggableResizable(header);
-        const logoPrint = document.createElement('img');
-        logoPrint.src = './iconos/logo-sexta.png';
-        logoPrint.style.cssText = 'position:absolute; bottom:10px; right:10px; width:180px; max-width:25%; height:auto; cursor:move; z-index:100; border:1px dashed #ccc;';
-        mainArea.appendChild(logoPrint);
-        this.makeDraggableResizable(logoPrint);
-        if (this.comparePrevious) {
-          const legend = document.createElement('div');
-          legend.style.cssText = 'position:absolute; bottom:20px; left:20px; background:white; padding:8px 12px; border:1px solid #ccc; border-radius:6px; font-size:11px; color:#333; box-shadow:0 2px 6px rgba(0,0,0,0.2); cursor:move; z-index:100; white-space:nowrap;';
-          legend.innerHTML = '<span style="display:inline-block; width:14px; height:14px; border-radius:50%; background:#ff5722; border:2px solid white; margin-right:6px;"></span> <strong>Robos Período Anterior</strong>';
-          mainArea.appendChild(legend);
-          this.makeDraggableResizable(legend);
-        }
-        const mapDiv = document.createElement('div');
-        mapDiv.id = 'printMapInteractive';
-        mapDiv.style.cssText = 'position:absolute; top:80px; left:0; width:100%; height:calc(100% - 80px); border:1px dashed #ccc; cursor:move; overflow:hidden; z-index:1;';
-        mainArea.appendChild(mapDiv);
-        printModal.style.display = 'block';
-        setTimeout(() => {
-          const printMap = L.map('printMapInteractive', { zoomControl: true, zoomSnap: 0.1, zoomDelta: 0.1 });
-          const activeBaseKey = Object.keys(this.baseLayers).find(k => this.map.hasLayer(this.baseLayers[k]));
-          if (activeBaseKey) this.baseLayers[activeBaseKey].addTo(printMap);
-          Object.values(this.overlayLayers).forEach(layer => {
-            if (this.map.hasLayer(layer)) layer.addTo(printMap);
-          });
-          L.control.layers(this.baseLayers, this.overlayLayers, {position: 'topright', collapsed: true}).addTo(printMap);
-          const printMarkers = this.clusterEnabled ? createClusterGroup() : L.layerGroup();
-          this.filtrados.forEach((c, i) => {
-            if (c.lat && c.lon) printMarkers.addLayer(this.crearMarcador(c, i));
-          });
-          if (this.comparePrevious) {
-            this.previousFiltrados.forEach(c => {
-              if (c.lat && c.lon) {
-                const prevM = L.circleMarker([c.lat, c.lon], {
-                  radius: 9.1,
-                  fillColor: '#ff5722',
-                  color: '#fff',
-                  weight: 3,
-                  fillOpacity: 0.7
-                });
-                printMarkers.addLayer(prevM);
-              }
-            });
-          }
-          printMap.addLayer(printMarkers);
-          if (this.filtrados.length > 0) {
-            const bounds = L.latLngBounds(this.filtrados.map(c => [c.lat, c.lon]));
-            printMap.fitBounds(bounds, { padding: [60, 60] });
-          } else {
-            printMap.setView(this.map.getCenter(), this.map.getZoom());
-          }
-          printMap.invalidateSize();
-          this.makeDraggableResizable(mapDiv);
-          this.filtrados.forEach((c, i) => {
-            const card = document.createElement('div');
-            card.className = 'caso-card';
-            card.style.cssText = `position:absolute; top:${80 + Math.floor(i / 3) * 120}px; left:${(i % 3) * 33.3}%; width:200px; min-height:80px; background:white; border:1px solid #ddd; border-left:5px solid ${this.getColor(c.delito)}; padding:5px; font-family:Verdana; font-size:6px; line-height:1.2; box-shadow:0 2px 6px rgba(0,0,0,0.15); cursor:move; overflow:hidden; -webkit-font-smoothing:antialiased; z-index:100;`;
-            card.innerHTML = `
-              <span contenteditable="true" style="color:${this.getColor(c.delito)}; font-weight:900; font-size:16px;">${i+1}</span>
-              <strong contenteditable="true">${c.delito}</strong>
-              ${c.numero_parte ? `<span contenteditable="true" style="background:#444; color:#fff; padding:1px 4px; border-radius:3px; font-size:8px;">${c.numero_parte}</span>` : ''}
-              <br><small contenteditable="true">${c.direccion} • ${c.fecha} ${c.hora}</small>
-              <div contenteditable="true" style="margin-top:4px; color:#333;">${this.resaltarTexto(c.circunstancias || 'Sin detalles', this.palabrasBuscadas)}</div>
-            `;
-            mainArea.appendChild(card);
-            this.makeDraggableResizable(card);
-          });
-          mainArea.addEventListener('click', e => {
-            document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
-            let target = e.target.closest('.caso-card, #printHeader, img[src*="logo-sexta"], #printMapInteractive');
-            if (target) target.classList.add('selected');
-          });
-          document.getElementById('fontSizeSelect').onchange = e => {
-            const selected = document.querySelector('.selected');
-            if (selected) selected.style.fontSize = e.target.value + 'px';
-          };
-          document.getElementById('fontFamilySelect').onchange = e => {
-            const selected = document.querySelector('.selected');
-            if (selected) selected.style.fontFamily = e.target.value;
-          };
-          const sizes = {
-            A4: {w:'210mm', h:'297mm'},
-            Letter: {w:'215.9mm', h:'279.4mm'},
-            Legal: {w:'215.9mm', h:'355.6mm'},
-            Folio: {w:'215.9mm', h:'330.2mm'},
-            '8.5x13': {w:'215.9mm', h:'330.2mm'}
-          };
-          const updateSize = () => {
-            const fmt = document.getElementById('paperSizeSelect').value;
-            const ori = document.getElementById('orientationSelect').value;
-            const s = sizes[fmt];
-            printContent.style.width = ori === 'landscape' ? s.h : s.w;
-            printContent.style.minHeight = ori === 'landscape' ? s.w : s.h;
-            mainArea.style.width = ori === 'landscape' ? s.h : s.w;
-            mainArea.style.height = ori === 'landscape' ? s.w : s.h;
-            printMap.invalidateSize();
-          };
-          document.getElementById('paperSizeSelect').onchange = updateSize;
-          document.getElementById('orientationSelect').onchange = updateSize;
-          updateSize();
-          document.getElementById('printButton').onclick = () => window.print();
-          document.getElementById('closeButton').onclick = () => {
-            printModal.style.display = 'none';
-            this.map.invalidateSize();
-          };
-        }, 300);
-      }
-      makeDraggableResizable(el) {
-        const dirs = ['nw','n','ne','w','e','sw','s','se'];
-        dirs.forEach(d => {
-          const r = document.createElement('div');
-          r.className = `resizer ${d}`;
-          el.appendChild(r);
-          r.addEventListener('mousedown', e => this.startResize(e, d, el));
-        });
-        el.addEventListener('mousedown', e => {
-          if (e.target.classList.contains('resizer')) return;
-          e.preventDefault();
-          let sx = e.clientX, sy = e.clientY;
-          const ox = el.offsetLeft, oy = el.offsetTop;
-          const move = ev => {
-            el.style.left = (ox + ev.clientX - sx) + 'px';
-            el.style.top = (oy + ev.clientY - sy) + 'px';
-          };
-          document.onmousemove = move;
-          document.onmouseup = () => { document.onmousemove = document.onmouseup = null; };
-        });
-      }
-      startResize(e, dir, el) {
-        e.stopPropagation();
-        let sx = e.clientX, sy = e.clientY;
-        let sw = el.offsetWidth, sh = el.offsetHeight;
-        let sl = el.offsetLeft, st = el.offsetTop;
-        const move = ev => {
-          const dx = ev.clientX - sx, dy = ev.clientY - sy;
-          if (dir.includes('e')) el.style.width = (sw + dx) + 'px';
-          if (dir.includes('s')) el.style.height = (sh + dy) + 'px';
-          if (dir.includes('w')) { el.style.width = (sw - dx) + 'px'; el.style.left = (sl + dx) + 'px'; }
-          if (dir.includes('n')) { el.style.height = (sh - dy) + 'px'; el.style.top = (st + dy) + 'px'; }
-        };
-        document.onmousemove = move;
-        document.onmouseup = () => { document.onmousemove = document.onmouseup = null; };
-      }
-      async cargarDatos() {
-        let datos = [];
-        try {
-          const res = await fetch('casos_delitos.json?t=' + Date.now());
-          if (res.ok) datos = await res.json();
-        } catch(e) {}
-        if (!datos.length) {
-          datos = [{"clasificacion":"DENUNCIA","delito":"ROBO EN LUGAR HABITADO","fecha":"25-11-2025","dia":"MARTES","hora":"14:30","lugar":"DOMICILIO PARTICULAR","direccion":"LOS ALERCES 1234","circunstancias":"Sustracción de notebook y joyas.","cuadrante":"Cuadrante 03","lat":-36.835,"lon":-73.115,"numero_parte":"12345-2025"}];
-        }
-        this.datos = datos.map(c => {
-          const [d,m,y] = c.fecha.split('-');
-          const fecha = new Date(Date.UTC(y, m-1, d));
-          fecha.setUTCDate(fecha.getUTCDate() + 4 - (fecha.getUTCDay() || 7));
-          const yearStart = new Date(Date.UTC(y, 0, 1));
-          const week = Math.ceil((((fecha - yearStart) / 86400000) + 1) / 7);
-          c.semana = week > 52 || (week === 1 && parseInt(m) === 12) ? `Fin ${y}` : `Semana ${week} - ${y}`;
-          if (c.dia) c.dia = removeAccents(c.dia).charAt(0).toUpperCase() + removeAccents(c.dia).slice(1).toLowerCase();
-          return c;
-        });
-        this.filtrados = [...this.datos];
-        const uniq = f => [...new Set(this.datos.map(c => c[f]).filter(Boolean))];
-        const add = (id, field, sort=false) => {
-          const s = document.getElementById(id);
-          let opts = uniq(field);
-          if (sort && field==='dia') {
-            const ord = {lunes:0,martes:1,miercoles:2,jueves:3,viernes:4,sabado:5,domingo:6};
-            opts.sort((a,b) => ord[a.toLowerCase()] - ord[b.toLowerCase()]);
-          }
-          s.innerHTML = '<option value="">TODOS</option>' + opts.map(v => `<option value="${v}">${v}</option>`).join('');
-        };
-        add('filtroClasificacion','clasificacion');
-        add('filtroDelito','delito');
-        add('filtroLugar','lugar');
-        add('filtroDia','dia',true);
-        add('filtroCuadrante','cuadrante');
-        add('filtroSemana','semana');
-        await this.loadOverlays();
-        document.querySelectorAll('#sidebar select, #sidebar input').forEach(el =>
-          el.addEventListener('change', () => this.aplicarFiltros())
-        );
-        document.getElementById('btnLista').onclick = () => document.getElementById('panelDetalles').classList.toggle('visible');
-        document.getElementById('btnExport').onclick = () => this.exportarDatos();
-        document.getElementById('btnCluster').onclick = () => {
-          this.clusterEnabled = !this.clusterEnabled;
-          document.getElementById('btnCluster').textContent = this.clusterEnabled ? 'Cluster' : 'Sin Cluster';
-          this.renderizar();
-        };
-        document.getElementById('btnCentrar').onclick = () => {
-          if (this.filtrados.length === 0) {
-            this.map.setView([-36.84, -73.105], 13);
-            return;
-          }
-          const bounds = L.latLngBounds(this.filtrados.map(c => [c.lat, c.lon]));
-          this.map.fitBounds(bounds, { padding: [50, 50] });
-        };
-        document.getElementById('btnPrepararImpresion').onclick = () => this.prepararImpresion();
-        document.getElementById('btnCompare').onclick = () => {
-          this.comparePrevious = !this.comparePrevious;
-          const btn = document.getElementById('btnCompare');
-          btn.textContent = this.comparePrevious ? 'Período Ant. ON' : 'Período Ant.';
-          btn.style.background = this.comparePrevious ? '#d32f2f' : '#9c27b0';
-          this.aplicarFiltros();
-        };
-        const sidebar = document.getElementById('sidebar');
-        const trigger = document.getElementById('triggerDerecho');
-        trigger.addEventListener('mouseenter', () => sidebar.classList.add('visible'));
-        trigger.addEventListener('click', () => sidebar.classList.toggle('visible'));
-        sidebar.addEventListener('mouseleave', () => setTimeout(() => {
-          if (!sidebar.matches(':hover') && !trigger.matches(':hover')) sidebar.classList.remove('visible');
-        }, 500));
-        document.getElementById('subtituloFiltros').textContent = 'Todos los casos';
-        this.renderizar();
-        window.mapa = this;
-      }
-    }
-    new MapaDelitos();
+</div>
 
-    document.getElementById('btnDashboard').onclick = () => {
-      const modal = document.getElementById('dashboardModal');
-      modal.style.display = 'block';
-      const container = document.getElementById('pivotContainer');
-      container.innerHTML = `
-        <div id="dashTipos" class="dash-panel" style="top:20px;left:20px;width:340px;height:220px;">
-          <h3>Tipos de Robo</h3>
-          <table id="tablaDelitos" style="width:100%;border-collapse:collapse;font-size:13px;"></table>
-        </div>
-        <div id="dashHorarios" class="dash-panel" style="top:20px;left:380px;width:340px;height:220px;">
-          <h3>Tramos Horarios</h3>
-          <table id="tablaHorarios" style="width:100%;border-collapse:collapse;font-size:13px;"></table>
-        </div>
-        <div id="dashCuadrantes" class="dash-panel" style="top:260px;left:20px;width:340px;height:220px;">
-          <h3>Cuadrantes</h3>
-          <table id="tablaCuadrantes" style="width:100%;border-collapse:collapse;font-size:13px;"></table>
-        </div>
-        <div id="dashDias" class="dash-panel" style="top:260px;left:380px;width:340px;height:220px;">
-          <h3>Días de la semana</h3>
-          <table id="tablaDias" style="width:100%;border-collapse:collapse;font-size:13px;"></table>
-        </div>
-        <div id="dashLugares" class="dash-panel" style="top:500px;left:20px;width:340px;height:220px;">
-          <h3>Lugar del delito</h3>
-          <table id="tablaLugares" style="width:100%;border-collapse:collapse;font-size:13px;"></table>
-        </div>
-        <div id="dashGrafico" class="dash-panel" style="top:20px;left:740px;width:620px;height:280px;">
-          <h3>Robos últimas 6 semanas (lunes-domingo)</h3>
-          <div id="graficoSemanas" style="height:210px;"></div>
-        </div>
-        <div id="dashTop" class="dash-panel" style="top:320px;left:740px;width:620px;height:400px;">
-          <h3>Top 4 Delitos por Cuadrante</h3>
-          <div style="margin:10px 0;">
-            <button id="btnTodo" style="padding:6px 14px;background:#0078d4;color:white;border:none;border-radius:5px;cursor:pointer;margin-right:8px;font-size:13px;">Todo</button>
-            <button id="btnAgrupado" style="padding:6px 14px;background:#28a745;color:white;border:none;border-radius:5px;cursor:pointer;font-size:13px;">Agrupado</button>
-          </div>
-          <div id="listaTopDelitos" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;"></div>
-        </div>
-      `;
-      function makeDraggableResizable(el) {
-        const dirs = ['nw','n','ne','w','e','sw','s','se'];
-        dirs.forEach(d => {
-          const r = document.createElement('div');
-          r.className = `resizer ${d}`;
-          el.appendChild(r);
-          r.addEventListener('mousedown', e => startResize(e, d, el));
-        });
-        el.addEventListener('mousedown', e => {
-          if (e.target.classList.contains('resizer')) return;
-          e.preventDefault();
-          let sx = e.clientX, sy = e.clientY;
-          const ox = el.offsetLeft, oy = el.offsetTop;
-          const move = ev => {
-            el.style.left = (ox + ev.clientX - sx) + 'px';
-            el.style.top = (oy + ev.clientY - sy) + 'px';
-          };
-          document.onmousemove = move;
-          document.onmouseup = () => { document.onmousemove = document.onmouseup = null; };
-        });
-      }
-      function startResize(e, dir, el) {
-        e.stopPropagation();
-        let sx = e.clientX, sy = e.clientY;
-        let sw = el.offsetWidth, sh = el.offsetHeight;
-        let sl = el.offsetLeft, st = el.offsetTop;
-        const move = ev => {
-          const dx = ev.clientX - sx, dy = ev.clientY - sy;
-          if (dir.includes('e')) el.style.width = (sw + dx) + 'px';
-          if (dir.includes('s')) el.style.height = (sh + dy) + 'px';
-          if (dir.includes('w')) { el.style.width = (sw - dx) + 'px'; el.style.left = (sl + dx) + 'px'; }
-          if (dir.includes('n')) { el.style.height = (sh - dy) + 'px'; el.style.top = (st + dy) + 'px'; }
-        };
-        document.onmousemove = move;
-        document.onmouseup = () => { document.onmousemove = document.onmouseup = null; };
-      }
-      ['dashTipos','dashHorarios','dashCuadrantes','dashDias','dashLugares','dashGrafico','dashTop'].forEach(id => {
-        const panel = document.getElementById(id);
-        if (panel) makeDraggableResizable(panel);
+<!-- PANEL SELECCIÓN MANUAL -->
+<div id="panelSeleccion">
+  <div class="panel-header" style="background:rgba(30,50,70,0.9);">
+    <span>☑ Selección Manual</span>
+    <button onclick="mapa.cerrarSeleccion()" style="background:none;border:none;color:white;font-size:18px;cursor:pointer;">✕</button>
+  </div>
+  <div style="padding:12px;flex:1;display:flex;flex-direction:column;gap:8px;overflow-y:auto;">
+    <p style="color:var(--text-dim);font-size:12px;line-height:1.5;">
+      Selecciona casos específicos para mostrar en el mapa, independiente de los filtros activos.
+    </p>
+    <div style="display:flex;gap:6px;">
+      <input type="text" id="buscarSeleccion" placeholder="Buscar caso..." style="flex:1;padding:7px 10px;border-radius:6px;border:1px solid var(--panel-border);background:rgba(255,255,255,0.05);color:var(--text);font-size:12px;">
+      <button onclick="mapa.toggleSeleccionTodos()" id="btnSelTodos" class="print-btn" style="background:#37474f;color:white;font-size:11px;padding:7px 10px;">Todos</button>
+    </div>
+    <div id="listaSeleccionCasos" style="overflow-y:auto;flex:1;"></div>
+    <button onclick="mapa.aplicarSeleccionManual()" class="print-btn" style="background:var(--green);color:white;width:100%;">✅ Mostrar Seleccionados</button>
+    <button onclick="mapa.limpiarSeleccionManual()" class="print-btn" style="background:#b71c1c;color:white;width:100%;">✕ Volver a Filtros Normales</button>
+  </div>
+</div>
+
+<!-- HOTSPOT LEGEND -->
+<div class="hotspot-legend" id="hotspotLegend">
+  <div style="font-size:11px;color:var(--accent);font-weight:700;margin-bottom:6px;letter-spacing:1px;">HOTSPOTS</div>
+  <div class="hl-row"><div class="hl-dot" style="background:rgba(255,0,0,0.7);"></div><span>Alta densidad</span></div>
+  <div class="hl-row"><div class="hl-dot" style="background:rgba(255,165,0,0.6);"></div><span>Media densidad</span></div>
+  <div class="hl-row"><div class="hl-dot" style="background:rgba(255,255,0,0.5);"></div><span>Baja densidad</span></div>
+</div>
+
+<!-- SIDEBAR FILTROS -->
+<div id="sidebar">
+  <h3 style="color:var(--accent);font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(57,255,20,0.2);">⚡ Filtros</h3>
+  <div class="filtro-grupo"><label>Clasificación</label><select id="filtroClasificacion" multiple size="4"><option value="">TODOS</option></select></div>
+  <div class="filtro-grupo"><label>Delito</label><select id="filtroDelito" multiple size="7"><option value="">TODOS</option></select></div>
+  <div class="filtro-grupo"><label>Lugar del Delito</label><select id="filtroLugar" multiple size="5"><option value="">TODOS</option></select></div>
+  <div class="filtro-grupo"><label>Día</label><select id="filtroDia" multiple size="5"><option value="">TODOS</option></select></div>
+  <div class="filtro-grupo"><label>Rango Horario</label>
+    <select id="filtroRangoHora" multiple size="6">
+      <option value="">TODOS</option><option>00:00 a 03:59</option><option>04:00 a 07:59</option>
+      <option>08:00 a 11:59</option><option>12:00 a 15:59</option>
+      <option>16:00 a 19:59</option><option>20:00 a 23:59</option>
+    </select>
+  </div>
+  <div class="filtro-grupo"><label>Semana del Año</label><select id="filtroSemana" multiple size="5"><option value="">TODOS</option></select></div>
+  <div class="filtro-grupo"><label>Cuadrante</label><select id="filtroCuadrante" multiple size="5"><option value="">TODOS</option></select></div>
+  <div style="display:flex;gap:8px;">
+    <div class="filtro-grupo" style="flex:1;"><label>Fecha Inicio</label><input type="date" id="fechaInicio"></div>
+    <div class="filtro-grupo" style="flex:1;"><label>Fecha Fin</label><input type="date" id="fechaFin"></div>
+  </div>
+  <div class="filtro-grupo"><label>Búsqueda (usa + para múltiples)</label><input type="text" id="buscarCircunstancias" placeholder="Ej: Kia + bicicleta"></div>
+</div>
+
+<div id="triggerDerecho">FILTROS ►</div>
+
+<!-- BUSCADOR DE DIRECCIONES -->
+<div id="buscadorDir" style="
+  position:fixed; top:62px; left:50%; transform:translateX(-50%);
+  z-index:1003; display:flex; align-items:center; gap:0;
+  box-shadow:0 4px 20px rgba(0,0,0,0.7);
+  border-radius:8px; overflow:hidden; width:340px;
+">
+  <input type="text" id="inputBuscadorDir" placeholder="🔍 Buscar dirección..." style="
+    flex:1; padding:9px 12px; border:none; background:rgba(10,20,10,0.93);
+    color:#e0e6f0; font-size:13px; font-family:Arial,sans-serif;
+    border:1px solid rgba(57,255,20,0.25); border-right:none;
+    border-radius:8px 0 0 8px; outline:none;
+  ">
+  <button onclick="mapa.buscarDireccion()" style="
+    padding:9px 14px; background:#05690c; border:none; cursor:pointer;
+    color:#39ff14; font-size:14px; font-weight:700; border-radius:0 8px 8px 0;
+    border:1px solid rgba(57,255,20,0.25); border-left:none;
+  ">IR</button>
+</div>
+<div id="resultadosBusqueda" style="
+  display:none; position:fixed; top:100px; left:50%; transform:translateX(-50%);
+  z-index:1003; background:rgba(10,20,10,0.97); border:1px solid rgba(57,255,20,0.2);
+  border-radius:8px; width:340px; max-height:200px; overflow-y:auto;
+  box-shadow:0 8px 24px rgba(0,0,0,0.7);
+"></div>
+<div class="btn-container">
+  <button class="btn-fijo" id="btnLista">📋 Lista</button>
+  <button class="btn-fijo" id="btnExport">📥 Exportar</button>
+  <button class="btn-fijo" id="btnCluster">🔵 Cluster</button>
+  <button class="btn-fijo" id="btnHotspot">🔥 Hotspot</button>
+  <button class="btn-fijo" id="btnCentrar">🎯 Centrar</button>
+  <button class="btn-fijo" id="btnDibujo">✏️ Zona</button>
+  <button class="btn-fijo" id="btnSeleccion">☑ Selec.</button>
+  <button class="btn-fijo" id="btnPrepararImpresion">🖨 Imprimir</button>
+  <button class="btn-fijo" id="btnDashboard">📊 Dashboard</button>
+  <button class="btn-fijo" id="btnCompare">🔁 Sem. Ant.</button>
+  <button class="btn-fijo" id="btnRuta">🗺 Ruta</button>
+</div>
+
+<!-- DASHBOARD MODAL -->
+<div id="dashboardModal">
+  <div class="dash-wrapper">
+    <div class="dash-header">
+      <h2>📊 Dashboard Analítico</h2>
+      <button id="cerrarDashboard" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:8px 18px;border-radius:7px;cursor:pointer;font-family:Arial,sans-serif;font-weight:700;font-size:14px;">✕ Cerrar</button>
+    </div>
+    <div class="dash-grid" id="dashGrid"></div>
+  </div>
+</div>
+
+<!-- PRINT MODAL -->
+<div id="printModal">
+  <div id="printContent"></div>
+  <div id="printButtons" style="text-align:center;margin:16px auto;max-width:960px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;padding:0 10px;">
+    <label style="color:white;font-weight:bold;font-size:13px;">Fuente:
+      <select id="fontSizeSelect" style="margin-left:4px;padding:6px 8px;border-radius:5px;font-size:13px;">
+        <option value="5">5px</option><option value="6" selected>6px</option><option value="7">7px</option>
+        <option value="8">8px</option><option value="9">9px</option><option value="10">10px</option>
+        <option value="11">11px</option><option value="12">12px</option><option value="14">14px</option>
+      </select>
+    </label>
+    <label style="color:white;font-weight:bold;font-size:13px;">Tipografía:
+      <select id="fontFamilySelect" style="margin-left:4px;padding:6px 8px;border-radius:5px;font-size:13px;">
+        <option value="Arial">Arial</option><option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option><option value="Verdana">Verdana</option>
+        <option value="Georgia">Georgia</option>
+      </select>
+    </label>
+    <label style="color:white;font-weight:bold;font-size:13px;">Papel:
+      <select id="paperSizeSelect" style="margin-left:4px;padding:6px 8px;border-radius:5px;font-size:13px;">
+        <option value="A4">A4</option><option value="Letter">Letter</option>
+        <option value="Legal">Legal</option><option value="Folio" selected>Folio</option>
+      </select>
+    </label>
+    <label style="color:white;font-weight:bold;font-size:13px;">Orientación:
+      <select id="orientationSelect" style="margin-left:4px;padding:6px 8px;border-radius:5px;font-size:13px;">
+        <option value="portrait">Vertical</option><option value="landscape">Horizontal</option>
+      </select>
+    </label>
+    <label style="color:white;font-weight:bold;font-size:13px;">Mostrar Ruta:
+      <select id="mostrarRutaSelect" style="margin-left:4px;padding:6px 8px;border-radius:5px;font-size:13px;">
+        <option value="no">No</option><option value="si">Sí</option>
+      </select>
+    </label>
+    <button id="printButton" style="padding:9px 20px;background:#05690c;color:white;border:none;border-radius:7px;cursor:pointer;font-weight:700;font-size:14px;">🖨 Imprimir</button>
+    <button id="closeButton" style="padding:9px 20px;background:#b71c1c;color:white;border:none;border-radius:7px;cursor:pointer;font-weight:700;font-size:14px;">✕ Cerrar</button>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════
+   UTILIDADES
+═══════════════════════════════════════════════════════════════════ */
+function removeAccents(str) {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+}
+
+function createClusterGroup() {
+  return L.markerClusterGroup({
+    maxClusterRadius: 60,
+    singleMarkerMode: true,
+    iconCreateFunction: cluster => {
+      const n = cluster.getChildCount();
+      const bg = n>=50?'#b71c1c':n>=30?'#d32f2f':n>=20?'#e53935':n>=10?'#ff9800':n>=5?'#ffc107':'#8bc34a';
+      return L.divIcon({
+        html:`<div style="background:${bg};color:white;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;border:3px solid rgba(255,255,255,0.8);box-shadow:0 0 12px rgba(0,0,0,0.6);">${n}</div>`,
+        className:'', iconSize:[46,46]
       });
-      const data = mapa.filtrados;
-      const total = data.length || 1;
-      const pct = n => (n / total * 100).toFixed(1) + '%';
-      function agregarTotal(tablaId, html, suma) {
-        html += `<tr style="background:#e6f2ff;font-weight:bold"><td style="padding:8px">TOTAL</td><td style="padding:8px;text-align:right">${suma}</td><td style="padding:8px;text-align:right">100%</td></tr>`;
-        document.getElementById(tablaId).innerHTML = html;
-      }
-      const delitosMap = {};
-      data.forEach(c => delitosMap[c.delito] = (delitosMap[c.delito]||0) + 1);
-      let htmlD = `<tr style="background:#0078d4;color:white"><th style="padding:8px;text-align:left">Delito</th><th style="padding:8px;text-align:right">Casos</th><th style="padding:8px;text-align:right">%</th></tr>`;
-      let sumaD = 0;
-      Object.entries(delitosMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => {
-        htmlD += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td><td style="padding:6px;text-align:right">${pct(v)}</td></tr>`;
-        sumaD += v;
-      });
-      agregarTotal('tablaDelitos', htmlD, sumaD);
-      const rangos = {'00:00 a 03:59':0,'04:00 a 07:59':0,'08:00 a 11:59':0,'12:00 a 15:59':0,'16:00 a 19:59':0,'20:00 a 23:59':0};
-      data.forEach(c => {
-        const h = parseInt(c.hora?.split(':')[0] || 0);
-        if (h<=3) rangos['00:00 a 03:59']++;
-        else if (h<=7) rangos['04:00 a 07:59']++;
-        else if (h<=11) rangos['08:00 a 11:59']++;
-        else if (h<=15) rangos['12:00 a 15:59']++;
-        else if (h<=19) rangos['16:00 a 19:59']++;
-        else rangos['20:00 a 23:59']++;
-      });
-      let htmlH = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Tramo</th><th style="padding:8px;text-align:right">Casos</th><th style="padding:8px;text-align:right">%</th></tr>`;
-      let sumaH = 0;
-      Object.entries(rangos).forEach(([k,v]) => {
-        htmlH += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td><td style="padding:6px;text-align:right">${pct(v)}</td></tr>`;
-        sumaH += v;
-      });
-      agregarTotal('tablaHorarios', htmlH, sumaH);
-      const cuadMap = {};
-      data.forEach(c => cuadMap[c.cuadrante||'Sin'] = (cuadMap[c.cuadrante||'Sin']||0) + 1);
-      let htmlC = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Cuadrante</th><th style="padding:8px;text-align:right">Casos</th><th style="padding:8px;text-align:right">%</th></tr>`;
-      let sumaC = 0;
-      Object.entries(cuadMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => {
-        htmlC += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td><td style="padding:6px;text-align:right">${pct(v)}</td></tr>`;
-        sumaC += v;
-      });
-      agregarTotal('tablaCuadrantes', htmlC, sumaC);
-      const diasMap = {};
-      data.forEach(c => diasMap[c.dia||'—'] = (diasMap[c.dia||'—']||0) + 1);
-      let htmlDias = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Día</th><th style="padding:8px;text-align:right">Casos</th></tr>`;
-      Object.entries(diasMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => htmlDias += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td></tr>`);
-      document.getElementById('tablaDias').innerHTML = htmlDias;
-      const lugaresMap = {};
-      data.forEach(c => lugaresMap[c.lugar||'—'] = (lugaresMap[c.lugar||'—']||0) + 1);
-      let htmlLug = `<tr style="background:#0078d4;color:white"><th style="padding:8px">Lugar</th><th style="padding:8px;text-align:right">Casos</th></tr>`;
-      Object.entries(lugaresMap).sort((a,b)=>b[1]-a[1]).forEach(([k,v]) => htmlLug += `<tr style="border-bottom:1px solid #eee"><td style="padding:6px">${k}</td><td style="padding:6px;text-align:right">${v}</td></tr>`);
-      document.getElementById('tablaLugares').innerHTML = htmlLug;
-      const semanas = {};
-      data.forEach(c => {
-        if (c.semana) semanas[c.semana] = (semanas[c.semana]||0) + 1;
-      });
-      const hoy = new Date();
-      const semanasOrden = [];
-      for (let i = 5; i >= 0; i--) {
-        const fechaSem = new Date(hoy);
-        fechaSem.setDate(hoy.getDate() - i * 7);
-        fechaSem.setHours(0,0,0,0);
-        let fechaISO = fechaSem.toISOString().split('T')[0];
-        const [y,m,d] = fechaISO.split('-');
-        const fecha = new Date(Date.UTC(y, m-1, d));
-        fecha.setUTCDate(fecha.getUTCDate() + 4 - (fecha.getUTCDay() || 7));
-        const yearStart = new Date(Date.UTC(y, 0, 1));
-        const week = Math.ceil((((fecha - yearStart) / 86400000) + 1) / 7);
-        const etiqueta = `Semana ${week} - ${y}`;
-        semanasOrden.push({etiqueta, count: semanas[etiqueta] || 0});
-      }
-      const labels = semanasOrden.map(s => s.etiqueta);
-      const valores = semanasOrden.map(s => s.count);
-      const trace = {
-        x: labels,
-        y: valores,
-        type: 'bar',
-        marker: {color: '#0078d4'},
-        text: valores,
-        textposition: 'auto',
-        insidetextanchor: 'middle',
-        insidetextfont: {color: 'white', size: 14}
+    }
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CLASE PRINCIPAL
+═══════════════════════════════════════════════════════════════════ */
+class MapaDelitos {
+  constructor() {
+    /* Mapa con zoom gradual */
+    this.map = L.map('map', {
+      maxZoom: 25, zoomSnap: 0.1, zoomDelta: 0.1,
+      wheelDebounceTime: 100, wheelPxPerZoomLevel: 180,
+      zoomAnimation: true, zoomAnimationThreshold: 4
+    }).setView([-36.84, -73.105], 13);
+
+    this.datos = []; this.filtrados = []; this.previousFiltrados = [];
+    this.clusterEnabled = true; this.hotspotEnabled = false;
+    this.comparePrevious = false;
+    this.overlayLayers = {}; this.baseLayers = {};
+    this.routingControl = null; this.palabrasBuscadas = [];
+    this.drawLayer = null; this.drawControl = null;
+    this.zonaFiltro = null; this.hotspotLayers = [];
+    this.seleccionManualActiva = false; this.casosSeleccionados = new Set();
+    this.routeInstructions = [];
+    this.panelDibujoVisible = false;
+    this.panelSeleccionVisible = false;
+
+    /* Capas base */
+    this.baseLayers = {
+      "Callejero (OSM)": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors'}),
+      "Satélite (Esri)": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
+      "Topográfico": L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'),
+      "Oscuro": L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'),
+      "Humanitarian": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'),
+      "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'),
+      "Carto Voyager": L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'),
+      "Esri Street": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'),
+      "Google Maps": L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{maxZoom:20}),
+      "Waze": L.tileLayer('https://worldtiles1.waze.com/tiles/{z}/{x}/{y}.png',{maxZoom:19}),
+      "OSM Francia": L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png'),
+      "Carto Positron": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png'),
+      "OpenStreetMap.DE": L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png'),
+      "OpenStreetMap Mapnik": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
+      "OpenStreetMap Humanitarian": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'),
+      "ÖPNV-Karte": L.tileLayer('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png',{maxZoom:19})
+    };
+    this.baseLayers["Callejero (OSM)"].addTo(this.map);
+
+    this.clusterGroup = createClusterGroup();
+    this.marcadoresLayer = L.layerGroup();
+    this.previousLayer = L.layerGroup();
+    this.map.addLayer(this.clusterGroup);
+
+    /* Íconos */
+    this.delitoIcons = {
+      'ROBO DE ACCESORIOS DE VEHICULOS':      L.icon({iconUrl:'./iconos/ico-robo-accesorios-especies-interior-vehiculo.png',iconSize:[32,32],iconAnchor:[16,32]}),
+      'ROBO EN LUGAR HABITADO':               L.icon({iconUrl:'./iconos/ico-robo-lugar-habitado.png',iconSize:[32,32],iconAnchor:[16,32]}),
+      'ROBO EN LUGAR NO HABITADO':            L.icon({iconUrl:'./iconos/ico-robo-lugar-no-habitado.png',iconSize:[32,32],iconAnchor:[16,32]}),
+      'ROBO DE VEHICULO MOTORIZADO':          L.icon({iconUrl:'./iconos/ico-robo-vehiculo-motorizado.png',iconSize:[32,32],iconAnchor:[16,32]}),
+      'ROBO POR SORPRESA':                    L.icon({iconUrl:'./iconos/ico-robo-sorpresa.png',iconSize:[32,32],iconAnchor:[16,32]}),
+      'ROBO EN BIENES NACIONALES':            L.icon({iconUrl:'./iconos/ico-robo-bienes-nacionales-uso-publico.png',iconSize:[32,32],iconAnchor:[16,32]}),
+      'ROBO CON INTIMIDACION':                L.icon({iconUrl:'./iconos/ico-robo-intimidacion.png',iconSize:[32,32],iconAnchor:[16,32]}),
+      'ROBO FRUSTRADO':                       L.icon({iconUrl:'./iconos/ico-robo-frustrado.png',iconSize:[32,32],iconAnchor:[16,32]}),
+      'ROBO CON VIOLENCIA':                   L.icon({iconUrl:'./iconos/ico-robo-violencia.png',iconSize:[32,32],iconAnchor:[16,32]}),
+      'APROPIACION DE CABLES DE TENDIDO ELECTRICO': L.icon({iconUrl:'./iconos/ico_robo_cable_tendido_electrico.png',iconSize:[32,32],iconAnchor:[16,32]}),
+      'ROBO VIOLENTO DE VEHICULO':            L.icon({iconUrl:'./iconos/ico_robo_vehiculo_sorpresa_violencia_int.png',iconSize:[32,32],iconAnchor:[16,32]})
+    };
+
+    this.cargarDatos();
+    this.initDraw();
+    this.initArchivoZona();
+  }
+
+  /* ── DISTANCIA ── */
+  dist(lat1,lon1,lat2,lon2) {
+    const R=6371e3,φ1=lat1*Math.PI/180,φ2=lat2*Math.PI/180;
+    const Δφ=(lat2-lat1)*Math.PI/180,Δλ=(lon2-lon1)*Math.PI/180;
+    const a=Math.sin(Δφ/2)**2+Math.cos(φ1)*Math.cos(φ2)*Math.sin(Δλ/2)**2;
+    return 2*R*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+  }
+  ordenarPuntosOptimo(puntos) {
+    if(puntos.length<=1) return puntos;
+    let ord=[puntos[0]], rest=puntos.slice(1);
+    while(rest.length) {
+      const ult=ord[ord.length-1];
+      rest.sort((a,b)=>this.dist(ult.lat,ult.lon,a.lat,a.lon)-this.dist(ult.lat,ult.lon,b.lat,b.lon));
+      ord.push(rest.shift());
+    }
+    return ord;
+  }
+
+  /* ── RUTA ÓPTIMA ── */
+  calcularRutaOptima() {
+    if(this.filtrados.length<2) return alert('Se necesitan al menos 2 casos filtrados');
+    const puntos = this.filtrados.map(c=>({lat:c.lat,lon:c.lon}));
+    const ordenados = this.ordenarPuntosOptimo(puntos);
+    const waypoints = ordenados.map(p=>L.latLng(p.lat,p.lon));
+    if(this.routingControl){this.map.removeControl(this.routingControl);this.routingControl=null;}
+    this.routeInstructions = [];
+    this.routingControl = L.Routing.control({
+      waypoints,
+      router: L.Routing.osrmv1({serviceUrl:'https://router.project-osrm.org/route/v1',language:'es'}),
+      lineOptions:{styles:[{color:'#00bcd4',weight:7,opacity:0.9}]},
+      showAlternatives:false, fitSelectedRoutes:true,
+      addWaypoints:false, createMarker:()=>null
+    }).addTo(this.map);
+
+    this.routingControl.on('routesfound', e => {
+      const route = e.routes[0];
+      const totalKm = (route.summary.totalDistance/1000).toFixed(2);
+      const totalMin = Math.round(route.summary.totalTime/60);
+      document.getElementById('rutaInfo').innerHTML = `${totalKm} km · ${totalMin} min`;
+
+      /* Traducir instrucciones */
+      const traducciones = {
+        'Head':'Dirígete', 'Turn left':'Gira a la izquierda', 'Turn right':'Gira a la derecha',
+        'Keep left':'Continúa por la izquierda', 'Keep right':'Continúa por la derecha',
+        'Continue':'Continúa', 'Roundabout':'Rotonda', 'Arrive':'Has llegado',
+        'north':'norte','south':'sur','east':'este','west':'oeste',
+        'northeast':'noreste','northwest':'noroeste','southeast':'sureste','southwest':'suroeste',
+        'Sharp left':'Giro cerrado a la izquierda','Sharp right':'Giro cerrado a la derecha',
+        'Slight left':'Leve giro a la izquierda','Slight right':'Leve giro a la derecha',
+        'Merge':'Incorpórate','Ramp':'Rampa','Fork':'Bifurcación',
+        'End of road':'Fin de la vía','Use lane':'Usa el carril',
+        'via':'por'
       };
-      Plotly.newPlot('graficoSemanas', [trace], {
-        margin: {t:10, b:60, l:50, r:20},
-        height: 210,
-        xaxis: {title: '', tickangle: 0, tickfont: {size: 11}, automargin: true},
-        yaxis: {title: 'Casos', zerolinecolor: '#ddd', gridcolor: '#eee'},
-        paper_bgcolor: 'rgba(0,0,0,0)',
-        plot_bgcolor: 'rgba(0,0,0,0)',
-        font: {family: 'Segoe UI, Arial', size: 12},
-        bargap: 0.35
+      const traducir = txt => {
+        let t = txt;
+        Object.entries(traducciones).forEach(([en,es])=>{t=t.replace(new RegExp(en,'gi'),es);});
+        return t;
+      };
+
+      this.routeInstructions = route.instructions.map((inst,i) => ({
+        num: i+1,
+        texto: traducir(inst.text),
+        distancia: inst.distance ? (inst.distance/1000).toFixed(2)+' km' : ''
+      }));
+
+      let html = `<div style="padding:12px;background:rgba(0,188,212,0.08);border-bottom:1px solid rgba(0,188,212,0.2);">
+        <span style="color:#00bcd4;font-weight:700;font-size:14px;">📍 ${totalKm} km · ⏱ ${totalMin} min</span>
+        <br><span style="color:var(--text-dim);font-size:11px;">${this.filtrados.length} puntos recorridos en orden óptimo</span>
+      </div>`;
+      this.routeInstructions.forEach(inst => {
+        html += `<div class="ruta-step">
+          <div class="ruta-step-num">${inst.num}</div>
+          <div style="flex:1;">
+            <span>${inst.texto}</span>
+            ${inst.distancia?`<div class="ruta-step-km">${inst.distancia}</div>`:''}
+          </div>
+        </div>`;
       });
-      const porCuadrante = {};
-      data.forEach(c => {
-        const key = c.cuadrante || 'Sin cuadrante';
-        if (!porCuadrante[key]) porCuadrante[key] = {};
-        porCuadrante[key][c.delito] = (porCuadrante[key][c.delito]||0) + 1;
-      });
-      const listaTop = document.getElementById('listaTopDelitos');
-      function renderTop(modo = 'todo') {
-        listaTop.innerHTML = '';
-        let grupos = modo === 'todo' ? Object.keys(porCuadrante).sort() : 
-          ['Cuadrantes 01 y 03','Cuadrante 02','Cuadrante 04','Cuadrantes 05 y 06','Cuadrantes 07 y 08'];
-        grupos.forEach(grupo => {
-          let delitosGrupo = {};
-          if (modo === 'todo') {
-            if (!porCuadrante[grupo]) return;
-            delitosGrupo = porCuadrante[grupo];
-          } else {
-            const mapa = {
-              'Cuadrantes 01 y 03': ['Cuadrante 01','Cuadrante 03'],
-              'Cuadrante 02': ['Cuadrante 02'],
-              'Cuadrante 04': ['Cuadrante 04'],
-              'Cuadrantes 05 y 06': ['Cuadrante 05','Cuadrante 06'],
-              'Cuadrantes 07 y 08': ['Cuadrante 07','Cuadrante 08']
-            };
-            (mapa[grupo]||[]).forEach(cuad => {
-              if (porCuadrante[cuad]) {
-                Object.entries(porCuadrante[cuad]).forEach(([d,c]) => {
-                  delitosGrupo[d] = (delitosGrupo[d]||0) + c;
-                });
-              }
-            });
-          }
-          const top4 = Object.entries(delitosGrupo).sort((a,b)=>b[1]-a[1]).slice(0,4);
-          if (top4.length === 0) return;
-          listaTop.innerHTML += `
-            <div style="border:1px solid #ddd;border-radius:8px;padding:12px;background:#f8f9fa">
-              <div style="font-weight:bold;margin-bottom:8px;color:#05690c;font-size:14px">${grupo}</div>
-              <ol style="margin:0;padding-left:18px;font-size:13px">
-                ${top4.map(([d,c])=>`<li><strong>${d}</strong> — ${c}</li>`).join('')}
-              </ol>
+      document.getElementById('listaInstrucciones').innerHTML = html;
+      document.getElementById('panelRuta').classList.add('visible');
+    });
+  }
+  cerrarRuta() {
+    if(this.routingControl){this.map.removeControl(this.routingControl);this.routingControl=null;}
+    document.getElementById('panelRuta').classList.remove('visible');
+  }
+
+  /* ── OVERLAYS ── */
+  async loadOverlays() {
+    const overlays = [
+      {url:'BARRIOS-SPP-2024.json',name:'Barrios SPP 2024',color:'#ff7800',fillOpacity:0.1},
+      {url:'cuadrantes.geojson',name:'Cuadrantes',color:'#ff0000',weight:5,fillOpacity:0,fill:false},
+      {url:'CALLE SIN VIOLENCIA-SEPTIEMBRE 2025.geojson',name:'Calle sin Violencia Sept 2025',color:'#ffeb3b',fillOpacity:0.2},
+      {url:'CALLE-SIN-VIOLENCIA.geojson',name:'Calle sin Violencia',color:'#ffeb3b',fillOpacity:0.15},
+      {url:'BARRIO-PRIORITARIO.geojson',name:'Barrio Prioritario',color:'#4caf50',fillOpacity:0.2}
+    ];
+    for(const o of overlays) {
+      try {
+        const res = await fetch(o.url+'?t='+Date.now());
+        if(!res.ok) continue;
+        const data = await res.json();
+        const style = o.name==='Cuadrantes'
+          ?{color:o.color,weight:o.weight,opacity:1,fillOpacity:0,fill:false}
+          :{color:o.color,weight:o.weight||4,fillOpacity:o.fillOpacity||0.1};
+        const layer = L.geoJSON(data,{style}).bindPopup(l=>{
+          let html=`<b>${o.name}</b><hr>`;
+          for(const[k,v] of Object.entries(l.feature.properties||{})) html+=`<b>${k}:</b> ${v}<br>`;
+          return html;
+        });
+        this.overlayLayers[o.name]=layer;
+      } catch(e){}
+    }
+    this.layersControl = L.control.layers(this.baseLayers, this.overlayLayers, {
+      position:'topright', collapsed:true
+    }).addTo(this.map);
+  }
+
+  /* ── COLORES ── */
+  getColor(d) {
+    if(['ROBO CON VIOLENCIA','ROBO CON INTIMIDACION','ROBO POR SORPRESA','ROBO VIOLENTO DE VEHICULO'].includes(d)) return '#d32f2f';
+    if(d==='ROBO FRUSTRADO') return '#8e24aa';
+    return '#1976d2';
+  }
+
+  /* ── MARCADOR ── */
+  crearMarcador(c,i) {
+    const icono = this.delitoIcons[c.delito]||L.icon({iconUrl:'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',iconSize:[25,41],iconAnchor:[12,41]});
+    const div = L.divIcon({
+      html:`<div style="position:relative;">
+              <img src="${icono.options.iconUrl}" width="32" height="32" style="filter:drop-shadow(2px 2px 4px #000);">
+              <div style="position:absolute;top:-34px;left:50%;transform:translateX(-50%);color:${this.getColor(c.delito)};font-weight:900;font-size:22px;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;font-family:Arial,monospace;">${i+1}</div>
+            </div>`,
+      className:'transparent-marker', iconSize:[32,32], iconAnchor:[16,32]
+    });
+    const marker = L.marker([c.lat,c.lon],{icon:div});
+    marker.bindPopup(this.popupCaso(c,i));
+    marker.on('click',()=>this.irACaso(i));
+    return marker;
+  }
+
+  popupCaso(c,i) {
+    return `<div style="min-width:260px;font-family:Arial,sans-serif;">
+              <b style="font-size:14px;">#${i+1} — ${c.delito}</b><hr style="margin:6px 0;">
+              <b>N° Parte:</b> ${c.numero_parte||'—'}<br>
+              <b>Fecha:</b> ${c.fecha} ${c.hora}<br>
+              <b>Lugar:</b> ${c.lugar}<br>
+              <b>Dirección:</b> ${c.direccion}<br>
+              <b>Cuadrante:</b> ${c.cuadrante||'—'}<br>
+              <b>Circunstancias:</b> ${c.circunstancias||'Sin detalles'}
             </div>`;
+  }
+
+  /* ── HOTSPOTS ── */
+  calcularHotspots() {
+    this.hotspotLayers.forEach(l=>this.map.removeLayer(l));
+    this.hotspotLayers=[];
+    if(!this.filtrados.length) return;
+    const gridSize=0.003;
+    const grid={};
+    this.filtrados.forEach(c=>{
+      if(!c.lat||!c.lon) return;
+      const gx=Math.floor(c.lat/gridSize)*gridSize;
+      const gy=Math.floor(c.lon/gridSize)*gridSize;
+      const key=`${gx}|${gy}`;
+      grid[key]=(grid[key]||0)+1;
+    });
+    const vals=Object.values(grid);
+    const maxVal=Math.max(...vals);
+    Object.entries(grid).forEach(([key,count])=>{
+      const [lat,lon]=key.split('|').map(Number);
+      const ratio=count/maxVal;
+      let color,opacity;
+      if(ratio>0.65){color='#ff0000';opacity=0.65;}
+      else if(ratio>0.35){color='#ff8c00';opacity=0.55;}
+      else{color='#ffff00';opacity=0.45;}
+      const r=Math.max(30,Math.min(120,ratio*180));
+      const circle=L.circle([lat+gridSize/2,lon+gridSize/2],{
+        radius:r, color:'transparent', fillColor:color,
+        fillOpacity:opacity, interactive:false
+      }).addTo(this.map);
+      this.hotspotLayers.push(circle);
+    });
+  }
+  limpiarHotspots() {
+    this.hotspotLayers.forEach(l=>this.map.removeLayer(l));
+    this.hotspotLayers=[];
+  }
+
+  /* ── DRAW / POLÍGONO ── */
+  initDraw() {
+    this.drawLayer = new L.FeatureGroup();
+    this.map.addLayer(this.drawLayer);
+
+    /* Helper: obtener estilo actual del panel */
+    const getZonaStyle = () => {
+      const color   = document.getElementById('zonaColorBorde').value;
+      const fill    = document.getElementById('zonaColorRelleno').value;
+      const grosor  = parseInt(document.getElementById('zonaGrosor').value) || 3;
+      const opac    = parseInt(document.getElementById('zonaOpacidad').value) / 100;
+      const tipo    = document.getElementById('zonaTipoLinea').value;
+      const dash    = tipo === 'dashed' ? '10,6' : tipo === 'dotted' ? '2,6' : null;
+      return { color, fillColor: fill, weight: grosor, fillOpacity: opac, dashArray: dash, opacity: 1 };
+    };
+
+    /* Actualizar preview SVG */
+    const actualizarPreview = () => {
+      const s = getZonaStyle();
+      const r = document.getElementById('previewRect');
+      if (!r) return;
+      r.setAttribute('stroke', s.color);
+      r.setAttribute('stroke-width', Math.min(s.weight, 6));
+      r.setAttribute('fill', s.fillColor);
+      r.setAttribute('fill-opacity', s.fillOpacity);
+      r.setAttribute('stroke-dasharray', s.dashArray || 'none');
+      /* Actualizar forma dibujada si existe */
+      if (this.zonaFiltro && this.zonaFiltro.setStyle) this.zonaFiltro.setStyle(s);
+    };
+
+    ['zonaColorBorde','zonaColorRelleno','zonaTipoLinea'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', actualizarPreview);
+      document.getElementById(id)?.addEventListener('change', actualizarPreview);
+    });
+    document.getElementById('zonaGrosor')?.addEventListener('input', e => {
+      document.getElementById('lblGrosor').textContent = e.target.value + 'px';
+      actualizarPreview();
+    });
+    document.getElementById('zonaOpacidad')?.addEventListener('input', e => {
+      document.getElementById('lblOpacidad').textContent = e.target.value + '%';
+      actualizarPreview();
+    });
+
+    /* DrawControl (sin toolbar visible, solo para los handlers) */
+    this.drawControl = {
+      options: {
+        draw: {
+          polygon:   { shapeOptions: getZonaStyle() },
+          rectangle: { shapeOptions: getZonaStyle() },
+          circle:    { shapeOptions: getZonaStyle() }
+        }
+      }
+    };
+
+    this.map.on(L.Draw.Event.CREATED, e => {
+      this.drawLayer.clearLayers();
+      const style = getZonaStyle();
+      e.layer.setStyle(style);
+      this.drawLayer.addLayer(e.layer);
+      this.zonaFiltro = e.layer;
+      const count = this.contarEnZona();
+      document.getElementById('infoPoligono').style.display = 'block';
+      document.getElementById('textoPoligono').textContent = `Zona dibujada · ${count} casos dentro`;
+    });
+    this.map.on(L.Draw.Event.EDITED, () => {
+      const layers = this.drawLayer.getLayers();
+      this.zonaFiltro = layers.length ? layers[0] : null;
+      if (this.zonaFiltro) {
+        const count = this.contarEnZona();
+        document.getElementById('textoPoligono').textContent = `Zona editada · ${count} casos dentro`;
+      }
+    });
+    this.map.on(L.Draw.Event.DELETED, () => {
+      this.zonaFiltro = null;
+      document.getElementById('infoPoligono').style.display = 'none';
+    });
+
+    /* Botones dibujo — siempre leer estilo actual */
+    document.getElementById('btnIniciarDibujo').onclick = () => {
+      new L.Draw.Polygon(this.map, { shapeOptions: getZonaStyle() }).enable();
+    };
+    document.getElementById('btnRectangulo').onclick = () => {
+      new L.Draw.Rectangle(this.map, { shapeOptions: getZonaStyle() }).enable();
+    };
+    document.getElementById('btnCirculo').onclick = () => {
+      new L.Draw.Circle(this.map, { shapeOptions: getZonaStyle() }).enable();
+    };
+    document.getElementById('btnBorrarForma').onclick = () => {
+      this.drawLayer.clearLayers();
+      this.zonaFiltro = null;
+      document.getElementById('infoPoligono').style.display = 'none';
+    };
+    document.getElementById('btnAplicarPoligono').onclick = () => this.aplicarFiltroZona();
+    document.getElementById('btnLimpiarPoligono').onclick = () => {
+      this.zonaFiltro = null;
+      this.drawLayer.clearLayers();
+      document.getElementById('infoPoligono').style.display = 'none';
+      this.aplicarFiltros();
+    };
+    document.getElementById('btnExportarZona').onclick = () => this.exportarZona();
+  }
+
+  initArchivoZona() {
+    document.getElementById('inputArchivoZona').addEventListener('change',async e=>{
+      const file=e.target.files[0]; if(!file) return;
+      const text=await file.text();
+      let geojson=null;
+      try {
+        if(file.name.endsWith('.kml')) {
+          const parser=new DOMParser();
+          const kmlDoc=parser.parseFromString(text,'text/xml');
+          geojson=this.kmlToGeoJSON(kmlDoc);
+        } else {
+          geojson=JSON.parse(text);
+        }
+        if(geojson) {
+          /* Leer estilo actual del panel */
+          const color  = document.getElementById('zonaColorBorde')?.value || '#39ff14';
+          const fill   = document.getElementById('zonaColorRelleno')?.value || '#39ff14';
+          const grosor = parseInt(document.getElementById('zonaGrosor')?.value) || 3;
+          const opac   = parseInt(document.getElementById('zonaOpacidad')?.value) / 100 || 0.15;
+          const tipo   = document.getElementById('zonaTipoLinea')?.value || 'solid';
+          const dash   = tipo==='dashed'?'10,6':tipo==='dotted'?'2,6':null;
+          const style  = {color,fillColor:fill,weight:grosor,fillOpacity:opac,dashArray:dash,opacity:1};
+
+          this.drawLayer.clearLayers();
+          const layer=L.geoJSON(geojson,{style:()=>style});
+          this.drawLayer.addLayer(layer);
+          this.zonaFiltro=layer;
+          this.map.fitBounds(layer.getBounds(),{padding:[40,40]});
+          const count=this.contarEnZona();
+          document.getElementById('infoPoligono').style.display='block';
+          document.getElementById('textoPoligono').textContent=`Zona cargada: ${file.name} · ${count} casos`;
+        }
+      } catch(err){ alert('Error al cargar el archivo: '+err.message); }
+      e.target.value='';
+    });
+  }
+
+  kmlToGeoJSON(kmlDoc) {
+    const coords=[];
+    const placemarks=kmlDoc.querySelectorAll('Placemark');
+    placemarks.forEach(pm=>{
+      const coordsEl=pm.querySelector('coordinates');
+      if(coordsEl){
+        const raw=coordsEl.textContent.trim().split(/\s+/);
+        raw.forEach(pt=>{ const[lon,lat]=pt.split(',').map(Number); if(!isNaN(lat)&&!isNaN(lon)) coords.push([lon,lat]); });
+      }
+    });
+    if(!coords.length) return null;
+    return {type:'FeatureCollection',features:[{type:'Feature',geometry:{type:'Polygon',coordinates:[coords]},properties:{}}]};
+  }
+
+  contarEnZona() {
+    if(!this.zonaFiltro) return 0;
+    return this.filtrados.filter(c=>{
+      if(!c.lat||!c.lon) return false;
+      const pt=L.latLng(c.lat,c.lon);
+      if(typeof this.zonaFiltro.contains==='function') return this.zonaFiltro.contains(pt);
+      if(this.zonaFiltro.getLatLngs) {
+        const lls=this.zonaFiltro.getLatLngs();
+        return lls.length && this.puntoDentroPoligono(pt,lls[0]||lls);
+      }
+      let dentro=false;
+      this.zonaFiltro.eachLayer&&this.zonaFiltro.eachLayer(l=>{
+        if(l.getLatLngs) dentro=dentro||this.puntoDentroPoligono(pt,(l.getLatLngs()[0]||l.getLatLngs()));
+        else if(l.contains) dentro=dentro||l.contains(pt);
+      });
+      return dentro;
+    }).length;
+  }
+
+  puntoDentroPoligono(pt,polygon) {
+    const latlngs=Array.isArray(polygon)?polygon:(polygon._latlngs||[]);
+    let inside=false;
+    const x=pt.lat,y=pt.lng;
+    for(let i=0,j=latlngs.length-1;i<latlngs.length;j=i++) {
+      const xi=latlngs[i].lat,yi=latlngs[i].lng;
+      const xj=latlngs[j].lat,yj=latlngs[j].lng;
+      if(((yi>y)!==(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi)) inside=!inside;
+    }
+    return inside;
+  }
+
+  aplicarFiltroZona() {
+    if(!this.zonaFiltro){ alert('Primero dibuja o carga una zona'); return; }
+    const filtradosOriginal=[...this.filtrados];
+    this.filtrados=filtradosOriginal.filter(c=>{
+      if(!c.lat||!c.lon) return false;
+      const pt=L.latLng(c.lat,c.lon);
+      if(typeof this.zonaFiltro.contains==='function') return this.zonaFiltro.contains(pt);
+      if(this.zonaFiltro.getLatLngs) {
+        const lls=this.zonaFiltro.getLatLngs();
+        return this.puntoDentroPoligono(pt,lls[0]||lls);
+      }
+      let dentro=false;
+      this.zonaFiltro.eachLayer&&this.zonaFiltro.eachLayer(l=>{
+        if(l.getLatLngs) dentro=dentro||this.puntoDentroPoligono(pt,(l.getLatLngs()[0]||l.getLatLngs()));
+        else if(l.contains) dentro=dentro||l.contains(pt);
+      });
+      return dentro;
+    });
+    document.getElementById('textoPoligono').textContent=`Filtro aplicado · ${this.filtrados.length} casos en zona`;
+    this.renderizar();
+    this.actualizarConteo();
+  }
+
+  exportarZona() {
+    if(!this.zonaFiltro){ alert('No hay zona dibujada'); return; }
+    let gj=null;
+    if(this.zonaFiltro.toGeoJSON) gj=this.zonaFiltro.toGeoJSON();
+    else {
+      const features=[];
+      this.zonaFiltro.eachLayer&&this.zonaFiltro.eachLayer(l=>{ if(l.toGeoJSON) features.push(l.toGeoJSON()); });
+      gj={type:'FeatureCollection',features};
+    }
+    const blob=new Blob([JSON.stringify(gj,null,2)],{type:'application/json'});
+    saveAs(blob,'zona_filtro.geojson');
+  }
+
+  cerrarDibujo() {
+    document.getElementById('panelDibujo').classList.remove('visible');
+    this.panelDibujoVisible=false;
+  }
+
+  /* ── BUSCADOR DE DIRECCIONES (Nominatim) ── */
+  async buscarDireccion() {
+    const query = document.getElementById('inputBuscadorDir').value.trim();
+    if (!query) return;
+    const res = document.getElementById('resultadosBusqueda');
+    res.innerHTML = '<div style="padding:10px;color:#aaa;font-size:12px;">Buscando...</div>';
+    res.style.display = 'block';
+    try {
+      const r = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query + ', San Pedro de la Paz, Chile')}&limit=6&accept-language=es`, {
+        headers: { 'Accept-Language': 'es' }
+      });
+      const data = await r.json();
+      if (!data.length) {
+        /* Reintentar sin restricción geográfica */
+        const r2 = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=6&accept-language=es`);
+        const data2 = await r2.json();
+        this._mostrarResultadosBusqueda(data2, res);
+      } else {
+        this._mostrarResultadosBusqueda(data, res);
+      }
+    } catch(e) {
+      res.innerHTML = '<div style="padding:10px;color:#f44336;font-size:12px;">Error al buscar. Verifique su conexión.</div>';
+    }
+  }
+
+  _mostrarResultadosBusqueda(data, res) {
+    if (!data.length) {
+      res.innerHTML = '<div style="padding:10px;color:#aaa;font-size:12px;">Sin resultados.</div>';
+      return;
+    }
+    /* Limpiar marcador anterior */
+    if (this._searchMarker) { this.map.removeLayer(this._searchMarker); this._searchMarker = null; }
+    res.innerHTML = data.map((item, i) => `
+      <div onclick="mapa._irAResultado(${item.lat},${item.lon},'${(item.display_name||'').replace(/'/g,"\\'").substring(0,80)}')"
+           style="padding:9px 14px;border-bottom:1px solid rgba(57,255,20,0.1);cursor:pointer;font-size:12px;color:#e0e6f0;transition:background 0.15s;"
+           onmouseover="this.style.background='rgba(57,255,20,0.08)'" onmouseout="this.style.background=''">
+        <div style="font-weight:600;color:#39ff14;">${(item.display_name||'').substring(0,60)}${(item.display_name||'').length>60?'…':''}</div>
+        <div style="font-size:10px;color:#7a8899;margin-top:2px;">${item.type||''} · ${parseFloat(item.lat).toFixed(5)}, ${parseFloat(item.lon).toFixed(5)}</div>
+      </div>`).join('');
+  }
+
+  _irAResultado(lat, lon, nombre) {
+    const latlng = [parseFloat(lat), parseFloat(lon)];
+    this.map.setView(latlng, 17);
+    if (this._searchMarker) this.map.removeLayer(this._searchMarker);
+    this._searchMarker = L.marker(latlng, {
+      icon: L.divIcon({
+        html: `<div style="background:#39ff14;color:#000;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:700;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,0.5);">📍 ${nombre.substring(0,40)}</div>`,
+        className: '', iconAnchor: [0, 0]
+      })
+    }).addTo(this.map);
+    document.getElementById('resultadosBusqueda').style.display = 'none';
+  }
+
+  /* ── SELECCIÓN MANUAL ── */
+  abrirSeleccion() {
+    this.panelSeleccionVisible=true;
+    document.getElementById('panelSeleccion').classList.add('visible');
+    this.renderListaSeleccion();
+  }
+  cerrarSeleccion() {
+    document.getElementById('panelSeleccion').classList.remove('visible');
+    this.panelSeleccionVisible=false;
+  }
+  renderListaSeleccion(filtro='') {
+    const fuente=this.datos;
+    const lista=document.getElementById('listaSeleccionCasos');
+    const f=filtro.toLowerCase();
+    const items=fuente.filter(c=>!f||c.delito.toLowerCase().includes(f)||c.direccion.toLowerCase().includes(f)||(c.circunstancias||'').toLowerCase().includes(f)||(c.numero_parte||'').includes(f));
+    lista.innerHTML=items.map((c,i)=>{
+      const idx=this.datos.indexOf(c);
+      const sel=this.casosSeleccionados.has(idx);
+      return `<div style="display:flex;align-items:center;gap:8px;padding:7px 8px;border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer;" onclick="mapa.toggleCasoSeleccion(${idx},this)">
+        <input type="checkbox" ${sel?'checked':''} style="width:16px;height:16px;accent-color:var(--accent);" readonly>
+        <div>
+          <div style="font-size:12px;font-weight:600;color:${this.getColor(c.delito)};">${c.delito}</div>
+          <div style="font-size:10px;color:var(--text-dim);">${c.direccion} · ${c.fecha}</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  toggleCasoSeleccion(idx,el) {
+    if(this.casosSeleccionados.has(idx)) this.casosSeleccionados.delete(idx);
+    else this.casosSeleccionados.add(idx);
+    const cb=el.querySelector('input');
+    if(cb) cb.checked=this.casosSeleccionados.has(idx);
+  }
+  toggleSeleccionTodos() {
+    if(this.casosSeleccionados.size===this.datos.length){
+      this.casosSeleccionados.clear();
+    } else {
+      this.datos.forEach((_,i)=>this.casosSeleccionados.add(i));
+    }
+    this.renderListaSeleccion(document.getElementById('buscarSeleccion').value);
+  }
+  aplicarSeleccionManual() {
+    if(!this.casosSeleccionados.size){ alert('Selecciona al menos un caso'); return; }
+    this.seleccionManualActiva=true;
+    this.filtrados=this.datos.filter((_,i)=>this.casosSeleccionados.has(i));
+    document.getElementById('subtituloFiltros').textContent=`Selección manual: ${this.filtrados.length} casos`;
+    document.getElementById('filtrosActivos').textContent=`${this.filtrados.length} casos`;
+    this.renderizar();
+    this.actualizarConteo();
+  }
+  limpiarSeleccionManual() {
+    this.seleccionManualActiva=false;
+    this.casosSeleccionados.clear();
+    this.aplicarFiltros();
+  }
+
+  /* ── FILTROS ── */
+  aplicarFiltros() {
+    if(this.seleccionManualActiva) return;
+    const s={
+      clasif:[...document.getElementById('filtroClasificacion').selectedOptions].map(o=>o.value).filter(v=>v),
+      delito:[...document.getElementById('filtroDelito').selectedOptions].map(o=>o.value).filter(v=>v),
+      lugar:[...document.getElementById('filtroLugar').selectedOptions].map(o=>o.value).filter(v=>v),
+      dia:[...document.getElementById('filtroDia').selectedOptions].map(o=>o.value).filter(v=>v),
+      rango:[...document.getElementById('filtroRangoHora').selectedOptions].map(o=>o.value).filter(v=>v),
+      semana:[...document.getElementById('filtroSemana').selectedOptions].map(o=>o.value).filter(v=>v),
+      cuadrante:[...document.getElementById('filtroCuadrante').selectedOptions].map(o=>o.value).filter(v=>v),
+      inicio:document.getElementById('fechaInicio').value,
+      fin:document.getElementById('fechaFin').value,
+      texto:document.getElementById('buscarCircunstancias').value.trim()
+    };
+    this.palabrasBuscadas=s.texto?s.texto.toLowerCase().split('+').map(p=>p.trim()).filter(p=>p):[];
+    this.filtrados=this.datos.filter(c=>{
+      const[d,m,y]=c.fecha.split('-');
+      const fechaISO=`${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
+      if(s.clasif.length&&!s.clasif.includes(c.clasificacion)) return false;
+      if(s.delito.length&&!s.delito.includes(c.delito)) return false;
+      if(s.lugar.length&&!s.lugar.includes(c.lugar)) return false;
+      if(s.dia.length&&!s.dia.includes(c.dia)) return false;
+      if(s.semana.length&&!s.semana.includes(c.semana)) return false;
+      if(s.rango.length){
+        const h=parseInt(c.hora.split(':')[0]);
+        const rangos={'00:00 a 03:59':h<=3,'04:00 a 07:59':h>=4&&h<=7,'08:00 a 11:59':h>=8&&h<=11,'12:00 a 15:59':h>=12&&h<=15,'16:00 a 19:59':h>=16&&h<=19,'20:00 a 23:59':h>=20};
+        if(!s.rango.some(r=>rangos[r])) return false;
+      }
+      if(s.cuadrante.length&&!s.cuadrante.includes(c.cuadrante)) return false;
+      if(s.inicio&&fechaISO<s.inicio) return false;
+      if(s.fin&&fechaISO>s.fin) return false;
+      if(s.texto){const tc=(c.circunstancias||'').toLowerCase();if(!this.palabrasBuscadas.every(p=>tc.includes(p))) return false;}
+      return true;
+    });
+
+    /* Período anterior */
+    if(this.comparePrevious){
+      let ref=new Date();
+      if(this.filtrados.length>0){
+        const fechas=this.filtrados.map(c=>{const[d,m,y]=c.fecha.split('-');return new Date(y,m-1,d);});
+        ref=new Date(Math.min(...fechas));
+      } else if(s.inicio){const[y,m,d]=s.inicio.split('-');ref=new Date(y,m-1,d);}
+      const dia=ref.getDay();const diff=dia===0?6:dia-1;
+      const lunA=new Date(ref);lunA.setDate(ref.getDate()-diff);
+      const lunP=new Date(lunA);lunP.setDate(lunA.getDate()-7);
+      const domP=new Date(lunP);domP.setDate(lunP.getDate()+6);
+      const pS=lunP.toISOString().split('T')[0];const pE=domP.toISOString().split('T')[0];
+      this.previousFiltrados=this.datos.filter(cc=>{
+        const[d,m,y]=cc.fecha.split('-');
+        const fi=`${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
+        if(fi<pS||fi>pE) return false;
+        if(s.clasif.length&&!s.clasif.includes(cc.clasificacion)) return false;
+        if(s.delito.length&&!s.delito.includes(cc.delito)) return false;
+        if(s.lugar.length&&!s.lugar.includes(cc.lugar)) return false;
+        if(s.cuadrante.length&&!s.cuadrante.includes(cc.cuadrante)) return false;
+        if(s.rango.length){
+          const h=parseInt(cc.hora?.split(':')[0]||0);
+          const rangos={'00:00 a 03:59':h<=3,'04:00 a 07:59':h>=4&&h<=7,'08:00 a 11:59':h>=8&&h<=11,'12:00 a 15:59':h>=12&&h<=15,'16:00 a 19:59':h>=16&&h<=19,'20:00 a 23:59':h>=20};
+          if(!s.rango.some(r=>rangos[r])) return false;
+        }
+        if(s.texto){const tc=(cc.circunstancias||'').toLowerCase();if(!this.palabrasBuscadas.every(p=>tc.includes(p))) return false;}
+        return true;
+      });
+    } else { this.previousFiltrados=[]; }
+
+    const partes=[];
+    if(s.clasif.length) partes.push(s.clasif.join(', '));
+    if(s.delito.length) partes.push(s.delito.join(', '));
+    if(s.lugar.length) partes.push(s.lugar.join(', '));
+    if(s.dia.length) partes.push(s.dia.join(', '));
+    if(s.rango.length) partes.push(s.rango.join(', '));
+    if(s.semana.length) partes.push(s.semana.join(', '));
+    if(s.cuadrante.length) partes.push(s.cuadrante.join(', '));
+    if(s.inicio||s.fin) partes.push(`Fechas: ${s.inicio||'...'} → ${s.fin||'...'}`);
+    if(s.texto) partes.push(`"${s.texto}"`);
+    let subt=partes.length?partes.join(' | '):'Todos los casos';
+    if(this.comparePrevious) subt+=' + Período Anterior';
+    document.getElementById('filtrosActivos').textContent=`${this.filtrados.length} casos${this.comparePrevious&&this.previousFiltrados.length?` (+${this.previousFiltrados.length} ant.)`:''}`;
+    document.getElementById('subtituloFiltros').textContent=subt;
+    if(this.routingControl) this.cerrarRuta();
+    this.renderizar();
+    this.actualizarConteo();
+  }
+
+  actualizarConteo() {
+    const d=this.filtrados;
+    document.getElementById('cntTotal').textContent=d.length;
+    document.getElementById('cntViol').textContent=d.filter(c=>['ROBO CON VIOLENCIA','ROBO CON INTIMIDACION','ROBO POR SORPRESA','ROBO VIOLENTO DE VEHICULO'].includes(c.delito)).length;
+    document.getElementById('cntHab').textContent=d.filter(c=>['ROBO EN LUGAR HABITADO','ROBO EN LUGAR NO HABITADO'].includes(c.delito)).length;
+    document.getElementById('cntVeh').textContent=d.filter(c=>c.delito==='ROBO DE VEHICULO MOTORIZADO').length;
+    document.getElementById('cntAcc').textContent=d.filter(c=>c.delito==='ROBO DE ACCESORIOS DE VEHICULOS').length;
+    document.getElementById('cntOtros').textContent=d.filter(c=>!['ROBO CON VIOLENCIA','ROBO CON INTIMIDACION','ROBO POR SORPRESA','ROBO VIOLENTO DE VEHICULO','ROBO EN LUGAR HABITADO','ROBO EN LUGAR NO HABITADO','ROBO DE VEHICULO MOTORIZADO','ROBO DE ACCESORIOS DE VEHICULOS'].includes(c.delito)).length;
+    document.getElementById('cntPrev').textContent=this.previousFiltrados.length;
+  }
+
+  resaltarTexto(texto,palabras) {
+    if(!palabras.length) return texto;
+    const regex=new RegExp(`(${palabras.join('|')})`, 'gi');
+    return texto.replace(regex,'<span style="background:#ffeb3b;color:#000;border-radius:2px;">$1</span>');
+  }
+
+  exportarDatos() {
+    if(!this.filtrados.length) return alert('No hay datos para exportar');
+    const data=this.filtrados.map((c,i)=>({
+      N:i+1, "N° Parte":c.numero_parte||'', Clasificacion:c.clasificacion||'',
+      Delito:c.delito||'', Fecha:c.fecha||'', Hora:c.hora||'', Dia:c.dia||'',
+      Lugar:c.lugar||'', Direccion:c.direccion||'', Cuadrante:c.cuadrante||'',
+      Circunstancias:c.circunstancias||'', Lat:c.lat||'', Lon:c.lon||''
+    }));
+    const ws=XLSX.utils.json_to_sheet(data);
+    const wb=XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb,ws,'Delitos');
+    XLSX.writeFile(wb,`delitos_spp_${new Date().toISOString().slice(0,10)}.xlsx`);
+  }
+
+  /* ── RENDERIZAR ── */
+  renderizar() {
+    this.clusterGroup.clearLayers();
+    this.marcadoresLayer.clearLayers();
+    this.previousLayer.clearLayers();
+    this.limpiarHotspots();
+
+    this.filtrados.forEach((c,i)=>{
+      if(c.lat&&c.lon){
+        const m=this.crearMarcador(c,i);
+        this.clusterEnabled?this.clusterGroup.addLayer(m):this.marcadoresLayer.addLayer(m);
+      }
+    });
+
+    if(this.comparePrevious) {
+      this.previousFiltrados.forEach(c=>{
+        if(c.lat&&c.lon){
+          L.circleMarker([c.lat,c.lon],{radius:9,fillColor:'#ff5722',color:'#fff',weight:3,opacity:1,fillOpacity:0.9})
+           .bindPopup(`<b style="color:#ff5722;">● Período Anterior</b><hr>${c.delito}<br>${c.direccion}<br>${c.fecha} ${c.hora}`)
+           .addTo(this.previousLayer);
+        }
+      });
+    }
+
+    if(this.clusterEnabled){
+      this.map.hasLayer(this.marcadoresLayer)&&this.map.removeLayer(this.marcadoresLayer);
+      !this.map.hasLayer(this.clusterGroup)&&this.map.addLayer(this.clusterGroup);
+    } else {
+      this.map.hasLayer(this.clusterGroup)&&this.map.removeLayer(this.clusterGroup);
+      !this.map.hasLayer(this.marcadoresLayer)&&this.map.addLayer(this.marcadoresLayer);
+    }
+
+    this.comparePrevious
+      ? (!this.map.hasLayer(this.previousLayer)&&this.map.addLayer(this.previousLayer))
+      : (this.map.hasLayer(this.previousLayer)&&this.map.removeLayer(this.previousLayer));
+
+    if(this.hotspotEnabled) this.calcularHotspots();
+    this.actualizarLista();
+  }
+
+  actualizarLista() {
+    const html=this.filtrados.map((c,i)=>{
+      const circ=this.resaltarTexto(c.circunstancias||'Sin detalles',this.palabrasBuscadas);
+      return `<div class="caso-item" onclick="mapa.irACaso(${i})" style="border-left-color:${this.getColor(c.delito)};">
+        <span class="caso-num" style="color:${this.getColor(c.delito)};">${i+1}</span>
+        <strong style="font-size:13px;color:#ffffff;">${c.delito}</strong>
+        ${c.numero_parte?`<span class="caso-tag">P:${c.numero_parte}</span>`:''}
+        <div class="caso-sub">${c.direccion} · ${c.fecha} ${c.hora} · ${c.cuadrante||'—'}</div>
+        <div class="caso-circ">${circ}</div>
+      </div>`;
+    }).join('');
+    document.getElementById('listaCasos').innerHTML=html;
+  }
+
+  irACaso(i) {
+    const c=this.filtrados[i];
+    this.map.setView([c.lat,c.lon],18);
+    document.querySelectorAll('.caso-item').forEach(el=>el.classList.remove('activo'));
+    const el=document.querySelector(`#listaCasos .caso-item:nth-child(${i+1})`);
+    if(el){el.classList.add('activo');el.scrollIntoView({behavior:'smooth',block:'nearest'});}
+  }
+
+  /* ── IMPRESIÓN (estilo original) ── */
+  prepararImpresion() {
+    const printModal = document.getElementById('printModal');
+    const printContent = document.getElementById('printContent');
+    printContent.innerHTML = '';
+    printContent.style.cssText = 'position:relative;background:white;width:215.9mm;min-height:330.2mm;margin:auto;box-shadow:0 0 30px rgba(0,0,0,0.9);padding:0;';
+
+    const mainArea = document.createElement('div');
+    mainArea.id = 'printMain';
+    mainArea.style.cssText = 'position:relative;width:100%;height:100%;background:white;margin:0;padding:0;overflow:hidden;';
+    printContent.appendChild(mainArea);
+
+    /* ── ENCABEZADO ── */
+    const header = document.createElement('div');
+    header.id = 'printHeader';
+    header.style.cssText = 'position:absolute;top:0;left:0;width:100%;min-height:80px;background:#05690c;color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px dashed rgba(255,255,255,0.25);cursor:move;overflow:visible;z-index:100;box-sizing:border-box;padding:6px 12px;';
+    header.innerHTML = `
+      <div spellcheck="false" contenteditable="true" style="font-size:28px;font-weight:900;color:#fff;text-align:center;width:100%;line-height:1.15;font-family:Arial,sans-serif;pointer-events:auto;">${document.querySelector('.titulo-principal').textContent.trim()}</div>
+      <div spellcheck="false" contenteditable="true" style="font-size:14px;font-weight:700;color:#fff;text-align:center;width:100%;margin-top:3px;font-family:Arial,sans-serif;pointer-events:auto;">${document.getElementById('subtituloFiltros').textContent.trim()}</div>`;
+    mainArea.appendChild(header);
+    this.makeDraggableResizable(header);
+
+    /* ── LOGO — flota sobre el header, no le quita espacio ── */
+    const logoPrint = document.createElement('img');
+    logoPrint.src = './iconos/logo-sexta.png';
+    logoPrint.id = 'printLogo';
+    logoPrint.style.cssText = 'position:absolute;top:5px;right:8px;width:180px;height:auto;cursor:move;z-index:200;border:1px dashed rgba(255,255,255,0.4);';
+    mainArea.appendChild(logoPrint);
+    this.makeDraggableResizable(logoPrint);
+
+    /* ── MAPA ── */
+    const mapDiv = document.createElement('div');
+    mapDiv.id = 'printMapInteractive';
+    mapDiv.style.cssText = 'position:absolute;top:80px;left:0;width:100%;height:calc(100% - 80px);border:1px dashed #ccc;cursor:move;overflow:hidden;z-index:1;';
+    mainArea.appendChild(mapDiv);
+
+    /* ── LEYENDA PERÍODO ANTERIOR ── */
+    if (this.comparePrevious) {
+      const legend = document.createElement('div');
+      legend.style.cssText = 'position:absolute;bottom:20px;left:20px;background:white;padding:8px 12px;border:1px solid #ccc;border-radius:6px;font-size:11px;color:#333;box-shadow:0 2px 6px rgba(0,0,0,0.2);cursor:move;z-index:100;white-space:nowrap;';
+      legend.innerHTML = '<span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#ff5722;border:2px solid white;margin-right:6px;"></span><strong>Robos Período Anterior</strong>';
+      mainArea.appendChild(legend);
+      this.makeDraggableResizable(legend);
+    }
+
+    printModal.style.display = 'block';
+
+    setTimeout(() => {
+      /* ── MAPA DE IMPRESIÓN ── */
+      if (window._printMap) { try { window._printMap.remove(); } catch(e){} window._printMap = null; }
+
+      const printMap = L.map('printMapInteractive', { zoomControl:true, zoomSnap:0.1, zoomDelta:0.1, wheelPxPerZoomLevel:200 });
+      window._printMap = printMap;
+
+      const activeKey = Object.keys(this.baseLayers).find(k => this.map.hasLayer(this.baseLayers[k]));
+      if (activeKey) {
+        const orig = this.baseLayers[activeKey];
+        L.tileLayer(orig._url, Object.assign({}, orig.options)).addTo(printMap);
+      }
+
+      const overlayStyles = {
+        'Barrios SPP 2024':             { color:'#ff7800', weight:4, fillOpacity:0.1 },
+        'Cuadrantes':                   { color:'#ff0000', weight:5, opacity:1, fillOpacity:0, fill:false },
+        'Calle sin Violencia Sept 2025':{ color:'#ffeb3b', weight:4, fillOpacity:0.2 },
+        'Calle sin Violencia':          { color:'#ffeb3b', weight:4, fillOpacity:0.15 },
+        'Barrio Prioritario':           { color:'#4caf50', weight:4, fillOpacity:0.2 }
+      };
+      Object.entries(this.overlayLayers).forEach(([name, layer]) => {
+        if (this.map.hasLayer(layer)) {
+          try { L.geoJSON(layer.toGeoJSON(), { style: () => overlayStyles[name] || { color:'#ff7800', weight:3, fillOpacity:0.1 } }).addTo(printMap); } catch(e) {}
+        }
+      });
+
+      if (this.zonaFiltro) {
+        try { const gj = this.zonaFiltro.toGeoJSON ? this.zonaFiltro.toGeoJSON() : null; if (gj) L.geoJSON(gj, { style:{ color:'#39ff14', weight:3, fillOpacity:0.1 } }).addTo(printMap); } catch(e) {}
+      }
+
+      const printMarkers = this.clusterEnabled ? createClusterGroup() : L.layerGroup();
+      this.filtrados.forEach((c, i) => { if (c.lat && c.lon) printMarkers.addLayer(this.crearMarcador(c, i)); });
+      if (this.comparePrevious) {
+        this.previousFiltrados.forEach(c => {
+          if (c.lat && c.lon) L.circleMarker([c.lat,c.lon],{radius:9,fillColor:'#ff5722',color:'#fff',weight:3,fillOpacity:0.9}).addTo(printMarkers);
         });
       }
-      renderTop('todo');
-      document.getElementById('btnTodo').onclick = () => renderTop('todo');
-      document.getElementById('btnAgrupado').onclick = () => renderTop('agrupado');
+      printMap.addLayer(printMarkers);
+      if (this.filtrados.length > 0) {
+        printMap.fitBounds(L.latLngBounds(this.filtrados.map(c=>[c.lat,c.lon])), { padding:[60,60] });
+      } else {
+        printMap.setView(this.map.getCenter(), this.map.getZoom());
+      }
+      printMap.invalidateSize();
+      this.makeDraggableResizable(mapDiv);
+
+      /* ── CARDS ── */
+      const fs = parseInt(document.getElementById('fontSizeSelect').value) || 6;
+      const ff = document.getElementById('fontFamilySelect').value || 'Arial';
+      this.filtrados.forEach((c, i) => {
+        const numSize = fs + 10; /* número siempre 10px más que la fuente base */
+        const card = document.createElement('div');
+        card.className = 'pcard';
+        card.style.cssText = `position:absolute;top:${80+Math.floor(i/3)*120}px;left:${(i%3)*33.3}%;width:200px;min-height:80px;background:white;border-left:5px solid ${this.getColor(c.delito)};padding:5px;font-family:${ff};font-size:${fs}px;line-height:1.2;box-shadow:0 2px 6px rgba(0,0,0,0.15);cursor:move;overflow:hidden;z-index:100;`;
+        card.innerHTML = `
+          <span class="pnum" spellcheck="false" contenteditable="true" style="color:${this.getColor(c.delito)};font-weight:900;font-size:${numSize}px;">${i+1}</span>
+          <strong class="pdelito" spellcheck="false" contenteditable="true">${c.delito}</strong>
+          ${c.numero_parte?`<span spellcheck="false" contenteditable="true" style="background:#444;color:#fff;padding:1px 4px;border-radius:3px;font-size:${Math.max(fs-1,5)}px;">${c.numero_parte}</span>`:''}
+          <br><small spellcheck="false" contenteditable="true">${c.direccion} • ${c.fecha} ${c.hora}</small>
+          <div spellcheck="false" contenteditable="true" style="margin-top:4px;color:#333;">${this.resaltarTexto(c.circunstancias||'Sin detalles', this.palabrasBuscadas)}</div>`;
+        mainArea.appendChild(card);
+        this.makeDraggableResizable(card);
+      });
+
+      /* ── INSTRUCCIONES RUTA ── */
+      if (document.getElementById('mostrarRutaSelect').value === 'si' && this.routeInstructions.length) {
+        const rutaDiv = document.createElement('div');
+        rutaDiv.style.cssText = 'position:absolute;top:490px;left:0;width:100%;background:#e3f2fd;border:1px dashed #ccc;z-index:5;padding:10px;cursor:move;';
+        let rHtml = `<div style="font-weight:700;font-size:13px;color:#0277bd;margin-bottom:8px;font-family:${ff};">🗺 Instrucciones de Ruta Óptima</div>`;
+        rHtml += `<ol style="font-size:${fs}px;font-family:${ff};margin:0;padding-left:18px;column-count:2;column-gap:20px;">`;
+        this.routeInstructions.forEach(inst => { rHtml += `<li style="margin-bottom:3px;">${inst.texto}${inst.distancia?` <em>(${inst.distancia})</em>`:''}</li>`; });
+        rHtml += '</ol>';
+        rutaDiv.innerHTML = rHtml;
+        mainArea.appendChild(rutaDiv);
+        this.makeDraggableResizable(rutaDiv);
+      }
+
+      /* ── SELECCIÓN Y CONTROLES ── */
+      mainArea.addEventListener('click', e => {
+        mainArea.querySelectorAll('.psel').forEach(el => { el.classList.remove('psel'); el.style.outline=''; });
+        const t = e.target.closest('[style*="cursor:move"]');
+        if (t && t !== mainArea) { t.classList.add('psel'); t.style.outline='2px solid #0078d4'; }
+      });
+
+      const sizes = { A4:{w:'210mm',h:'297mm'}, Letter:{w:'215.9mm',h:'279.4mm'}, Legal:{w:'215.9mm',h:'355.6mm'}, Folio:{w:'215.9mm',h:'330.2mm'} };
+      const updateSize = () => {
+        const fmt = document.getElementById('paperSizeSelect').value;
+        const ori = document.getElementById('orientationSelect').value;
+        const s = sizes[fmt]||sizes.Folio;
+        printContent.style.width     = ori==='landscape'?s.h:s.w;
+        printContent.style.minHeight = ori==='landscape'?s.w:s.h;
+        mainArea.style.width  = ori==='landscape'?s.h:s.w;
+        mainArea.style.height = ori==='landscape'?s.w:s.h;
+        printMap.invalidateSize();
+      };
+      document.getElementById('paperSizeSelect').onchange = updateSize;
+      document.getElementById('orientationSelect').onchange = updateSize;
+      updateSize();
+
+      document.getElementById('fontSizeSelect').onchange = e => {
+        const newFs = parseInt(e.target.value);
+        const sel = mainArea.querySelector('.psel');
+        if (sel) {
+          /* Apply to selected element */
+          sel.style.fontSize = newFs + 'px';
+          sel.querySelectorAll('[contenteditable]:not(.pnum)').forEach(ch => ch.style.fontSize = newFs + 'px');
+          sel.querySelectorAll('.pnum').forEach(n => n.style.fontSize = (newFs + 10) + 'px');
+        } else {
+          /* No selection → apply to ALL cards immediately */
+          mainArea.querySelectorAll('.pcard').forEach(card => {
+            card.style.fontSize = newFs + 'px';
+            card.querySelectorAll('[contenteditable]:not(.pnum)').forEach(ch => ch.style.fontSize = newFs + 'px');
+            card.querySelectorAll('.pnum').forEach(n => n.style.fontSize = (newFs + 10) + 'px');
+          });
+        }
+      };
+      document.getElementById('fontFamilySelect').onchange = e => {
+        const newFf = e.target.value;
+        const sel = mainArea.querySelector('.psel');
+        if (sel) {
+          sel.style.fontFamily = newFf;
+          sel.querySelectorAll('[contenteditable]').forEach(ch => ch.style.fontFamily = newFf);
+        } else {
+          mainArea.querySelectorAll('.pcard').forEach(card => {
+            card.style.fontFamily = newFf;
+            card.querySelectorAll('[contenteditable]').forEach(ch => ch.style.fontFamily = newFf);
+          });
+        }
+      };
+
+      document.getElementById('printButton').onclick = () => window.print();
+      document.getElementById('closeButton').onclick = () => {
+        printModal.style.display = 'none';
+        try { printMap.remove(); window._printMap = null; } catch(e) {}
+        this.map.invalidateSize();
+      };
+    }, 300);
+  }
+
+  makeDraggableResizable(el) {
+    if (el.tagName === 'IMG') el.style.position = 'absolute';
+    ['nw','n','ne','w','e','sw','s','se'].forEach(d => {
+      const r = document.createElement('div');
+      r.className = `resizer ${d}`;
+      el.appendChild(r);
+      r.addEventListener('mousedown', e => this.startResize(e, d, el));
+    });
+    el.addEventListener('mousedown', e => {
+      if (e.target.classList.contains('resizer')) return;
+      e.preventDefault();
+      const sx=e.clientX, sy=e.clientY, ox=el.offsetLeft, oy=el.offsetTop;
+      const move = ev => { el.style.left=(ox+ev.clientX-sx)+'px'; el.style.top=(oy+ev.clientY-sy)+'px'; };
+      document.onmousemove = move;
+      document.onmouseup = () => { document.onmousemove = document.onmouseup = null; };
+    });
+  }
+  startResize(e,dir,el) {
+    e.stopPropagation();
+    const sx=e.clientX,sy=e.clientY,sw=el.offsetWidth,sh=el.offsetHeight,sl=el.offsetLeft,st=el.offsetTop;
+    const move=ev=>{
+      const dx=ev.clientX-sx,dy=ev.clientY-sy;
+      if(dir.includes('e')) el.style.width=(sw+dx)+'px';
+      if(dir.includes('s')) el.style.height=(sh+dy)+'px';
+      if(dir.includes('w')){el.style.width=(sw-dx)+'px';el.style.left=(sl+dx)+'px';}
+      if(dir.includes('n')){el.style.height=(sh-dy)+'px';el.style.top=(st+dy)+'px';}
     };
-    document.getElementById('cerrarDashboard').onclick = () => {
-      document.getElementById('dashboardModal').style.display = 'none';
+    document.onmousemove=move;
+    document.onmouseup=()=>{document.onmousemove=document.onmouseup=null;};
+  }
+
+  /* ── CARGAR DATOS ── */
+  async cargarDatos() {
+    let datos=[];
+    try {
+      const res=await fetch('casos_delitos.json?t='+Date.now());
+      if(res.ok) datos=await res.json();
+    } catch(e){}
+    if(!datos.length) {
+      datos=[{"clasificacion":"DENUNCIA","delito":"ROBO EN LUGAR HABITADO","fecha":"25-11-2025","dia":"MARTES","hora":"14:30","lugar":"DOMICILIO PARTICULAR","direccion":"LOS ALERCES 1234","circunstancias":"Sustracción de notebook y joyas.","cuadrante":"Cuadrante 03","lat":-36.835,"lon":-73.115,"numero_parte":"12345-2025"}];
+    }
+    this.datos=datos.map(c=>{
+      const[d,m,y]=c.fecha.split('-');
+      const fecha=new Date(Date.UTC(y,m-1,d));
+      fecha.setUTCDate(fecha.getUTCDate()+4-(fecha.getUTCDay()||7));
+      const yearStart=new Date(Date.UTC(y,0,1));
+      const week=Math.ceil((((fecha-yearStart)/86400000)+1)/7);
+      c.semana=week>52||(week===1&&parseInt(m)===12)?`Fin ${y}`:`Semana ${week} - ${y}`;
+      if(c.dia) c.dia=removeAccents(c.dia).charAt(0).toUpperCase()+removeAccents(c.dia).slice(1).toLowerCase();
+      return c;
+    });
+    this.filtrados=[...this.datos];
+
+    const uniq=f=>[...new Set(this.datos.map(c=>c[f]).filter(Boolean))];
+    const add=(id,field,sort=false)=>{
+      const s=document.getElementById(id);
+      let opts=uniq(field);
+      if(sort&&field==='dia'){
+        const ord={lunes:0,martes:1,miercoles:2,jueves:3,viernes:4,sabado:5,domingo:6};
+        opts.sort((a,b)=>(ord[removeAccents(a).toLowerCase()]||0)-(ord[removeAccents(b).toLowerCase()]||0));
+      }
+      s.innerHTML='<option value="">TODOS</option>'+opts.map(v=>`<option value="${v}">${v}</option>`).join('');
     };
-  </script>
+    add('filtroClasificacion','clasificacion');
+    add('filtroDelito','delito');
+    add('filtroLugar','lugar');
+    add('filtroDia','dia',true);
+    add('filtroCuadrante','cuadrante');
+    add('filtroSemana','semana');
+
+    await this.loadOverlays();
+
+    /* Eventos filtros */
+    document.querySelectorAll('#sidebar select, #sidebar input').forEach(el=>
+      el.addEventListener('change',()=>this.aplicarFiltros())
+    );
+    document.getElementById('buscarCircunstancias').addEventListener('input',()=>this.aplicarFiltros());
+
+    /* Botones */
+    document.getElementById('btnLista').onclick=()=>document.getElementById('panelDetalles').classList.toggle('visible');
+    document.getElementById('btnExport').onclick=()=>this.exportarDatos();
+    document.getElementById('btnCluster').onclick=()=>{
+      if(this.hotspotEnabled) return;
+      this.clusterEnabled=!this.clusterEnabled;
+      document.getElementById('btnCluster').textContent=this.clusterEnabled?'🔵 Cluster':'⚪ Sin Cluster';
+      this.renderizar();
+    };
+    document.getElementById('btnHotspot').onclick=()=>{
+      this.hotspotEnabled=!this.hotspotEnabled;
+      document.getElementById('btnHotspot').textContent=this.hotspotEnabled?'🔥 Hotspot ON':'🔥 Hotspot';
+      document.getElementById('btnHotspot').style.background=this.hotspotEnabled?'#bf360c':'#e65100';
+      document.getElementById('hotspotLegend').classList.toggle('visible',this.hotspotEnabled);
+      document.getElementById('modoBadge').textContent='MODO HOTSPOT';
+      document.getElementById('modoBadge').classList.toggle('visible',this.hotspotEnabled);
+      if(this.hotspotEnabled){this.calcularHotspots();}else{this.limpiarHotspots();}
+    };
+    document.getElementById('btnCentrar').onclick=()=>{
+      if(!this.filtrados.length){this.map.setView([-36.84,-73.105],13);return;}
+      this.map.fitBounds(L.latLngBounds(this.filtrados.map(c=>[c.lat,c.lon])),{padding:[50,50]});
+    };
+    document.getElementById('btnDibujo').onclick=()=>{
+      this.panelDibujoVisible=!this.panelDibujoVisible;
+      document.getElementById('panelDibujo').classList.toggle('visible',this.panelDibujoVisible);
+    };
+    document.getElementById('btnSeleccion').onclick=()=>{
+      if(this.panelSeleccionVisible){this.cerrarSeleccion();}else{this.abrirSeleccion();}
+    };
+    document.getElementById('buscarSeleccion').addEventListener('input',e=>this.renderListaSeleccion(e.target.value));
+    document.getElementById('btnPrepararImpresion').onclick=()=>this.prepararImpresion();
+    document.getElementById('btnCompare').onclick=()=>{
+      this.comparePrevious=!this.comparePrevious;
+      const btn=document.getElementById('btnCompare');
+      btn.textContent=this.comparePrevious?'🔁 Per. Ant. ON':'🔁 Sem. Ant.';
+      btn.style.background=this.comparePrevious?'#b71c1c':'#6a1b9a';
+      this.aplicarFiltros();
+    };
+    document.getElementById('btnRuta').onclick=()=>this.calcularRutaOptima();
+    document.getElementById('btnDashboard').onclick=()=>this.abrirDashboard();
+    document.getElementById('cerrarDashboard').onclick=()=>document.getElementById('dashboardModal').style.display='none';
+
+    /* Sidebar trigger */
+    const sidebar=document.getElementById('sidebar');
+    const trigger=document.getElementById('triggerDerecho');
+    trigger.addEventListener('click',()=>sidebar.classList.toggle('visible'));
+    trigger.addEventListener('mouseenter',()=>sidebar.classList.add('visible'));
+    sidebar.addEventListener('mouseleave',()=>setTimeout(()=>{
+      if(!sidebar.matches(':hover')&&!trigger.matches(':hover')) sidebar.classList.remove('visible');
+    },600));
+
+    /* Buscador de direcciones - Enter key */
+    document.getElementById('inputBuscadorDir').addEventListener('keydown', e => {
+      if (e.key === 'Enter') this.buscarDireccion();
+    });
+    /* Cerrar resultados al hacer click fuera */
+    document.addEventListener('click', e => {
+      const b = document.getElementById('buscadorDir');
+      const r = document.getElementById('resultadosBusqueda');
+      if (b && r && !b.contains(e.target) && !r.contains(e.target)) {
+        r.style.display = 'none';
+      }
+    });
+
+    this.actualizarConteo();
+    this.renderizar();
+    window.mapa=this;
+  }
+
+  /* ── DASHBOARD ── */
+  abrirDashboard() {
+    document.getElementById('dashboardModal').style.display='block';
+    const data=this.filtrados;
+    const total=data.length||1;
+    const pct=n=>(n/total*100).toFixed(1)+'%';
+
+    const makeTable=(rows,headers)=>{
+      let h=`<table class="dash-table"><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr>`;
+      rows.forEach(r=>{ h+=`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`; });
+      return h+'</table>';
+    };
+
+    /* Tipos */
+    const delitosMap={};
+    data.forEach(c=>delitosMap[c.delito]=(delitosMap[c.delito]||0)+1);
+    const delitoRows=Object.entries(delitosMap).sort((a,b)=>b[1]-a[1]).map(([k,v])=>[k,v,pct(v)]);
+    delitoRows.push(['TOTAL',data.length,'100%']);
+
+    /* Horarios */
+    const rangos={'00:00–03:59':0,'04:00–07:59':0,'08:00–11:59':0,'12:00–15:59':0,'16:00–19:59':0,'20:00–23:59':0};
+    data.forEach(c=>{
+      const h=parseInt(c.hora?.split(':')[0]||0);
+      if(h<=3) rangos['00:00–03:59']++;
+      else if(h<=7) rangos['04:00–07:59']++;
+      else if(h<=11) rangos['08:00–11:59']++;
+      else if(h<=15) rangos['12:00–15:59']++;
+      else if(h<=19) rangos['16:00–19:59']++;
+      else rangos['20:00–23:59']++;
+    });
+    const horarioRows=Object.entries(rangos).map(([k,v])=>[k,v,pct(v)]);
+
+    /* Cuadrantes */
+    const cuadMap={};
+    data.forEach(c=>cuadMap[c.cuadrante||'Sin']=(cuadMap[c.cuadrante||'Sin']||0)+1);
+    const cuadRows=Object.entries(cuadMap).sort((a,b)=>b[1]-a[1]).map(([k,v])=>[k,v,pct(v)]);
+    cuadRows.push(['TOTAL',data.length,'100%']);
+
+    /* Días */
+    const diasMap={};
+    data.forEach(c=>diasMap[c.dia||'—']=(diasMap[c.dia||'—']||0)+1);
+    const diaRows=Object.entries(diasMap).sort((a,b)=>b[1]-a[1]).map(([k,v])=>[k,v]);
+
+    /* Lugares */
+    const lugMap={};
+    data.forEach(c=>lugMap[c.lugar||'—']=(lugMap[c.lugar||'—']||0)+1);
+    const lugRows=Object.entries(lugMap).sort((a,b)=>b[1]-a[1]).map(([k,v])=>[k,v]);
+
+    const grid=document.getElementById('dashGrid');
+    grid.innerHTML=`
+      <div class="dash-panel"><h3>Tipos de Robo</h3>${makeTable(delitoRows,['Delito','Casos','%'])}</div>
+      <div class="dash-panel"><h3>Tramos Horarios</h3>${makeTable(horarioRows,['Tramo','Casos','%'])}</div>
+      <div class="dash-panel"><h3>Cuadrantes</h3>${makeTable(cuadRows,['Cuadrante','Casos','%'])}</div>
+      <div class="dash-panel"><h3>Días de la Semana</h3>${makeTable(diaRows,['Día','Casos'])}</div>
+      <div class="dash-panel"><h3>Lugar del Delito</h3>${makeTable(lugRows,['Lugar','Casos'])}</div>
+      <div class="dash-panel dash-panel-wide"><h3>Robos Últimas 6 Semanas</h3><div id="grafSemanas" style="height:240px;"></div></div>
+      <div class="dash-panel dash-panel-wide">
+        <h3>Top Delitos por Cuadrante</h3>
+        <div style="display:flex;gap:8px;margin-bottom:12px;">
+          <button onclick="mapa._renderTopDelitos('todo')" class="print-btn" style="background:#0277bd;color:white;font-size:12px;">Individual</button>
+          <button onclick="mapa._renderTopDelitos('agrupado')" class="print-btn" style="background:#2e7d32;color:white;font-size:12px;">Agrupado</button>
+        </div>
+        <div id="listaTopDelitos" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;"></div>
+      </div>
+    `;
+
+    /* Gráfico semanas */
+    const semanas={};
+    data.forEach(c=>{ if(c.semana) semanas[c.semana]=(semanas[c.semana]||0)+1; });
+    const hoy=new Date();
+    const semanasOrden=[];
+    for(let i=5;i>=0;i--){
+      const fs=new Date(hoy);fs.setDate(hoy.getDate()-i*7);
+      const[y,m,d]=fs.toISOString().split('T')[0].split('-');
+      const fe=new Date(Date.UTC(y,m-1,d));
+      fe.setUTCDate(fe.getUTCDate()+4-(fe.getUTCDay()||7));
+      const yS=new Date(Date.UTC(y,0,1));
+      const wk=Math.ceil((((fe-yS)/86400000)+1)/7);
+      const lbl=`Semana ${wk} - ${y}`;
+      semanasOrden.push({lbl,count:semanas[lbl]||0});
+    }
+    Plotly.newPlot('grafSemanas',[{
+      x:semanasOrden.map(s=>s.lbl),y:semanasOrden.map(s=>s.count),
+      type:'bar',marker:{color:'#39ff14'},
+      text:semanasOrden.map(s=>s.count),textposition:'auto',
+      insidetextfont:{color:'#000',size:13}
+    }],{
+      margin:{t:10,b:60,l:50,r:20},height:240,
+      xaxis:{tickangle:-20,tickfont:{size:10,color:'#aaa'},gridcolor:'rgba(255,255,255,0.05)'},
+      yaxis:{title:'Casos',gridcolor:'rgba(255,255,255,0.08)',color:'#aaa'},
+      paper_bgcolor:'transparent',plot_bgcolor:'transparent',
+      font:{family:'Arial',size:12,color:'#ddd'},bargap:0.3
+    });
+
+    this._renderTopDelitos('todo');
+  }
+
+  _renderTopDelitos(modo) {
+    const porCuadrante={};
+    this.filtrados.forEach(c=>{
+      const key=c.cuadrante||'Sin cuadrante';
+      if(!porCuadrante[key]) porCuadrante[key]={};
+      porCuadrante[key][c.delito]=(porCuadrante[key][c.delito]||0)+1;
+    });
+    const lista=document.getElementById('listaTopDelitos');
+    if(!lista) return;
+    lista.innerHTML='';
+    let grupos=modo==='todo'?Object.keys(porCuadrante).sort():
+      ['Cuadrantes 01 y 03','Cuadrante 02','Cuadrante 04','Cuadrantes 05 y 06','Cuadrantes 07 y 08'];
+    grupos.forEach(grupo=>{
+      let del={};
+      if(modo==='todo'){if(!porCuadrante[grupo]) return;del=porCuadrante[grupo];}
+      else{
+        const map={'Cuadrantes 01 y 03':['Cuadrante 01','Cuadrante 03'],'Cuadrante 02':['Cuadrante 02'],'Cuadrante 04':['Cuadrante 04'],'Cuadrantes 05 y 06':['Cuadrante 05','Cuadrante 06'],'Cuadrantes 07 y 08':['Cuadrante 07','Cuadrante 08']};
+        (map[grupo]||[]).forEach(cuad=>{ if(porCuadrante[cuad]) Object.entries(porCuadrante[cuad]).forEach(([d,c])=>del[d]=(del[d]||0)+c); });
+      }
+      const top4=Object.entries(del).sort((a,b)=>b[1]-a[1]).slice(0,4);
+      if(!top4.length) return;
+      lista.innerHTML+=`<div style="background:rgba(255,255,255,0.03);border:1px solid var(--panel-border);border-radius:8px;padding:12px;">
+        <div style="color:var(--accent);font-weight:700;font-size:13px;margin-bottom:8px;border-bottom:1px solid rgba(57,255,20,0.15);padding-bottom:6px;">${grupo}</div>
+        <ol style="margin:0;padding-left:18px;font-size:12px;color:var(--text);">
+          ${top4.map(([d,c])=>`<li><b>${d}</b> — ${c}</li>`).join('')}
+        </ol>
+      </div>`;
+    });
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   INICIALIZAR
+═══════════════════════════════════════════════════════════════════ */
+new MapaDelitos();
+</script>
 </body>
 </html>
