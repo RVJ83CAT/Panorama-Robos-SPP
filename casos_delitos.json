@@ -22922,7 +22922,7 @@
     "rango_hora": "00:00 a 03:59",
     "lugar": "DOMICILIO PARTICULAR",
     "direccion": "DIAGONAL BIO BIO 1071",
-    "circunstancias": "Sujetos desconocidos ingresan durante la madrugada al inmuble mientras sus moradores se encontraban pernoctando. Roban una motocicleta marca Haojue, modelo KA 150, color negro, placa patente única TBH53, avaluada en $1300000, la cual se encontraba estacionada en el antejardín. El ingreso se efectuó mediante fractura del sistema de cierre del portón de acceso, el cual mantenía un candado que fue reventado. El sujeto sustrajo la motocicleta y la retiró del lugar empujándola por calle Diagonal Bio Bio. Cámaras de seguridad del domicilio registraron al sujeto de sexo masculino, de aproximadamente 30 años (H30). Posteriormente, el vehículo sustraído había sido ubicado en Pasaje Sotelco esquina Las Orquídeas, al interior de una casa de lata cuya numeración se desconoce.",
+    "circunstancias": "Sujetos desconocidos ingresan durante la madrugada al inmueble mientras sus moradores se encontraban pernoctando. Roban una motocicleta marca Haojue, modelo KA 150, color negro, placa patente única TBH53, avaluada en $1300000, la cual se encontraba estacionada en el antejardín. El ingreso se efectuó mediante fractura del sistema de cierre del portón de acceso, el cual mantenía un candado que fue reventado. El sujeto sustrajo la motocicleta y la retiró del lugar empujándola por calle Diagonal Bio Bio. Cámaras de seguridad del domicilio registraron al sujeto de sexo masculino, de aproximadamente 30 años (H30). Posteriormente, el vehículo sustraído había sido ubicado en Pasaje Sotelco esquina Las Orquídeas, al interior de una casa de lata cuya numeración se desconoce.",
     "cuadrante": "Cuadrante 02",
     "numero_parte": 3448,
     "direccion_georref": "DIAGONAL BIO BIO 1071",
@@ -23416,5 +23416,23 @@
     "concat": "CALLE NUEVA & CALLE LOCAL , San Pedro de la Paz",
     "lat": -36.84626460186886,
     "lon": -73.13111592399991
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "18-08-2026",
+    "dia": "MARTES",
+    "hora": "00:30",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "DANIEL BELMAR & PIEDRA DE FRANCIA",
+    "circunstancias": "La víctima (H34) se desplazaba a pie hacia el norte por calle Daniel Belmar, en dirección a su domicilio, aproximadamente a las 00:30 horas, cuando se encontraba a unas 3 cuadras de su vivienda. Dos sujetos desconocidos que caminaban detrás de la víctima se aproximaron; uno de ellos lo tomó por la espalda mientras el segundo lo registró y lo intimidó verbalmente, manifestándole que le pegarían si no entregaba sus pertenencias. Uno de los sujetos sustrajo desde el bolsillo del polerón un teléfono celular marca Honor, modelo 7 Lite, color rosado, avaluado en $250000. Posteriormente, ambos sujetos arrojaron a la víctima al suelo y le propinaron patadas en los glúteos, sin provocarle lesiones. Tras la agresión, los individuos huyeron a pie por calle Daniel Belmar en dirección norte. El lugar corresponde a un sector con varias parcelas y deficiente iluminación.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3582,
+    "direccion_georref": "DANIEL BELMAR & PIEDRA DE FRANCIA",
+    "comuna": "San Pedro de la Paz",
+    "concat": "DANIEL BELMAR & PIEDRA DE FRANCIA , San Pedro de la Paz",
+    "lat": -36.83118790000073,
+    "lon": -73.13900199755169
   }
 ]
