@@ -23221,6 +23221,24 @@
   },
   {
     "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "18-08-2026",
+    "dia": "MARTES",
+    "hora": "00:30",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "DANIEL BELMAR & PIEDRA DE FRANCIA",
+    "circunstancias": "La víctima (H34) se desplazaba a pie hacia el norte por calle Daniel Belmar, en dirección a su domicilio, aproximadamente a las 00:30 horas, cuando se encontraba a unas 3 cuadras de su vivienda. Dos sujetos desconocidos que caminaban detrás de la víctima se aproximaron; uno de ellos lo tomó por la espalda mientras el segundo lo registró y lo intimidó verbalmente, manifestándole que le pegarían si no entregaba sus pertenencias. Uno de los sujetos sustrajo desde el bolsillo del polerón un teléfono celular marca Honor, modelo 7 Lite, color rosado, avaluado en $250000. Posteriormente, ambos sujetos arrojaron a la víctima al suelo y le propinaron patadas en los glúteos, sin provocarle lesiones. Tras la agresión, los individuos huyeron a pie por calle Daniel Belmar en dirección norte. El lugar corresponde a un sector con varias parcelas y deficiente iluminación.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3582,
+    "direccion_georref": "DANIEL BELMAR & PIEDRA DE FRANCIA",
+    "comuna": "San Pedro de la Paz",
+    "concat": "DANIEL BELMAR & PIEDRA DE FRANCIA , San Pedro de la Paz",
+    "lat": -36.83118790000073,
+    "lon": -73.13900199755169
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO EN BIENES NACIONALES",
     "fecha": "18-08-2026",
     "dia": "MARTES",
@@ -23383,6 +23401,24 @@
   },
   {
     "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "18-08-2026",
+    "dia": "MARTES",
+    "hora": "21:55",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PASAJE BRAULIO ARENAS 7756",
+    "circunstancias": "Personal policial concurrió al domicilio ubicado en Población Francisco Coloane, luego de recibir un comunicado de Cenco. El afectado (H52) se encontraba fuera del inmueble, en el domicilio de sus padres, cuando fue informado telefónicamente por un vecino de que un grupo de sujetos jóvenes que se movilizaban en un vehículo blanco habría ingresado a su vivienda. Al ingresar y revisar las dependencias constató la sustracción de un televisor marca LG, color negro, de 55 pulgadas, y posteriormente verificó el faltante de un hacha pequeña que mantenía en el antejardín. Como antecedente relevante, un testigo manifestó que aproximadamente a las 20:45 horas observó desde su domicilio un vehículo color blanco, con las luces apagadas, ingresando al pasaje, desde el cual descendieron dos sujetos encapuchados que ingresaron a un domicilio. Observaron la PPU. CRVJ42 y verificó (mantenía encargo vigente por robo de vehículo motorizado desde el 17-08-2026). Posteriormente observó que el móvil se retiraba del lugar y, tras advertir que se trataba de un vehículo con encargo, efectuó un disparo con un arma de fuego particular debidamente inscrita, provocando que el automóvil huyera en dirección desconocida. Posteriormente Cenco informó que el mismo vehículo, Kia Rio JB, color blanco, año 2010, PPU CRVJ-42, se encontraba frente al N° 3513 de Pasaje Ochenta, San Pedro de la Costa. El móvil fue trasladado en grúa hasta la 6ta. Comisaría, encontrándose sin las especies sustraídas y sin impactos balísticos visibles en su exterior. El vehículo mantenía encargo vigente EUN 707711 por robo de vehículo motorizado, efectuado el 17-08-2026 en la 4ta. Comisaría de Hualpén.",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 3577,
+    "direccion_georref": "PASAJE BRAULIO ARENAS 7756",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE BRAULIO ARENAS 7756 , San Pedro de la Paz",
+    "lat": -36.89172438964098,
+    "lon": -73.13830351104315
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO VIOLENTO DE VEHICULO",
     "fecha": "18-08-2026",
     "dia": "MARTES",
@@ -23416,23 +23452,5 @@
     "concat": "CALLE NUEVA & CALLE LOCAL , San Pedro de la Paz",
     "lat": -36.84626460186886,
     "lon": -73.13111592399991
-  },
-  {
-    "clasificacion": "DENUNCIA",
-    "delito": "ROBO CON VIOLENCIA",
-    "fecha": "18-08-2026",
-    "dia": "MARTES",
-    "hora": "00:30",
-    "rango_hora": "00:00 a 03:59",
-    "lugar": "VIA PUBLICA",
-    "direccion": "DANIEL BELMAR & PIEDRA DE FRANCIA",
-    "circunstancias": "La víctima (H34) se desplazaba a pie hacia el norte por calle Daniel Belmar, en dirección a su domicilio, aproximadamente a las 00:30 horas, cuando se encontraba a unas 3 cuadras de su vivienda. Dos sujetos desconocidos que caminaban detrás de la víctima se aproximaron; uno de ellos lo tomó por la espalda mientras el segundo lo registró y lo intimidó verbalmente, manifestándole que le pegarían si no entregaba sus pertenencias. Uno de los sujetos sustrajo desde el bolsillo del polerón un teléfono celular marca Honor, modelo 7 Lite, color rosado, avaluado en $250000. Posteriormente, ambos sujetos arrojaron a la víctima al suelo y le propinaron patadas en los glúteos, sin provocarle lesiones. Tras la agresión, los individuos huyeron a pie por calle Daniel Belmar en dirección norte. El lugar corresponde a un sector con varias parcelas y deficiente iluminación.",
-    "cuadrante": "Cuadrante 01",
-    "numero_parte": 3582,
-    "direccion_georref": "DANIEL BELMAR & PIEDRA DE FRANCIA",
-    "comuna": "San Pedro de la Paz",
-    "concat": "DANIEL BELMAR & PIEDRA DE FRANCIA , San Pedro de la Paz",
-    "lat": -36.83118790000073,
-    "lon": -73.13900199755169
   }
 ]
