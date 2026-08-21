@@ -23157,13 +23157,13 @@
     "lugar": "VIA PUBLICA",
     "direccion": "NUEVA 365",
     "circunstancias": "Las víctimas (M24) y (M55) resultan afectadas por el robo de un perro de raza pug, de pelaje negro. El hecho se origina mediante una publicación realizada en Facebook ofreciendo el intercambio del animal por alimento para perros, dejando un número de WhatsApp para contacto. Posteriormente, una persona desconocida contacta a la víctima (M24) y señala que concurriría en un vehículo Uber para realizar el intercambio. Llega un sujeto en un automóvil color gris y desciende un hombre de aproximadamente 30 años, contextura gruesa, estatura baja y vestimenta de color plomo. El individuo se aproxima y arrebata violentamente el perro desde los brazos de (M24), subiéndose nuevamente al vehículo. Las afectadas intentan impedir la huida introduciendo parcialmente sus cuerpos por las ventanas delanteras del automóvil, las cuales se encontraban abiertas. Al iniciar la marcha, el vehículo las arrastra aproximadamente 5 metros, provocando que ambas caigan al pavimento y resulten lesionadas.Ambas presentan lesiones leves.",
-    "cuadrante": "Cuadrante 01",
+    "cuadrante": "Cuadrante 03",
     "numero_parte": 3574,
     "direccion_georref": "NUEVA 365",
     "comuna": "San Pedro de la Paz",
     "concat": "NUEVA 365 , San Pedro de la Paz",
-    "lat": -36.837163609426185,
-    "lon": -73.14480256000067
+    "lat": -36.841698091271546,
+    "lon": -73.13378228512474
   },
   {
     "clasificacion": "DENUNCIA",
@@ -23452,5 +23452,41 @@
     "concat": "CALLE NUEVA & CALLE LOCAL , San Pedro de la Paz",
     "lat": -36.84626460186886,
     "lon": -73.13111592399991
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "20-08-2026",
+    "dia": "JUEVES",
+    "hora": "14:10",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "LOCALES COMERCIALES",
+    "direccion": "AVENIDA DOS SUR 417",
+    "circunstancias": "La víctima (M59) se encontraba sola atendiendo el minimarket \"El Canelo\"en Villa Portal San Pedro. Aproximadamente a las 14:10 horas ingresó una mujer (MX) que vestía chaqueta beige, pantalón negro, gorro negro, bolso y cartera cruzada de color negro y zapatillas blancas, ofreciendo sobres de comino para la venta. Al ser rechazada, salió del local y posteriormente regresó, mientras la víctima se encontraba atendiendo a otra persona. En ese momento ingresó desde el fondo del establecimiento un segundo sujeto (HX), quien vestía ropas oscuras y mantenía el rostro cubierto con una mascarilla. La víctima intentó impedir su huida, produciéndose un forcejeo entre ambos, resultando la víctima con lesiones leves. El sujeto logró escapar por Avenida Dos Sur en dirección al sur hasta calle Vicente Huidobro, donde abordó un vehículo burdeo, marca Daewoo, modelo Llanos, cuya patente no pudo ser observada. El vehículo huyó por Avenida Dos Sur en dirección a Coronel. La víctima revisó la caja registradora y bodega interna, constatando la sustracción de 12 cartones de cigarrillos de diferentes marcas, además de $462000 en efectivo correspondiente a la recaudación de Caja Vecina BancoEstado. Avaluó $1122000. ",
+    "cuadrante": "Cuadrante 05",
+    "numero_parte": 3604,
+    "direccion_georref": "AVENIDA DOS SUR 417",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA DOS SUR 417 , San Pedro de la Paz",
+    "lat": -36.89036228071171,
+    "lon": -73.14525377001132
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "20-08-2026",
+    "dia": "JUEVES",
+    "hora": "22:10",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "AYLEN 2518",
+    "circunstancias": "La víctima (H45) se ausentó del domicilio aproximadamente a las 18:53 horas, quedando el inmueble sin moradores. Regresó junto a su conyuge y su hijo aproximadamente a las 22:10 horas, constatando inicialmente la sustracción de un vehículo Kia Carnival, color gris plateado, año 2026, PPU VLXC38, que se encontraba estacionado frente al domicilio. Al ingresar al inmueble, observó desorden y constató que sujetos habían ingresado y sustraído especies desde el primer y segundo piso, entre ellas una bicicleta Trek modelo Marlin 7 color gris, un televisor Samsung de 75 pulgadas color negro, un notebook HP color gris plata que estaba en un bolso de cuero color camel, un televisor Samsung de 60 pulgadas, diversas joyas guardadas en un joyero y una billetera con documentos personales, tarjetas bancarias y copia de la llave del vehículo sustraído, con un avalúo total al interior del domicilio de $15000000. Los sujetos escalan un muro de 2 metros, compuesto de muro y madera, ingresando por el costado izquierdo del inmueble. Posteriormente forzaron una ventana correspondiente a la logia y dspués la puerta de la cocina. La sustracción del vehículo al mismo tiempo de ausencia de los moradores, utilizando aparentemente la copia de la llave sustraída desde el interior del inmueble. Encargo EUN 708101. El avalúo total $67000000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 935,
+    "direccion_georref": "AYLEN 2518",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AYLEN 2518 , San Pedro de la Paz",
+    "lat": -36.85968729143627,
+    "lon": -73.09534633743597
   }
 ]
