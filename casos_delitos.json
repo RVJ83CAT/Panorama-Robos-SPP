@@ -23488,5 +23488,23 @@
     "concat": "AYLEN 2518 , San Pedro de la Paz",
     "lat": -36.85968729143627,
     "lon": -73.09534633743597
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "21-08-2026",
+    "dia": "VIERNES",
+    "hora": "10:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "UNO NORTE & AVENIDA LAS TORRES",
+    "circunstancias": "Robo de camión de reparto de mercaderías Mitsubishi Fuso, año 2022, blanco,PPU RPYF41, avaluado en $27000000 de la empresa Alvi . El vehículo pertenece a Transportes San Sebastián SPA. El robo ocurre aproximadamente a las 10:00 horas, cuando dos trabajadores (H32) y (H37) se dirigían a las comunas de Coronel y Arauco y decidieron detenerse a tomar desayuno en carros de comida rápida ubicados en las inmediaciones del Megacentro. El camión fue estacionado debidamente cerrado, aproximadamente a 20 metros del lugar donde se encontraban los trabajadores, no mantenían contacto visual con el vehículo. Después de 10 minutos, regresaron al lugar y constataron que el camión ya no se encontraba. Pensaron que podía ser una broma, pero posteriormente verificaron que había sido sustraído. El conductor señala que al momento de descender del vehículo mantenía consigo las llaves. Al interior del camión se encontraban abarrotes, bebidas y otros productos. El vehículo no mantenía cámaras ni sistema de rastreo. Encargo EUN 708141.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 3613,
+    "direccion_georref": "UNO NORTE & AVENIDA LAS TORRES",
+    "comuna": "San Pedro de la Paz",
+    "concat": "UNO NORTE & AVENIDA LAS TORRES , San Pedro de la Paz",
+    "lat": -36.86930836924592,
+    "lon": -73.13752628865798
   }
 ]
