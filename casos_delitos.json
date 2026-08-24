@@ -22707,7 +22707,7 @@
     "lugar": "LOCAL COMERCIAL",
     "direccion": "CALLE LOS SAUCES 23",
     "circunstancias": "El afectado (H56) dejó el automóvil Hyundai Grand i10, año 2019, color blanco, PPU LCCX23, en el estacionamiento del local comercial MI CASA, e ingresa al establecimiento por aproximadamente 30 minutos. Al regresar y dirigirse posteriormente a su lugar de trabajo comenzó a retirar sus herramientas desde el vehículo, percatándose de la sustracción de 01 escalera plegable, 01 rotamartillo y 01 taladro inalámbrico, especies avaluadas en aproximadamente $500000. El hecho fue advertido inicialmente alrededor de las 14:30 horas. Posteriormente, el 11-08-2026, cerca de las 19:00 horas, el afectado concurrió nuevamente al local comercial MI CASA para solicitar acceso a las cámaras de seguridad observándose a 02 sujetos desconocidos sustrayendo las especies desde el interior del vehículo, desplazándose posteriormente en un automóvil. El vehículo se encontraba asegurado.",
-    "cuadrante": "Cuadrante 05",
+    "cuadrante": "Cuadrante 06",
     "numero_parte": 3536,
     "direccion_georref": "CALLE LOS SAUCES 23",
     "comuna": "San Pedro de la Paz",
@@ -23704,5 +23704,23 @@
     "concat": "RENE SCHNEIDER & LOS BOLDOS , San Pedro de la Paz",
     "lat": -36.8470798443176,
     "lon": -73.1402269928428
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "24-08-2026",
+    "dia": "LUNES",
+    "hora": "07:50",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "ESTABLECIMIENTO EDUCACIONAL – COLEGIO LOS EDUCADORES",
+    "direccion": "SATURNO 6-7, SECTOR BOCA SUR VIEJO",
+    "circunstancias": "Robo en establecimiento educacional Colegio Los Educadores, ubicado en calle Saturno N° 6 y 7, sector Boca Sur Viejo. El robo fue advertido el 24-08-2026 a las 07:50 horas, cuando la encargada del establecimiento ingresó al recinto y constató la falta de herramientas y materiales de construcción almacenados en una pequeña bodega ubicada en el Hall Central. Posteriormente, al efectuar un recorrido por las dependencias, observó que una puerta que comunica hacia el comedor se encontraba abierta y que un ventanal de aluminio de aproximadamente 1,00 x 2,00 metros presentaba daños y vidrios quebrados, siendo utilizado como vía de acceso hacia la cocina. Además, en la parte posterior del establecimiento se constató que los autores vandalizaron y desprendieron una reja metálica de protección, quebraron un vidrio y accedieron al interior del recinto. Una vez dentro, los sujetos registraron distintas dependencias con la finalidad de sustraer especies, principalmente herramientas, alimentos no perecibles, productos perecibles y productos cárneos refrigerados. Entre las especies sustraídas se individualizaron 02 taladros eléctricos sin marca ni modelo conocido, 03 martillos de carpintero, 01 set de atornilladores, mercadería no perecible y mercadería perecible junto con productos cárneos. El avalúo total de las especies sustraídas fue estimado en $600.000. MODUS OPERANDI: ingreso mediante vulneración de las medidas de protección física del establecimiento, consistente en desprendimiento y vandalización de una reja metálica, fractura de vidrios y daños en un ventanal y puertas interiores. Los autores ingresaron hasta la cocina y bodega, registraron las dependencias y sustrajeron herramientas y alimentos. De acuerdo con las diligencias policiales, posteriormente abandonaron el inmueble por la misma vía de ingreso, realizando varios viajes para retirar las especies sustraídas. No se observaron huellas dactilares ni huellas de pisadas en las superficies inspeccionadas. El establecimiento no mantiene cámaras de vigilancia CCTV en su interior ni exterior y no se informan alarmas de seguridad. Como antecedente de interés, se mantiene como persona sospechosa a un hombre de 27 años, identificado policialmente como Adonis Esteban Méndez Somoza, C.I. N° 20.022.155-9, quien reside en Saturno N° 08, domicilio colindante al establecimiento y separado por un cierre perimetral de pandereta de aproximadamente 2 metros de altura. Según la información aportada por la denunciante, dicho sujeto sería conocido en el sector por su presunta vinculación con hurtos y robos a domicilios, además de consumo de alcohol y drogas; estos antecedentes corresponden a información obtenida por la encargada desde algunos apoderados y no constituyen por sí mismos una atribución de autoría. La proximidad del domicilio del sospechoso con el establecimiento y su conexión física con el sector donde se observó la vía de ingreso son señaladas en el parte como elementos que podrían guardar relación con el hecho. No se registran testigos directos.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3658,
+    "direccion_georref": "SATURNO 6-7, SECTOR BOCA SUR VIEJO",
+    "comuna": "San Pedro de la Paz",
+    "concat": "SATURNO 6-7, SECTOR BOCA SUR VIEJO , San Pedro de la Paz",
+    "lat": -36.827111238807554,
+    "lon": -73.1443152562245
   }
 ]
