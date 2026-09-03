@@ -24532,5 +24532,23 @@
     "concat": "RIO LIUCURA 3950 , San Pedro de la Paz",
     "lat": -36.85552148681101,
     "lon": -73.14851146056638
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "03-09-2026",
+    "dia": "JUEVES",
+    "hora": "00:35",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "CEMENTERIO PARQUE DEL RECUERDO SAN PEDRO",
+    "direccion": "RUTA 160 & KM 10 CAMINO A CORONEL",
+    "circunstancias": "Durante la madrugada, sujetos desconocidos ingresaron al Cementerio Parque del Recuerdo San Pedro (sector de talleres y bodegas) fracturando el cierre perimetral y forzando las cerraduras de las bodegas, además de desconectar las cámaras N° 1 y 3; el hecho se registró aproximadamente a las 00:35 horas, aunque la central BURSAN informó el ingreso cerca de las 04:57, y de diversas bodegas sustrajeron herramientas y equipos de mantención, jardinería y servicios funerarios (incluyendo galleteras Makita, taladros, máquina de soldar Indura, motobombas, orilladoras y motosierras Scuerna, bicicletas Mérida, escaleras telescópicas, alargadores, un pantógrafo con computador de alta gama, entre otros), con un avalúo preliminar de $40.000.000, parte de los cuales fueron recuperados en un bosque aledaño, mientras que una camioneta Chevrolet LUV 2007 color rojo (PPU KC-9336) presentaba daños en el vidrio y chapa valorizados en $80.000 sin sustracciones.",
+    "cuadrante": "Cuadrante 04",
+    "numero_parte": 3830,
+    "direccion_georref": "RUTA 160 & KM 10 CAMINO A CORONEL",
+    "comuna": "San Pedro de la Paz",
+    "concat": "RUTA 160 & KM 10 CAMINO A CORONEL , San Pedro de la Paz",
+    "lat": -36.87129113660868,
+    "lon": -73.1350771069795
   }
 ]
