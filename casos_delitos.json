@@ -24640,5 +24640,41 @@
     "concat": "PASAJE 46 3540 , San Pedro de la Paz",
     "lat": -36.85180324332843,
     "lon": -73.14503279263339
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "03-09-2026",
+    "dia": "JUEVES",
+    "hora": "20:40",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "ANTUCO 374",
+    "circunstancias": "La denunciante (M64) y su cónyuge (HX) salieron del domicilio a las 17:30 horasregresando alrededor de las 20:40 horas, momento en que advirtieron la presencia de un vehículo station wagon Toyota RAV4 estacionado frente al inmueble, cuya patente no fue recordada. En el interior del vehículo se encontraba un individuo de sexo masculino, quien vestía jockey y permanecía frente al volante. Al advertir la presencia de los moradores, el sujeto comenzó a tocar  la bocina, instante en que observaron a tres individuos de contextura delgada y vestidos con prendas oscuras, descendiendo desde el segundo piso. Uno portaba una caja fuerte que se encontraba en uno de los dormitorios del segundo piso. Los individuos abandonaron el lugar en el vehículo señalado. Al revisar el inmueble, se estableció la sustracción de la caja fuerte, la cual se que se encontraba sin dinero ni especies, y una billetera que contenía $100000 en efectivo. Avalúo $600000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 1000,
+    "direccion_georref": "ANTUCO 374",
+    "comuna": "San Pedro de la Paz",
+    "concat": "ANTUCO 374 , San Pedro de la Paz",
+    "lat": -36.85507515180774,
+    "lon": -73.09024100693848
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "04-09-2026",
+    "dia": "VIERNES",
+    "hora": "07:45",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "ESTABLECIMIENTO EDUCACIONAL",
+    "direccion": "SATURNO 1754",
+    "circunstancias": "Robo en Colegio Los Educadores. A las 07:45 horas, al ingresar al establecimiento, la encargada constató que la sala de profesores se encontraba desordenada y presentaba evidentes signos de fuerza en su puerta. La sala de auxiliares también mantenía daños en su puerta, compatibles con fractura o forzamiento. En la cocina, específicamente en la bodega destinada al almacenamiento, se constató la sustracción de especies consistentes en 05 cajas de yogurt, cada una con 24 unidades, además de bolsas de nuggets y carne, desconociéndose la cantidad exacta de estos últimos productos. El avalúo total informado asciende a $300000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3843,
+    "direccion_georref": "SATURNO 1754",
+    "comuna": "San Pedro de la Paz",
+    "concat": "SATURNO 1754 , San Pedro de la Paz",
+    "lat": -36.827038898831546,
+    "lon": -73.14434944870005
   }
 ]
