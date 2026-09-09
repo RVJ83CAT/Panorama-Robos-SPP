@@ -24946,5 +24946,23 @@
     "concat": "CENTRAL 780 , San Pedro de la Paz",
     "lat": -36.82489210095172,
     "lon": -73.12822629438126
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO POR SORPRESA",
+    "fecha": "09-09-2026",
+    "dia": "MIERCOLES",
+    "hora": "12:00",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "AVENIDA DIAGONAL BIO BIO",
+    "circunstancias": "La víctima (H21) se encontraba sentado en un paradero de buses ubicado en Avenida Diagonal Bio Bio, sector Candelaria, esperando locomoción colectiva hacia su domicilio, cuando fue abordado sorpresivamente por un sujeto de sexo masculino, quien se aproximó por la espalda y le efectuó un tirón a la mochila que mantenía colgada en su hombro izquierdor. El delincuente huyó inmediatamente corriendo hacia la Ruta 160. Especies sustraídas: 01 mochila marca Quechua, color negro con café; 01 tablet marca Lenovo Tab P11 2nd Gen, gris; 01 teclado inalámbrico  gris; y 01 lápiz electrónico  gris. Avalúo total $320000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 3934,
+    "direccion_georref": "AVENIDA DIAGONAL BIO BIO",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA DIAGONAL BIO BIO , San Pedro de la Paz",
+    "lat": -36.83654113529838,
+    "lon": -73.11919099880059
   }
 ]
