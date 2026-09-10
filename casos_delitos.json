@@ -24964,5 +24964,23 @@
     "concat": "AVENIDA DIAGONAL BIO BIO , San Pedro de la Paz",
     "lat": -36.83654113529838,
     "lon": -73.11919099880059
+  },
+  {
+    "clasificacion": "DETENCION",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "10-09-2026",
+    "dia": "JUEVES",
+    "hora": "03:11",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "VIA PUBLICA - CARRO DE COMIDA RAPIDA",
+    "direccion": "TUCAPEL 328",
+    "circunstancias": "Carabineros concurrió a calle Tucapel N° 328 debido a un comunicado de CENCO que informaba que un sujeto estaba robando en carros de comida rápida. Un individuo con vestimentas oscuras se encontraba sustrayendo especies desde uno de ellos (carro de color rosado). Al advertir la presencia policial el sujeto salió del lugar y caminó en dirección norte por una plaza cercana, pero el sujeto llamado Waldo Ernesto Sobrevia Paredes (H37) CI. 17208640-3 es detenido, quien portaba una mochila y un gorro. El sujeto cortó el cable de alimentación eléctrica para apagar las luces exteriores, luego fracturar la chapa de la puerta, forzar una de las ventanas, cortar el candado y dañar la aldaba del compartimiento de almacenamiento de agua. En el lugar fueron encontradas una caja de papel aluminio y un rollo de bolsas plásticas, especies que habían sido retiradas desde el interior del carro. Las especies sustraídas fueron avaluadas en $500000. Portaba marihuana.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 3939,
+    "direccion_georref": "TUCAPEL 328",
+    "comuna": "San Pedro de la Paz",
+    "concat": "TUCAPEL 328 , San Pedro de la Paz",
+    "lat": -36.85438795918025,
+    "lon": -73.13569345131758
   }
 ]
