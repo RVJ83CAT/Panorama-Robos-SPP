@@ -24579,7 +24579,7 @@
     "lugar": "CEMENTERIO PARQUE DEL RECUERDO SAN PEDRO",
     "direccion": "RUTA 160 & KM 10 CAMINO A CORONEL",
     "circunstancias": "Durante la madrugada, sujetos desconocidos ingresaron al Cementerio Parque del Recuerdo San Pedro (sector de talleres y bodegas) fracturando el cierre perimetral y forzando las cerraduras de las bodegas, además de desconectar las cámaras N° 1 y 3; el hecho se registró aproximadamente a las 00:35 horas, aunque la central BURSAN informó el ingreso cerca de las 04:57, y de diversas bodegas sustrajeron herramientas y equipos de mantención, jardinería y servicios funerarios (incluyendo galleteras Makita, taladros, máquina de soldar Indura, motobombas, orilladoras y motosierras Scuerna, bicicletas Mérida, escaleras telescópicas, alargadores, un pantógrafo con computador de alta gama, entre otros), con un avalúo preliminar de $40000000, parte de los cuales fueron recuperados en un bosque aledaño, mientras que una camioneta Chevrolet LUV 2007 color rojo (PPU KC-9336) presentaba daños en el vidrio y chapa valorizados en $80.000 sin sustracciones.",
-    "cuadrante": "Cuadrante 05",
+    "cuadrante": "Cuadrante 06",
     "numero_parte": 3830,
     "direccion_georref": "RUTA 160 & KM 10 CAMINO A CORONEL",
     "comuna": "San Pedro de la Paz",
@@ -24982,5 +24982,23 @@
     "concat": "TUCAPEL 328 , San Pedro de la Paz",
     "lat": -36.85438795918025,
     "lon": -73.13569345131758
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "10-09-2026",
+    "dia": "JUEVES",
+    "hora": "07:50",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "ESTABLECIMIENTO EDUCACIONAL",
+    "direccion": "CALLE SATURNO 6",
+    "circunstancias": "Sujetos ingresan al Colegio Los Educadores. El hecho fue advertido aproximadamente a las 07:50 horas, cuando llega la encargada del establecimiento constatando daños en una de las ventanas del baño de niñas (reja exterior y cubierta plástica). Los sujetos una vez al interior, sustrajeron desde la cocina 02 balanzas para alimentos, además de yogurt (cantidad no determinada), queso (cantidad y pesaje no determinados) y 10 kg de pollo crudo. Mantiene una cámara de seguridad orientada hacia el hall principal, la cual no permite captar el camino utilizado por los sujetos. Avalúo total por daños y especies sustraídas $400000.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 3944,
+    "direccion_georref": "CALLE SATURNO 6",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALLE SATURNO 6 , San Pedro de la Paz",
+    "lat": -36.82722371287801,
+    "lon": -73.14404725330199
   }
 ]
