@@ -25423,14 +25423,14 @@
     "hora": "16:10",
     "rango_hora": "16:00 a 19:59",
     "lugar": "OTROS LUGARES",
-    "direccion": "AVENIDA LAGUNA GRADE 115",
+    "direccion": "AVENIDA LAGUNA GRANDE 115",
     "circunstancias": "Sustracción de especies desde el interior de un vehículo marca Nissan, modelo Kicks, año 2022, color rojo, PPU. RVDP51, estacionado en Avenida Laguna Grande N°115, específicamente en el Strip Center Laguna Grande. El vehículo permaneció estacionado aproximadamente durante 40 minutos y, al regresar a su domicilio, la afectada (M34) constató que desde el maletero habían sido sustraídas cuatro mochilas que contenían vestimentas varias alusivas al 18 de septiembre: dos mochilas marca Bubba, una de color azul y otra negra, y dos mochilas marca Head, ambas de color negro. Avalúo total de las especies: $150000. Se presume uso de inhibidor de señal para acceder a su interior.",
     "cuadrante": "Cuadrante 07",
     "numero_parte": 1031,
-    "direccion_georref": "AVENIDA LAGUNA GRADE 115",
+    "direccion_georref": "AVENIDA LAGUNA GRANDE 115",
     "comuna": "San Pedro de la Paz",
-    "concat": "AVENIDA LAGUNA GRADE 115 , San Pedro de la Paz",
-    "lat": NaN,
-    "lon": NaN
+    "concat": "AVENIDA LAGUNA GRANDE 115 , San Pedro de la Paz",
+    "lat": -36.839422324786455,
+    "lon": -73.11949198916341
   }
 ]
