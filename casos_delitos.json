@@ -25432,5 +25432,23 @@
     "concat": "AVENIDA LAGUNA GRANDE 115 , San Pedro de la Paz",
     "lat": -36.839422324786455,
     "lon": -73.11949198916341
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "14-09-2026",
+    "dia": "LUNES",
+    "hora": "22:05",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PARQUE NACIONAL TORRES DEL PAINE 7045",
+    "circunstancias": "La afectada (M27) salió de su domicilio a las 09:30 horas para trasladar a su hija al colegio en Concepción y posteriormente realizar trámites personales durante la tarde, regresando posteriormente al inmueble, sin precisar hora de llegada. Al regresar constató que la puerta de acceso se encontraba abierta y presentaba daños en el marco a la altura de la cerradura. En el interior del inmueble se verificó la sustracción de diversas especies, detalladas en acta, con avalúo de $400000. Los sujetos ingresaron mediante fractura de puerta/ventana, específicamente forzando o fracturando la zona de la cerradura de la puerta principal. El inmueble quedó con desorden en todas las habitaciones, cocina y living. Hay cámaras de seguridad en el sitio del suceso.",
+    "cuadrante": "Cuadrante 05",
+    "numero_parte": 4021,
+    "direccion_georref": "PARQUE NACIONAL TORRES DEL PAINE 7045",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PARQUE NACIONAL TORRES DEL PAINE 7045 , San Pedro de la Paz",
+    "lat": -36.8837963334232,
+    "lon": -73.1446751570837
   }
 ]
