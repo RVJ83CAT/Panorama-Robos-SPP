@@ -26047,6 +26047,24 @@
   },
   {
     "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "21-09-2026",
+    "dia": "LUNES",
+    "hora": "22:30",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "AVENIDA JORGE ALESSANDRI & LOS PENSAMIENTOS",
+    "circunstancias": "Dos sujetos, con rostros cubiertos y capucha, abordaron a la víctima (M34) en una pasarela ubicada antes del ingreso al Puente Juan Pablo II, luego de que descendiera de un microbus Lota-Coronel proveniente de Lomas Coloradas. Uno de los sujetos, de 1,78 m de estatura y tez blanca, vestía jeans y polerón negro; el segundo, de aproximadamente 1,70 m, vestía jeans y polerón azul claro. El sujeto mas alto se posicionó frente a la víctima y la intimidó con un cuchillo, exigiendo sus pertenencias, mientras el segundo se ubicó detrás y le colocó un cuchillo en la espalda,  Le roban un celular iPhone 17 Pro Max blanco, reloj Apple Watch 11 color rose gold, un par de zapatillas Nike Vomero azul, un iPad Pro de 11 pulgadas color negro espacial con Apple Pencil inalámbrico, mochila Nike color negra, dos libros (uno de Derecho y otro de lectura) y un par de gafas Ray-Ban con cristales café y marco dorado. Ambos sujetos huyeron en dirección al paradero. La víctima por temor huyó hacia Huertos Familiares. Avalúo $4000000. ",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 4128,
+    "direccion_georref": "AVENIDA JORGE ALESSANDRI & LOS PENSAMIENTOS",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA JORGE ALESSANDRI & LOS PENSAMIENTOS , San Pedro de la Paz",
+    "lat": -36.83470899249536,
+    "lon": -73.10110016539295
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO VIOLENTO DE VEHICULO",
     "fecha": "21-09-2026",
     "dia": "LUNES",
@@ -26059,7 +26077,7 @@
     "numero_parte": 4125,
     "direccion_georref": "AVENIDA LOS PARQUES & COSTANERA",
     "comuna": "San Pedro de la Paz",
-    "concat": "-36.88194936267479, -73.14986372826351",
+    "concat": "AVENIDA LOS PARQUES & COSTANERA , San Pedro de la Paz",
     "lat": -36.88194936267479,
     "lon": -73.14986372826351
   }
