@@ -26278,5 +26278,23 @@
     "concat": "CALLE EL SOL & CALETA ALTO DEL REY , San Pedro de la Paz",
     "lat": -36.82554756894381,
     "lon": -73.1485405528536
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "23-09-2026",
+    "dia": "MIERCOLES",
+    "hora": "23:54",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "LOS PENSAMIENTOS 395",
+    "circunstancias": "Robo en lugar no habitado en un inmueble utilizado como oficina y bodega en calle , donde sujetos desconocidos ingresaron forzando la reja de acceso y los candados del portón interior para sustraer desde cinco dependencias diversas herramientas de construcción (como escaleras, un rotomartillo Hilti, un cango Makita y una soldadora) avaluadas en $4000000. Tras ser alertado por una vecina, el denunciante (H42) dio aviso a Carabineros, informando que los delincuentes huyeron en una camioneta Chevrolet Luv azul PPU. BA7764; las diligencias policiales permitieron identificar a la propietaria del vehículo en Penco, aunque su domicilio se encontraba sin moradores.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 4169,
+    "direccion_georref": "LOS PENSAMIENTOS 395",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS PENSAMIENTOS 395 , San Pedro de la Paz",
+    "lat": -36.83371328826656,
+    "lon": -73.10224815316792
   }
 ]
