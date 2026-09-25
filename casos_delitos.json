@@ -26314,5 +26314,23 @@
     "concat": "LOS CARRERA 240 , San Pedro de la Paz",
     "lat": -36.84487560135149,
     "lon": -73.14211817890485
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "25-09-2026",
+    "dia": "VIERNES",
+    "hora": "07:40",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "ESTABLECIMIENTO EDUCACIONAL",
+    "direccion": "LOS PIDENES & CANDELARIA",
+    "circunstancias": "Un sujeto no identificado de entre 20 y 30 años cometió un robo con intimidación abordando a la víctima (H15) que se dirigía a su colegio, exigiéndole la entrega de su teléfono celular marca Infinix bajo amenaza verbal y apoyándole la punta de un cuchillo de mesa en el antebrazo. Tras el robo, el delincuente afirmó ser \"El Pinta de Candelaria\" y huyó a pie del lugar. El menor resultó sin lesiones y se iniciaron patrullajes preventivos en el sector basándose en las características del sospechoso y su apodo, no se logró su ubicación; no obstante, el equipo habría sido recuperado por un residente local tras un hallazgo en el contexto de otro hecho delictivo. Avalúo $500000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 4188,
+    "direccion_georref": "LOS PIDENES & CANDELARIA",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS PIDENES & CANDELARIA , San Pedro de la Paz",
+    "lat": -36.83384411387965,
+    "lon": -73.11758458304993
   }
 ]
