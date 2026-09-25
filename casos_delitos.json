@@ -26332,5 +26332,23 @@
     "concat": "LOS PIDENES & CANDELARIA , San Pedro de la Paz",
     "lat": -36.83384411387965,
     "lon": -73.11758458304993
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "25-09-2026",
+    "dia": "VIERNES",
+    "hora": "15:00",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "DANIEL BELMAR & PASAJE DANIEL BELMAR INTERIOR",
+    "circunstancias": "Víctima (M48) fue abordada aproximadamente a las 15:00 horas, luego de descender de un bus en el paradero ubicado en Calle Daniel Belmar, intersección Pasaje Daniel Belmar Interior. Previamente, a las 13:00 horas, había concurrido a la sucursal Banco Santander ubicada en Calle O'Higgins, Concepción, donde realizó un giro de $300.000 en efectivo. El sujeto, tiene 18 años aproximadamente, de tez morena, contextura delgada y estatura baja, vestía polerón negro con capucha puesta y pantalón tipo jeans rasgado, cuyo color la víctima no recuerda. El sujeto descendió simultáneamente del bus por la puerta delantera, se levantó el polerón y exhibió una pistola que mantenía en el cinto del pantalón, intimidando verbalmente a la víctima para que entregara el dinero. La víctima entrega de $300.000 en efectivo. El delincuentes tomó el dinero y huyó a pie por Calle Balmaceda en dirección a Boca Sur Viejo. Avalúo total: $300000.. La víctima señala mantener seguro contra robo.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 4191,
+    "direccion_georref": "DANIEL BELMAR & PASAJE DANIEL BELMAR INTERIOR",
+    "comuna": "San Pedro de la Paz",
+    "concat": "DANIEL BELMAR & PASAJE DANIEL BELMAR INTERIOR , San Pedro de la Paz",
+    "lat": -36.8396951953519,
+    "lon": -73.13027033302822
   }
 ]
