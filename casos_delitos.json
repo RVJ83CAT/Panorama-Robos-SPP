@@ -26530,5 +26530,23 @@
     "concat": "AVENIDA COSTANERA 4471 , San Pedro de la Paz",
     "lat": -36.85987867353873,
     "lon": -73.14884512549023
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "28-09-2026",
+    "dia": "LUNES",
+    "hora": "06:30",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LAS GOLONDRINAS 319",
+    "circunstancias": "La víctima (H46) estacionó frente a su domicilio a las 00:00 horas, el automóvil BYD,  F0,  rojo,  2012, PPU. DLHH30. Alrededor de las 06:30 horas, al levantarse para iniciar su jornada laboral, constató que durante la noche sujetos desconocidos habían fracturado la chapa de la puerta del conductor y la chapa del portalón, ingresando al vehículo y sustrayendo desde su interior: 01 caja de dados sin marca, color negro; 01 caja de herramientas con múltiples herramientas; 01 subwoofer color negro; 01 mochila color rojo con ropa de trabajo con insignia IMATTEX y zapatos de seguridad; y 01 inflador de neumáticos portátil. Avalúo $600000.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 4243,
+    "direccion_georref": "LAS GOLONDRINAS 319",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAS GOLONDRINAS 319 , San Pedro de la Paz",
+    "lat": -36.83168030392891,
+    "lon": -73.11720882803924
   }
 ]
