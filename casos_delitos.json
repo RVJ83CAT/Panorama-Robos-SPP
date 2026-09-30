@@ -26656,5 +26656,23 @@
     "concat": "FELIPE CAMIROAGA 578 , San Pedro de la Paz",
     "lat": -36.89652009192164,
     "lon": -73.13473022071953
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON VIOLENCIA",
+    "fecha": "29-09-2026",
+    "dia": "MARTES",
+    "hora": "23:30",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "SEGUNDA LONGITUDINAL & GABRIELA MISTRAL",
+    "circunstancias": "Dos víctimas (M25) y (H22) se desplazaban a pie por calle Segunda Longitudinal hacia el SAR Boca Sur luego de descender erróneamente de un bus de locomoción colectiva debido a que la mujer presentaba una crisis asmática. Al llegar a la intersección con Gabriela Mistral la mujer se detuvo junto a un poste de alumbrado a vomitar. Aparecen dos sujetos desconocidos —uno con el rostro cubierto y otro armado con un cuchillo— los abordaron y siguieron; el primer delincuente agredió a la joven sujetándola y propinándole una patada en el tobillo para arrebatarle su cartera, mientras el segundo amedrentó a su acompañante con el arma blanca para impedir que interviniera. Tras sustraer la cartera (lentes ópticos con tratamiento especial para miopía y astigmatismo, marco metálico color rosa; batería portátil; cable original para teléfono iPhone; billetera; aproximadamente $1.000 en efectivo; juego de llaves; cuadernos, apuntes, lápices y otras especies personales y de estudio). Avalúo $150000.Los delincuentes huyeron hacia unos blocks de departamentos del sector. La mujer resultó con una contusión leve en el tobillo izquierdo.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 4266,
+    "direccion_georref": "SEGUNDA LONGITUDINAL & GABRIELA MISTRAL",
+    "comuna": "San Pedro de la Paz",
+    "concat": "SEGUNDA LONGITUDINAL & GABRIELA MISTRAL , San Pedro de la Paz",
+    "lat": -36.84316414436361,
+    "lon": -73.14362366325413
   }
 ]
