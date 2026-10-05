@@ -27124,5 +27124,23 @@
     "concat": "GABRIELA MISTRAL 805 , San Pedro de la Paz",
     "lat": -36.88240342208403,
     "lon": -73.12987840027361
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "05-10-2026",
+    "dia": "LUNES",
+    "hora": "02:30",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "LOS CEREZOS 6",
+    "circunstancias": "La afectada (M52) se encontraba al interior de su domicilio pernoctando junto a su grupo familiar cuando, aproximadamente a las 02:30 horas, escuchó ruidos y al dirigirse al primer piso observó 03 sombras correspondientes a sujetos desconocidos al interior del inmueble. Al advertir la presencia los sujetos huyeron escalando la pared que colinda con el patio de un inmueble vecino colindante actualmente deshabitado. Entraron forzando un ventanal de aproximadamente 2 x 2 metros, sustrajeron 01 chaqueta de mujer Michael Kors, color negro; 01 chaqueta de hombre color verde musgo, marca no recordada; y 01 llave correspondiente a un Station Wagon Toyota RAV4, color gris, PPU. LLHJ51. Avaluó total $600000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 1105,
+    "direccion_georref": "LOS CEREZOS 6",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS CEREZOS 6 , San Pedro de la Paz",
+    "lat": -36.83887133832686,
+    "lon": -73.10383024409057
   }
 ]
