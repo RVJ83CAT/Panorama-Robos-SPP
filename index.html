@@ -149,6 +149,15 @@
     }
     .filtro-grupo select option { background: #1a1e24; }
 
+    /* ── BOTONES RÁPIDOS DE PERÍODO ── */
+    .btn-periodo {
+      flex: 1; padding: 8px 6px; border-radius: 6px; cursor: pointer;
+      border: 1px solid rgba(57,255,20,0.35); background: rgba(5,105,12,0.45);
+      color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+      font-family: Arial, sans-serif; transition: background 0.2s;
+    }
+    .btn-periodo:hover { background: rgba(57,255,20,0.18); }
+
     /* ── BOTONES INFERIORES ── */
     .btn-container {
       position: fixed; bottom: 12px; left: 60px; right: 44px;
@@ -606,6 +615,10 @@
     <div class="filtro-grupo" style="flex:1;"><label>Fecha Inicio</label><input type="date" id="fechaInicio"></div>
     <div class="filtro-grupo" style="flex:1;"><label>Fecha Fin</label><input type="date" id="fechaFin"></div>
   </div>
+  <div style="display:flex;gap:8px;margin:-4px 0 14px;">
+    <button type="button" class="btn-periodo" id="btnAnioCurso">📅 Año en curso</button>
+    <button type="button" class="btn-periodo" id="btnTodosAnios">♾ Todos los años</button>
+  </div>
   <div class="filtro-grupo"><label>Búsqueda (usa + para múltiples)</label><input type="text" id="buscarCircunstancias" placeholder="Ej: Kia + bicicleta"></div>
 </div>
 
@@ -690,9 +703,9 @@
         <option value="portrait">Vertical</option><option value="landscape">Horizontal</option>
       </select>
     </label>
-    <label style="color:white;font-weight:bold;font-size:13px;">Mostrar Ruta:
+    <label style="color:white;font-weight:bold;font-size:13px;">Mostrar Lista de Ruta:
       <select id="mostrarRutaSelect" style="margin-left:4px;padding:6px 8px;border-radius:5px;font-size:13px;">
-        <option value="no">No</option><option value="si">Sí</option>
+        <option value="no" selected>No</option><option value="si">Sí</option>
       </select>
     </label>
     <button id="printButton" style="padding:9px 20px;background:#05690c;color:white;border:none;border-radius:7px;cursor:pointer;font-weight:700;font-size:14px;">🖨 Imprimir</button>
@@ -750,6 +763,7 @@ class MapaDelitos {
     this.zonaFiltro = null; this.hotspotLayers = [];
     this.seleccionManualActiva = false; this.casosSeleccionados = new Set();
     this.routeInstructions = [];
+    this._lineaRutaGeoJSON = null; // Guardará las coordenadas mapeadas a [lat, lng]
     this.panelDibujoVisible = false;
     this.panelSeleccionVisible = false;
 
@@ -778,6 +792,9 @@ class MapaDelitos {
     this.marcadoresLayer = L.layerGroup();
     this.previousLayer = L.layerGroup();
     this.map.addLayer(this.clusterGroup);
+
+    /* Al activar una capa (Cuadrantes, Barrios, etc.) la ruta vuelve al frente */
+    this.map.on('overlayadd', () => this._rutaAlFrente());
 
     /* Íconos */
     this.delitoIcons = {
@@ -817,6 +834,14 @@ class MapaDelitos {
     return ord;
   }
 
+  /* Trae la línea de la ruta al frente de las capas GeoJSON activas */
+  _rutaAlFrente() {
+    try {
+      const line = this.routingControl && this.routingControl._line;
+      if (line && line.eachLayer) line.eachLayer(l => { if (l.bringToFront) l.bringToFront(); });
+    } catch(e) {}
+  }
+
   /* ── RUTA ÓPTIMA ── */
   calcularRutaOptima() {
     if(this.filtrados.length<2) return alert('Se necesitan al menos 2 casos filtrados');
@@ -825,6 +850,8 @@ class MapaDelitos {
     const waypoints = ordenados.map(p=>L.latLng(p.lat,p.lon));
     if(this.routingControl){this.map.removeControl(this.routingControl);this.routingControl=null;}
     this.routeInstructions = [];
+    this._lineaRutaGeoJSON = null;
+
     this.routingControl = L.Routing.control({
       waypoints,
       router: L.Routing.osrmv1({serviceUrl:'https://router.project-osrm.org/route/v1',language:'es'}),
@@ -835,6 +862,11 @@ class MapaDelitos {
 
     this.routingControl.on('routesfound', e => {
       const route = e.routes[0];
+
+      /* Mapeo de coordenadas OSRM a formato [lat, lng] para L.polyline */
+      this._lineaRutaGeoJSON = route.coordinates.map(c => [c.lat, c.lng]);
+      setTimeout(() => this._rutaAlFrente(), 0);
+
       const totalKm = (route.summary.totalDistance/1000).toFixed(2);
       const totalMin = Math.round(route.summary.totalTime/60);
       document.getElementById('rutaInfo').innerHTML = `${totalKm} km · ${totalMin} min`;
@@ -883,6 +915,7 @@ class MapaDelitos {
   }
   cerrarRuta() {
     if(this.routingControl){this.map.removeControl(this.routingControl);this.routingControl=null;}
+    this._lineaRutaGeoJSON = null;
     document.getElementById('panelRuta').classList.remove('visible');
   }
 
@@ -992,7 +1025,6 @@ class MapaDelitos {
     this.drawLayer = new L.FeatureGroup();
     this.map.addLayer(this.drawLayer);
 
-    /* Helper: obtener estilo actual del panel */
     const getZonaStyle = () => {
       const color   = document.getElementById('zonaColorBorde').value;
       const fill    = document.getElementById('zonaColorRelleno').value;
@@ -1003,7 +1035,6 @@ class MapaDelitos {
       return { color, fillColor: fill, weight: grosor, fillOpacity: opac, dashArray: dash, opacity: 1 };
     };
 
-    /* Actualizar preview SVG */
     const actualizarPreview = () => {
       const s = getZonaStyle();
       const r = document.getElementById('previewRect');
@@ -1013,7 +1044,6 @@ class MapaDelitos {
       r.setAttribute('fill', s.fillColor);
       r.setAttribute('fill-opacity', s.fillOpacity);
       r.setAttribute('stroke-dasharray', s.dashArray || 'none');
-      /* Actualizar forma dibujada si existe */
       if (this.zonaFiltro && this.zonaFiltro.setStyle) this.zonaFiltro.setStyle(s);
     };
 
@@ -1030,7 +1060,6 @@ class MapaDelitos {
       actualizarPreview();
     });
 
-    /* DrawControl (sin toolbar visible, solo para los handlers) */
     this.drawControl = {
       options: {
         draw: {
@@ -1064,7 +1093,6 @@ class MapaDelitos {
       document.getElementById('infoPoligono').style.display = 'none';
     });
 
-    /* Botones dibujo — siempre leer estilo actual */
     document.getElementById('btnIniciarDibujo').onclick = () => {
       new L.Draw.Polygon(this.map, { shapeOptions: getZonaStyle() }).enable();
     };
@@ -1103,7 +1131,6 @@ class MapaDelitos {
           geojson=JSON.parse(text);
         }
         if(geojson) {
-          /* Leer estilo actual del panel */
           const color  = document.getElementById('zonaColorBorde')?.value || '#39ff14';
           const fill   = document.getElementById('zonaColorRelleno')?.value || '#39ff14';
           const grosor = parseInt(document.getElementById('zonaGrosor')?.value) || 3;
@@ -1225,7 +1252,6 @@ class MapaDelitos {
       });
       const data = await r.json();
       if (!data.length) {
-        /* Reintentar sin restricción geográfica */
         const r2 = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=6&accept-language=es`);
         const data2 = await r2.json();
         this._mostrarResultadosBusqueda(data2, res);
@@ -1242,7 +1268,6 @@ class MapaDelitos {
       res.innerHTML = '<div style="padding:10px;color:#aaa;font-size:12px;">Sin resultados.</div>';
       return;
     }
-    /* Limpiar marcador anterior */
     if (this._searchMarker) { this.map.removeLayer(this._searchMarker); this._searchMarker = null; }
     res.innerHTML = data.map((item, i) => `
       <div onclick="mapa._irAResultado(${item.lat},${item.lon},'${(item.display_name||'').replace(/'/g,"\\'").substring(0,80)}')"
@@ -1322,6 +1347,13 @@ class MapaDelitos {
     this.aplicarFiltros();
   }
 
+  /* ── PERÍODO POR DEFECTO: AÑO EN CURSO ── */
+  aplicarAnioEnCurso() {
+    const y = new Date().getFullYear();
+    document.getElementById('fechaInicio').value = `${y}-01-01`;
+    document.getElementById('fechaFin').value = `${y}-12-31`;
+  }
+
   /* ── FILTROS ── */
   aplicarFiltros() {
     if(this.seleccionManualActiva) return;
@@ -1396,7 +1428,11 @@ class MapaDelitos {
     if(s.rango.length) partes.push(s.rango.join(', '));
     if(s.semana.length) partes.push(s.semana.join(', '));
     if(s.cuadrante.length) partes.push(s.cuadrante.join(', '));
-    if(s.inicio||s.fin) partes.push(`Fechas: ${s.inicio||'...'} → ${s.fin||'...'}`);
+    if(s.inicio||s.fin) {
+      const yr = new Date().getFullYear();
+      if(s.inicio===`${yr}-01-01` && s.fin===`${yr}-12-31`) partes.push(`Año ${yr}`);
+      else partes.push(`Fechas: ${s.inicio||'...'} → ${s.fin||'...'}`);
+    }
     if(s.texto) partes.push(`"${s.texto}"`);
     let subt=partes.length?partes.join(' | '):'Todos los casos';
     if(this.comparePrevious) subt+=' + Período Anterior';
@@ -1426,9 +1462,19 @@ class MapaDelitos {
 
   exportarDatos() {
     if(!this.filtrados.length) return alert('No hay datos para exportar');
+    const rangoHorario=hora=>{
+      const h=parseInt((hora||'').split(':')[0]);
+      if(isNaN(h)) return '';
+      if(h<=3) return '00:00 a 03:59';
+      if(h<=7) return '04:00 a 07:59';
+      if(h<=11) return '08:00 a 11:59';
+      if(h<=15) return '12:00 a 15:59';
+      if(h<=19) return '16:00 a 19:59';
+      return '20:00 a 23:59';
+    };
     const data=this.filtrados.map((c,i)=>({
       N:i+1, "N° Parte":c.numero_parte||'', Clasificacion:c.clasificacion||'',
-      Delito:c.delito||'', Fecha:c.fecha||'', Hora:c.hora||'', Dia:c.dia||'',
+      Delito:c.delito||'', Fecha:c.fecha||'', Hora:c.hora||'', "Rango Horario":rangoHorario(c.hora), Dia:c.dia||'',
       Lugar:c.lugar||'', Direccion:c.direccion||'', Cuadrante:c.cuadrante||'',
       Circunstancias:c.circunstancias||'', Lat:c.lat||'', Lon:c.lon||''
     }));
@@ -1500,7 +1546,7 @@ class MapaDelitos {
     if(el){el.classList.add('activo');el.scrollIntoView({behavior:'smooth',block:'nearest'});}
   }
 
-  /* ── IMPRESIÓN (estilo original) ── */
+  /* ── IMPRESIÓN ── */
   prepararImpresion() {
     const printModal = document.getElementById('printModal');
     const printContent = document.getElementById('printContent');
@@ -1522,7 +1568,7 @@ class MapaDelitos {
     mainArea.appendChild(header);
     this.makeDraggableResizable(header);
 
-    /* ── LOGO — flota sobre el header, no le quita espacio ── */
+    /* ── LOGO ── */
     const logoPrint = document.createElement('img');
     logoPrint.src = './iconos/logo-sexta.png';
     logoPrint.id = 'printLogo';
@@ -1548,35 +1594,91 @@ class MapaDelitos {
     printModal.style.display = 'block';
 
     setTimeout(() => {
-      /* ── MAPA DE IMPRESIÓN ── */
       if (window._printMap) { try { window._printMap.remove(); } catch(e){} window._printMap = null; }
 
-      const printMap = L.map('printMapInteractive', { zoomControl:true, zoomSnap:0.1, zoomDelta:0.1, wheelPxPerZoomLevel:200 });
+      let printMap = null;
+
+      /* ── TAMAÑO DE PAPEL: se aplica ANTES de crear el mapa para que el
+             contenedor tenga alto real (evita el mapa en blanco con ruta + capas) ── */
+      const sizes = { A4:{w:'210mm',h:'297mm'}, Letter:{w:'215.9mm',h:'279.4mm'}, Legal:{w:'215.9mm',h:'355.6mm'}, Folio:{w:'215.9mm',h:'330.2mm'} };
+      const updateSize = () => {
+        const fmt = document.getElementById('paperSizeSelect').value;
+        const ori = document.getElementById('orientationSelect').value;
+        const s = sizes[fmt]||sizes.Folio;
+        printContent.style.width     = ori==='landscape'?s.h:s.w;
+        printContent.style.minHeight = ori==='landscape'?s.w:s.h;
+        mainArea.style.width  = ori==='landscape'?s.h:s.w;
+        mainArea.style.height = ori==='landscape'?s.w:s.h;
+        if (printMap) printMap.invalidateSize({ animate:false });
+      };
+      updateSize();
+
+      printMap = L.map('printMapInteractive', { zoomControl:true, zoomSnap:0.1, zoomDelta:0.1, wheelPxPerZoomLevel:200 });
       window._printMap = printMap;
 
+      /* Vista inicial válida: así todas las capas (vectoriales y de tiles) se montan de inmediato */
+      printMap.setView(this.map.getCenter(), this.map.getZoom(), { animate:false });
+      printMap.invalidateSize({ animate:false });
+
+      /* Panes con orden fijo: capas (400) < ruta (450) < marcadores (600) */
+      printMap.createPane('rutaPane');
+      printMap.getPane('rutaPane').style.zIndex = 450;
+
+      /* ── MAPA BASE ── */
       const activeKey = Object.keys(this.baseLayers).find(k => this.map.hasLayer(this.baseLayers[k]));
       if (activeKey) {
         const orig = this.baseLayers[activeKey];
         L.tileLayer(orig._url, Object.assign({}, orig.options)).addTo(printMap);
+      } else {
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution:'© OpenStreetMap contributors' }).addTo(printMap);
       }
 
+      /* ── CAPAS ACTIVAS (Cuadrantes, Barrios, etc.) ── */
       const overlayStyles = {
         'Barrios SPP 2024':             { color:'#ff7800', weight:4, fillOpacity:0.1 },
-        'Cuadrantes':                   { color:'#ff0000', weight:5, opacity:1, fillOpacity:0, fill:false },
+        'Cuadrantes':                    { color:'#ff0000', weight:5, opacity:1, fillOpacity:0, fill:false },
         'Calle sin Violencia Sept 2025':{ color:'#ffeb3b', weight:4, fillOpacity:0.2 },
         'Calle sin Violencia':          { color:'#ffeb3b', weight:4, fillOpacity:0.15 },
         'Barrio Prioritario':           { color:'#4caf50', weight:4, fillOpacity:0.2 }
       };
       Object.entries(this.overlayLayers).forEach(([name, layer]) => {
         if (this.map.hasLayer(layer)) {
-          try { L.geoJSON(layer.toGeoJSON(), { style: () => overlayStyles[name] || { color:'#ff7800', weight:3, fillOpacity:0.1 } }).addTo(printMap); } catch(e) {}
+          try {
+            L.geoJSON(layer.toGeoJSON(), {
+              style: () => overlayStyles[name] || { color:'#ff7800', weight:3, fillOpacity:0.1 },
+              interactive: false
+            }).addTo(printMap);
+          } catch(e) { console.error('Error al copiar capa a impresión:', name, e); }
         }
       });
 
+      /* ── ZONA DIBUJADA ── */
       if (this.zonaFiltro) {
-        try { const gj = this.zonaFiltro.toGeoJSON ? this.zonaFiltro.toGeoJSON() : null; if (gj) L.geoJSON(gj, { style:{ color:'#39ff14', weight:3, fillOpacity:0.1 } }).addTo(printMap); } catch(e) {}
+        try {
+          const gj = this.zonaFiltro.toGeoJSON ? this.zonaFiltro.toGeoJSON() : null;
+          if (gj) L.geoJSON(gj, { style:{ color:'#39ff14', weight:3, fillOpacity:0.1 }, interactive:false }).addTo(printMap);
+        } catch(e) {}
       }
 
+      /* ── TRAZADO DE RUTA (siempre sobre las capas) ── */
+      let rutaPolyline = null;
+      if (this._lineaRutaGeoJSON && this._lineaRutaGeoJSON.length > 0) {
+        try {
+          rutaPolyline = L.polyline(this._lineaRutaGeoJSON, {
+            pane: 'rutaPane',
+            color: '#00bcd4',
+            weight: 7,
+            opacity: 0.9,
+            lineJoin: 'round',
+            lineCap: 'round',
+            interactive: false
+          }).addTo(printMap);
+        } catch(e) {
+          console.error('Error al renderizar ruta en impresión:', e);
+        }
+      }
+
+      /* ── MARCADORES ── */
       const printMarkers = this.clusterEnabled ? createClusterGroup() : L.layerGroup();
       this.filtrados.forEach((c, i) => { if (c.lat && c.lon) printMarkers.addLayer(this.crearMarcador(c, i)); });
       if (this.comparePrevious) {
@@ -1585,19 +1687,29 @@ class MapaDelitos {
         });
       }
       printMap.addLayer(printMarkers);
-      if (this.filtrados.length > 0) {
-        printMap.fitBounds(L.latLngBounds(this.filtrados.map(c=>[c.lat,c.lon])), { padding:[60,60] });
-      } else {
-        printMap.setView(this.map.getCenter(), this.map.getZoom());
-      }
-      printMap.invalidateSize();
+
+      /* ── ENCUADRE ÚNICO (ruta + casos), con el contenedor ya dimensionado ── */
+      const ajustarVista = () => {
+        printMap.invalidateSize({ animate:false });
+        const bounds = L.latLngBounds([]);
+        if (rutaPolyline) bounds.extend(rutaPolyline.getBounds());
+        this.filtrados.forEach(c => { if (c.lat && c.lon) bounds.extend([c.lat, c.lon]); });
+        if (bounds.isValid()) printMap.fitBounds(bounds, { padding:[50,50], animate:false });
+      };
+      ajustarVista();
+
       this.makeDraggableResizable(mapDiv);
+
+      /* Si el usuario redimensiona el recuadro del mapa, Leaflet se reajusta */
+      if (window.ResizeObserver) {
+        new ResizeObserver(() => { try { printMap.invalidateSize({ animate:false }); } catch(e) {} }).observe(mapDiv);
+      }
 
       /* ── CARDS ── */
       const fs = parseInt(document.getElementById('fontSizeSelect').value) || 6;
       const ff = document.getElementById('fontFamilySelect').value || 'Arial';
       this.filtrados.forEach((c, i) => {
-        const numSize = fs + 10; /* número siempre 10px más que la fuente base */
+        const numSize = fs + 10;
         const card = document.createElement('div');
         card.className = 'pcard';
         card.style.cssText = `position:absolute;top:${80+Math.floor(i/3)*120}px;left:${(i%3)*33.3}%;width:200px;min-height:80px;background:white;border-left:5px solid ${this.getColor(c.delito)};padding:5px;font-family:${ff};font-size:${fs}px;line-height:1.2;box-shadow:0 2px 6px rgba(0,0,0,0.15);cursor:move;overflow:hidden;z-index:100;`;
@@ -1611,7 +1723,7 @@ class MapaDelitos {
         this.makeDraggableResizable(card);
       });
 
-      /* ── INSTRUCCIONES RUTA ── */
+      /* ── INSTRUCCIONES RUTA (Opcional por selector) ── */
       if (document.getElementById('mostrarRutaSelect').value === 'si' && this.routeInstructions.length) {
         const rutaDiv = document.createElement('div');
         rutaDiv.style.cssText = 'position:absolute;top:490px;left:0;width:100%;background:#e3f2fd;border:1px dashed #ccc;z-index:5;padding:10px;cursor:move;';
@@ -1631,31 +1743,19 @@ class MapaDelitos {
         if (t && t !== mainArea) { t.classList.add('psel'); t.style.outline='2px solid #0078d4'; }
       });
 
-      const sizes = { A4:{w:'210mm',h:'297mm'}, Letter:{w:'215.9mm',h:'279.4mm'}, Legal:{w:'215.9mm',h:'355.6mm'}, Folio:{w:'215.9mm',h:'330.2mm'} };
-      const updateSize = () => {
-        const fmt = document.getElementById('paperSizeSelect').value;
-        const ori = document.getElementById('orientationSelect').value;
-        const s = sizes[fmt]||sizes.Folio;
-        printContent.style.width     = ori==='landscape'?s.h:s.w;
-        printContent.style.minHeight = ori==='landscape'?s.w:s.h;
-        mainArea.style.width  = ori==='landscape'?s.h:s.w;
-        mainArea.style.height = ori==='landscape'?s.w:s.h;
-        printMap.invalidateSize();
-      };
-      document.getElementById('paperSizeSelect').onchange = updateSize;
-      document.getElementById('orientationSelect').onchange = updateSize;
-      updateSize();
+      /* Cambiar papel/orientación reajusta el mapa y vuelve a encuadrar ruta + casos */
+      const onPaperChange = () => { updateSize(); ajustarVista(); };
+      document.getElementById('paperSizeSelect').onchange = onPaperChange;
+      document.getElementById('orientationSelect').onchange = onPaperChange;
 
       document.getElementById('fontSizeSelect').onchange = e => {
         const newFs = parseInt(e.target.value);
         const sel = mainArea.querySelector('.psel');
         if (sel) {
-          /* Apply to selected element */
           sel.style.fontSize = newFs + 'px';
           sel.querySelectorAll('[contenteditable]:not(.pnum)').forEach(ch => ch.style.fontSize = newFs + 'px');
           sel.querySelectorAll('.pnum').forEach(n => n.style.fontSize = (newFs + 10) + 'px');
         } else {
-          /* No selection → apply to ALL cards immediately */
           mainArea.querySelectorAll('.pcard').forEach(card => {
             card.style.fontSize = newFs + 'px';
             card.querySelectorAll('[contenteditable]:not(.pnum)').forEach(ch => ch.style.fontSize = newFs + 'px');
@@ -1764,6 +1864,17 @@ class MapaDelitos {
     );
     document.getElementById('buscarCircunstancias').addEventListener('input',()=>this.aplicarFiltros());
 
+    /* Botones rápidos de período */
+    document.getElementById('btnAnioCurso').onclick=()=>{
+      this.aplicarAnioEnCurso();
+      this.aplicarFiltros();
+    };
+    document.getElementById('btnTodosAnios').onclick=()=>{
+      document.getElementById('fechaInicio').value='';
+      document.getElementById('fechaFin').value='';
+      this.aplicarFiltros();
+    };
+
     /* Botones */
     document.getElementById('btnLista').onclick=()=>document.getElementById('panelDetalles').classList.toggle('visible');
     document.getElementById('btnExport').onclick=()=>this.exportarDatos();
@@ -1819,7 +1930,6 @@ class MapaDelitos {
     document.getElementById('inputBuscadorDir').addEventListener('keydown', e => {
       if (e.key === 'Enter') this.buscarDireccion();
     });
-    /* Cerrar resultados al hacer click fuera */
     document.addEventListener('click', e => {
       const b = document.getElementById('buscadorDir');
       const r = document.getElementById('resultadosBusqueda');
@@ -1828,8 +1938,12 @@ class MapaDelitos {
       }
     });
 
-    this.actualizarConteo();
-    this.renderizar();
+    /* ── CARGA INICIAL: solo casos del año en curso (si existen) ── */
+    const anioActual = String(new Date().getFullYear());
+    const hayCasosAnioActual = this.datos.some(c => c.fecha.split('-')[2] === anioActual);
+    if (hayCasosAnioActual) this.aplicarAnioEnCurso();
+    this.aplicarFiltros();
+
     window.mapa=this;
   }
 
@@ -1954,7 +2068,7 @@ class MapaDelitos {
       lista.innerHTML+=`<div style="background:rgba(255,255,255,0.03);border:1px solid var(--panel-border);border-radius:8px;padding:12px;">
         <div style="color:var(--accent);font-weight:700;font-size:13px;margin-bottom:8px;border-bottom:1px solid rgba(57,255,20,0.15);padding-bottom:6px;">${grupo}</div>
         <ol style="margin:0;padding-left:18px;font-size:12px;color:var(--text);">
-          ${top4.map(([d,c])=>`<li><b>${d}</b> — ${c}</li>`).join('')}
+          ${top4.map(([d,c])=>`<li><b>${d}</b> —${c}</li>`).join('')}
         </ol>
       </div>`;
     });
