@@ -27214,5 +27214,23 @@
     "concat": "FRANCISCO ANTONIO ENCINA 7762 , San Pedro de la Paz",
     "lat": -36.8918627011152,
     "lon": -73.13792831472104
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "06-10-2026",
+    "dia": "MARTES",
+    "hora": "07:24",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PASAJE LAS TORRES 745",
+    "circunstancias": "El afectado (H46) denunció un robo en su domicilio ubicado en el sector Candelaria, hecho ocurrido a las 07:24 horas tras salir rumbo a su trabajo y dejar la casa sin moradores. Los delincuentes ingresaron forzando el portón trasero del patio y fracturando vidrios de la puerta principal y de una ventana de la cocina para sustraer un televisor TCL de 50 pulgadas, avaluado en $100000. Un vecino alertó al afectado al escuchar ruidos de vidrios rotos; al regresar y revisar la propiedad colindante deshabitada en Pasaje Las Torres 735, el propietario halló el televisor sustraído en el interior y lo recuperó antes de realizar la denuncia.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 4379,
+    "direccion_georref": "PASAJE LAS TORRES 745",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE LAS TORRES 745 , San Pedro de la Paz",
+    "lat": -36.82671515163804,
+    "lon": -73.12865073849898
   }
 ]
