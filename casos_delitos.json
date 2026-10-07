@@ -27358,5 +27358,41 @@
     "concat": "UNO NORTE & CALLE NUEVA UNO , San Pedro de la Paz",
     "lat": -36.86930736545315,
     "lon": -73.1374174815295
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "07-10-2026",
+    "dia": "MIERCOLES",
+    "hora": "05:00",
+    "rango_hora": "04:00 a 07:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PASAJE SANTIAGO 443",
+    "circunstancias": "Un sujeto desconocido ingresa al domicilio ubicado en sector Candelaria mientras se encontraba una menor de edad en el inmueble, quien a las 05:00 horas aproximadamente observó a un individuo desconocido en el living, sustrayendo especies. La testigo no recuerda características del sujeto. Modus operandi: fractura y forzamiento de una ventana que da hacia el patio del inmueble, la cual fue encontrada abierta y con signos de forzamiento. El sujeto ingresó al domicilio y sustrajo desde un mueble 01 caja de color negro con dinero en efectivo, avaluada en $1200000, y 01 alcancía con dinero en efectivo, avaluada en $50000. Avalúo total $1250000. La víctima se encontraba en su trabajo y fue alertada telefónicamente por su hija menor de edad. La víctima mantiene sospechas respecto de un vecino (llamado Jose Perez Carriel) del inmueble posterior. No existen cámaras de seguridad ni testigos oculares o de oídas adicionales.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 4399,
+    "direccion_georref": "PASAJE SANTIAGO 443",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE SANTIAGO 443 , San Pedro de la Paz",
+    "lat": -36.82671897746092,
+    "lon": -73.12235760097015
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "07-10-2026",
+    "dia": "MIERCOLES",
+    "hora": "12:50",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LONGITUDINAL UNO & PABLO NERUDA",
+    "circunstancias": "La víctima (H33) se trasladaba en un bus de la flota Llacolén desde Verluys . Al descender del bus y transitar por Longitudinal Uno, a la altura de calle Pablo Neruda, sector Boca Sur, fue abordado por tres sujetos. Uno de los sujetos lo sujetó por la espalda, mientras otros dos se posicionaron a ambos costados, intimidándolo físicamente. Uno de los sujetos le manifestó: \"QUEDATE TRANQUILO, QUEDATE TRANQUILO NO TE MOVAI\". Posteriormente, los individuos registraron sus vestimentas y sustrajeron desde el bolsillo derecho de su pantalón un teléfono celular Samsung A32, color azul, perteneciente a la compañía Claro, y desde la cartera trasera del pantalón $40.000 en dinero efectivo. La víctima no opuso resistencia debido al temo. Al finalizar, uno de los sujetos que se encontraba a su espalda le propinó un empujón. Avalúo $160000.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 4397,
+    "direccion_georref": "LONGITUDINAL UNO & PABLO NERUDA",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LONGITUDINAL UNO & PABLO NERUDA , San Pedro de la Paz",
+    "lat": -36.842826712189606,
+    "lon": -73.14625957507023
   }
 ]
