@@ -27218,6 +27218,24 @@
   {
     "clasificacion": "DENUNCIA",
     "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "05-10-2026",
+    "dia": "LUNES",
+    "hora": "23:00",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "ANDALUE 1120",
+    "circunstancias": "Sujetos desconocidos ingresan a inmueble de dos niveles, de material sólido, mediante aparente escalamiento del cerco perimetral frontal, de diferentes dimensiones. El morador (H67) se encontraba pernoctando en el domicilio A las 23:00 horas del 05-10-2026 se encontraba en el inmueble y, aproximadamente a las 06:10 horas del 06-10-2026, al levantarse, constató que la puerta lateral que comunica con el patio se encontraba abierta. Observó dos ventanales abiertos en el living-comedor del primer piso, los cuales habían quedado cerrados durante la noche, sin presentar daños visibles. Desde un perchero detrás de la puerta principal fueron sustraídas dos parkas, una azul y otra café, un abrigo de mujer café, una parka de mujer color kaki; además de un manojo de llaves del domicilio y las llaves de contacto de dos vehículos Subaru: Station Wagon Subaru Impreza, blanco, PPU CYVC-97, y Subaru XV, blanco, PPU SRBZ-40. No se observaron indicios de fuerza. Mantiene seguro BCI.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 1108,
+    "direccion_georref": "ANDALUE 1120",
+    "comuna": "San Pedro de la Paz",
+    "concat": "ANDALUE 1120 , San Pedro de la Paz",
+    "lat": -36.85092651143447,
+    "lon": -73.09564024607688
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
     "fecha": "06-10-2026",
     "dia": "MARTES",
     "hora": "07:24",
@@ -27232,5 +27250,23 @@
     "concat": "PASAJE LAS TORRES 745 , San Pedro de la Paz",
     "lat": -36.82671515163804,
     "lon": -73.12865073849898
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO POR SORPRESA",
+    "fecha": "06-10-2026",
+    "dia": "MARTES",
+    "hora": "09:14",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "ESTACIONAMIENTO",
+    "direccion": "AVENIDA MICHIMALONCO 1040",
+    "circunstancias": "La víctima (M44) salió del supermercado Santa Isabel, ubicado en Villa San Pedro, y se dirigió caminando hacia su vehículo estacionado en el Street Center, llevando en sus manos un teléfono celular Redmi Note 13 Pro 5G, negro, con carcasa rosada avaluado en $350000. En ese momento, un sujeto (edad no determinada), delgado, que vestía chaqueta de mezclilla, se aproximó y le arrebató rápidamente el teléfono desde las manos, para posteriormente huir corriendo en dirección desconocida. La víctima manifiesta creer mantener un seguro con Banco de Chile.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 4380,
+    "direccion_georref": "AVENIDA MICHIMALONCO 1040",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA MICHIMALONCO 1040 , San Pedro de la Paz",
+    "lat": -36.8427468135161,
+    "lon": -73.0935225830133
   }
 ]
