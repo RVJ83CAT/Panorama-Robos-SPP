@@ -27502,5 +27502,23 @@
     "concat": "CAMILO HENRIQUEZ 9090 , San Pedro de la Paz",
     "lat": -36.84628792589838,
     "lon": -73.1425398162891
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "09-10-2026",
+    "dia": "VIERNES",
+    "hora": "14:15",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PASAJE DOCE 3824",
+    "circunstancias": "El 09-10-2026, aproximadamente a las 14:15 horas, un sujeto desconocido sustrajo una escalera metálica, color plateado, marca no recordada, avaluada en $69990, desde el antejardín de un domicilio particular. El afectado (H51) se encontraba en el inmueble junto a su grupo familiar y, al salir al antejardín, advirtió la desaparición de la especie y que el portón de la reja perimetral estaba abierto. SOSPECHOSO: la víctima manifestó sospechas respecto de un vecino conocido por el sobrenombre “Negro, Pato”, de quien señaló que habría salido recientemente de la cárcel y que presuntamente acostumbraría cometer delitos similares.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 4438,
+    "direccion_georref": "PASAJE DOCE 3824",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE DOCE 3824 , San Pedro de la Paz",
+    "lat": -36.84988366380805,
+    "lon": -73.13897274563672
   }
 ]
