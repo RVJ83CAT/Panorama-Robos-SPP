@@ -27476,7 +27476,7 @@
     "rango_hora": "04:00 a 07:59",
     "lugar": "VIA PUBLICA",
     "direccion": "AVENIDA LOS LAGOS 654",
-    "circunstancias": "Sujetos desconocidos sustrajeron un vehículo tipo Station Wagon, marca Kia, modelo Sportage, año 2010, color rojo, PPU CGGY89, que se encontraba estacionado en el exterior del domicilio del propietario (H32) en sector Portal San Pedro. A las 06:00 horas recibió un mensaje de WhatsApp de su pareja, quien le indicó que tuviera cuidado porque el vehículo circulaba a alta velocidad por avenida Los Lagos. Al encontrarse aún en su domicilio, salió a verificar y constató que el automóvil había sido sustraído. Avalúo: $5000000. Encargo EUN 733424.",
+    "circunstancias": "Sujetos desconocidos sustrajeron un vehículo tipo Station Wagon, marca Kia, modelo Sportage, año 2010, color rojo, PPU. CGGY89, que se encontraba estacionado en el exterior del domicilio del propietario (H32) en sector Portal San Pedro. A las 06:00 horas recibió un mensaje de WhatsApp de su pareja, quien le indicó que tuviera cuidado porque el vehículo circulaba a alta velocidad por avenida Los Lagos. Al encontrarse aún en su domicilio, salió a verificar y constató que el automóvil había sido sustraído. Avalúo: $5000000. Encargo EUN 733424.",
     "cuadrante": "Cuadrante 05",
     "numero_parte": 4428,
     "direccion_georref": "AVENIDA LOS LAGOS 654",
@@ -27484,5 +27484,23 @@
     "concat": "AVENIDA LOS LAGOS 654 , San Pedro de la Paz",
     "lat": -36.88761649316598,
     "lon": -73.14752966199664
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "09-10-2026",
+    "dia": "VIERNES",
+    "hora": "11:30",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "CAMILO HENRIQUEZ 9090",
+    "circunstancias": "Sujetos desconocidos sustraen ambas placas patentes únicas (PPU) de una camioneta Kia Frontier, color blanco, año 2011, PPU. DGVG86. El vehículo había sido dejado el 07-10-2026 a las 22:30 horas en un taller mecánico ubicado en el sector Michaihue, para realizar mantenciones. El 09-10-2026, a las 11:30 horas, el mecánico informó que la camioneta estaba lista y la trasladó hasta el domicilio de la afectada, momento en que esta advirtió la sustracción de ambas placas. Según lo señalado por el mecánico, las patentes habrían sido sustraídas por desconocidos durante la noche, sin que pudiera precisar la hora exacta ni advertir el hecho. Indicó además que habría otras víctimas de sustracción de placas patentes. Avalúo $50000. Encargo EUN 505514.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 4436,
+    "direccion_georref": "CAMILO HENRIQUEZ 9090",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CAMILO HENRIQUEZ 9090 , San Pedro de la Paz",
+    "lat": -36.84628792589838,
+    "lon": -73.1425398162891
   }
 ]
