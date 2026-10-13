@@ -581,7 +581,19 @@
       <input type="text" id="buscarSeleccion" placeholder="Buscar caso..." style="flex:1;padding:7px 10px;border-radius:6px;border:1px solid var(--panel-border);background:rgba(255,255,255,0.05);color:var(--text);font-size:12px;">
       <button onclick="mapa.toggleSeleccionTodos()" id="btnSelTodos" class="print-btn" style="background:#37474f;color:white;font-size:11px;padding:7px 10px;">Todos</button>
     </div>
-    <div id="listaSeleccionCasos" style="overflow-y:auto;flex:1;"></div>
+    <div id="contSeleccion" style="font-size:11px;color:var(--accent);font-weight:700;letter-spacing:1px;">0 seleccionados</div>
+    <div id="listaSeleccionCasos" style="overflow-y:auto;flex:1;min-height:120px;"></div>
+    <details id="detPegarLista" style="border:1px solid var(--panel-border);border-radius:7px;background:rgba(255,255,255,0.03);">
+      <summary style="padding:8px 10px;cursor:pointer;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:0.5px;">📋 Pegar lista de N° de parte</summary>
+      <div style="padding:8px;display:flex;flex-direction:column;gap:6px;">
+        <textarea id="textoListaPartes" placeholder="Ej: 12345-2025, CV-4567, 8910" style="width:100%;height:70px;resize:vertical;padding:7px 9px;border-radius:6px;border:1px solid var(--panel-border);background:rgba(255,255,255,0.05);color:var(--text);font-size:12px;font-family:Arial,sans-serif;"></textarea>
+        <label style="display:flex;align-items:center;gap:6px;color:var(--text-dim);font-size:11px;cursor:pointer;">
+          <input type="checkbox" id="chkReemplazarSel" checked style="width:14px;height:14px;accent-color:var(--accent);"> Reemplazar selección actual
+        </label>
+        <button onclick="mapa.seleccionarPorLista()" class="print-btn" style="background:#0277bd;color:white;width:100%;">🔎 Buscar y seleccionar</button>
+        <div id="resultadoLista" style="display:none;font-size:11px;line-height:1.5;max-height:110px;overflow-y:auto;padding:8px;border-radius:6px;background:rgba(0,0,0,0.25);word-break:break-word;"></div>
+      </div>
+    </details>
     <button onclick="mapa.aplicarSeleccionManual()" class="print-btn" style="background:var(--green);color:white;width:100%;">✅ Mostrar Seleccionados</button>
     <button onclick="mapa.limpiarSeleccionManual()" class="print-btn" style="background:#b71c1c;color:white;width:100%;">✕ Volver a Filtros Normales</button>
   </div>
@@ -1305,24 +1317,89 @@ class MapaDelitos {
     const fuente=this.datos;
     const lista=document.getElementById('listaSeleccionCasos');
     const f=filtro.toLowerCase();
-    const items=fuente.filter(c=>!f||c.delito.toLowerCase().includes(f)||c.direccion.toLowerCase().includes(f)||(c.circunstancias||'').toLowerCase().includes(f)||(c.numero_parte||'').includes(f));
+    const items=fuente.filter(c=>!f||c.delito.toLowerCase().includes(f)||c.direccion.toLowerCase().includes(f)||(c.circunstancias||'').toLowerCase().includes(f)||String(c.numero_parte||'').toLowerCase().includes(f)||(c.fecha||'').includes(f));
+    this.actualizarContSeleccion();
     lista.innerHTML=items.map((c,i)=>{
       const idx=this.datos.indexOf(c);
       const sel=this.casosSeleccionados.has(idx);
       return `<div style="display:flex;align-items:center;gap:8px;padding:7px 8px;border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer;" onclick="mapa.toggleCasoSeleccion(${idx},this)">
-        <input type="checkbox" ${sel?'checked':''} style="width:16px;height:16px;accent-color:var(--accent);" readonly>
+        <input type="checkbox" ${sel?'checked':''} tabindex="-1" style="width:18px;height:18px;flex-shrink:0;accent-color:var(--accent);pointer-events:none;">
         <div>
           <div style="font-size:12px;font-weight:600;color:${this.getColor(c.delito)};">${c.delito}</div>
+          <div style="font-size:11px;font-weight:700;color:#fff;margin-top:2px;">N° Parte: <span style="color:var(--accent);">${c.numero_parte||'—'}</span></div>
           <div style="font-size:10px;color:var(--text-dim);">${c.direccion} · ${c.fecha}</div>
         </div>
       </div>`;
     }).join('');
   }
+  actualizarContSeleccion() {
+    const el=document.getElementById('contSeleccion');
+    const n=this.casosSeleccionados.size;
+    if(el) el.textContent=`${n} seleccionado${n===1?'':'s'}`;
+  }
+
+  /* Selecciona casos a partir de una lista de N° de parte (separados por coma) */
+  seleccionarPorLista() {
+    const txt=document.getElementById('textoListaPartes').value;
+    const res=document.getElementById('resultadoLista');
+    const esc=s=>String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    const norm=s=>String(s==null?'':s).toUpperCase().replace(/\s+/g,'');
+    const sinCV=s=>s.replace(/^CV[-_]?/,'');
+    const pedidos=[...new Set(txt.split(/[,;\n\r\t]+/).map(norm).filter(Boolean))];
+    if(!pedidos.length){ alert('Pega al menos un número de parte.'); return; }
+
+    /* Índices de búsqueda: exacto (con prefijo CV si lo tiene) y sin prefijo CV */
+    const exacto=new Map(), laxo=new Map();
+    this.datos.forEach((c,idx)=>{
+      const k=norm(c.numero_parte); if(!k) return;
+      if(!exacto.has(k)) exacto.set(k,[]);
+      exacto.get(k).push(idx);
+      const k2=sinCV(k);
+      if(!laxo.has(k2)) laxo.set(k2,[]);
+      laxo.get(k2).push(idx);
+    });
+
+    const encontrados=[], aprox=[], noEnc=[], idxs=new Set();
+    pedidos.forEach(p=>{
+      if(exacto.has(p)){ exacto.get(p).forEach(i=>idxs.add(i)); encontrados.push(p); }
+      else if(sinCV(p) && laxo.has(sinCV(p))){ laxo.get(sinCV(p)).forEach(i=>idxs.add(i)); aprox.push(p); }
+      else noEnc.push(p);
+    });
+
+    const total=pedidos.length, ok=encontrados.length+aprox.length;
+    const todos=noEnc.length===0;
+    let html=`<div style="font-weight:700;color:${todos?'#39ff14':'#ffb300'};">${todos?'✅ Todos los casos fueron encontrados':'⚠️ No se encontraron todos los casos'} (${ok} de ${total})</div>`;
+    if(aprox.length) html+=`<div style="color:#b0bec5;margin-top:4px;">≈ Coincidencia ignorando prefijo CV (${aprox.length}): ${aprox.map(esc).join(', ')}</div>`;
+    if(noEnc.length) html+=`<div style="color:#ff6e6e;margin-top:4px;">No encontrados (${noEnc.length}): ${noEnc.map(esc).join(', ')}</div>`;
+    res.innerHTML=html;
+    res.style.display='block';
+
+    if(!idxs.size) return;
+
+    if(document.getElementById('chkReemplazarSel').checked) this.casosSeleccionados.clear();
+    idxs.forEach(i=>this.casosSeleccionados.add(i));
+    document.getElementById('buscarSeleccion').value='';
+    this.renderListaSeleccion('');
+
+    const msg=`Se encontraron ${ok} de ${total} números de parte.`+
+      `\n${this.casosSeleccionados.size} caso(s) seleccionado(s).`+
+      (noEnc.length?`\n\nNo encontrados: ${noEnc.join(', ')}`:'')+
+      `\n\n¿Mostrar en el mapa solo los casos seleccionados?`;
+    setTimeout(()=>{
+      if(confirm(msg)){
+        this.aplicarSeleccionManual();
+        const pts=this.filtrados.filter(c=>c.lat&&c.lon).map(c=>[c.lat,c.lon]);
+        if(pts.length) this.map.fitBounds(L.latLngBounds(pts),{padding:[50,50]});
+      }
+    },50);
+  }
+
   toggleCasoSeleccion(idx,el) {
     if(this.casosSeleccionados.has(idx)) this.casosSeleccionados.delete(idx);
     else this.casosSeleccionados.add(idx);
     const cb=el.querySelector('input');
     if(cb) cb.checked=this.casosSeleccionados.has(idx);
+    this.actualizarContSeleccion();
   }
   toggleSeleccionTodos() {
     if(this.casosSeleccionados.size===this.datos.length){
@@ -1342,6 +1419,7 @@ class MapaDelitos {
     this.actualizarConteo();
   }
   limpiarSeleccionManual() {
+    setTimeout(()=>this.renderListaSeleccion(document.getElementById('buscarSeleccion').value),0);
     this.seleccionManualActiva=false;
     this.casosSeleccionados.clear();
     this.aplicarFiltros();
