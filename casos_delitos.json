@@ -28186,5 +28186,41 @@
     "concat": "LOS CLAVELES 252 , San Pedro de la Paz",
     "lat": -36.83521350739012,
     "lon": -73.11428771292898
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "21-10-2026",
+    "dia": "MIERCOLES",
+    "hora": "08:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "JENARO PRIETO 7771",
+    "circunstancias": "La afectada (M51) estacionó su vehículo Station Wagon Mazda CX-5, color rojo, año 2024, PPU. TKLC43, a un costado de su domicilio el día 20 a las 20:00 horas, con puertas y ventanas cerradas y sus respectivos seguros activados. El 21-10-2026, a las 08:00 horas, al dirigirse al vehículo, constató que el vidrio de la puerta delantera del costado derecho se encontraba completamente quebrado. Sujetos desconocidos habrían fracturado el vidrio para acceder al interior del vehículo y sustraer un par de lentes de sol marca Ray-Ban, color café oscuro, y un bolso pequeño marca Saxoline, color negro, que contenía ropa sucia. Las especies se encontraban en el piso del asiento del copiloto. Avalúo pendiente. El vehículo mantiene seguro BCI.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 4647,
+    "direccion_georref": "JENARO PRIETO 7771",
+    "comuna": "San Pedro de la Paz",
+    "concat": "JENARO PRIETO 7771 , San Pedro de la Paz",
+    "lat": -36.856016966431895,
+    "lon": -73.13992326093185
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "21-10-2026",
+    "dia": "MIERCOLES",
+    "hora": "11:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "GUACOLDA 940",
+    "circunstancias": "El afectado (H63) denunció la sustracción de especies desde su inmueble donde reside junto a su cónyuge. El 21 entre las 11:00 y las 12:00 horas, observó abierto un portón interior ubicado al fondo de la propiedad, que separa sectores del patio, además de una ventana abierta. Inicialmente atribuyó la situación a un descuido, sin advertir un posible robo. A las 14:00 horas constató la sustracción de una bicicleta marca Lascen, color azul, tipo city o mountain bike, avaluada en $500000, y un gallo de raza de tamaño grande junto a tres gallinas, especies avaluadas en conjunto en $100000. Avalúo  $600000. Como posible modus operandi, los autores habrían ingresado al inmueble y utilizado una escalera de propiedad de la víctima para facilitar la salida, ya que fue encontrada apoyada en una esquina de la reja perimetral, en un lugar distinto al habitual.  En el segundo piso se observó una puerta parcialmente abierta, pese a que había sido dejada cerrada y asegurada con palos. El afectado señaló que hace dos semanas había sufrido otro robo en el mismo inmueble.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 4649,
+    "direccion_georref": "GUACOLDA 940",
+    "comuna": "San Pedro de la Paz",
+    "concat": "GUACOLDA 940 , San Pedro de la Paz",
+    "lat": -36.85186816478971,
+    "lon": -73.14164161148472
   }
 ]
