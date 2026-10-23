@@ -28240,5 +28240,23 @@
     "concat": "COSTANERA & BOSQUE MAR , San Pedro de la Paz",
     "lat": -36.885543616942336,
     "lon": -73.14938971060838
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "23-10-2026",
+    "dia": "VIERNES",
+    "hora": "08:55",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "ESTABLECIMIENTO EDUCACIONAL",
+    "direccion": "MANUEL RODRIGUEZ 285",
+    "circunstancias": "Sujetos desconocidos ingresaron durante la noche a la Escuela de Lenguaje Lomas Coloradas. La encargada del establecimiento (M65), se desempeña como subdirectora y, al llegar al lugar de trabajo aproximadamente a las 08:55 horas del día 23 constató daños en el portón de la reja de acceso al antejardín y en la cerradura de la puerta de acceso al hall. Al revisar las dependencias interiores, advirtió la sustracción de 01 demoledor tipo Cango de 30 kg, color azul, marca Makita, y 01 demoledora marca Kothman, de 30 kg, color rojo. Las especies eran propiedad de un trabajador que realizaba labores de construcción en el patio del establecimiento. El robo habría ocurrido durante la noche. Avalúo $2800000.",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 4665,
+    "direccion_georref": "MANUEL RODRIGUEZ 285",
+    "comuna": "San Pedro de la Paz",
+    "concat": "MANUEL RODRIGUEZ 285 , San Pedro de la Paz",
+    "lat": -36.88082779165562,
+    "lon": -73.13521570429576
   }
 ]
