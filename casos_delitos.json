@@ -28222,5 +28222,23 @@
     "concat": "GUACOLDA 940 , San Pedro de la Paz",
     "lat": -36.85186816478971,
     "lon": -73.14164161148472
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "22-10-2026",
+    "dia": "JUEVES",
+    "hora": "22:30",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "COSTANERA & BOSQUE MAR",
+    "circunstancias": "Víctima (H37) mientras conducía una camioneta Maxus T60, color blanco, año 2018, PPU JWXH92, desde Coronel en dirección a su domicilio en Hualpén, fue interceptado en la intersección de avenida Costanera con Bosque Mar por un automóvil Kia Rio, color plomo, con vidrios polarizados y sin patente trasera visible. Desde dicho vehículo descendieron dos sujetos, ambos premunidos con armas de fuego; uno vestía polerón negro con capucha y el otro polerón plomo. Obligaron a la víctima a descender de la camioneta y se apropiaron del vehículo, en cuyo interior se encontraban diversas herramientas de trabajo, entre ellas una bomba de vacío, manómetro, refrigerante, caja de dados, bolso, atornilladores y llaves, entre otras especies. Los dos sujetos abordaron la camioneta y huyeron, mientras un tercer individuo condujo el automóvil Kia Rio retirándose del lugar. Avalúo $10000000. El vehículo mantenía seguro.",
+    "cuadrante": "Cuadrante 05",
+    "numero_parte": 4659,
+    "direccion_georref": "COSTANERA & BOSQUE MAR",
+    "comuna": "San Pedro de la Paz",
+    "concat": "COSTANERA & BOSQUE MAR , San Pedro de la Paz",
+    "lat": -36.885543616942336,
+    "lon": -73.14938971060838
   }
 ]
