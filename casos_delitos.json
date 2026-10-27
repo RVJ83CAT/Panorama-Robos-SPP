@@ -28546,5 +28546,23 @@
     "concat": "COLCURA 918 , San Pedro de la Paz",
     "lat": -36.84229786218036,
     "lon": -73.09110170344735
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "26-10-2026",
+    "dia": "LUNES",
+    "hora": "20:30",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "CALLE NUEVA UNO & ESTACION COSTA MAR",
+    "circunstancias": "La victima (M27) de nacionalidad venezolana, esperaba locomoción colectiva en un paradero ubicado en calle Nueva Uno, frente a la estación Costa Mar, mientras utilizaba su teléfono celular. En ese momento se aproximó un sujeto de sexo masculino, de estatura alta, contextura delgada y vestimentas oscuras, sin mayores características físicas conocidas, quien la intimidó verbalmente exigiéndole la entrega del teléfono. Acto seguido, extrajo un arma blanca tipo cuchillo y la amenazó, provocando que la víctima entregara inmediatamente la especie (Samsung, modelo A57, color gris, con carcasa azul) por temor a sufrir lesiones. El sujeto huyó corriendo y abordó una motocicleta cuyas características no fueron recordadas, en la que lo esperaba otro individuo, huyendo ambos en dirección desconocida. Avalúo $400000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 4739,
+    "direccion_georref": "CALLE NUEVA UNO & ESTACION COSTA MAR",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALLE NUEVA UNO & ESTACION COSTA MAR , San Pedro de la Paz",
+    "lat": -36.85488958757682,
+    "lon": -73.13302248951308
   }
 ]
