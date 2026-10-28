@@ -28582,5 +28582,23 @@
     "concat": "LOS MAÑIOS & FRANCISCO ANTONIO ENCINA , San Pedro de la Paz",
     "lat": -36.89217078867233,
     "lon": -73.13795704678108
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "28-10-2026",
+    "dia": "MIERCOLES",
+    "hora": "12:25",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "LOCAL COMERCIAL",
+    "direccion": "PEDRO LIRA 197",
+    "circunstancias": "Un sujeto desconocido ingresó al local comercial N° 8, ubicado en el segundo piso, quebrando el vidrio de la puerta de acceso (de 80 cm x  2 mts). Una vez en el interior, sustrajo productos para el cuidado capilar de distintas marcas, consistentes en 14 hidratantes para cabellos teñidos Zita, de 150 ml cada uno; 6 reparadores de cabello Zita, de 150 ml cada uno; 6 colágenos nutritivos Zita, de 150 ml cada uno; y 6 regeneradores capilares Sow, de 150 ml cada uno. Avalúo $700000. Daños por fractura del vidrio de la puerta: $500000. Avalúo total $1200000. La afectada (M64) señaló que aproximadamente a las 10:15 horas, mientras se encontraba en su lugar de trabajo, recibió un llamado telefónico de una vecina, quien le informó que momentos antes una persona desconocida había quebrado el vidrio de la puerta e ingresado al local.",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 1187,
+    "direccion_georref": "PEDRO LIRA 197",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PEDRO LIRA 197 , San Pedro de la Paz",
+    "lat": -36.84280442585395,
+    "lon": -73.0948740728623
   }
 ]
