@@ -28672,5 +28672,23 @@
     "concat": "LAS GOLONDRINAS 114 , San Pedro de la Paz",
     "lat": -36.83569482944206,
     "lon": -73.11661110312748
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "29-10-2026",
+    "dia": "JUEVES",
+    "hora": "08:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "PASAJE UNO 1720",
+    "circunstancias": "Sujetos desconocidos ingresan a un domicilio y sustraen un mini refrigerador con logotipo de Red Bull, de color azul/gris, avaluado en $50000. La ocupante del inmueble (M58) señaló que el día 29 a las 00:00 horas, se encontraba en su domicilio cuando escuchó un ruido proveniente del patio, el cual ignoró. Posteriormente, alrededor de las 04:00 horas, volvió a escuchar un ruido similar en el mismo sector. A las 08:00 horas, al levantarse, observó que uno de los muebles del living-comedor se encontraba abierto. Al revisar el patio, encontró palos tirados y el portón de ingreso semiabierto, advirtiendo posteriormente la sustracción de la especie.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 1193,
+    "direccion_georref": "PASAJE UNO 1720",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE UNO 1720 , San Pedro de la Paz",
+    "lat": -36.84212033713189,
+    "lon": -73.10886717553991
   }
 ]
