@@ -28654,5 +28654,23 @@
     "concat": "AVENIDA MICHIMALONCO & PEDRO AGUIRRE CERDA , San Pedro de la Paz",
     "lat": -36.84376295741718,
     "lon": -73.09855791558407
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "29-10-2026",
+    "dia": "JUEVES",
+    "hora": "03:00",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "LAS GOLONDRINAS 114",
+    "circunstancias": "Sujetos desconocidos sustraen especies desde el interior de un Station Wagon, Hyundai, Santa Fe, 2018, color blanco, PPU KSHS94, estacionado en el antejardín del domicilio. Estacionado el 28 desde las 22:00 horas, con puertas y ventanas cerradas y sistema de alarma. El hecho fue descubierto el 29 a las 07:20 horas, cuando el afectado salió para trasladar a sus hijos al colegio. Al revisar el vehículo, constató que desconocidos habían retirado el nylon instalado en la ventana de la puerta trasera, elemento que había sido colocado como medida de protección, puesto que en días anteriores el mismo vehículo sufriera otro robo en el que quebraron dicho vidrio. Sustrajeron una caja de dados marca Bahaco, color naranja con negro; varios alicates de distintas marcas y colores, cantidad no determinada; diversos destornilladores; juegos de limas; tres martillos marca Bahaco, color naranja con negro; tres cartoneros Redline; juegos de chicharras metálicas; y una mochila marca Infanti, color blanco, rosado y gris, que contenía ropa y accesorios de bebé. Avalúo $600000. El domicilio mantiene cámaras de vigilancia, pero estas habrían sido rotas por el o los sujetos. El vehículo mantiene seguro.",
+    "cuadrante": "Cuadrante 02",
+    "numero_parte": 1191,
+    "direccion_georref": "LAS GOLONDRINAS 114",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LAS GOLONDRINAS 114 , San Pedro de la Paz",
+    "lat": -36.83569482944206,
+    "lon": -73.11661110312748
   }
 ]
