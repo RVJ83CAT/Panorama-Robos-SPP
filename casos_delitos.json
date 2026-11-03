@@ -29007,7 +29007,7 @@
     "lugar": "SALA CUNA",
     "direccion": "LONGITUDINAL 2 945",
     "circunstancias": "Sujetos desconocidos ingresan a una bodega ubicada a un costado de la Sala Cuna Escuela Michaihue, recinto donde un contratista mantenía almacenados materiales de construcción y cuerpos de andamios utilizados en trabajos para distintos jardines infantiles de Fundación Integra. El hecho fue descubierto a las 10:00 horas, cuando el afectado (H34), al llegar al establecimiento, constató que diversas especies que mantenía guardadas en la bodega ya no se encontraban. Al inspeccionar el recinto, observó que la reja metálica de acceso, provista de cerradura, había sido forzada, presumiblemente por individuos desconocidos que utilizaron fuerza para vulnerar el sistema de cierre e ingresar al lugar. Desde el interior sustrajeron 04 cuerpos de andamios, 05 cubiertas de lata y 01 basurero de 120 litros. Avalúo $500000.",
-    "cuadrante": "Cuadrante 01",
+    "cuadrante": "Cuadrante 03",
     "numero_parte": 4848,
     "direccion_georref": "LONGITUDINAL 2 945",
     "comuna": "San Pedro de la Paz",
@@ -29068,5 +29068,23 @@
     "concat": "AVENIDA COSTANERA & 1 NORTE , San Pedro de la Paz",
     "lat": -36.86738070806919,
     "lon": -73.14903672070285
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR NO HABITADO",
+    "fecha": "03-11-2026",
+    "dia": "MARTES",
+    "hora": "02:40",
+    "rango_hora": "00:00 a 03:59",
+    "lugar": "FARMACIA",
+    "direccion": "AVENIDA LAGUNA GRANDE 115",
+    "circunstancias": "Cuatro sujetos encapuchados de entre 20 y 30 años (dos de contextura delgada y dos media) ingresaron a la Farmacia Cruz Verde del Boulevard del Valle tras romper la mampara de vidrio con un chuzo de fierro. Una vez en el interior, sustrajeron medicamentos, productos de perfumería e higiene personal y forzaron la oficina de valores para extraer una caja fuerte. Carabineros sorprendió a los delincuentes en flagrancia mientras intentaban cargar la caja fuerte en un Station Wagon Kia Sportage blanco PPU. WY3645 (con encargo vigente por robo en Chiguayante), iniciándose una persecución por diversas avenidas que culminó en el pasaje Sotelco, donde los sujetos abandonaron el vehículo con parte de la mercadería y huyeron a pie hacia un humedal sin ser ubicados. El procedimiento concluyó con la recuperación de la caja fuerte y las especies (con un avalúo total de $10000000 entre robos y daños), además de la incautación del automóvil .",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 1207,
+    "direccion_georref": "AVENIDA LAGUNA GRANDE 115",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA LAGUNA GRANDE 115 , San Pedro de la Paz",
+    "lat": -36.83894200830419,
+    "lon": -73.11962632712466
   }
 ]
