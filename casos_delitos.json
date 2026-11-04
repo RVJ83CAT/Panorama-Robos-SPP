@@ -29104,5 +29104,41 @@
     "concat": "AVENIDA LAGUNA GRANDE 115 , San Pedro de la Paz",
     "lat": -36.83894200830419,
     "lon": -73.11962632712466
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "04-11-2026",
+    "dia": "MIERCOLES",
+    "hora": "09:30",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "GALVARINO 3758",
+    "circunstancias": "Sujeto(s) desconocido(s) ingresan durante la noche al patio trasero de un domicilio particular (Villa Los Pinos), desde donde sustraen dos cilindros de gas licuado de 15 kilos cada uno, marca Lipigas, avaluados en $100000. La víctima (M60) señaló que el día anterior había utilizado uno de los cilindros y que, aproximadamente a las 09:30 horas, mientras salía al patio trasero para tender ropa, advirtió la sustracción de ambas especies. Al revisar las inmediaciones constató que desconocidos habían cortado el cable perimetral de seguridad instalado sobre la pandereta, utilizando dicho acceso para ingresar al inmueble.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 4885,
+    "direccion_georref": "GALVARINO 3758",
+    "comuna": "San Pedro de la Paz",
+    "concat": "GALVARINO 3758 , San Pedro de la Paz",
+    "lat": -36.855984172411866,
+    "lon": -73.1456082481238
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "04-11-2026",
+    "dia": "MIERCOLES",
+    "hora": "10:10",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "JUAN GOMEZ DE VIDAURRE 15",
+    "circunstancias": "Sujeto desconocido ingresa durante la noche a un domicilio particular y sustrae diversas especies que se encontraban al interior de una camioneta marca SsangYong, modelo Grand Musso, color verde, año 2023, PPU. SPRK91 estacionada en el inmueble. Sustrae 18 pelotas de fútbol nuevas marca Prosport; 8 cajas de juguetes infantiles de diferentes modelos; 12 fundas de cojines navideños; 1 carrusel de Navidad; 1 decoración navideña; además de cajas con bandas y cintas correspondientes a accesorios para niñas. Avalúo $250000. El vehículo había quedado estacionado sin seguro ni alarma. El portón de aproximadamente 2 metros de alto por 3 metros de largo se mantenía levantado y corrido de su base. El hecho habría ocurrido durante la noche, mientras la víctima se encontraba durmiendo en el domicilio. En las imágenes de una cámara vecina se observa a un sujeto efectuando la sustracción, cuyas características y vestimentas presentan similitud con un individuo conocido por personal policial, identificado como NELSON RODOLFO TORRES ÁLVAREZ (H37) CI. 17207990-3, (vive en El Estero N° 417, Candelaria). Antes fue detenido el 30-10-2026 por robo en lugar habitado (Parte N° 1196). ",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 1213,
+    "direccion_georref": "JUAN GOMEZ DE VIDAURRE 15",
+    "comuna": "San Pedro de la Paz",
+    "concat": "JUAN GOMEZ DE VIDAURRE 15 , San Pedro de la Paz",
+    "lat": -36.83880276028237,
+    "lon": -73.11394530555438
   }
 ]
