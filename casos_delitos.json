@@ -29194,5 +29194,23 @@
     "concat": "JUAN GOMEZ DE VIDAURRE 15 , San Pedro de la Paz",
     "lat": -36.83880276028237,
     "lon": -73.11394530555438
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO CON INTIMIDACION",
+    "fecha": "05-11-2026",
+    "dia": "JUEVES",
+    "hora": "16:00",
+    "rango_hora": "16:00 a 19:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "SAN PEDRO & JUAN GOMEZ DE VIDAURRE",
+    "circunstancias": "Un sujeto o grupo de sujetos desconocidos abordó a la víctima (H38), quien se encontraba desempeñando labores de delivery. Mientras realizaba su trabajo, se detuvo en la vía pública, cuya ubicación exacta no logró identificar. En esas circunstancias, al extraer su teléfono celular para utilizarlo, sintió que uno de los antisociales le apoyaba un cuchillo en la espalda, exigiéndole la entrega del aparato (Apple, modelo iPhone 17 Pro Max, color naranjo). Ante la amenaza, hizo entrega de su teléfono, tras lo cual los sujetos se retiraron en dirección desconocida. Avalúo $1500000. Mantiene seguros. La víctima se encontraba en estado de shock y nerviosismo.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 4907,
+    "direccion_georref": "SAN PEDRO & JUAN GOMEZ DE VIDAURRE",
+    "comuna": "San Pedro de la Paz",
+    "concat": "SAN PEDRO & JUAN GOMEZ DE VIDAURRE , San Pedro de la Paz",
+    "lat": -36.83800731224303,
+    "lon": -73.11448039872204
   }
 ]
