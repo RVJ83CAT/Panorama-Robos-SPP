@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css"/>
 
   <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
   <script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -404,12 +405,42 @@
       letter-spacing: 1px; display: none;
     }
     .modo-badge.visible { display: block; }
+
+    /* ── VISTA 3D (OpenFreeMap + MapLibre) ── */
+    #map3d {
+      position: fixed; inset: 0; z-index: 500; display: none; background: #0d1117;
+    }
+    #map3d.visible { display: block; }
+    #map3d .maplibregl-ctrl-top-right { top: 128px; right: 44px; }
+    #map3d .maplibregl-ctrl-bottom-right { right: 44px; bottom: 52px; }
+    #map3d .maplibregl-popup-content { color: #111; font-size: 12px; line-height: 1.4; }
+    #btn3D { background: #00897b; }
+    #panel3D {
+      position: fixed; top: 236px; right: 44px; width: 222px; z-index: 1000;
+      background: rgba(26,30,36,0.95); border: 1px solid rgba(57,255,20,0.25);
+      border-radius: 10px; padding: 10px 12px; display: none; color: var(--text);
+      font-size: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+    #panel3D.visible { display: block; }
+    #panel3D .p3-titulo { color: var(--accent); font-weight: 700; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+    #panel3D label.p3-lbl { display: flex; justify-content: space-between; color: var(--text-dim); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 3px; }
+    #panel3D select { width: 100%; padding: 6px 8px; border-radius: 5px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.05); color: var(--text); font-size: 12px; }
+    #panel3D select option { background: #1a1e24; }
+    #panel3D input[type=range] { width: 100%; accent-color: var(--accent); }
+    #panel3D .p3-fila { display: flex; gap: 6px; margin-top: 8px; }
+    #panel3D .p3-btn { flex: 1; padding: 7px 6px; border-radius: 6px; border: none; cursor: pointer; font-weight: 700; font-size: 11px; color: #fff; font-family: Arial, sans-serif; }
+    #hint3D {
+      position: fixed; bottom: 64px; left: 50%; transform: translateX(-50%); z-index: 1003;
+      background: rgba(5,105,12,0.96); color: #fff; padding: 8px 14px; border-radius: 8px;
+      font-size: 12px; font-weight: 700; display: none; box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+    }
   </style>
 </head>
 <body>
 
 <img id="logo" src="./iconos/logo-sexta.png" alt="Logo Sexta" loading="lazy">
 <div id="map"></div>
+<div id="map3d"></div>
 
 <!-- HEADER -->
 <div class="header-bar">
@@ -636,6 +667,30 @@
 
 <div id="triggerDerecho">FILTROS ►</div>
 
+<!-- PANEL VISTA 3D -->
+<div id="panel3D">
+  <div class="p3-titulo">🧊 Vista 3D · OpenFreeMap</div>
+  <label class="p3-lbl"><span>Estilo de mapa</span></label>
+  <select id="estilo3D">
+    <option value="liberty" selected>Liberty</option>
+    <option value="bright">Bright</option>
+    <option value="positron">Positron</option>
+    <option value="dark">Dark</option>
+    <option value="fiord">Fiord</option>
+  </select>
+  <label class="p3-lbl"><span>Inclinación</span></label>
+  <input type="range" id="pitch3D" min="0" max="85" value="60">
+  <label style="display:flex;align-items:center;gap:6px;margin-top:8px;color:var(--text);font-size:12px;cursor:pointer;">
+    <input type="checkbox" id="edificios3D" checked style="width:14px;height:14px;accent-color:var(--accent);"> Edificios en 3D
+  </label>
+  <div class="p3-fila">
+    <button class="p3-btn" id="norte3D" style="background:#37474f;">🧭 Norte</button>
+    <button class="p3-btn" id="salir3D" style="background:#b71c1c;">✕ Salir 3D</button>
+  </div>
+  <div style="margin-top:8px;color:var(--text-dim);font-size:10px;line-height:1.4;">Arrastra con clic derecho (o Ctrl + arrastrar) para girar e inclinar.</div>
+</div>
+<div id="hint3D"></div>
+
 <!-- BUSCADOR DE DIRECCIONES -->
 <div id="buscadorDir" style="
   position:fixed; top:62px; left:50%; transform:translateX(-50%);
@@ -673,6 +728,8 @@
   <button class="btn-fijo" id="btnDashboard">📊 Dashboard</button>
   <button class="btn-fijo" id="btnCompare">🔁 Sem. Ant.</button>
   <button class="btn-fijo" id="btnRuta">🗺 Ruta</button>
+  <button class="btn-fijo" id="btn3D">🧊 3D</button>
+  <button class="btn-fijo" id="btnEtiquetas" style="background:#5d4037;">🕒 Hora/Día</button>
 </div>
 
 <!-- DASHBOARD MODAL -->
@@ -727,6 +784,8 @@
 
 <!-- SCRIPTS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.1/leaflet-maplibre-gl.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
 <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
@@ -798,6 +857,28 @@ class MapaDelitos {
       "OpenStreetMap Humanitarian": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'),
       "ÖPNV-Karte": L.tileLayer('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png',{maxZoom:19})
     };
+    /* ── Capas OpenFreeMap (vectoriales, vía MapLibre GL) ── */
+    this.estilosOFM = {
+      'OpenFreeMap Positron': 'https://tiles.openfreemap.org/styles/positron',
+      'OpenFreeMap Bright':   'https://tiles.openfreemap.org/styles/bright',
+      'OpenFreeMap Liberty':  'https://tiles.openfreemap.org/styles/liberty',
+      'OpenFreeMap Dark':     'https://tiles.openfreemap.org/styles/dark',
+      'OpenFreeMap Fiord':    'https://tiles.openfreemap.org/styles/fiord'
+    };
+    const ofmCapas = {};
+    if (typeof L.maplibreGL === 'function') {
+      const atribOFM = '<a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> © <a href="https://www.openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> Data from <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>';
+      Object.entries(this.estilosOFM).forEach(([nombre, url]) => {
+        const capa = L.maplibreGL({ style: url, attribution: atribOFM });
+        capa._ofmStyle = url;
+        ofmCapas[nombre] = capa;
+      });
+      /* "OpenFreeMap 3D": entrada especial que activa la vista 3D (MapLibre con inclinación) */
+      const capa3D = L.layerGroup();
+      capa3D._ofmStyle = this.estilosOFM['OpenFreeMap Liberty'];
+      ofmCapas['OpenFreeMap 3D'] = capa3D;
+    }
+    this.baseLayers = Object.assign({}, ofmCapas, this.baseLayers);
     this.baseLayers["Callejero (OSM)"].addTo(this.map);
 
     this.clusterGroup = createClusterGroup();
@@ -806,7 +887,7 @@ class MapaDelitos {
     this.map.addLayer(this.clusterGroup);
 
     /* Al activar una capa (Cuadrantes, Barrios, etc.) la ruta vuelve al frente */
-    this.map.on('overlayadd', () => this._rutaAlFrente());
+    this.map.on('overlayadd overlayremove', () => { this._rutaAlFrente(); if (this.mode3D) this._update3D(); });
 
     /* Íconos */
     this.delitoIcons = {
@@ -826,6 +907,7 @@ class MapaDelitos {
     this.cargarDatos();
     this.initDraw();
     this.initArchivoZona();
+    this.init3D();
   }
 
   /* ── DISTANCIA ── */
@@ -878,6 +960,7 @@ class MapaDelitos {
       /* Mapeo de coordenadas OSRM a formato [lat, lng] para L.polyline */
       this._lineaRutaGeoJSON = route.coordinates.map(c => [c.lat, c.lng]);
       setTimeout(() => this._rutaAlFrente(), 0);
+      if (this.mode3D) this._update3D();
 
       const totalKm = (route.summary.totalDistance/1000).toFixed(2);
       const totalMin = Math.round(route.summary.totalTime/60);
@@ -929,6 +1012,7 @@ class MapaDelitos {
     if(this.routingControl){this.map.removeControl(this.routingControl);this.routingControl=null;}
     this._lineaRutaGeoJSON = null;
     document.getElementById('panelRuta').classList.remove('visible');
+    if (this.mode3D) this._update3D();
   }
 
   /* ── OVERLAYS ── */
@@ -975,6 +1059,7 @@ class MapaDelitos {
       html:`<div style="position:relative;">
               <img src="${icono.options.iconUrl}" width="32" height="32" style="filter:drop-shadow(2px 2px 4px #000);">
               <div style="position:absolute;top:-34px;left:50%;transform:translateX(-50%);color:${this.getColor(c.delito)};font-weight:900;font-size:22px;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;font-family:Arial,monospace;">${i+1}</div>
+              ${this.mostrarEtiquetas?`<div style="position:absolute;top:-52px;left:50%;transform:translateX(-50%);white-space:nowrap;color:#1b1b1b;font-weight:400;font-size:12px;font-family:Arial,sans-serif;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,0 0 3px #fff;">${this.etiquetaCaso(c)}</div>`:''}
             </div>`,
       className:'transparent-marker', iconSize:[32,32], iconAnchor:[16,32]
     });
@@ -1036,6 +1121,7 @@ class MapaDelitos {
   initDraw() {
     this.drawLayer = new L.FeatureGroup();
     this.map.addLayer(this.drawLayer);
+    this.drawLayer.on('layeradd layerremove', () => { if (this.mode3D) this._update3D(); });
 
     const getZonaStyle = () => {
       const color   = document.getElementById('zonaColorBorde').value;
@@ -1057,6 +1143,7 @@ class MapaDelitos {
       r.setAttribute('fill-opacity', s.fillOpacity);
       r.setAttribute('stroke-dasharray', s.dashArray || 'none');
       if (this.zonaFiltro && this.zonaFiltro.setStyle) this.zonaFiltro.setStyle(s);
+      if (this.mode3D) this._update3D();
     };
 
     ['zonaColorBorde','zonaColorRelleno','zonaTipoLinea'].forEach(id => {
@@ -1106,12 +1193,15 @@ class MapaDelitos {
     });
 
     document.getElementById('btnIniciarDibujo').onclick = () => {
+      if (this.mode3D) { this.dibujar3D('polygon'); return; }
       new L.Draw.Polygon(this.map, { shapeOptions: getZonaStyle() }).enable();
     };
     document.getElementById('btnRectangulo').onclick = () => {
+      if (this.mode3D) { this.dibujar3D('rectangle'); return; }
       new L.Draw.Rectangle(this.map, { shapeOptions: getZonaStyle() }).enable();
     };
     document.getElementById('btnCirculo').onclick = () => {
+      if (this.mode3D) { this.dibujar3D('circle'); return; }
       new L.Draw.Circle(this.map, { shapeOptions: getZonaStyle() }).enable();
     };
     document.getElementById('btnBorrarForma').onclick = () => {
@@ -1301,6 +1391,7 @@ class MapaDelitos {
       })
     }).addTo(this.map);
     document.getElementById('resultadosBusqueda').style.display = 'none';
+    if (this.mode3D) this._marcador3D(latlng, nombre);
   }
 
   /* ── SELECCIÓN MANUAL ── */
@@ -1423,6 +1514,510 @@ class MapaDelitos {
     this.seleccionManualActiva=false;
     this.casosSeleccionados.clear();
     this.aplicarFiltros();
+  }
+
+  /* ── ETIQUETA "DÍA · HORA" (se muestra sobre los íconos si el modo está activo) ── */
+  etiquetaCaso(c) {
+    const dias = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+    let dia = '';
+    try {
+      const [d, m, y] = String(c.fecha).split('-').map(Number);
+      dia = dias[new Date(Date.UTC(y, m - 1, d)).getUTCDay()] || '';
+    } catch(e) {}
+    const hora = String(c.hora || '').slice(0, 5);
+    return [dia, hora].filter(Boolean).join(' · ');
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     VISTA 3D — OpenFreeMap + MapLibre GL
+     Leaflet sigue siendo el "modelo" (filtros, zona, ruta, capas);
+     el mapa 3D se dibuja encima y se sincroniza con él.
+  ═══════════════════════════════════════════════════════════════ */
+  init3D() {
+    this.mode3D = false; this.map3d = null; this._ready3D = false;
+    this._sincronizando = false; this._dibujando3D = false; this._cancelarDibujo3D = null;
+    this.estilo3D = 'liberty'; this._edif3D = true; this.mostrarEtiquetas = false;
+    this._ov3dKey = ''; this._ov3dIds = []; this._ov3dNombres = {};
+    this._popup3d = null; this._sm3d = null;
+
+    /* Leaflet -> 3D */
+    this.map.on('moveend', () => {
+      if (!this.mode3D || !this.map3d || this._sincronizando) return;
+      this._sincronizando = true;
+      const c = this.map.getCenter();
+      this.map3d.jumpTo({ center: [c.lng, c.lat], zoom: Math.max(0, this.map.getZoom() - 1) });
+      this._sincronizando = false;
+    });
+
+    /* Al elegir "OpenFreeMap 3D" en el control de capas se activa la vista 3D; cualquier otra capa la desactiva */
+    this.map.on('baselayerchange', e => {
+      if (e.name === 'OpenFreeMap 3D') this.activar3D();
+      else if (this.mode3D) this.desactivar3D();
+    });
+
+    const $ = id => document.getElementById(id);
+    $('btn3D').onclick = () => { this.mode3D ? this.salir3D() : this.entrar3D(); };
+    $('salir3D').onclick = () => this.salir3D();
+    $('estilo3D').addEventListener('change', e => {
+      this.estilo3D = e.target.value;
+      if (!this.map3d) return;
+      this._ready3D = false;
+      this.map3d.setStyle(`https://tiles.openfreemap.org/styles/${this.estilo3D}`);
+    });
+    $('pitch3D').addEventListener('input', e => { if (this.map3d) this.map3d.setPitch(parseFloat(e.target.value)); });
+    $('norte3D').onclick = () => { if (this.map3d) this.map3d.easeTo({ bearing: 0, pitch: 60 }); };
+    $('edificios3D').addEventListener('change', e => { this._edif3D = e.target.checked; this._aplicarEdificios3D(); });
+
+    /* Modo etiquetas: hora y día de la semana sobre los íconos (2D, 3D e impresión) */
+    $('btnEtiquetas').onclick = () => {
+      this.mostrarEtiquetas = !this.mostrarEtiquetas;
+      const b = $('btnEtiquetas');
+      b.textContent = this.mostrarEtiquetas ? '🕒 Hora/Día ON' : '🕒 Hora/Día';
+      b.style.background = this.mostrarEtiquetas ? '#3e2723' : '#5d4037';
+      this.renderizar();
+    };
+  }
+
+  entrar3D() {
+    const d = this.baseLayers['OpenFreeMap 3D'];
+    if (!d) { alert('No se pudo cargar MapLibre GL (revisa tu conexión a internet).'); return; }
+    Object.values(this.baseLayers).forEach(l => { if (l !== d && this.map.hasLayer(l)) this.map.removeLayer(l); });
+    this.map.addLayer(d);              // dispara baselayerchange -> activar3D()
+    if (!this.mode3D) this.activar3D();
+  }
+
+  salir3D() {
+    const d = this.baseLayers['OpenFreeMap 3D'];
+    if (d && this.map.hasLayer(d)) this.map.removeLayer(d);
+    this.map.addLayer(this.baseLayers['Callejero (OSM)']);
+    if (this.mode3D) this.desactivar3D();
+  }
+
+  activar3D() {
+    if (this.mode3D) return;
+    if (typeof maplibregl === 'undefined') { alert('No se pudo cargar MapLibre GL (revisa tu conexión a internet).'); return; }
+    this.mode3D = true;
+    document.getElementById('map3d').classList.add('visible');
+    document.getElementById('panel3D').classList.add('visible');
+    const b = document.getElementById('btn3D'); b.textContent = '🧊 3D ON'; b.style.background = '#004d40';
+    const c = this.map.getCenter();
+    /* Los edificios 3D aparecen desde zoom 14-15: se acerca la cámara para ver la perspectiva de inmediato */
+    const zoom = Math.max(15.2, this.map.getZoom() - 1);
+
+    if (!this.map3d) {
+      const m = new maplibregl.Map({
+        container: 'map3d',
+        style: `https://tiles.openfreemap.org/styles/${this.estilo3D}`,
+        center: [c.lng, c.lat], zoom, pitch: 60, bearing: -17,
+        maxPitch: 85, maxZoom: 22, attributionControl: false,
+        canvasContextAttributes: { antialias: true, preserveDrawingBuffer: true }
+      });
+      this.map3d = m;
+      m.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
+      m.addControl(new maplibregl.AttributionControl({ compact: false }), 'bottom-right');
+      m.on('style.load', () => this._setup3DStyle());
+      m.on('error', e => console.warn('MapLibre:', e && e.error ? e.error.message : e));
+      m.on('pitch', () => { const s = document.getElementById('pitch3D'); if (s) s.value = Math.round(m.getPitch()); });
+      /* 3D -> Leaflet */
+      m.on('moveend', () => {
+        if (this._sincronizando || !this.mode3D) return;
+        this._sincronizando = true;
+        const cc = m.getCenter();
+        this.map.setView([cc.lat, cc.lng], m.getZoom() + 1, { animate: false });
+        this._sincronizando = false;
+      });
+      m.on('click', e => this._clic3D(e));
+      m.on('mousemove', e => {
+        if (this._dibujando3D || !this._ready3D) return;
+        const capas = ['cl-circle', 'caso-pt', 'caso-flat-pt'].filter(id => m.getLayer(id));
+        m.getCanvas().style.cursor = capas.length && m.queryRenderedFeatures(e.point, { layers: capas }).length ? 'pointer' : '';
+      });
+      this._sincronizando = true;
+      this.map.setView([c.lat, c.lng], zoom + 1, { animate: false });
+      this._sincronizando = false;
+    } else {
+      this.map3d.resize();
+      this._sincronizando = true;
+      this.map3d.jumpTo({ center: [c.lng, c.lat], zoom });
+      this.map.setView([c.lat, c.lng], zoom + 1, { animate: false });
+      this._sincronizando = false;
+      this._ov3dKey = '';
+      this._update3D();
+    }
+  }
+
+  desactivar3D() {
+    this.mode3D = false;
+    if (this._cancelarDibujo3D) this._cancelarDibujo3D();
+    if (this._popup3d) { this._popup3d.remove(); this._popup3d = null; }
+    /* La vista plana queda donde estaba la cámara 3D */
+    if (this.map3d) { const cc = this.map3d.getCenter(); this.map.setView([cc.lat, cc.lng], this.map3d.getZoom() + 1, { animate: false }); }
+    document.getElementById('map3d').classList.remove('visible');
+    document.getElementById('panel3D').classList.remove('visible');
+    const b = document.getElementById('btn3D'); b.textContent = '🧊 3D'; b.style.background = '';
+    setTimeout(() => this.map.invalidateSize(), 50);
+  }
+
+  _anadirIconos3D() {
+    const m = this.map3d; if (!m) return;
+    if (!m.hasImage('default')) {
+      const cv = document.createElement('canvas'); cv.width = 64; cv.height = 64;
+      const cx = cv.getContext('2d');
+      cx.beginPath(); cx.arc(32, 32, 24, 0, Math.PI * 2);
+      cx.fillStyle = '#1976d2'; cx.fill(); cx.lineWidth = 5; cx.strokeStyle = '#fff'; cx.stroke();
+      m.addImage('default', cx.getImageData(0, 0, 64, 64), { pixelRatio: 2 });
+    }
+    Object.entries(this._iconosData || {}).forEach(([n, d]) => { if (!m.hasImage(n)) { try { m.addImage(n, d, { pixelRatio: 2 }); } catch(e) {} } });
+  }
+
+  _cargarIconos3D() {
+    if (this._iconosPromise) return this._iconosPromise;
+    this._iconosData = {};
+    this._iconosPromise = Promise.all(Object.entries(this.delitoIcons).map(([nombre, ic]) => new Promise(res => {
+      const img = new Image();
+      img.onload = () => {
+        try {
+          const cv = document.createElement('canvas'); cv.width = 64; cv.height = 64;
+          const cx = cv.getContext('2d'); cx.drawImage(img, 0, 0, 64, 64);
+          this._iconosData[nombre] = cx.getImageData(0, 0, 64, 64);
+        } catch(e) {}
+        res();
+      };
+      img.onerror = () => res();
+      img.src = ic.options.iconUrl;
+    })));
+    return this._iconosPromise;
+  }
+
+  _setup3DStyle() {
+    const m = this.map3d;
+    try {
+      /* Edificios 3D: Liberty ya los trae; si el estilo no tiene extrusión (Bright, Positron, Dark, Fiord) se agrega */
+      const st = m.getStyle(); const capas = st.layers || [];
+      if (!capas.some(l => l.type === 'fill-extrusion')) {
+        const src = Object.keys(st.sources).find(k => st.sources[k].type === 'vector');
+        if (src) {
+          const n = this.estilo3D;
+          const col = n === 'dark' ? ['#2a313c', '#4b5666'] : n === 'fiord' ? ['#3d4f68', '#6f87a6'] : ['#e3e0da', '#aeb4bd'];
+          const primeraSimbolo = capas.find(l => l.type === 'symbol');
+          m.addLayer({
+            id: 'edificios-3d', type: 'fill-extrusion', source: src, 'source-layer': 'building', minzoom: 14,
+            filter: ['!=', ['get', 'hide_3d'], true],
+            paint: {
+              'fill-extrusion-color': ['interpolate', ['linear'], ['coalesce', ['get', 'render_height'], 0], 0, col[0], 150, col[1]],
+              'fill-extrusion-height': ['interpolate', ['linear'], ['zoom'], 14, 0, 15.2, ['coalesce', ['get', 'render_height'], 0]],
+              'fill-extrusion-base': ['interpolate', ['linear'], ['zoom'], 14, 0, 15.2, ['coalesce', ['get', 'render_min_height'], 0]],
+              'fill-extrusion-opacity': 0.9
+            }
+          }, primeraSimbolo ? primeraSimbolo.id : undefined);
+        }
+      }
+    } catch(e) { console.error('Edificios 3D:', e); }
+
+    try {
+      this._anadirIconos3D();
+      this._cargarIconos3D().then(() => this._anadirIconos3D());
+
+      const vacio = { type: 'FeatureCollection', features: [] };
+      m.addSource('casos', { type: 'geojson', data: vacio, cluster: true, clusterRadius: 60, clusterMaxZoom: 19 });
+      m.addSource('casos-flat', { type: 'geojson', data: vacio });
+      m.addSource('previo', { type: 'geojson', data: vacio });
+      m.addSource('ruta', { type: 'geojson', data: vacio });
+      m.addSource('zona', { type: 'geojson', data: vacio });
+      m.addSource('draft', { type: 'geojson', data: vacio });
+
+      /* Hotspot (mapa de calor) */
+      m.addLayer({ id: 'hotspot', type: 'heatmap', source: 'casos-flat', layout: { visibility: 'none' }, paint: {
+        'heatmap-weight': 1,
+        'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 10, 0.6, 16, 2],
+        'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 10, 12, 16, 45, 19, 90],
+        'heatmap-opacity': 0.75,
+        'heatmap-color': ['interpolate', ['linear'], ['heatmap-density'],
+          0, 'rgba(255,255,0,0)', 0.25, 'rgba(255,255,0,0.55)', 0.55, 'rgba(255,140,0,0.7)', 0.8, 'rgba(255,0,0,0.85)']
+      }});
+
+      /* Ruta óptima */
+      m.addLayer({ id: 'ruta-line', type: 'line', source: 'ruta', layout: { 'line-join': 'round', 'line-cap': 'round' },
+        paint: { 'line-color': '#00bcd4', 'line-width': 7, 'line-opacity': 0.9 } });
+
+      /* Zona (filtro por polígono) */
+      m.addLayer({ id: 'zona-fill', type: 'fill', source: 'zona', paint: { 'fill-color': '#39ff14', 'fill-opacity': 0.15 } });
+      m.addLayer({ id: 'zona-line', type: 'line', source: 'zona', paint: { 'line-color': '#39ff14', 'line-width': 3 } });
+
+      /* Borrador mientras se dibuja en 3D */
+      m.addLayer({ id: 'draft-fill', type: 'fill', source: 'draft', filter: ['==', ['geometry-type'], 'Polygon'], paint: { 'fill-color': '#39ff14', 'fill-opacity': 0.12 } });
+      m.addLayer({ id: 'draft-line', type: 'line', source: 'draft', filter: ['!=', ['geometry-type'], 'Point'], paint: { 'line-color': '#39ff14', 'line-width': 3, 'line-dasharray': [2, 1.5] } });
+      m.addLayer({ id: 'draft-pts', type: 'circle', source: 'draft', filter: ['==', ['geometry-type'], 'Point'], paint: { 'circle-radius': 5, 'circle-color': '#39ff14', 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
+
+      /* Período anterior */
+      m.addLayer({ id: 'prev-circle', type: 'circle', source: 'previo', paint: {
+        'circle-radius': 9, 'circle-color': '#ff5722', 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 3, 'circle-opacity': 0.9 } });
+
+      /* Huella sobre el terreno de cada caso: círculo de ~12 m pegado al suelo que sigue la perspectiva
+         (más grande cerca de la cámara, más pequeño al fondo) */
+      const paintBase = {
+        'circle-pitch-alignment': 'map', 'circle-pitch-scale': 'map',
+        'circle-radius': ['interpolate', ['exponential', 2], ['zoom'], 12, 0.8, 22, 804],
+        'circle-color': ['get', 'color'], 'circle-opacity': 0.35,
+        'circle-stroke-color': ['get', 'color'], 'circle-stroke-width': 2, 'circle-stroke-opacity': 0.9
+      };
+      m.addLayer({ id: 'caso-base', type: 'circle', source: 'casos', filter: ['!', ['has', 'point_count']], paint: paintBase });
+      m.addLayer({ id: 'caso-flat-base', type: 'circle', source: 'casos-flat', layout: { visibility: 'none' }, paint: paintBase });
+
+      /* Clusters */
+      m.addLayer({ id: 'cl-circle', type: 'circle', source: 'casos', filter: ['has', 'point_count'], paint: {
+        'circle-color': ['step', ['get', 'point_count'], '#8bc34a', 5, '#ffc107', 10, '#ff9800', 20, '#e53935', 30, '#d32f2f', 50, '#b71c1c'],
+        'circle-radius': 23, 'circle-stroke-width': 3, 'circle-stroke-color': 'rgba(255,255,255,0.85)' } });
+      m.addLayer({ id: 'cl-count', type: 'symbol', source: 'casos', filter: ['has', 'point_count'],
+        layout: { 'text-field': ['get', 'point_count_abbreviated'], 'text-font': ['Noto Sans Bold'], 'text-size': 18, 'text-allow-overlap': true, 'text-ignore-placement': true },
+        paint: { 'text-color': '#ffffff' } });
+
+      /* Casos individuales (ícono por delito + número) */
+      const layoutPunto = {
+        'icon-image': ['coalesce', ['image', ['get', 'icono']], ['image', 'default']],
+        'icon-anchor': 'bottom', 'icon-allow-overlap': true, 'icon-ignore-placement': true,
+        'text-field': ['to-string', ['get', 'num']], 'text-font': ['Noto Sans Bold'], 'text-size': 20,
+        'text-anchor': 'bottom', 'text-offset': [0, -1.75], 'text-allow-overlap': true, 'text-ignore-placement': true
+      };
+      const paintPunto = { 'text-color': ['get', 'color'], 'text-halo-color': '#ffffff', 'text-halo-width': 2 };
+      m.addLayer({ id: 'caso-pt', type: 'symbol', source: 'casos', filter: ['!', ['has', 'point_count']], layout: layoutPunto, paint: paintPunto });
+      m.addLayer({ id: 'caso-flat-pt', type: 'symbol', source: 'casos-flat', layout: Object.assign({ visibility: 'none' }, layoutPunto), paint: paintPunto });
+
+      /* Etiqueta "Día · Hora" sobre el ícono (letra fina y legible) */
+      const layoutEtq = {
+        'text-field': ['get', 'etiqueta'], 'text-font': ['Noto Sans Regular'], 'text-size': 13,
+        'text-anchor': 'bottom', 'text-offset': [0, -4.9], 'text-allow-overlap': true, 'text-ignore-placement': true,
+        visibility: 'none'
+      };
+      const paintEtq = { 'text-color': '#1b1b1b', 'text-halo-color': 'rgba(255,255,255,0.96)', 'text-halo-width': 2.2 };
+      m.addLayer({ id: 'caso-label', type: 'symbol', source: 'casos', filter: ['!', ['has', 'point_count']], layout: layoutEtq, paint: paintEtq });
+      m.addLayer({ id: 'caso-flat-label', type: 'symbol', source: 'casos-flat', layout: layoutEtq, paint: paintEtq });
+    } catch(e) { console.error('Capas 3D:', e); }
+
+    this._ov3dKey = ''; this._ov3dIds = []; this._ov3dNombres = {};
+    this._ready3D = true;
+    this._aplicarEdificios3D();
+    this._update3D();
+  }
+
+  _aplicarEdificios3D() {
+    const m = this.map3d; if (!m || !this._ready3D) return;
+    (m.getStyle().layers || []).forEach(l => {
+      if (l.type === 'fill-extrusion') m.setLayoutProperty(l.id, 'visibility', this._edif3D === false ? 'none' : 'visible');
+    });
+  }
+
+  _circuloAnillo(centro, radio) {
+    const lat = centro[1], lng = centro[0], out = [];
+    const dLat = radio / 111320, dLng = radio / (111320 * Math.cos(lat * Math.PI / 180));
+    for (let k = 0; k < 64; k++) { const a = 2 * Math.PI * k / 64; out.push([lng + dLng * Math.cos(a), lat + dLat * Math.sin(a)]); }
+    return out;
+  }
+
+  _zonaGeoJSON() {
+    const vacio = { type: 'FeatureCollection', features: [] };
+    const z = this.zonaFiltro; if (!z) return vacio;
+    const feats = [];
+    try {
+      if (z instanceof L.Circle) {
+        const c = z.getLatLng(); const r = this._circuloAnillo([c.lng, c.lat], z.getRadius());
+        feats.push({ type: 'Feature', geometry: { type: 'Polygon', coordinates: [[...r, r[0]]] }, properties: {} });
+      } else if (z.toGeoJSON) {
+        const g = z.toGeoJSON();
+        (g.type === 'FeatureCollection' ? g.features : [g]).forEach(f => { if (f.geometry && f.geometry.type !== 'Point') feats.push(f); });
+      }
+    } catch(e) {}
+    return { type: 'FeatureCollection', features: feats };
+  }
+
+  _update3D() {
+    const m = this.map3d;
+    if (!m || !this._ready3D || !this.mode3D) return;
+    const vacio = { type: 'FeatureCollection', features: [] };
+    const set = (id, data) => { const s = m.getSource(id); if (s) s.setData(data); };
+    const vis = (id, on) => { if (m.getLayer(id)) m.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none'); };
+
+    const feats = [];
+    this.filtrados.forEach((c, i) => {
+      if (c.lat && c.lon) feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [c.lon, c.lat] }, properties: {
+        i, num: i + 1, delito: c.delito, color: this.getColor(c.delito), etiqueta: this.etiquetaCaso(c),
+        icono: this.delitoIcons[c.delito] ? c.delito : 'default' } });
+    });
+    const fc = { type: 'FeatureCollection', features: feats };
+    set('casos', fc); set('casos-flat', fc);
+
+    set('previo', this.comparePrevious ? { type: 'FeatureCollection', features:
+      this.previousFiltrados.filter(c => c.lat && c.lon).map(c => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [c.lon, c.lat] }, properties: {} })) } : vacio);
+
+    const cl = this.clusterEnabled, et = !!this.mostrarEtiquetas;
+    vis('cl-circle', cl); vis('cl-count', cl);
+    vis('caso-pt', cl); vis('caso-base', cl); vis('caso-label', cl && et);
+    vis('caso-flat-pt', !cl); vis('caso-flat-base', !cl); vis('caso-flat-label', !cl && et);
+    vis('hotspot', this.hotspotEnabled);
+
+    /* Ruta */
+    set('ruta', this._lineaRutaGeoJSON && this._lineaRutaGeoJSON.length ? { type: 'Feature', properties: {},
+      geometry: { type: 'LineString', coordinates: this._lineaRutaGeoJSON.map(p => [p[1], p[0]]) } } : vacio);
+
+    /* Zona + estilo definido en el panel de zona */
+    set('zona', this._zonaGeoJSON());
+    try {
+      const borde = document.getElementById('zonaColorBorde').value, relleno = document.getElementById('zonaColorRelleno').value;
+      const grosor = parseInt(document.getElementById('zonaGrosor').value) || 3;
+      const opac = (parseInt(document.getElementById('zonaOpacidad').value) || 0) / 100;
+      const tipo = document.getElementById('zonaTipoLinea').value;
+      m.setPaintProperty('zona-fill', 'fill-color', relleno); m.setPaintProperty('zona-fill', 'fill-opacity', opac);
+      m.setPaintProperty('zona-line', 'line-color', borde); m.setPaintProperty('zona-line', 'line-width', grosor);
+      m.setPaintProperty('zona-line', 'line-dasharray', tipo === 'dashed' ? [3, 2] : tipo === 'dotted' ? [0.6, 1.6] : [1, 0]);
+    } catch(e) {}
+
+    this._sync3DCapas();
+  }
+
+  /* Copia al mapa 3D las capas (Cuadrantes, Barrios, etc.) activas en el control de capas */
+  _sync3DCapas() {
+    const m = this.map3d;
+    const activos = Object.keys(this.overlayLayers).filter(n => this.map.hasLayer(this.overlayLayers[n]));
+    const key = activos.join('|');
+    if (key === this._ov3dKey) return;
+    this._ov3dKey = key;
+    (this._ov3dIds || []).forEach(id => {
+      ['-fill', '-line'].forEach(s => { if (m.getLayer(id + s)) m.removeLayer(id + s); });
+      if (m.getSource(id)) m.removeSource(id);
+    });
+    this._ov3dIds = []; this._ov3dNombres = {};
+    const estilos = {
+      'Barrios SPP 2024':             { color: '#ff7800', weight: 4, fillOpacity: 0.1 },
+      'Cuadrantes':                    { color: '#ff0000', weight: 5, fillOpacity: 0, fill: false },
+      'Calle sin Violencia Sept 2025':{ color: '#ffeb3b', weight: 4, fillOpacity: 0.2 },
+      'Calle sin Violencia':          { color: '#ffeb3b', weight: 4, fillOpacity: 0.15 },
+      'Barrio Prioritario':           { color: '#4caf50', weight: 4, fillOpacity: 0.2 }
+    };
+    const antes = m.getLayer('hotspot') ? 'hotspot' : undefined;
+    activos.forEach((nombre, k) => {
+      let gj; try { gj = this.overlayLayers[nombre].toGeoJSON(); } catch(e) { return; }
+      const st = estilos[nombre] || { color: '#ff7800', weight: 3, fillOpacity: 0.1 };
+      const id = 'ov-' + k;
+      m.addSource(id, { type: 'geojson', data: gj });
+      if (st.fill !== false) m.addLayer({ id: id + '-fill', type: 'fill', source: id, filter: ['==', ['geometry-type'], 'Polygon'],
+        paint: { 'fill-color': st.color, 'fill-opacity': st.fillOpacity } }, antes);
+      m.addLayer({ id: id + '-line', type: 'line', source: id, layout: { 'line-join': 'round' },
+        paint: { 'line-color': st.color, 'line-width': st.weight, 'line-opacity': 1 } }, antes);
+      this._ov3dIds.push(id); this._ov3dNombres[id] = nombre;
+    });
+  }
+
+  _popup3D(c, i) {
+    const m = this.map3d; if (!m) return;
+    if (this._popup3d) this._popup3d.remove();
+    this._popup3d = new maplibregl.Popup({ maxWidth: '340px', offset: [0, -40] })
+      .setLngLat([c.lon, c.lat]).setHTML(this.popupCaso(c, i)).addTo(m);
+  }
+
+  _clic3D(e) {
+    if (this._dibujando3D || !this._ready3D) return;
+    const m = this.map3d;
+    const capasCasos = ['cl-circle', 'caso-pt', 'caso-flat-pt'].filter(id => m.getLayer(id));
+    const f = capasCasos.length ? m.queryRenderedFeatures(e.point, { layers: capasCasos }) : [];
+    if (f.length) {
+      const ft = f[0];
+      if (ft.layer.id === 'cl-circle') {
+        const p = m.getSource('casos').getClusterExpansionZoom(ft.properties.cluster_id);
+        if (p && p.then) p.then(z => m.easeTo({ center: ft.geometry.coordinates, zoom: z + 0.5 }));
+        return;
+      }
+      const i = ft.properties.i, c = this.filtrados[i];
+      if (c) {
+        this._popup3D(c, i);
+        document.querySelectorAll('.caso-item').forEach(el => el.classList.remove('activo'));
+        const el = document.querySelector(`#listaCasos .caso-item:nth-child(${i + 1})`);
+        if (el) { el.classList.add('activo'); el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+      }
+      return;
+    }
+    const ids = (this._ov3dIds || []).flatMap(id => [id + '-fill', id + '-line']).filter(l => m.getLayer(l));
+    if (!ids.length) return;
+    const o = m.queryRenderedFeatures(e.point, { layers: ids });
+    if (!o.length) return;
+    const nombre = this._ov3dNombres[o[0].source] || 'Capa';
+    let html = `<b>${nombre}</b><hr>`;
+    for (const [k, v] of Object.entries(o[0].properties || {})) html += `<b>${k}:</b> ${v}<br>`;
+    if (this._popup3d) this._popup3d.remove();
+    this._popup3d = new maplibregl.Popup({ maxWidth: '340px' }).setLngLat(e.lngLat).setHTML(html).addTo(m);
+  }
+
+  _marcador3D(latlng, nombre) {
+    if (!this.map3d) return;
+    if (this._sm3d) this._sm3d.remove();
+    const el = document.createElement('div');
+    el.style.cssText = 'background:#39ff14;color:#000;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:700;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,0.5);';
+    el.textContent = '📍 ' + String(nombre).substring(0, 40);
+    this._sm3d = new maplibregl.Marker({ element: el }).setLngLat([latlng[1], latlng[0]]).addTo(this.map3d);
+  }
+
+  /* Dibujo de zona (polígono / rectángulo / círculo) directamente sobre el mapa 3D */
+  dibujar3D(tipo) {
+    const m = this.map3d;
+    if (!m || !this._ready3D) { alert('Espera a que termine de cargar el mapa 3D.'); return; }
+    if (this._cancelarDibujo3D) this._cancelarDibujo3D();
+    const vacio = { type: 'FeatureCollection', features: [] };
+    const pts = []; let cur = null;
+    const canvas = m.getCanvas(); canvas.style.cursor = 'crosshair';
+    m.doubleClickZoom.disable();
+    const hint = document.getElementById('hint3D');
+    hint.textContent = {
+      polygon: 'Clic: agregar vértice · Doble clic o Enter: terminar · Esc: cancelar',
+      rectangle: 'Clic en dos esquinas opuestas · Esc: cancelar',
+      circle: 'Clic en el centro y luego en el borde del círculo · Esc: cancelar'
+    }[tipo];
+    hint.style.display = 'block';
+    this._dibujando3D = true;
+
+    const anillo = extra => {
+      const p = extra ? [...pts, extra] : [...pts];
+      if (!p.length) return [];
+      if (tipo === 'polygon') return p;
+      if (p.length < 2) return [];
+      if (tipo === 'rectangle') { const a = p[0], b = p[1]; return [[a[0], a[1]], [b[0], a[1]], [b[0], b[1]], [a[0], b[1]]]; }
+      const r = L.latLng(p[0][1], p[0][0]).distanceTo(L.latLng(p[1][1], p[1][0]));
+      return this._circuloAnillo(p[0], r);
+    };
+    const pintar = () => {
+      const r = anillo(cur), feats = [];
+      if (r.length >= 3) feats.push({ type: 'Feature', geometry: { type: 'Polygon', coordinates: [[...r, r[0]]] }, properties: {} });
+      else if (r.length === 2) feats.push({ type: 'Feature', geometry: { type: 'LineString', coordinates: r }, properties: {} });
+      if (tipo === 'polygon') pts.forEach(p => feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: p }, properties: {} }));
+      const s = m.getSource('draft'); if (s) s.setData({ type: 'FeatureCollection', features: feats });
+    };
+    const limpiar = () => {
+      m.off('click', onClick); m.off('mousemove', onMove); m.off('dblclick', onDbl);
+      document.removeEventListener('keydown', onKey);
+      canvas.style.cursor = ''; hint.style.display = 'none';
+      this._dibujando3D = false; this._cancelarDibujo3D = null;
+      const s = m.getSource('draft'); if (s) s.setData(vacio);
+      setTimeout(() => m.doubleClickZoom.enable(), 350);
+    };
+    const terminar = () => {
+      const r = anillo(null);
+      if (r.length < 3) { alert('Faltan puntos para cerrar la zona.'); return; }
+      const layer = L.polygon(r.map(p => [p[1], p[0]]));
+      limpiar();
+      this.map.fire(L.Draw.Event.CREATED, { layer, layerType: tipo });
+    };
+    const onClick = e => {
+      const p = [e.lngLat.lng, e.lngLat.lat], u = pts[pts.length - 1];
+      if (u && Math.abs(u[0] - p[0]) < 1e-9 && Math.abs(u[1] - p[1]) < 1e-9) return;
+      pts.push(p);
+      if ((tipo === 'rectangle' || tipo === 'circle') && pts.length === 2) { terminar(); return; }
+      pintar();
+    };
+    const onMove = e => { cur = [e.lngLat.lng, e.lngLat.lat]; pintar(); };
+    const onDbl = e => { if (tipo === 'polygon') { e.preventDefault(); terminar(); } };
+    const onKey = e => { if (e.key === 'Escape') limpiar(); else if (e.key === 'Enter' && tipo === 'polygon') terminar(); };
+
+    m.on('click', onClick); m.on('mousemove', onMove); m.on('dblclick', onDbl);
+    document.addEventListener('keydown', onKey);
+    this._cancelarDibujo3D = limpiar;
   }
 
   /* ── PERÍODO POR DEFECTO: AÑO EN CURSO ── */
@@ -1600,6 +2195,7 @@ class MapaDelitos {
 
     if(this.hotspotEnabled) this.calcularHotspots();
     this.actualizarLista();
+    if(this.mode3D) this._update3D();
   }
 
   actualizarLista() {
@@ -1619,6 +2215,7 @@ class MapaDelitos {
   irACaso(i) {
     const c=this.filtrados[i];
     this.map.setView([c.lat,c.lon],18);
+    if(this.mode3D) this._popup3D(c,i);
     document.querySelectorAll('.caso-item').forEach(el=>el.classList.remove('activo'));
     const el=document.querySelector(`#listaCasos .caso-item:nth-child(${i+1})`);
     if(el){el.classList.add('activo');el.scrollIntoView({behavior:'smooth',block:'nearest'});}
@@ -1628,6 +2225,8 @@ class MapaDelitos {
   prepararImpresion() {
     const printModal = document.getElementById('printModal');
     const printContent = document.getElementById('printContent');
+    /* En modo 3D se captura la vista actual (casos, ruta, capas y zona incluidos) para imprimirla */
+    const snap3D = this.mode3D && this.map3d ? (() => { try { return this.map3d.getCanvas().toDataURL('image/png'); } catch(e) { return null; } })() : null;
     printContent.innerHTML = '';
     printContent.style.cssText = 'position:relative;background:white;width:215.9mm;min-height:330.2mm;margin:auto;box-shadow:0 0 30px rgba(0,0,0,0.9);padding:0;';
 
@@ -1706,7 +2305,13 @@ class MapaDelitos {
       const activeKey = Object.keys(this.baseLayers).find(k => this.map.hasLayer(this.baseLayers[k]));
       if (activeKey) {
         const orig = this.baseLayers[activeKey];
-        L.tileLayer(orig._url, Object.assign({}, orig.options)).addTo(printMap);
+        if (snap3D) {
+          /* la vista 3D se inserta como imagen sobre el mapa de impresión */
+        } else if (orig._ofmStyle) {
+          L.maplibreGL({ style: orig._ofmStyle, preserveDrawingBuffer: true }).addTo(printMap);
+        } else if (orig._url) {
+          L.tileLayer(orig._url, Object.assign({}, orig.options)).addTo(printMap);
+        }
       } else {
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution:'© OpenStreetMap contributors' }).addTo(printMap);
       }
@@ -1775,6 +2380,13 @@ class MapaDelitos {
         if (bounds.isValid()) printMap.fitBounds(bounds, { padding:[50,50], animate:false });
       };
       ajustarVista();
+
+      if (snap3D) {
+        const img3D = document.createElement('img');
+        img3D.src = snap3D;
+        img3D.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1500;pointer-events:none;';
+        mapDiv.appendChild(img3D);
+      }
 
       this.makeDraggableResizable(mapDiv);
 
@@ -1970,6 +2582,7 @@ class MapaDelitos {
       document.getElementById('modoBadge').textContent='MODO HOTSPOT';
       document.getElementById('modoBadge').classList.toggle('visible',this.hotspotEnabled);
       if(this.hotspotEnabled){this.calcularHotspots();}else{this.limpiarHotspots();}
+      if(this.mode3D) this._update3D();
     };
     document.getElementById('btnCentrar').onclick=()=>{
       if(!this.filtrados.length){this.map.setView([-36.84,-73.105],13);return;}
