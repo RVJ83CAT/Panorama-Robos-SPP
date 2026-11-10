@@ -29554,5 +29554,41 @@
     "concat": "AVENIDA LAGUNA GRANDE 115 , San Pedro de la Paz",
     "lat": -36.83879874677129,
     "lon": -73.11926252852213
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO FRUSTRADO",
+    "fecha": "10-11-2026",
+    "dia": "MARTES",
+    "hora": "08:05",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "ESTABLECIMIENTO EDUCACIONAL",
+    "direccion": "DANIEL BELMAR 948",
+    "circunstancias": "Sujeto(s) desconocido(s) ingresan o intentan ingresar al establecimiento educacional Escuela de Lenguaje Senderos de San Pedro. El día 09 a las 17:45 horas, la directora (M49) se retiró del establecimiento, verificando previamente que las dependencias quedaran cerradas. El 10 a las 08:05 horas, al regresar al recinto, constató daños en los accesos y elementos de seguridad: la cadena y el candado de la puerta principal de acceso se encontraban cortados, mientras que en la cerradura había un trozo de llave quebrado en su interior. Asimismo, el candado de la puerta de salida hacia los furgones escolares mantenía una llave quebrada en su interior. No se informa sustracción de especies. Avalúo de los daños $200000. Cámaras de seguridad no se encontraban funcionando.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 4993,
+    "direccion_georref": "DANIEL BELMAR 948",
+    "comuna": "San Pedro de la Paz",
+    "concat": "DANIEL BELMAR 948 , San Pedro de la Paz",
+    "lat": -36.83453212089215,
+    "lon": -73.13787181300167
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "10-11-2026",
+    "dia": "MARTES",
+    "hora": "09:00",
+    "rango_hora": "08:00 a 11:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "CAMINO EL VENADO & CAMINO EL VENADO ALTO",
+    "circunstancias": "Sujeto(s) desconocido(s) sustraen las placas patentes delantera y trasera de un vehículo Station Wagon marca Citroën, modelo Jumpy XL, color blanco, 2024, PPU. TJXJ69, estacionado en la vía pública, por el costado del edificio donde reside la afectada (M42). El vehículo había sido estacionado el día anterior a las 21:00 horas, con sus puertas cerradas y sistema de alarma activado, debido a que el inmueble no cuenta con estacionamiento cerrado. Al concurrir a retirar el móvil a las 09:00 horas, constató la sustracción de ambas placas patente. Avalúo $30000.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 1240,
+    "direccion_georref": "CAMINO EL VENADO & CAMINO EL VENADO ALTO",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CAMINO EL VENADO & CAMINO EL VENADO ALTO , San Pedro de la Paz",
+    "lat": -36.85857721429534,
+    "lon": -73.09254266482264
   }
 ]
