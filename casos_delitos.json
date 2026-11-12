@@ -29664,7 +29664,25 @@
     "lon": -73.11049581774135
   },
   {
-    "clasificacion": "DETENCION",
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "11-11-2026",
+    "dia": "MIERCOLES",
+    "hora": "20:00",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "IDAHUE & LAGUNA CHICA",
+    "circunstancias": "Sujetos desconocidos sustraen especies desde el interior de un automóvil Suzuki SX4, 2011, color negro, PPU. CVDY64, luego de quebrar completamente el vidrio trasero del costado derecho. El vehículo fue estacionado a las 17:00 horas en el sector de Laguna Chica, Idahue S/N, donde el afectado (H28) descendió, cerró el automóvil con llave y se dirigió hacia la laguna para permanecer durante la tarde. Al regresar  a las 20:00 horas, constató el vidrio quebrado y la sustracción de las especies. Especie sustrídas; 01 bicicleta marca Trek, color gris mate, aro 29, con pedales verdes y manillar con puños amarillo y negro, avaluada en $400000; 01 billetera roja, sin marca, que contenía una cédula de identidad y una licencia de conducir. Avalúo total $500000.",
+    "cuadrante": "Cuadrante 08",
+    "numero_parte": 5021,
+    "direccion_georref": "IDAHUE & LAGUNA CHICA",
+    "comuna": "San Pedro de la Paz",
+    "concat": "IDAHUE & LAGUNA CHICA , San Pedro de la Paz",
+    "lat": -36.847192497532056,
+    "lon": -73.07797254247856
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO EN LUGAR HABITADO",
     "fecha": "12-11-2026",
     "dia": "JUEVES",
