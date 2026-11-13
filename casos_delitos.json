@@ -29690,7 +29690,7 @@
     "rango_hora": "00:00 a 03:59",
     "lugar": "DOMICILIO PARTICULAR",
     "direccion": "PARQUE NACIONAL VICENTE PEREZ ROSALES 7064",
-    "circunstancias": "PENDIENTE",
+    "circunstancias": "Sujetos desconocidos ingresaron durante la madrugada, desde las 01:00  a un domicilio particular en el sector Bosques de San Pedro aprovechando que sus moradores dormían, accediendo presumiblemente a través de una ventana de la cocina orientada hacia el frontis que fue hallada abierta y sin seguros. Al despertar, la afectada (M57) constató que el ventanal posterior y el portón del inmueble se encontraban abiertos, percatándose de la sustracción de dos notebooks (un ASUS TUF Gaming negro y un Lenovo gris), una mochila gris con una tableta gráfica XP-Pen Artist 12 negra y las llaves de un automóvil que permanecían sobre una mesa en el acceso. Con dichas llaves, los delincuentes sustrajeron un vehículo Jeep Avenger amarillo, año 2025 ( PPU. VLXH-42, con seguro HDI). Avalúo $20000000. Encargo EUN 727133.",
     "cuadrante": "Cuadrante 05",
     "numero_parte": 5019,
     "direccion_georref": "PARQUE NACIONAL VICENTE PEREZ ROSALES 7064",
@@ -29734,5 +29734,23 @@
     "concat": "LAS GOLONDRINAS 278 , San Pedro de la Paz",
     "lat": -36.83248278462715,
     "lon": -73.11696314597553
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "12-11-2026",
+    "dia": "JUEVES",
+    "hora": "21:00",
+    "rango_hora": "20:00 a 23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "LOS FRESNOS & PASAJE UNO",
+    "circunstancias": "La afectada (M28) dejó estacionado a las 20:20 horas, en la vía pública, un automóvil  Kia Rio, color gris, año 2008, PPU. BRSK96 de propiedad de un familiar. Posteriormente, mientras se encontraba en un parque cercano, a las 21:00 horas observó que el vehículo se encontraba en movimiento, con los intermitentes encendidos, advirtiendo que había sido sustraído por sujetos desconocidos. Los sujetos habrían utilizado llaves falsas para abrir y sustraer el automóvil, retirándose del lugar en dirección desconocida. Avalúo $4000000. Encargo EUN 727181.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 1252,
+    "direccion_georref": "LOS FRESNOS & PASAJE UNO",
+    "comuna": "San Pedro de la Paz",
+    "concat": "LOS FRESNOS & PASAJE UNO , San Pedro de la Paz",
+    "lat": -36.84540374543188,
+    "lon": -73.10584774412946
   }
 ]
