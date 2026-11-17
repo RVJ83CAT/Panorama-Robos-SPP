@@ -19399,7 +19399,7 @@
     "numero_parte": 2658,
     "direccion_georref": "SEIS PONIENTE 250 CASA 58 CONDOMINIO JARDINES DEL PINAR",
     "comuna": "San Pedro de la Paz",
-    "concat": "-36.898836174437236, -73.13871703037196",
+    "concat": "SEIS PONIENTE 250 CASA 58 CONDOMINIO JARDINES DEL PINAR , San Pedro de la Paz",
     "lat": -36.89883617443724,
     "lon": -73.13871703037196
   },
@@ -22081,7 +22081,7 @@
     "numero_parte": 3249,
     "direccion_georref": "SATURNO 67",
     "comuna": "San Pedro de la Paz",
-    "concat": "-36.82712372156826, -73.14434466568218",
+    "concat": "SATURNO 67 , San Pedro de la Paz",
     "lat": -36.82712372156826,
     "lon": -73.14434466568218
   },
@@ -29930,8 +29930,8 @@
     "direccion_georref": "TRES NORTE 855",
     "comuna": "San Pedro de la Paz",
     "concat": "TRES NORTE 855 , San Pedro de la Paz",
-    "lat": NaN,
-    "lon": NaN
+    "lat": -36.85982758297792,
+    "lon": -73.14142780070883
   },
   {
     "clasificacion": "DENUNCIA",
@@ -29960,7 +29960,7 @@
     "rango_hora": "00:00 a 03:59",
     "lugar": "ESTABLECIMIENTO EDUCACIONAL",
     "direccion": "GALVARINO 3446",
-    "circunstancias": "Delito ocurrido al interior del Colegio Nuevos Horizontes, donde una empresa constructora presta servicios de construcción, manteniendo una oficina destinada al almacenamiento de herramientas de trabajo. Un sujeto desconocido, de sexo masculino, que viste ropas oscuras y gorro, ingresó a las 02:30 horas por una ventana de la oficina, desde donde sustrajo seis taladros marca Makita, nueve baterías marca Makita, dos galleteras marca Bauker, dos cintas de medir y un tizador. Las especies fueron retiradas del lugar al interior de bolsos. El hecho fue registrado por una cámara de seguridad perteneciente a un vecino colindante. El robo fue advertido a las 08:00 horas, al llegar los trabajadores. Avalúo total: $1500000.",
+    "circunstancias": "Delito ocurrido al interior del Colegio Nuevos Horizontes, donde una empresa constructora presta servicios de construcción, manteniendo una oficina destinada al almacenamiento de herramientas de trabajo. Un sujeto desconocido, de sexo masculino, que viste ropas oscuras y gorro, ingresó a las 02:30 horas por una ventana de la oficina, desde donde sustrajo seis taladros marca Makita, nueve baterías marca Makita, dos galleteras marca Bauker, dos cintas de medir y un tizador. Las especies fueron retiradas del lugar al interior de bolsos. El hecho fue registrado por una cámara de seguridad perteneciente a un vecino colindante. El robo fue advertido a las 08:00 horas, al llegar los trabajadores. Avalúo total: $1500000. (Especies recuperadas PARTE 5086)",
     "cuadrante": "Cuadrante 03",
     "numero_parte": 5064,
     "direccion_georref": "GALVARINO 3446",
@@ -30094,5 +30094,23 @@
     "concat": "LAS VIOLETAS 1292 , San Pedro de la Paz",
     "lat": -36.83222504449325,
     "lon": -73.10157910756115
+  },
+  {
+    "clasificacion": "DETENCION",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "16-11-2026",
+    "dia": "LUNES",
+    "hora": "14:53",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "CENTRO COMERCIAL",
+    "direccion": "AVENIDA PORTAL SAN PEDRO 6950",
+    "circunstancias": "Parte RECEPTACION 5085. A las 14:53 horas sujetos desconocidos sustrajeron una camioneta Changan MD-201 blanca,2025 (PPU TYRZ60, propiedad de Palu SpA), desde los estacionamientos del supermercado Santa Isabel del Portal San Pedro de la Paz, aprovechando que la conductora (M44) se encontraba descargando pedidos de Mercado Libre con el motor en marcha mientras su peoneta (H18) realizaba una entrega en la farmacia Cruz Verde, huyendo los delincuentes hacia la Costanera con 120 paquetes de encomiendas y un teléfono celular iPhone 16e con carcasa de Mickey Mouse en el interior. Gracias al sistema GPS del vehículo, se rastreó y ubicó la camioneta estacionada aculatada hacia un inmueble en el Pasaje 46 interior, sector San Pedro de la Costa, sorprendiendo a un sujeto en el asiento del conductor quien logró darse a la fuga sin ser identificado y a una mujer junto a un adolescente descargando la mercadería hacia el antejardín del domicilio. Carabineros detuvo a Cristina Dominica Turra Leal (M43) CI. 15244034-0 y de su hijo Roberto John Vera Turra (H16) CI. 23329232-K, recuperándose el vehículo y la carga de encomiendas. Avalúo $21000100. Hay otro involucrado sospechoso, CRISTIAN JAVIER RODRIGUEZ MUÑOZ (H44) CI. 15175085‑0.",
+    "cuadrante": "Cuadrante 05",
+    "numero_parte": "5085R",
+    "direccion_georref": "AVENIDA PORTAL SAN PEDRO 6950",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA PORTAL SAN PEDRO 6950 , San Pedro de la Paz",
+    "lat": -36.88399405360827,
+    "lon": -73.1408827502139
   }
 ]
