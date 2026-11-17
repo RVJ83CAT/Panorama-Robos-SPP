@@ -30074,8 +30074,8 @@
     "direccion_georref": "PASAJE RODRIGO FERNANDEZ 8138",
     "comuna": "San Pedro de la Paz",
     "concat": "PASAJE RODRIGO FERNANDEZ 8138 , San Pedro de la Paz",
-    "lat": NaN,
-    "lon": NaN
+    "lat": -36.89660442310915,
+    "lon": -73.13266754780271
   },
   {
     "clasificacion": "DENUNCIA",
@@ -30092,7 +30092,7 @@
     "direccion_georref": "LAS VIOLETAS 1292",
     "comuna": "San Pedro de la Paz",
     "concat": "LAS VIOLETAS 1292 , San Pedro de la Paz",
-    "lat": NaN,
-    "lon": NaN
+    "lat": -36.83222504449325,
+    "lon": -73.10157910756115
   }
 ]
