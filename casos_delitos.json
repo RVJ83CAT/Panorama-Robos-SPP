@@ -30130,5 +30130,23 @@
     "concat": "BENJAMIN SUBERCASEAUX 55 , San Pedro de la Paz",
     "lat": -36.89346149540626,
     "lon": -73.14082406303145
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "18-11-2026",
+    "dia": "MIERCOLES",
+    "hora": "02:30",
+    "rango_hora": "00:00-03:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "PASAJE BORDEMAR & CALLE BORDEMAR",
+    "circunstancias": "Dos sujetos desconocidos, jóvenes, contextura delgada, estatura media y vestimentas oscuras, fracturaron las chapas de las puertas de dos camiones estacionados. En el camión Mercedes Benz Atego, PPU. JWCV14, sustrajeron 01 radio y 02 maletas de herramientas marca Fonce. En un camión Ford Cargo 916, PPU. JYBH58, sustrajeron 02 maletas de herramientas marca Fonce. La situación fue advertida por la pareja (M34) del denunciante (H34) quien observó a los sujetos al interior del camión Ford. Los sujetos huyeron en dirección a la Costanera. Avalúo $300000. Daños en chapas de ambas puertas y tablero del primer camión.",
+    "cuadrante": "Cuadrante 05",
+    "numero_parte": 5126,
+    "direccion_georref": "PASAJE BORDEMAR & CALLE BORDEMAR",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PASAJE BORDEMAR & CALLE BORDEMAR , San Pedro de la Paz",
+    "lat": -36.88508352755196,
+    "lon": -73.14893865194435
   }
 ]
