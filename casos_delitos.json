@@ -30024,6 +30024,24 @@
     "lon": -73.10137067374004
   },
   {
+    "clasificacion": "DETENCION",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "16-11-2026",
+    "dia": "LUNES",
+    "hora": "14:53",
+    "rango_hora": "12:00 a 15:59",
+    "lugar": "CENTRO COMERCIAL",
+    "direccion": "AVENIDA PORTAL SAN PEDRO 6950",
+    "circunstancias": "Parte RECEPTACION 5085. A las 14:53 horas sujetos desconocidos sustrajeron una camioneta Changan MD-201 blanca,2025 (PPU TYRZ60, propiedad de Palu SpA), desde los estacionamientos del supermercado Santa Isabel del Portal San Pedro de la Paz, aprovechando que la conductora (M44) se encontraba descargando pedidos de Mercado Libre con el motor en marcha mientras su peoneta (H18) realizaba una entrega en la farmacia Cruz Verde, huyendo los delincuentes hacia la Costanera con 120 paquetes de encomiendas y un teléfono celular iPhone 16e con carcasa de Mickey Mouse en el interior. Gracias al sistema GPS del vehículo, se rastreó y ubicó la camioneta estacionada aculatada hacia un inmueble en el Pasaje 46 interior, sector San Pedro de la Costa, sorprendiendo a un sujeto en el asiento del conductor quien logró darse a la fuga sin ser identificado y a una mujer junto a un adolescente descargando la mercadería hacia el antejardín del domicilio. Carabineros detuvo a Cristina Dominica Turra Leal (M43) CI. 15244034-0 y de su hijo Roberto John Vera Turra (H16) CI. 23329232-K, recuperándose el vehículo y la carga de encomiendas. Avalúo $21000100. Hay otro involucrado sospechoso, CRISTIAN JAVIER RODRIGUEZ MUÑOZ (H44) CI. 15175085‑0.",
+    "cuadrante": "Cuadrante 05",
+    "numero_parte": "5085R",
+    "direccion_georref": "AVENIDA PORTAL SAN PEDRO 6950",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA PORTAL SAN PEDRO 6950 , San Pedro de la Paz",
+    "lat": -36.88399405360827,
+    "lon": -73.1408827502139
+  },
+  {
     "clasificacion": "DENUNCIA",
     "delito": "ROBO EN BIENES NACIONALES",
     "fecha": "16-11-2026",
@@ -30096,21 +30114,21 @@
     "lon": -73.10157910756115
   },
   {
-    "clasificacion": "DETENCION",
-    "delito": "ROBO DE VEHICULO MOTORIZADO",
-    "fecha": "16-11-2026",
-    "dia": "LUNES",
-    "hora": "14:53",
-    "rango_hora": "12:00 a 15:59",
-    "lugar": "CENTRO COMERCIAL",
-    "direccion": "AVENIDA PORTAL SAN PEDRO 6950",
-    "circunstancias": "Parte RECEPTACION 5085. A las 14:53 horas sujetos desconocidos sustrajeron una camioneta Changan MD-201 blanca,2025 (PPU TYRZ60, propiedad de Palu SpA), desde los estacionamientos del supermercado Santa Isabel del Portal San Pedro de la Paz, aprovechando que la conductora (M44) se encontraba descargando pedidos de Mercado Libre con el motor en marcha mientras su peoneta (H18) realizaba una entrega en la farmacia Cruz Verde, huyendo los delincuentes hacia la Costanera con 120 paquetes de encomiendas y un teléfono celular iPhone 16e con carcasa de Mickey Mouse en el interior. Gracias al sistema GPS del vehículo, se rastreó y ubicó la camioneta estacionada aculatada hacia un inmueble en el Pasaje 46 interior, sector San Pedro de la Costa, sorprendiendo a un sujeto en el asiento del conductor quien logró darse a la fuga sin ser identificado y a una mujer junto a un adolescente descargando la mercadería hacia el antejardín del domicilio. Carabineros detuvo a Cristina Dominica Turra Leal (M43) CI. 15244034-0 y de su hijo Roberto John Vera Turra (H16) CI. 23329232-K, recuperándose el vehículo y la carga de encomiendas. Avalúo $21000100. Hay otro involucrado sospechoso, CRISTIAN JAVIER RODRIGUEZ MUÑOZ (H44) CI. 15175085‑0.",
-    "cuadrante": "Cuadrante 05",
-    "numero_parte": "5085R",
-    "direccion_georref": "AVENIDA PORTAL SAN PEDRO 6950",
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "17-11-2026",
+    "dia": "MARTES",
+    "hora": "13:00",
+    "rango_hora": "12:00-15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "BENJAMIN SUBERCASEAUX 55",
+    "circunstancias": "El afectado (H57) se desempeña como vendedor de COMERCIAL NEXLEAF SPA, realizando entregas de mercadería en distintos sectores de la comuna, a bordo de furgón Peugeot Partner, blanco, año 2025, PPU. TWHZ20. Al llegar a calle Benjamín Subercaseaux Villa El Rosario, se percató de la sustracción de 04 cajas que contenían 575 unidades de tabaco de distintos aromas y sabores: 150 de arándano, 95 de chocolate, 135 clásico, 50 green, 120 mango y 25 natural. Avalúo  $2875000. Desconoce el momento y lugar exacto de la sustracción, debido a que efectuó diversas entregas durante la jornada. Vehículo sin daños visibles. Sospecha utilización de inhibidor de señal.",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 5110,
+    "direccion_georref": "BENJAMIN SUBERCASEAUX 55",
     "comuna": "San Pedro de la Paz",
-    "concat": "AVENIDA PORTAL SAN PEDRO 6950 , San Pedro de la Paz",
-    "lat": -36.88399405360827,
-    "lon": -73.1408827502139
+    "concat": "BENJAMIN SUBERCASEAUX 55 , San Pedro de la Paz",
+    "lat": -36.89346149540626,
+    "lon": -73.14082406303145
   }
 ]
