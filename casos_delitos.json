@@ -30256,5 +30256,41 @@
     "concat": "PASAJE 101  1237 , San Pedro de la Paz",
     "lat": -36.84847756807759,
     "lon": -73.14765404684765
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "19-11-2026",
+    "dia": "JUEVES",
+    "hora": "20:30",
+    "rango_hora": "20:00-23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "JERUSALEN 127",
+    "circunstancias": "Sujetos desconocidos sustrajeron un automóvil Kia Rio, color rojo, año 2010, PPU. CLZZ39, que se encontraba estacionado frente al domicilio de los padres del afectado (H33), con sus puertas cerradas. El afectado se percató de la sustracción al regresar de realizar compras en el local comercial Angel Negro, ubicado en calle Los Mañíos. Desconoce a los sujetos, cantidad de participantes y método de sustracción. Sin testigos ni cámaras de seguridad. Personal policial efectuó patrullajes preventivos junto al denunciante, sin resultados positivos. Encargo EUN 727968. Avalúo $2500000.",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 5156,
+    "direccion_georref": "JERUSALEN 127",
+    "comuna": "San Pedro de la Paz",
+    "concat": "JERUSALEN 127 , San Pedro de la Paz",
+    "lat": -36.8881327118408,
+    "lon": -73.13839144044852
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO EN LUGAR HABITADO",
+    "fecha": "19-11-2026",
+    "dia": "JUEVES",
+    "hora": "21:40",
+    "rango_hora": "20:00-23:59",
+    "lugar": "DOMICILIO PARTICULAR",
+    "direccion": "CALLE EL HUEMUL 6417",
+    "circunstancias": "Determinados sujetos desconocidos ingresaron al inmueble en sector Aires de San Pedro, mediante forzamiento de la cerradura del acceso perimetral y fractura del marco de la puerta principal, utilizando al parecer un objeto contundente. Sustrajeron 01 talonario de cheques Banco Estado, 03 notebook (02 marca Dell, colores gris aluminio y negro; 01 marca HP, color gris), 01 disco duro externo, 01 impresora HP, 01 televisor Samsung de 50 pulgadas, 01 mochila con accesorios tecnológicos y 01 Pin Pass del Banco de Chile. Avalúo $2000000. El denunciante (H31) informa además la sustracción de joyas pertenecientes a su madre. Sin testigos ni cámaras de seguridad domiciliarias.",
+    "cuadrante": "Cuadrante 06",
+    "numero_parte": 5162,
+    "direccion_georref": "CALLE EL HUEMUL 6417",
+    "comuna": "San Pedro de la Paz",
+    "concat": "CALLE EL HUEMUL 6417 , San Pedro de la Paz",
+    "lat": -36.87936263477986,
+    "lon": -73.14879969171996
   }
 ]
