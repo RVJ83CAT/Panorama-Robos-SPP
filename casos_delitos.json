@@ -30850,5 +30850,23 @@
     "concat": "EXEQUIEL PLAZA 944 , San Pedro de la Paz",
     "lat": -36.84194118759739,
     "lon": -73.09369586454874
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO POR SORPRESA",
+    "fecha": "26-11-2026",
+    "dia": "JUEVES",
+    "hora": "14:15",
+    "rango_hora": "12:00–15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "AVENIDA LOS AROMOS & PASAJE JUAN RUIZ",
+    "circunstancias": "Víctima (H28) se encontraba sentada en un paradero de locomoción colectiva , cuando se le acercó un sujeto desconocido, de tez morena, contextura gruesa y aproximadamente 1,80 metros de estatura, quien vestía polera celeste, pantalón de jeans azul y jockey negro. El individuo le exigió textualmente “PASA EL TELEFONO”. Cuando la víctima intentó guardar su celular en el bolsillo derecho del pantalón, el sujeto le tomó el brazo y le arrebató violentamente su teléfono marca Apple, modelo iPhone 16 E, color negro, compañía WOM. Posteriormente huyó corriendo hacia unos pasajes aledaños, perdiéndolo de vista la víctima.  Avalúo $500000. La víctima resultó con contusión de carácter leve.",
+    "cuadrante": "Cuadrante 07",
+    "numero_parte": 1307,
+    "direccion_georref": "AVENIDA LOS AROMOS & PASAJE JUAN RUIZ",
+    "comuna": "San Pedro de la Paz",
+    "concat": "AVENIDA LOS AROMOS & PASAJE JUAN RUIZ , San Pedro de la Paz",
+    "lat": -36.84400281574642,
+    "lon": -73.10216961444326
   }
 ]
