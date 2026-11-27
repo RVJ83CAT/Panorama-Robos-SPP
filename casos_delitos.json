@@ -30886,5 +30886,23 @@
     "concat": "MAITENCILLO & PASAJE QUINTAY , San Pedro de la Paz",
     "lat": -36.83421587395215,
     "lon": -73.1434836629389
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO POR SORPRESA",
+    "fecha": "27-11-2026",
+    "dia": "VIERNES",
+    "hora": "14:20",
+    "rango_hora": "12:00–15:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "PORTAL SAN PEDRO - ALTURA MAC DONALDS",
+    "circunstancias": "Víctima (M37) regresaba de realizar compras en el mercado y caminaba por Avenida Portal San Pedro, a la altura del local McDonald's, cuando se aproximó sorpresivamente una motocicleta roja ocupada por dos sujetos, ambos de nacionalidad extranjera. Uno de ellos la increpó e insistió en que entregara su mochila, accediendo por temor a que le causaran daño. Los individuos huyeron posteriormente en dirección desconocida. Sustrajeron una mochila marca Everlast, negra con brillos, que contenía frutas, verduras, carnes, dinero en efectivo y un manojo de llaves. Avalúo $80000. La víctima no presenta lesiones visibles.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 5279,
+    "direccion_georref": "PORTAL SAN PEDRO - ALTURA MAC DONALDS",
+    "comuna": "San Pedro de la Paz",
+    "concat": "PORTAL SAN PEDRO - ALTURA MAC DONALDS , San Pedro de la Paz",
+    "lat": -36.85810766103497,
+    "lon": -73.13380678649222
   }
 ]
