@@ -30817,6 +30817,24 @@
   },
   {
     "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE ACCESORIOS DE VEHICULOS",
+    "fecha": "26-11-2026",
+    "dia": "JUEVES",
+    "hora": "02:00",
+    "rango_hora": "00:00–03:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "POLAR 515",
+    "circunstancias": "Dos sujetos de sexo masculino, vestidos con ropa negra, fueron captados por cámaras de seguridad de un vecino mientras forzaban la ventana trasera izquierda de un camión DFSK, modelo Truck, año 2023, color blanco, PPU SJYP70, estacionado frente al domicilio del afectado (H54) en el sector Costa San Francisco. Los individuos ingresaron al vehículo y sustrajeron diversas herramientas de trabajo, pertenecientes al conductor, quien señala que son de su propiedad y que se encontraban al interior del camión, perteneciente a la empresa BYG Soluciones Constructivas SpA. La víctima no mantiene seguros para las herramientas. Existen cámaras de seguridad de un vecino, cuyos antecedentes desconoce. Avalúo pendiente.",
+    "cuadrante": "Cuadrante 03",
+    "numero_parte": 5269,
+    "direccion_georref": "POLAR 515",
+    "comuna": "San Pedro de la Paz",
+    "concat": "POLAR 515 , San Pedro de la Paz",
+    "lat": -36.8631737057487,
+    "lon": -73.14228453085767
+  },
+  {
+    "clasificacion": "DENUNCIA",
     "delito": "ROBO DE VEHICULO MOTORIZADO",
     "fecha": "26-11-2026",
     "dia": "JUEVES",
@@ -30868,5 +30886,23 @@
     "concat": "AVENIDA LOS AROMOS & PASAJE JUAN RUIZ , San Pedro de la Paz",
     "lat": -36.84400281574642,
     "lon": -73.10216961444326
+  },
+  {
+    "clasificacion": "DENUNCIA",
+    "delito": "ROBO DE VEHICULO MOTORIZADO",
+    "fecha": "26-11-2026",
+    "dia": "JUEVES",
+    "hora": "22:10",
+    "rango_hora": "20:00–23:59",
+    "lugar": "VIA PUBLICA",
+    "direccion": "MAITENCILLO & PASAJE QUINTAY",
+    "circunstancias": "La afectada (M21) estacionó su vehículo particular Station Wagon Kia Soul LX, año 2012, color rojo clásico, PPU DYBZ74 en la vía pública, en la intersección. Al cerrar el móvil, las llaves quedaron inadvertidamente en su interior y se activó el bloqueo de la puerta del conductor, por lo que decidió dejarlo cerrado en el lugar para solicitar asistencia de cerrajería al día siguiente. Aproximadamente a las 05:10 horas del 27, su padre salió del domicilio hacia su trabajo y advirtió que el vehículo ya no se encontraba donde había sido estacionado. Avalúo $4500000. Posteriormente, al consultar a CENCO, se informó que el vehículo había sido ubicado abandonado en la ciudad de Concepción, a las 22:00 horas del día 26. Personal de la 1.ª Comisaría de Concepción efectuó el encargo por abandono, al registrar el móvil, encontró documentación personal de la ex pareja de la víctima, quien manifestó no mantener comunicación con él.",
+    "cuadrante": "Cuadrante 01",
+    "numero_parte": 5273,
+    "direccion_georref": "MAITENCILLO & PASAJE QUINTAY",
+    "comuna": "San Pedro de la Paz",
+    "concat": "MAITENCILLO & PASAJE QUINTAY , San Pedro de la Paz",
+    "lat": -36.83421587395215,
+    "lon": -73.1434836629389
   }
 ]
